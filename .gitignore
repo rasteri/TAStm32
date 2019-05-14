@@ -7,3 +7,7 @@
 *.bak
 *.m64
 python/__pycache__/
+/.vscode/
+/.code_review_properties
+/.settings/
+/pinmap.xcf
