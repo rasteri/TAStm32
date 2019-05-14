@@ -277,7 +277,7 @@ class TAStm32():
         for run in runs:
             run.reset()
             run.update()
-            for latch in range(int_buffer):
+            for latch in range(min(int_buffer, run.framemax)):
                 data = run.id + run.buffer[run.frame]
                 self.write(data)
                 run.frame += 1
@@ -285,8 +285,9 @@ class TAStm32():
             run.frame -= err.count(b'\xB0')
             if err.count(b'\xB0') != 0:
                 print('Buffer Overflow x{}'.format(err.count(b'\xB0')))
-            for transition in run.transitions:
-                self.send_transition(run.id, *transition)
+            if run.transitions != None:
+                for transition in run.transitions:
+                    self.send_transition(run.id, *transition)
         while True:
             try:
                 c = self.read(1)
@@ -328,7 +329,7 @@ class TAStm32():
                             data = b''.join(command)
                             self.write(data)
                         self.write(run_id.lower())
-                    if run.frame > run.frame_max:
+                    if run.frame > run.framemax:
                         print("Run Finished")
             except serial.SerialException:
                 print('ERROR: Serial Exception caught!')
@@ -469,7 +470,6 @@ def main():
         print('ERROR: the specified file (' + args.movie + ') failed to open')
         sys.exit(0)
 
-<<<<<<< HEAD
     dev.reset()
     run_id = dev.setup_run(args.console, args.players, args.dpcm, args.overread, args.clock)
     if run_id == None:
@@ -522,10 +522,6 @@ def main():
     print('Exiting')
     dev.ser.close()
     sys.exit(0)
-=======
-    # main_single(dev, args, data)
-    main_multi(dev, args, data)
->>>>>>> Dev work for cli version
 
 if __name__ == '__main__':
     main()
