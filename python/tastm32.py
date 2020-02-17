@@ -9,6 +9,7 @@ import psutil
 
 import serial_helper
 import argparse_helper
+import save_handler
 
 import r08, r16m, m64, dtm
 
@@ -130,8 +131,9 @@ class TAStm32():
 
     def send_latchtrain(self, prefix, latchtrain):
         if self.activeRuns[prefix]:
-            command = b''.join([b'U', prefix, struct.pack('H', len(latchtrain)), *[struct.pack('H', i) for i in latchtrain]])
-            self.write(command)
+            if len(latchtrain) > 0:
+                command = b''.join([b'U', prefix, struct.pack('H', len(latchtrain)), *[struct.pack('H', i) for i in latchtrain]])
+                self.write(command)
 
     def setup_run(self, console, players=[1], dpcm=False, overread=False, clock_filter=0):
         prefix = self.get_run_prefix()
@@ -286,79 +288,60 @@ def main():
 
     gc.disable()
 
-    parser = argparse_helper.setup_parser_full()
-
+    parser = argparse_helper.main_parser()
     args = parser.parse_args()
-
-    if args.transition != None:
-        for transition in args.transition:
-            transition[0] = int(transition[0])
-            if transition[1] == 'A':
-                transition[1] = b'A'
-            elif transition[1] == 'N':
-                transition[1] = b'N'
-            elif transition[1] == 'S':
-                transition[1] = b'S'
-            elif transition[1] == 'H':
-                transition[1] = b'H'
-
-    if args.latchtrain != '':
-        args.latchtrain = [int(x) for x in args.latchtrain.split(',')]
-
     DEBUG = args.debug
 
-    args.players = args.players.split(',')
-    for x in range(len(args.players)):
-        args.players[x] = int(args.players[x])
+    if args.load:
+        settings, movie = save_handler.load(args.load, args.movie)
+    else:
+        settings = save_handler.RunSettings.loadFromArguments(args)
+        movie = save_handler.MovieData.loadFromArguments(args)
+
+    assert settings.console != '', "Need to specify console"
+
+    if args.save:
+        if args.nomovie:
+            save_handler.save(args.save, settings)
+        else:
+            save_handler.save(args.save, settings, movie)
 
     if args.serial == None:
         dev = TAStm32(serial_helper.select_serial_port())
     else:
         dev = TAStm32(args.serial)
 
-    if args.hardreset or args.softreset:
-        dev.power_off()
-        if args.hardreset:
-            time.sleep(2.0)
-
-    if args.clock != None:
-        args.clock = int(args.clock)
-        if args.clock < 0 or args.clock > 63:
-            print('ERROR: The clock value must be in the range [0,63]! Exiting.')
-            sys.exit(0)
-
-    try:
-        with open(args.movie, 'rb') as f:
-            data = f.read()
-    except:
-        print('ERROR: the specified file (' + args.movie + ') failed to open')
-        sys.exit(0)
 
     dev.reset()
-    run_id = dev.setup_run(args.console, args.players, args.dpcm, args.overread, args.clock)
+    run_id = dev.setup_run(settings.console, settings.players, settings.dpcm_fix, settings.overread, settings.clock_filter)
     if run_id == None:
         raise RuntimeError('ERROR')
         sys.exit()
-    if args.console == 'n64':
-        buffer = m64.read_input(data)
-        blankframe = b'\x00\x00\x00\x00' * len(args.players)
-    elif args.console == 'snes':
-        buffer = r16m.read_input(data, args.players)
-        blankframe = b'\x00\x00' * len(args.players)
-    elif args.console == 'nes':
-        buffer = r08.read_input(data, args.players)
-        blankframe = b'\x00' * len(args.players)
-    elif args.console == 'gc':
-        buffer = dtm.read_input(data)
-        blankframe = b'\x00\x00\x00\x00\x00\x00\x00\x00' * len(args.players)
+    if settings.console == 'n64':
+        buffer = m64.read_input(movie.data)
+        blankframe = b'\x00\x00\x00\x00' * len(settings.players)
+    elif settings.console == 'snes':
+        buffer = r16m.read_input(movie.data, settings.players)
+        blankframe = b'\x00\x00' * len(settings.players)
+    elif settings.console == 'nes':
+        buffer = r08.read_input(movie.data, settings.players)
+        blankframe = b'\x00' * len(settings.players)
+    elif settings.console == 'gc':
+        buffer = dtm.read_input(movie.data)
+        blankframe = b'\x00\x00\x00\x00\x00\x00\x00\x00' * len(settings.players)
+
+    if settings.pre_reset.value > 0:
+        dev.power_off()
+        if settings.pre_reset.value > 1:
+            time.sleep(2.0)
 
     # Send Blank Frames
-    for blank in range(args.blank):
+    for blank in range(settings.blank_frames):
         data = run_id + blankframe
         dev.write(data)
-    print(f'Sending Blank Latches: {args.blank}')
+    print(f'Sending Blank Latches: {settings.blank_frames}')
     fn = 0
-    for latch in range(int_buffer-args.blank):
+    for latch in range(int_buffer-settings.blank_frames):
         try:
             data = run_id + buffer[fn]
             dev.write(data)
@@ -371,11 +354,11 @@ def main():
     fn -= err.count(b'\xB0')
     if err.count(b'\xB0') != 0:
         print('Buffer Overflow x{}'.format(err.count(b'\xB0')))
-    if args.transition != None:
-        for transition in args.transition:
+    if settings.transitions != None:
+        for transition in settings.transitions:
             dev.send_transition(run_id, *transition)
-    if args.latchtrain != '':
-        dev.send_latchtrain(run_id, args.latchtrain)
+    if settings.latch_train != '':
+        dev.send_latchtrain(run_id, settings.latch_train)
     print('Main Loop Start')
     dev.power_on()
     dev.main_loop()
