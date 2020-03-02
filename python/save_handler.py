@@ -121,9 +121,9 @@ class MovieData():
         }
 
     @staticmethod
-    def loadFromArguments(moviepath):
+    def loadFromArguments(args):
         try:
-            movie = MovieData(moviepath)
+            movie = MovieData(args.movie)
             return movie
         except:
             print(f"ERROR: the specified file ({moviepath}) failed to open")
