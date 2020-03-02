@@ -293,7 +293,7 @@ def main():
     DEBUG = args.debug
 
     if args.load:
-        settings, movie = save_handler.load(args.load, args.movie)
+        settings, movie = save_handler.load(args)
     else:
         settings = save_handler.RunSettings.loadFromArguments(args)
         movie = save_handler.MovieData.loadFromArguments(args)

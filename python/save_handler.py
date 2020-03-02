@@ -126,7 +126,7 @@ class MovieData():
             movie = MovieData(args.movie)
             return movie
         except:
-            print(f"ERROR: the specified file ({moviepath}) failed to open")
+            print(f"ERROR: the specified file ({args.movie}) failed to open")
             raise
 
     @staticmethod
@@ -178,12 +178,12 @@ def save(filepath, settings, movie=None):
                     "movie": movie
                 }, f, default=lambda x: x.toJSON())
 
-def load(filepath, argsmovie=''):
-    _, ext = os.path.splitext(filepath)
-    if argsmovie:
-        movie = MovieData.loadFromArguments(argsmovie)
+def load(args):
+    _, ext = os.path.splitext(args.load)
+    if args.movie:
+        movie = MovieData.loadFromArguments(args)
     if ext == ".json":
-        with open(filepath, "r") as f:
+        with open(args.load, "r") as f:
             data = json.load(f)
         settings = data.get("settings", False)
         if settings:
@@ -191,7 +191,7 @@ def load(filepath, argsmovie=''):
         else:
             rs = RunSettings.loadFromJSON(data)
         moviedata = data.get("movie", False)
-        if argsmovie == '':
+        if args.movie == '':
             if moviedata:
                 movie = MovieData.loadFromJSON(moviedata)
             else:
