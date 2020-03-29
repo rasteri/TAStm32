@@ -108,6 +108,8 @@ void ResetAndEnable8msTimer();
 void ResetAndEnableP1ClockTimer();
 void ResetAndEnableP2ClockTimer();
 void UpdateVisBoards();
+void ProcessToggles();
+void WAIT_4_CYCLES();
 /* USER CODE END EFP */
 
 #ifdef __cplusplus

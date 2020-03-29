@@ -93,7 +93,7 @@ const uint32_t P2_D1_MASK = 0x00800080;
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-#define WAIT_4_CYCLES __asm("ADD     R1, R1, #0\nADD     R1, R1, #0\nADD     R1, R1, #0\nADD     R1, R1, #0")
+
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -247,25 +247,7 @@ void EXTI1_IRQHandler(void)
 		memcpy((uint32_t*)&P1_GPIOC_current, (uint32_t*)&P1_GPIOC_next, 64);
 
 		// now prepare for the next frame!
-
-		if(toggleNext == 1)
-		{
-			dpcmFix = 1 - dpcmFix;
-		}
-		else if(toggleNext == 2)
-		{
-			GPIOA->BSRR = (1 << SNES_RESET_LOW_A);
-			HAL_Delay(200);
-			GPIOA->BSRR = (1 << SNES_RESET_HIGH_A);
-			HAL_Delay(200);
-		}
-		else if(toggleNext == 3)
-		{
-			GPIOA->BSRR = (1 << SNES_RESET_LOW_A);
-			HAL_Delay(1000);
-			GPIOA->BSRR = (1 << SNES_RESET_HIGH_A);
-			HAL_Delay(1000);
-		}
+		ProcessToggles();
 
 		if(dpcmFix)
 		{
@@ -831,32 +813,32 @@ __attribute__((optimize("O0"))) inline void UpdateVisBoards()
 			GPIOC->BSRR = V2_GPIOC_current[x];
 
 			// give time to it to register
-			WAIT_4_CYCLES;
+			WAIT_4_CYCLES();
 
 			GPIOB->BSRR = (1 << V1_CLOCK_HIGH_B);
 			GPIOA->BSRR = (1 << V2_CLOCK_HIGH_A);
 			// wait 4 cycles which should be well over the minimum required 10ns but still relatively quick
-			WAIT_4_CYCLES;
+			WAIT_4_CYCLES();
 			GPIOB->BSRR = (1 << V1_CLOCK_LOW_B);
 			GPIOA->BSRR = (1 << V2_CLOCK_LOW_A);
-			WAIT_4_CYCLES;
+			WAIT_4_CYCLES();
 		}
 
 		// set rest of the vis data to 0s
 		GPIOB->BSRR = (1 << V1_D0_LOW_B) | (1 << V1_D1_LOW_B);
 		GPIOC->BSRR = (1 << V2_D0_LOW_C) | (1 << V2_D1_LOW_C);
 
-		WAIT_4_CYCLES;
+		WAIT_4_CYCLES();
 
 		for(int x = 0;x < 8;x++)
 		{
 			GPIOB->BSRR = (1 << V1_CLOCK_HIGH_B);
 			GPIOA->BSRR = (1 << V2_CLOCK_HIGH_A);
 			// wait 4 cycles which should be well over the minimum required 10ns but still relatively quick
-			WAIT_4_CYCLES;
+			WAIT_4_CYCLES();
 			GPIOB->BSRR = (1 << V1_CLOCK_LOW_B);
 			GPIOA->BSRR = (1 << V2_CLOCK_LOW_A);
-			WAIT_4_CYCLES;
+			WAIT_4_CYCLES();
 		}
 	}
 	else if(c == CONSOLE_SNES)
@@ -867,29 +849,29 @@ __attribute__((optimize("O0"))) inline void UpdateVisBoards()
 		GPIOC->BSRR = V2_GPIOC_current[8];
 
 		// give time to it to register
-		WAIT_4_CYCLES;
+		WAIT_4_CYCLES();
 
 		GPIOB->BSRR = (1 << V1_CLOCK_HIGH_B);
 		GPIOA->BSRR = (1 << V2_CLOCK_HIGH_A);
 		// wait 4 cycles which should be well over the minimum required 10ns but still relatively quick
-		WAIT_4_CYCLES;
+		WAIT_4_CYCLES();
 		GPIOB->BSRR = (1 << V1_CLOCK_LOW_B);
 		GPIOA->BSRR = (1 << V2_CLOCK_LOW_A);
-		WAIT_4_CYCLES;
+		WAIT_4_CYCLES();
 
 		GPIOB->BSRR = V1_GPIOB_current[0];
 		GPIOC->BSRR = V2_GPIOC_current[0];
 
 		// give time to it to register
-		WAIT_4_CYCLES;
+		WAIT_4_CYCLES();
 
 		GPIOB->BSRR = (1 << V1_CLOCK_HIGH_B);
 		GPIOA->BSRR = (1 << V2_CLOCK_HIGH_A);
 		// wait 4 cycles which should be well over the minimum required 10ns but still relatively quick
-		WAIT_4_CYCLES;
+		WAIT_4_CYCLES();
 		GPIOB->BSRR = (1 << V1_CLOCK_LOW_B);
 		GPIOA->BSRR = (1 << V2_CLOCK_LOW_A);
-		WAIT_4_CYCLES;
+		WAIT_4_CYCLES();
 
 		// at least 10ns in width
 		for(int x = 2;x < 8;x++)
@@ -899,44 +881,44 @@ __attribute__((optimize("O0"))) inline void UpdateVisBoards()
 			GPIOC->BSRR = V2_GPIOC_current[x];
 
 			// give time to it to register
-			WAIT_4_CYCLES;
+			WAIT_4_CYCLES();
 
 			GPIOB->BSRR = (1 << V1_CLOCK_HIGH_B);
 			GPIOA->BSRR = (1 << V2_CLOCK_HIGH_A);
 			// wait 4 cycles which should be well over the minimum required 10ns but still relatively quick
-			WAIT_4_CYCLES;
+			WAIT_4_CYCLES();
 			GPIOB->BSRR = (1 << V1_CLOCK_LOW_B);
 			GPIOA->BSRR = (1 << V2_CLOCK_LOW_A);
-			WAIT_4_CYCLES;
+			WAIT_4_CYCLES();
 		}
 
 		GPIOB->BSRR = V1_GPIOB_current[9];
 		GPIOC->BSRR = V2_GPIOC_current[9];
 
 		// give time to it to register
-		WAIT_4_CYCLES;
+		WAIT_4_CYCLES();
 
 		GPIOB->BSRR = (1 << V1_CLOCK_HIGH_B);
 		GPIOA->BSRR = (1 << V2_CLOCK_HIGH_A);
 		// wait 4 cycles which should be well over the minimum required 10ns but still relatively quick
-		WAIT_4_CYCLES;
+		WAIT_4_CYCLES();
 		GPIOB->BSRR = (1 << V1_CLOCK_LOW_B);
 		GPIOA->BSRR = (1 << V2_CLOCK_LOW_A);
-		WAIT_4_CYCLES;
+		WAIT_4_CYCLES();
 
 		GPIOB->BSRR = V1_GPIOB_current[1];
 		GPIOC->BSRR = V2_GPIOC_current[1];
 
 		// give time to it to register
-		WAIT_4_CYCLES;
+		WAIT_4_CYCLES();
 
 		GPIOB->BSRR = (1 << V1_CLOCK_HIGH_B);
 		GPIOA->BSRR = (1 << V2_CLOCK_HIGH_A);
 		// wait 4 cycles which should be well over the minimum required 10ns but still relatively quick
-		WAIT_4_CYCLES;
+		WAIT_4_CYCLES();
 		GPIOB->BSRR = (1 << V1_CLOCK_LOW_B);
 		GPIOA->BSRR = (1 << V2_CLOCK_LOW_A);
-		WAIT_4_CYCLES;
+		WAIT_4_CYCLES();
 
 		// at least 10ns in width
 		for(int x = 10;x < 16;x++)
@@ -946,27 +928,54 @@ __attribute__((optimize("O0"))) inline void UpdateVisBoards()
 			GPIOC->BSRR = V2_GPIOC_current[x];
 
 			// give time to it to register
-			WAIT_4_CYCLES;
+			WAIT_4_CYCLES();
 
 			GPIOB->BSRR = (1 << V1_CLOCK_HIGH_B);
 			GPIOA->BSRR = (1 << V2_CLOCK_HIGH_A);
 			// wait 4 cycles which should be well over the minimum required 10ns but still relatively quick
-			WAIT_4_CYCLES;
+			WAIT_4_CYCLES();
 			GPIOB->BSRR = (1 << V1_CLOCK_LOW_B);
 			GPIOA->BSRR = (1 << V2_CLOCK_LOW_A);
-			WAIT_4_CYCLES;
+			WAIT_4_CYCLES();
 		}
 
 	}
-	WAIT_4_CYCLES;
+	WAIT_4_CYCLES();
 
 	// create at least a 20ns latch pulse (this should be about 40ns)
 	GPIOB->BSRR = (1 << V1_LATCH_HIGH_B);
 	GPIOC->BSRR = (1 << V2_LATCH_HIGH_C);
-	WAIT_4_CYCLES;
-	WAIT_4_CYCLES;
+	WAIT_4_CYCLES();
+	WAIT_4_CYCLES();
 	GPIOB->BSRR = (1 << V1_LATCH_LOW_B);
 	GPIOC->BSRR = (1 << V2_LATCH_LOW_C);
+}
+
+void ProcessToggles()
+{
+	if(toggleNext == 1)
+	{
+		dpcmFix = 1 - dpcmFix;
+	}
+	else if(toggleNext == 2)
+	{
+		GPIOA->BSRR = (1 << SNES_RESET_LOW_A);
+		HAL_Delay(200);
+		GPIOA->BSRR = (1 << SNES_RESET_HIGH_A);
+		HAL_Delay(200);
+	}
+	else if(toggleNext == 3)
+	{
+		GPIOA->BSRR = (1 << SNES_RESET_LOW_A);
+		HAL_Delay(1000);
+		GPIOA->BSRR = (1 << SNES_RESET_HIGH_A);
+		HAL_Delay(1000);
+	}
+}
+
+inline void WAIT_4_CYCLES()
+{
+	__asm("ADD     R1, R1, #0\nADD     R1, R1, #0\nADD     R1, R1, #0\nADD     R1, R1, #0");
 }
 
 static uint8_t UART2_OutputFunction(uint8_t *buffer, uint16_t n)

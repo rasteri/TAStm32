@@ -300,6 +300,7 @@ void serial_interface_consume(uint8_t *buffer, uint32_t n)
 							clockFix = 1;
 						}
 
+						// prepare the next containers and overread
 						EXTI1_IRQHandler();
 					}
 
