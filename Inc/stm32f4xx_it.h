@@ -37,6 +37,8 @@
 #ifndef __STM32F4xx_IT_H
 #define __STM32F4xx_IT_H
 
+#include "tasrun.h"
+
 #ifdef __cplusplus
  extern "C" {
 #endif 
@@ -110,6 +112,8 @@ void ResetAndEnableP2ClockTimer();
 void UpdateVisBoards();
 void ProcessToggles();
 void WAIT_4_CYCLES();
+void SetupOverread(uint8_t overread);
+void UpdateNextBuffers(RunDataArray *dataptr, Console c);
 /* USER CODE END EFP */
 
 #ifdef __cplusplus

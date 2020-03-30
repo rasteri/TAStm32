@@ -301,7 +301,11 @@ void serial_interface_consume(uint8_t *buffer, uint32_t n)
 						}
 
 						// prepare the next containers and overread
-						EXTI1_IRQHandler();
+						ProcessToggles();
+						RunDataArray *dataptr = GetNextFrame(instance.tasrun);
+						toggleNext = TASRunIncrementFrameCount(instance.tasrun); // must update toggleNext for next frame
+						UpdateNextBuffers(dataptr, c);
+						SetupOverread(TASRunGetOverread(instance.tasrun));
 					}
 
 					TASRunSetInitialized(instance.tasrun, 1);
