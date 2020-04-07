@@ -367,12 +367,16 @@ def main():
     dev.read(50)
 
     # Send Blank Frames
-    for blank in range(args.blank):
-        data = run_id + blankframe
-        dev.write(data)
+    if blank > 0:
+        for blank in range(args.blank):
+            data = run_id + blankframe
+            dev.write(data)
     print(f'Sending Blank Latches: {args.blank}')
-    fn = 0
-    for latch in range(int_buffer-args.blank):
+    if blank < 0:
+        fn = abs(blank)
+    else:
+        fn = 0
+    for latch in range(int_buffer-max(0, args.blank)):
         try:
             data = run_id + buffer[fn]
             dev.write(data)
