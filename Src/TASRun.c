@@ -1,6 +1,7 @@
 #include <string.h>
 #include "n64.h"
 #include "snes.h"
+#include "gen.h"
 #include "TASRun.h"
 #include "stm32f4xx_hal.h"
 #include "main.h"
@@ -161,6 +162,9 @@ void TASRunSetConsole(TASRun *tasrun, Console console)
 		case CONSOLE_GC:
 			tasrun->console_data_size = sizeof(GCControllerData);
 			break;
+		case CONSOLE_GEN:
+			tasrun->console_data_size = sizeof(GENControllerData);
+			break;
 	}
 	UpdateSizeOfInputForRun(tasrun);
 }
@@ -280,6 +284,35 @@ uint8_t AddFrame(TASRun *tasrun, RunDataArray frame)
 	return 1;
 }
 
+void SetGENMode()
+{
+	GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+	//TODO: Complete setup
+	// P1_D0 --> GEN Pin 1
+	// P1_D1 --> GEN Pin 2
+	// P1_D2 --> GEN Pin 3
+	// P2_D0 --> GEN Pin 4
+	// P2_D1 --> GEN Pin 6
+	// P2_D2 --> GEN Pin 9
+
+	// Ensure the latch pin interrupts on BOTH rising and falling. use this as the select line
+	GPIO_InitStruct.Pin = P1_LATCH_Pin;
+	GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+
+	HAL_GPIO_Init(P1_LATCH_GPIO_Port, &GPIO_InitStruct);
+
+	memset(&GPIO_InitStruct, 0, sizeof(GPIO_InitStruct));
+
+	GPIO_InitStruct.Pin = P1_DATA_2_Pin;
+	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
+	GPIO_InitStruct.Pull = GPIO_PULLUP;
+	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+
+	HAL_GPIO_Init(P1_DATA_2_GPIO_Port, &GPIO_InitStruct);
+}
+
 void SetN64Mode()
 {
 	GPIO_InitTypeDef GPIO_InitStruct = {0};
@@ -300,6 +333,15 @@ void SetSNESMode()
 	GPIO_InitStruct.Pull = GPIO_PULLUP;
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
 
-	HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+	HAL_GPIO_Init(P1_DATA_2_GPIO_Port, &GPIO_InitStruct);
+
+	memset(&GPIO_InitStruct, 0, sizeof(GPIO_InitStruct));
+
+	// ensure P1_LATCH interrupts only on rising
+	GPIO_InitStruct.Pin = P1_LATCH_Pin;
+	GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+
+	HAL_GPIO_Init(P1_LATCH_GPIO_Port, &GPIO_InitStruct);
 }
 

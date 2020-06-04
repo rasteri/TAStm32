@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include "n64.h"
 #include "snes.h"
+#include "gen.h"
 #include "stm32f4xx_hal.h"
 #include "main.h"
 
@@ -19,7 +20,8 @@ typedef enum
 	CONSOLE_N64,
 	CONSOLE_SNES,
 	CONSOLE_NES,
-	CONSOLE_GC
+	CONSOLE_GC,
+	CONSOLE_GEN
 } Console;
 
 
@@ -29,6 +31,7 @@ typedef union
 	SNESControllerData snes_data;
 	NESControllerData nes_data;
 	GCControllerData gc_data;
+	GENControllerData gen_data;
 } RunData;
 
 typedef enum
@@ -120,6 +123,11 @@ maybe_unused static uint8_t TASRunGetDPCMFix(const TASRun *tasrun)
 	return tasrun->dpcmFix;
 }
 
+maybe_unused static uint8_t TASRunGetGENButtons(const TASRun *tasrun)
+{
+	return tasrun->dpcmFix; // stored in same location for now
+}
+
 maybe_unused static uint8_t TASRunGetNumControllers(const TASRun *tasrun)
 {
 	return tasrun->numControllers;
@@ -182,4 +190,5 @@ int ExtractDataAndAddFrame(TASRun *tasrun, uint8_t *buffer, uint32_t n);
 
 void SetN64Mode();
 void SetSNESMode();
+void SetGENMode();
 #endif

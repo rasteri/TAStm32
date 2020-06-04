@@ -86,8 +86,10 @@ const uint8_t V2_CLOCK_LOW_A = 31;
 
 const uint32_t P1_D0_MASK = 0x00080008;
 const uint32_t P1_D1_MASK = 0x00040004;
+const uint32_t P1_D2_MASK = 0x00100010;
 const uint32_t P2_D0_MASK = 0x01000100;
 const uint32_t P2_D1_MASK = 0x00800080;
+const uint32_t P2_D2_MASK = 0x02000200;
 
 /* USER CODE END PD */
 
@@ -228,249 +230,328 @@ void EXTI1_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI1_IRQn 0 */
 
-	// P1_LATCH
-	int8_t regbit = 50, databit = -1; // random initial values
 	TASRun *tasrun = TASRunGetByIndex(RUN_A);
-
-	if(recentLatch == 0) // no recent latch
+	Console c = TASRunGetConsole(tasrun);
+	static RunDataArray *dataptr;
+	static int state = 0;
+	uint32_t mask = 0;
+	if(c == CONSOLE_GEN)
 	{
-		// quickly set first bit of data for the next frame
-		uint32_t p1_data = P1_GPIOC_next[0];
-		uint32_t p2_data = P2_GPIOC_next[0];
-		uint32_t all_data = (p1_data | p2_data);
-		GPIOC->BSRR = all_data;
+		// comment format below: [PIN1 PIN2 PIN3 PIN4 PIN6 PIN9]
+		// which translates to.. [P1D0 P1D1 P1D2 P2D0 P2D1 P2D2]
 
-		// copy the 2nd bit over too
-		__disable_irq();
-		P1_GPIOC_current[1] = P1_GPIOC_next[1];
-		P2_GPIOC_current[1] = P2_GPIOC_next[1];
-		p1_current_bit = p2_current_bit = 1; // set the next bit to be read
-		__enable_irq();
-
-		// copy the rest of the bits. do not copy the overread since it will never change
-		// P2 comes before P1 in NES, so copy P2 first
-		memcpy(P2_GPIOC_current, P2_GPIOC_next, 64);
-		memcpy(P1_GPIOC_current, P1_GPIOC_next, 64);
-
-		// now prepare for the next frame!
-
-		if(toggleNext == 1)
+		if (1/*TODO: check if timer expired*/)
 		{
-			dpcmFix = 1 - dpcmFix;
-		}
-		else if(toggleNext == 2)
-		{
-			GPIOA->BSRR = (1 << SNES_RESET_LOW_A);
-			HAL_Delay(200);
-			GPIOA->BSRR = (1 << SNES_RESET_HIGH_A);
-			HAL_Delay(200);
-		}
-		else if(toggleNext == 3)
-		{
-			GPIOA->BSRR = (1 << SNES_RESET_LOW_A);
-			HAL_Delay(1000);
-			GPIOA->BSRR = (1 << SNES_RESET_HIGH_A);
-			HAL_Delay(1000);
-		}
-
-		if(dpcmFix)
-		{
-			recentLatch = 1; // repeat input on latch
-			ResetAndEnable8msTimer(); // start timer and proceed as normal
-		}
-
-		static RunDataArray *dataptr;
-
-		if(trains_enabled)
-		{
-			if(between_trains == 1) // at least one lag frame detected
+			GENControllerData* pData = (GENControllerData*)dataptr;
+			switch (state)
 			{
-				// do what you gotta do
-				// adjust the frame of the run accordingly
-				int diff = latch_trains[current_train_index] - current_train_latch_count;
+				case 1:
+				case 3:
+				case 7:
+					// [U D L R B C]
+					mask = 	(pData->up << P1_D0_LOW_C) | (pData->down << P1_D1_LOW_C) | (pData->left << P1_D2_LOW_C) |
+							(pData->right << P2_D0_LOW_C) | (pData->b << P2_D1_LOW_C) | (pData->c << P2_D2_LOW_C);
+					mask |= (((~mask) & (P1_D0_MASK | P1_D1_MASK | P1_D2_MASK | P2_D0_MASK | P2_D1_MASK | P2_D2_MASK)) >> 16);
+					GPIOC->BSRR = mask;
+					break;
+				case 5:
+					// [Z Y X Mode B C]
+					mask = 	(pData->z << P1_D0_LOW_C) | (pData->y << P1_D1_LOW_C) | (pData->x << P1_D2_LOW_C) |
+							(pData->mode << P2_D0_LOW_C) | (pData->b << P2_D1_LOW_C) | (pData->c << P2_D2_LOW_C);
+					mask |= (((~mask) & (P1_D0_MASK | P1_D1_MASK | P1_D2_MASK | P2_D0_MASK | P2_D1_MASK | P2_D2_MASK)) >> 16);
+					GPIOC->BSRR = mask;
+					break;
+				default:
+					state++; // we're somehow out of sync with the select edges. so increment state an extra time
+					break;
+			}
+		}
+		else
+		{
+			if (1/*TODO: check if timer expired*/)
+			{
+				state = 0;
+				//TODO: restart timer
 
-				if(diff == 1) // we are one latch short
+				dataptr = GetNextFrame(tasrun); // get the next frame of data if the frame timer has expired. (70us?)
+			}
+
+			GENControllerData* pData = (GENControllerData*)dataptr;
+
+			switch(state)
+			{
+			  case 0:
+			  case 2:
+				  // [U D LOW LOW A Start]
+				  mask = 	(pData->up << P1_D0_LOW_C) | (pData->down << P1_D1_LOW_C) | (1 << P1_D2_LOW_C) |
+							(1 << P2_D0_LOW_C) | (pData->a << P2_D1_LOW_C) | (pData->start << P2_D2_LOW_C);
+					mask |= (((~mask) & (P1_D0_MASK | P1_D1_MASK | P1_D2_MASK | P2_D0_MASK | P2_D1_MASK | P2_D2_MASK)) >> 16);
+					GPIOC->BSRR = mask;
+				  break;
+			  case 4:
+				  // [LOW LOW LOW LOW A Start]
+				  mask = 	(1 << P1_D0_LOW_C) | (1 << P1_D1_LOW_C) | (1 << P1_D2_LOW_C) |
+							(1 << P2_D0_LOW_C) | (pData->a << P2_D1_LOW_C) | (pData->start << P2_D2_LOW_C);
+					mask |= (((~mask) & (P1_D0_MASK | P1_D1_MASK | P1_D2_MASK | P2_D0_MASK | P2_D1_MASK | P2_D2_MASK)) >> 16);
+					GPIOC->BSRR = mask;
+				  break;
+			  case 6:
+				  // [HIGH HIGH HIGH HIGH A Start]
+				  mask = 	(pData->a << P2_D1_LOW_C) | (pData->start << P2_D2_LOW_C);
+					mask |= (((~mask) & (P1_D0_MASK | P1_D1_MASK | P1_D2_MASK | P2_D0_MASK | P2_D1_MASK | P2_D2_MASK)) >> 16);
+					GPIOC->BSRR = mask;
+				  break;
+			  default:
+				  state++; // we're somehow out of sync with the select edges. so increment state an extra time
+				  break;
+			}
+		}
+
+		state = (state+1) % 8;
+	}
+	else
+	{
+		// P1_LATCH
+		int8_t regbit = 50, databit = -1; // random initial values
+
+		if(recentLatch == 0) // no recent latch
+		{
+			// quickly set first bit of data for the next frame
+			uint32_t p1_data = P1_GPIOC_next[0];
+			uint32_t p2_data = P2_GPIOC_next[0];
+			uint32_t all_data = (p1_data | p2_data);
+			GPIOC->BSRR = all_data;
+
+			// copy the 2nd bit over too
+			__disable_irq();
+			P1_GPIOC_current[1] = P1_GPIOC_next[1];
+			P2_GPIOC_current[1] = P2_GPIOC_next[1];
+			p1_current_bit = p2_current_bit = 1; // set the next bit to be read
+			__enable_irq();
+
+			// copy the rest of the bits. do not copy the overread since it will never change
+			// P2 comes before P1 in NES, so copy P2 first
+			memcpy(P2_GPIOC_current, P2_GPIOC_next, 64);
+			memcpy(P1_GPIOC_current, P1_GPIOC_next, 64);
+
+			// now prepare for the next frame!
+
+			if(toggleNext == 1)
+			{
+				dpcmFix = 1 - dpcmFix;
+			}
+			else if(toggleNext == 2)
+			{
+				GPIOA->BSRR = (1 << SNES_RESET_LOW_A);
+				HAL_Delay(200);
+				GPIOA->BSRR = (1 << SNES_RESET_HIGH_A);
+				HAL_Delay(200);
+			}
+			else if(toggleNext == 3)
+			{
+				GPIOA->BSRR = (1 << SNES_RESET_LOW_A);
+				HAL_Delay(1000);
+				GPIOA->BSRR = (1 << SNES_RESET_HIGH_A);
+				HAL_Delay(1000);
+			}
+
+			if(dpcmFix)
+			{
+				recentLatch = 1; // repeat input on latch
+				ResetAndEnable8msTimer(); // start timer and proceed as normal
+			}
+
+			if(trains_enabled)
+			{
+				if(between_trains == 1) // at least one lag frame detected
 				{
-					GetNextFrame(tasrun); // burn a frame of data
-					dataptr = GetNextFrame(tasrun); // use this frame instead
-					serial_interface_output((uint8_t*)"UB", 2);
+					// do what you gotta do
+					// adjust the frame of the run accordingly
+					int diff = latch_trains[current_train_index] - current_train_latch_count;
+
+					if(diff == 1) // we are one latch short
+					{
+						GetNextFrame(tasrun); // burn a frame of data
+						dataptr = GetNextFrame(tasrun); // use this frame instead
+						serial_interface_output((uint8_t*)"UB", 2);
+					}
+					else if(diff == -1) // we had one extra latch
+					{
+						// do NOT get next frame (yet). hold back for one
+						serial_interface_output((uint8_t*)"UA", 2);
+					}
+					else if(diff != 0) // large deviation
+					{
+						// AHHHH!!!!!! Give some sort of unrecoverable error?
+						serial_interface_output((uint8_t*)"UF", 2);
+					}
+					else // normalcy
+					{
+						dataptr = GetNextFrame(tasrun);
+						serial_interface_output((uint8_t*)"UC", 2);
+					}
+
+					current_train_index++; // we have begun the next train
+					current_train_latch_count = 1; // reset the latch count
+					between_trains = 0; // we are no longer between trains
 				}
-				else if(diff == -1) // we had one extra latch
+				else
 				{
-					// do NOT get next frame (yet). hold back for one
-					serial_interface_output((uint8_t*)"UA", 2);
-				}
-				else if(diff != 0) // large deviation
-				{
-					// AHHHH!!!!!! Give some sort of unrecoverable error?
-					serial_interface_output((uint8_t*)"UF", 2);
-				}
-				else // normalcy
-				{
+					current_train_latch_count++;
 					dataptr = GetNextFrame(tasrun);
-					serial_interface_output((uint8_t*)"UC", 2);
 				}
 
-				current_train_index++; // we have begun the next train
-				current_train_latch_count = 1; // reset the latch count
-				between_trains = 0; // we are no longer between trains
+				DisableTrainTimer(); // reset counters back to 0
+				ResetAndEnableTrainTimer();
 			}
 			else
 			{
-				current_train_latch_count++;
 				dataptr = GetNextFrame(tasrun);
 			}
 
-			DisableTrainTimer(); // reset counters back to 0
-			ResetAndEnableTrainTimer();
-		}
-		else
-		{
-			dataptr = GetNextFrame(tasrun);
-		}
-
-		if(dataptr)
-		{
-			toggleNext = TASRunIncrementFrameCount(tasrun);
-			c = TASRunGetConsole(tasrun);
-
-			databit = 0;
-			if(c == CONSOLE_NES)
+			if(dataptr)
 			{
-				databit = 7; // number of bits of NES - 1
+				toggleNext = TASRunIncrementFrameCount(tasrun);
+				c = TASRunGetConsole(tasrun);
 
-				memcpy((uint8_t*)&p1_d0_next, &dataptr[0][0][0], sizeof(NESControllerData));
-				memcpy((uint8_t*)&p1_d1_next, &dataptr[0][0][1], sizeof(NESControllerData));
-				memcpy((uint8_t*)&p2_d0_next, &dataptr[0][1][0], sizeof(NESControllerData));
-				memcpy((uint8_t*)&p2_d1_next, &dataptr[0][1][1], sizeof(NESControllerData));
-			}
-			else
-			{
-				databit = 15; // number of bits of SNES - 1
-
-				memcpy((uint16_t*)&p1_d0_next, &dataptr[0][0][0], sizeof(SNESControllerData));
-				memcpy((uint16_t*)&p1_d1_next, &dataptr[0][0][1], sizeof(SNESControllerData));
-				memcpy((uint16_t*)&p2_d0_next, &dataptr[0][1][0], sizeof(SNESControllerData));
-				memcpy((uint16_t*)&p2_d1_next, &dataptr[0][1][1], sizeof(SNESControllerData));
-
-				// fix endianness
-				p1_d0_next = ((p1_d0_next >> 8) & 0xFF) | ((p1_d0_next << 8) & 0xFF00);
-				p1_d1_next = ((p1_d1_next >> 8) & 0xFF) | ((p1_d1_next << 8) & 0xFF00);
-				p2_d0_next = ((p2_d0_next >> 8) & 0xFF) | ((p2_d0_next << 8) & 0xFF00);
-				p2_d1_next = ((p2_d1_next >> 8) & 0xFF) | ((p2_d1_next << 8) & 0xFF00);
-			}
-
-			regbit = 0;
-
-			// fill the regular data
-			while(databit >= 0)
-			{
-				uint32_t temp;
-				temp = 					(uint32_t)(((p1_d0_next >> databit) & 1) << P1_D0_LOW_C) |
-										(uint32_t)(((p1_d1_next >> databit) & 1) << P1_D1_LOW_C);
-				P1_GPIOC_next[regbit] = temp | (((~temp) & (P1_D0_MASK | P1_D1_MASK)) >> 16);
-
-				temp = 					(uint32_t)(((p2_d0_next >> databit) & 1) << P2_D0_LOW_C) |
-										(uint32_t)(((p2_d1_next >> databit) & 1) << P2_D1_LOW_C);
-				P2_GPIOC_next[regbit] = temp | (((~temp) & (P2_D0_MASK | P2_D1_MASK)) >> 16);
-
-				temp = 					(uint32_t)(((p1_d0_next >> databit) & 1) << V1_D0_HIGH_B) |
-										(uint32_t)(((p1_d1_next >> databit) & 1) << V1_D1_HIGH_B);
-				V1_GPIOB_next[regbit] = temp | (((~temp) & 0x00C0) << 16);
-
-				temp = 					(uint32_t)(((p2_d0_next >> databit) & 1) << V2_D0_HIGH_C) |
-										(uint32_t)(((p2_d1_next >> databit) & 1) << V2_D1_HIGH_C);
-				V2_GPIOC_next[regbit] = temp | (((~temp) & 0x1800) << 16);
-
-				regbit++;
-				databit--;
-			}
-		}
-		else // no data left in the buffer
-		{
-			if(c == CONSOLE_NES)
-			{
-				databit = 7; // number of bits of NES - 1
-			}
-			else
-			{
-				databit = 15; // number of bits of SNES - 1
-			}
-
-			// no controller data means all SNES pins get set high for this protocol to indicate no buttons are pressed
-			// vis pins get all set low to indicate no buttons are pressed
-			for(uint8_t index = 0;index <= databit;index++)
-			{
-				P1_GPIOC_next[index] = (1 << P1_D0_HIGH_C) | (1 << P1_D1_HIGH_C);
-				P2_GPIOC_next[index] = (1 << P2_D0_HIGH_C) | (1 << P2_D1_HIGH_C);
-
-				V1_GPIOB_next[index] = (1 << V1_D0_LOW_B) | (1 << V1_D1_LOW_B);
-				V2_GPIOC_next[index] = (1 << V2_D0_LOW_C) | (1 << V2_D1_LOW_C);
-			}
-		}
-
-		if(TASRunIsInitialized(tasrun))
-		{
-			if(bulk_mode)
-			{
-				if(!request_pending && TASRunGetSize(tasrun) <= (MAX_SIZE-28)) // not full enough
+				databit = 0;
+				if(c == CONSOLE_NES)
 				{
-					if(serial_interface_output((uint8_t*)"a", 1) == USBD_OK) // notify that we latched and want more
+					databit = 7; // number of bits of NES - 1
+
+					memcpy((uint8_t*)&p1_d0_next, &dataptr[0][0][0], sizeof(NESControllerData));
+					memcpy((uint8_t*)&p1_d1_next, &dataptr[0][0][1], sizeof(NESControllerData));
+					memcpy((uint8_t*)&p2_d0_next, &dataptr[0][1][0], sizeof(NESControllerData));
+					memcpy((uint8_t*)&p2_d1_next, &dataptr[0][1][1], sizeof(NESControllerData));
+				}
+				else
+				{
+					databit = 15; // number of bits of SNES - 1
+
+					memcpy((uint16_t*)&p1_d0_next, &dataptr[0][0][0], sizeof(SNESControllerData));
+					memcpy((uint16_t*)&p1_d1_next, &dataptr[0][0][1], sizeof(SNESControllerData));
+					memcpy((uint16_t*)&p2_d0_next, &dataptr[0][1][0], sizeof(SNESControllerData));
+					memcpy((uint16_t*)&p2_d1_next, &dataptr[0][1][1], sizeof(SNESControllerData));
+
+					// fix endianness
+					p1_d0_next = ((p1_d0_next >> 8) & 0xFF) | ((p1_d0_next << 8) & 0xFF00);
+					p1_d1_next = ((p1_d1_next >> 8) & 0xFF) | ((p1_d1_next << 8) & 0xFF00);
+					p2_d0_next = ((p2_d0_next >> 8) & 0xFF) | ((p2_d0_next << 8) & 0xFF00);
+					p2_d1_next = ((p2_d1_next >> 8) & 0xFF) | ((p2_d1_next << 8) & 0xFF00);
+				}
+
+				regbit = 0;
+
+				// fill the regular data
+				while(databit >= 0)
+				{
+					uint32_t temp;
+					temp = 					(uint32_t)(((p1_d0_next >> databit) & 1) << P1_D0_LOW_C) |
+											(uint32_t)(((p1_d1_next >> databit) & 1) << P1_D1_LOW_C);
+					P1_GPIOC_next[regbit] = temp | (((~temp) & (P1_D0_MASK | P1_D1_MASK)) >> 16);
+
+					temp = 					(uint32_t)(((p2_d0_next >> databit) & 1) << P2_D0_LOW_C) |
+											(uint32_t)(((p2_d1_next >> databit) & 1) << P2_D1_LOW_C);
+					P2_GPIOC_next[regbit] = temp | (((~temp) & (P2_D0_MASK | P2_D1_MASK)) >> 16);
+
+					temp = 					(uint32_t)(((p1_d0_next >> databit) & 1) << V1_D0_HIGH_B) |
+											(uint32_t)(((p1_d1_next >> databit) & 1) << V1_D1_HIGH_B);
+					V1_GPIOB_next[regbit] = temp | (((~temp) & 0x00C0) << 16);
+
+					temp = 					(uint32_t)(((p2_d0_next >> databit) & 1) << V2_D0_HIGH_C) |
+											(uint32_t)(((p2_d1_next >> databit) & 1) << V2_D1_HIGH_C);
+					V2_GPIOC_next[regbit] = temp | (((~temp) & 0x1800) << 16);
+
+					regbit++;
+					databit--;
+				}
+			}
+			else // no data left in the buffer
+			{
+				if(c == CONSOLE_NES)
+				{
+					databit = 7; // number of bits of NES - 1
+				}
+				else
+				{
+					databit = 15; // number of bits of SNES - 1
+				}
+
+				// no controller data means all SNES pins get set high for this protocol to indicate no buttons are pressed
+				// vis pins get all set low to indicate no buttons are pressed
+				for(uint8_t index = 0;index <= databit;index++)
+				{
+					P1_GPIOC_next[index] = (1 << P1_D0_HIGH_C) | (1 << P1_D1_HIGH_C);
+					P2_GPIOC_next[index] = (1 << P2_D0_HIGH_C) | (1 << P2_D1_HIGH_C);
+
+					V1_GPIOB_next[index] = (1 << V1_D0_LOW_B) | (1 << V1_D1_LOW_B);
+					V2_GPIOC_next[index] = (1 << V2_D0_LOW_C) | (1 << V2_D1_LOW_C);
+				}
+			}
+
+			if(TASRunIsInitialized(tasrun))
+			{
+				if(bulk_mode)
+				{
+					if(!request_pending && TASRunGetSize(tasrun) <= (MAX_SIZE-28)) // not full enough
 					{
-						request_pending = 1;
+						if(serial_interface_output((uint8_t*)"a", 1) == USBD_OK) // notify that we latched and want more
+						{
+							request_pending = 1;
+						}
+					}
+				}
+				else
+				{
+					serial_interface_output((uint8_t*)"A", 1); // notify that we latched
+				}
+			}
+			else
+			{
+				if(c == CONSOLE_NES)
+					regbit = 8;
+				else
+					regbit = 16;
+
+				// fill the overread
+				if(TASRunGetOverread(tasrun)) // overread is 1/HIGH
+				{
+					// so set logical LOW (NES/SNES button pressed)
+					for(uint8_t index = regbit;index < 17;index++)
+					{
+						P1_GPIOC_current[index] = P1_GPIOC_next[index] = (1 << P1_D0_LOW_C) | (1 << P1_D1_LOW_C);
+						P2_GPIOC_current[index] = P2_GPIOC_next[index] = (1 << P2_D0_LOW_C) | (1 << P2_D1_LOW_C);
+					}
+				}
+				else
+				{
+					for(uint8_t index = regbit;index < 17;index++)
+					{
+						P1_GPIOC_current[index] = P1_GPIOC_next[index] = (1 << P1_D0_HIGH_C) | (1 << P1_D1_HIGH_C);
+						P2_GPIOC_current[index] = P2_GPIOC_next[index] = (1 << P2_D0_HIGH_C) | (1 << P2_D1_HIGH_C);
 					}
 				}
 			}
-			else
-			{
-				serial_interface_output((uint8_t*)"A", 1); // notify that we latched
-			}
+
+			// vis board code = 16 clock pulses followed by a latch pulse
+			memcpy(V1_GPIOB_current, V1_GPIOB_next, 64);
+			memcpy(V2_GPIOC_current, V2_GPIOC_next, 64);
+			UpdateVisBoards();
 		}
-		else
+		else if(recentLatch == 1) // multiple close latches and DPCM fix is enabled
 		{
-			if(c == CONSOLE_NES)
-				regbit = 8;
-			else
-				regbit = 16;
+			__disable_irq();
+			// repeat the same frame of input
+			uint32_t p1_data = P1_GPIOC_current[0];
+			uint32_t p2_data = P2_GPIOC_current[0];
+			uint32_t all_data = (p1_data | p2_data);
+			GPIOC->BSRR = all_data;
 
-			// fill the overread
-			if(TASRunGetOverread(tasrun)) // overread is 1/HIGH
-			{
-				// so set logical LOW (NES/SNES button pressed)
-				for(uint8_t index = regbit;index < 17;index++)
-				{
-					P1_GPIOC_current[index] = P1_GPIOC_next[index] = (1 << P1_D0_LOW_C) | (1 << P1_D1_LOW_C);
-					P2_GPIOC_current[index] = P2_GPIOC_next[index] = (1 << P2_D0_LOW_C) | (1 << P2_D1_LOW_C);
-				}
-			}
-			else
-			{
-				for(uint8_t index = regbit;index < 17;index++)
-				{
-					P1_GPIOC_current[index] = P1_GPIOC_next[index] = (1 << P1_D0_HIGH_C) | (1 << P1_D1_HIGH_C);
-					P2_GPIOC_current[index] = P2_GPIOC_next[index] = (1 << P2_D0_HIGH_C) | (1 << P2_D1_HIGH_C);
-				}
-			}
+			p1_current_bit = p2_current_bit = 1;
+			__enable_irq();
+
+			ResetAndEnableTrainTimer();
 		}
-
-		// vis board code = 16 clock pulses followed by a latch pulse
-		memcpy(V1_GPIOB_current, V1_GPIOB_next, 64);
-		memcpy(V2_GPIOC_current, V2_GPIOC_next, 64);
-		UpdateVisBoards();
-	}
-	else if(recentLatch == 1) // multiple close latches and DPCM fix is enabled
-	{
-		__disable_irq();
-		// repeat the same frame of input
-		uint32_t p1_data = P1_GPIOC_current[0];
-		uint32_t p2_data = P2_GPIOC_current[0];
-		uint32_t all_data = (p1_data | p2_data);
-		GPIOC->BSRR = all_data;
-
-		p1_current_bit = p2_current_bit = 1;
-		__enable_irq();
-
-		ResetAndEnableTrainTimer();
 	}
 
   /* USER CODE END EXTI1_IRQn 0 */

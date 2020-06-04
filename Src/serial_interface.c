@@ -318,6 +318,10 @@ void serial_interface_consume(uint8_t *buffer, uint32_t n)
 					{
 						HAL_NVIC_EnableIRQ(EXTI4_IRQn);
 					}
+					else if(c == CONSOLE_GEN)
+					{
+						HAL_NVIC_EnableIRQ(EXTI1_IRQn);
+					}
 				}
 
 				instance.state = SERIAL_COMPLETE;
@@ -326,6 +330,11 @@ void serial_interface_consume(uint8_t *buffer, uint32_t n)
 			case SERIAL_CONSOLE:
 				switch(input)
 				{
+					case 'J':
+						TASRunSetConsole(instance.tasrun, CONSOLE_GEN);
+						SetGENMode();
+						instance.state = SERIAL_NUM_CONTROLLERS;
+						break;
 					case 'M': // setup N64
 						TASRunSetConsole(instance.tasrun, CONSOLE_N64);
 						SetN64Mode();
