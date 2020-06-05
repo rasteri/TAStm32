@@ -239,8 +239,10 @@ void EXTI1_IRQHandler(void)
 	{
 		// comment format below: [PIN1 PIN2 PIN3 PIN4 PIN6 PIN9]
 		// which translates to.. [P1D0 P1D1 P1D2 P2D0 P2D1 P2D2]
+		// LOW means pressed, so we put a 1 there
+		// HIGH means un-pressed, so we put a 0 there
 
-		if (1/*TODO: check if timer expired*/)
+		if (P1_LATCH_GPIO_Port->IDR & P1_LATCH_Pin) // high now, therefore was a rising edge
 		{
 			GENControllerData* pData = (GENControllerData*)dataptr;
 			switch (state)
@@ -266,14 +268,19 @@ void EXTI1_IRQHandler(void)
 					break;
 			}
 		}
-		else
+		else // low now, therefore was a falling edge
 		{
-			if (1/*TODO: check if timer expired*/)
+			if (between_trains) // we were between input frames, so now it's time to align!
 			{
+				// reset our state
 				state = 0;
-				//TODO: restart timer
 
-				dataptr = GetNextFrame(tasrun); // get the next frame of data if the frame timer has expired. (70us?)
+				// reset timer
+				between_trains = 0;
+				ResetAndEnableGENTimer();
+
+				// get the next frame of data
+				dataptr = GetNextFrame(tasrun);
 			}
 
 			GENControllerData* pData = (GENControllerData*)dataptr;
@@ -851,8 +858,26 @@ void DisableTrainTimer()
 	HAL_TIM_Base_Stop_IT(&htim10);
 }
 
+void DisableGENTimer()
+{
+	DisableTrainTimer();
+}
+
+void ResetAndEnableGENTimer()
+{
+	// TIM10 configured for GEN mode (70us)
+	TIM10->PSC = 168-1;
+	TIM10->ARR = 70-1;
+
+	HAL_TIM_Base_Start_IT(&htim10);
+}
+
 void ResetAndEnableTrainTimer()
 {
+	// TIM10 configured for latch train mode (20ms)
+	TIM10->PSC = 16800-1;
+	TIM10->ARR = 200-1;
+
 	HAL_TIM_Base_Start_IT(&htim10);
 }
 

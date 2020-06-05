@@ -82,6 +82,8 @@ rcombs (@rcombs) - helped with optimizing the N64 protocol
 
 Sauraen (@sauraen) - Linux setup and installation notes
 
+Derf - worked on debugging the genesis protocol together
+
 #### If I accidentally forgot to credit you, please let me know so I can fix it!
 
  - Ownasaurus
