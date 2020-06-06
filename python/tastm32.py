@@ -198,15 +198,15 @@ class TAStm32():
             if p1 == b'3':
                 pbyte = pbyte ^ 0x80
             elif p1 == b'6':
-                pbyte = pbyte ^ 0xc0
+                pbyte = pbyte ^ 0x80
                 sbyte = 128
             if p2 == b'3':
-                pbyte = pbyte ^ 0x20
-            elif p2 == b'6':
-                pbyte = pbyte ^ 0x30
-                sbyte = 128
-            if p3:
                 pbyte = pbyte ^ 0x08
+            elif p2 == b'6':
+                pbyte = pbyte ^ 0x08
+                sbyte = 128
+            # if p3:
+            #     pbyte = pbyte ^ 0x08
         command = b'S' + prefix + cbyte + int_to_byte(pbyte) + int_to_byte(sbyte)
         self.write(command)
         time.sleep(0.1)
