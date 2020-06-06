@@ -51,7 +51,7 @@ def _process_input(data, header):
         new = bytearray(4)
     c1 = data[0] ^ 0xff
     c2 = data[1] ^ 0xff
-    c3 = data[1] ^ 0xff
+    c3 = data[2] ^ 0xff
 
     new[0] += (c1 & 0x01) # P1 Up
     new[0] += (c1 & 0x02) # P1 Down
