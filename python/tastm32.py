@@ -378,7 +378,7 @@ def main():
         blankframe = b'\x00\x00\x00\x00\x00\x00\x00\x00' * len(args.players)
     elif args.console == 'genesis':
         buffer = gmv.read_input(data)
-        blankframe = b'\x00\x00\x00'
+        blankframe = b'\x00\x00\x00\x00'
 
     # Transitions
     if args.transition != None:
