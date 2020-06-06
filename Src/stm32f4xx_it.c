@@ -277,40 +277,42 @@ void EXTI1_IRQHandler(void)
 
 				// reset timer
 				between_trains = 0;
+				DisableGENTimer();
 				ResetAndEnableGENTimer();
 
 				// get the next frame of data
 				dataptr = GetNextFrame(tasrun);
+				serial_interface_output((uint8_t*)"A", 1);
 			}
 
 			GENControllerData* pData = (GENControllerData*)dataptr;
 
 			switch(state)
 			{
-			  case 0:
-			  case 2:
-				  // [U D LOW LOW A Start]
-				  mask = 	(pData->up << P1_D0_LOW_C) | (pData->down << P1_D1_LOW_C) | (1 << P1_D2_LOW_C) |
+				case 0:
+				case 2:
+					// [U D LOW LOW A Start]
+					mask = 	(pData->up << P1_D0_LOW_C) | (pData->down << P1_D1_LOW_C) | (1 << P1_D2_LOW_C) |
 							(1 << P2_D0_LOW_C) | (pData->a << P2_D1_LOW_C) | (pData->start << P2_D2_LOW_C);
 					mask |= (((~mask) & (P1_D0_MASK | P1_D1_MASK | P1_D2_MASK | P2_D0_MASK | P2_D1_MASK | P2_D2_MASK)) >> 16);
 					GPIOC->BSRR = mask;
-				  break;
-			  case 4:
-				  // [LOW LOW LOW LOW A Start]
-				  mask = 	(1 << P1_D0_LOW_C) | (1 << P1_D1_LOW_C) | (1 << P1_D2_LOW_C) |
+					break;
+				case 4:
+					// [LOW LOW LOW LOW A Start]
+					mask = 	(1 << P1_D0_LOW_C) | (1 << P1_D1_LOW_C) | (1 << P1_D2_LOW_C) |
 							(1 << P2_D0_LOW_C) | (pData->a << P2_D1_LOW_C) | (pData->start << P2_D2_LOW_C);
 					mask |= (((~mask) & (P1_D0_MASK | P1_D1_MASK | P1_D2_MASK | P2_D0_MASK | P2_D1_MASK | P2_D2_MASK)) >> 16);
 					GPIOC->BSRR = mask;
-				  break;
-			  case 6:
-				  // [HIGH HIGH HIGH HIGH A Start]
-				  mask = 	(pData->a << P2_D1_LOW_C) | (pData->start << P2_D2_LOW_C);
+					break;
+				case 6:
+					// [HIGH HIGH HIGH HIGH A Start]
+					mask = 	(pData->a << P2_D1_LOW_C) | (pData->start << P2_D2_LOW_C);
 					mask |= (((~mask) & (P1_D0_MASK | P1_D1_MASK | P1_D2_MASK | P2_D0_MASK | P2_D1_MASK | P2_D2_MASK)) >> 16);
 					GPIOC->BSRR = mask;
-				  break;
-			  default:
-				  state++; // we're somehow out of sync with the select edges. so increment state an extra time
-				  break;
+					break;
+				default:
+					state++; // we're somehow out of sync with the select edges. so increment state an extra time
+					break;
 			}
 		}
 

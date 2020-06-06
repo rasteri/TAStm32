@@ -333,6 +333,7 @@ void serial_interface_consume(uint8_t *buffer, uint32_t n)
 					case 'J':
 						TASRunSetConsole(instance.tasrun, CONSOLE_GEN);
 						SetGENMode();
+						between_trains = 1;
 						instance.state = SERIAL_NUM_CONTROLLERS;
 						break;
 					case 'M': // setup N64
