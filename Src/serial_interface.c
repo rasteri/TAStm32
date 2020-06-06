@@ -278,7 +278,6 @@ void serial_interface_consume(uint8_t *buffer, uint32_t n)
 				}
 
 				// Got the full frame so add it to the RunData
-
 				if (ExtractDataAndAddFrame(instance.tasrun, instance.controller_data_buffer, instance.controller_data_bytes_read) == 0)
 				{
 					// buffer must have been full
@@ -309,7 +308,7 @@ void serial_interface_consume(uint8_t *buffer, uint32_t n)
 					{
 						// enable these interrupts atomically
 						__disable_irq();
-						HAL_NVIC_SetPriority(EXTI1_IRQn, 1, 0);
+						HAL_NVIC_SetPriority(EXTI1_IRQn, 1, 0); // ensure latch priority is default, in case genesis overrode it
 						HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 						HAL_NVIC_EnableIRQ(EXTI1_IRQn);
 						HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
@@ -321,7 +320,7 @@ void serial_interface_consume(uint8_t *buffer, uint32_t n)
 					}
 					else if(c == CONSOLE_GEN)
 					{
-						HAL_NVIC_SetPriority(EXTI1_IRQn, 0, 0);
+						HAL_NVIC_SetPriority(EXTI1_IRQn, 0, 0); // override latch priority to highest
 						HAL_NVIC_EnableIRQ(EXTI1_IRQn);
 					}
 				}

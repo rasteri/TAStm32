@@ -53,33 +53,13 @@ def _process_input(data, header):
     c2 = data[1] ^ 0xff
     c3 = data[2] ^ 0xff
 
-    new[0] += (c1 & 0x01) # P1 Up
-    new[0] += (c1 & 0x02) # P1 Down
-    new[0] += (c1 & 0x04) # P1 Left
-    new[0] += (c1 & 0x08) # P1 Right
-    new[0] += (c1 & 0x10) # P1 A
-    new[0] += (c1 & 0x20) # P1 B
-    new[0] += (c1 & 0x40) # P1 C
-    new[0] += (c1 & 0x80) # P1 Start
+    new[0] = c1
 
-    new[1] += (c3 & 0x01) # P1 X
-    new[1] += (c3 & 0x02) # P1 Y
-    new[1] += (c3 & 0x04) # P1 Z
-    new[1] += (c3 & 0x08) # P1 Mode
+    new[1] = (c3 & 0x0F) # P1 
 
-    new[2] += (c2 & 0x01) # P2 Up
-    new[2] += (c2 & 0x02) # P2 Down
-    new[2] += (c2 & 0x04) # P2 Left
-    new[2] += (c2 & 0x08) # P2 Right
-    new[2] += (c2 & 0x10) # P2 A
-    new[2] += (c2 & 0x20) # P2 B
-    new[2] += (c2 & 0x40) # P2 C
-    new[2] += (c2 & 0x80) # P2 Start
+    new[2] = c2
 
-    new[3] += (c3 & 0x10) # P2 X
-    new[3] += (c3 & 0x20) # P2 Y
-    new[3] += (c3 & 0x40) # P2 Z
-    new[3] += (c3 & 0x80) # P2 Mode
+    new[3] = ((c3 & 0xF0) >> 4) # P2
 
     return new
 

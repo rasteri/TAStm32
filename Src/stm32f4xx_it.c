@@ -230,12 +230,14 @@ void EXTI1_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI1_IRQn 0 */
 
-	TASRun *tasrun = TASRunGetByIndex(RUN_A);
+	/*TASRun *tasrun = TASRunGetByIndex(RUN_A);
 	Console c = TASRunGetConsole(tasrun);
 	static RunDataArray *dataptr;
+	uint32_t mask = 0;*/
+
 	static int state = 0;
-	uint32_t mask = 0;
-	if(c == CONSOLE_GEN)
+
+	if(1/*c == CONSOLE_GEN*/)
 	{
 		// comment format below: [PIN1 PIN2 PIN3 PIN4 PIN6 PIN9]
 		// which translates to.. [P1D0 P1D1 P1D2 P2D0 P2D1 P2D2]
@@ -244,7 +246,8 @@ void EXTI1_IRQHandler(void)
 
 		if (P1_LATCH_GPIO_Port->IDR & P1_LATCH_Pin) // high now, therefore was a rising edge
 		{
-			GENControllerData* pData = (GENControllerData*)dataptr;
+			GPIOC->BSRR = 1 << P1_D0_HIGH_C;
+			/*GENControllerData* pData = (GENControllerData*)dataptr;
 			switch (state)
 			{
 				case 1:
@@ -266,11 +269,12 @@ void EXTI1_IRQHandler(void)
 				default:
 					state++; // we're somehow out of sync with the select edges. so increment state an extra time
 					break;
-			}
+			}*/
 		}
 		else // low now, therefore was a falling edge
 		{
-			if (between_trains) // we were between input frames, so now it's time to align!
+			GPIOC->BSRR = 1 << P1_D0_LOW_C;
+			/*if (between_trains) // we were between input frames, so now it's time to align!
 			{
 				// reset our state
 				state = 0;
@@ -313,12 +317,12 @@ void EXTI1_IRQHandler(void)
 				default:
 					state++; // we're somehow out of sync with the select edges. so increment state an extra time
 					break;
-			}
+			}*/
 		}
 
 		state = (state+1) % 8;
 	}
-	else
+	/*else
 	{
 		// P1_LATCH
 		int8_t regbit = 50, databit = -1; // random initial values
@@ -561,7 +565,7 @@ void EXTI1_IRQHandler(void)
 
 			ResetAndEnableTrainTimer();
 		}
-	}
+	}*/
 
   /* USER CODE END EXTI1_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_1);
