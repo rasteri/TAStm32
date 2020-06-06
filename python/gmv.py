@@ -41,7 +41,7 @@ def read_input(data, header=None):
     input_iter = input_struct.iter_unpack(data[start:])
     input_data = []
     for frame in input_iter:
-      input_data.append(frame[0])
+        input_data.append(bytes(b ^ 0xFF for b in frame[0]))
     return input_data
 
 def main():
