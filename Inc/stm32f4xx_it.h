@@ -43,7 +43,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "TASRun.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -79,6 +79,9 @@ extern uint16_t current_train_latch_count;
 extern uint8_t between_trains;
 extern uint16_t* latch_trains;
 extern uint8_t trains_enabled;
+
+extern Console c;
+extern TASRun *tasrun;
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/

@@ -143,7 +143,7 @@ int main(void)
   jumpToDFU = 0;
 
   // ensure no buttons are pressed initially
-  HAL_GPIO_WritePin(GPIOC, P1_DATA_1_Pin|P1_DATA_0_Pin|P2_DATA_2_Pin|P2_DATA_1_Pin|P2_DATA_0_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOC, P1_DATA_2_Pin|P1_DATA_1_Pin|P1_DATA_0_Pin|P2_DATA_2_Pin|P2_DATA_1_Pin|P2_DATA_0_Pin, GPIO_PIN_SET);
 
   /* USER CODE END 2 */
 
@@ -581,11 +581,13 @@ void JumpToBootLoader(void) {
 	HAL_NVIC_DisableIRQ(TIM6_DAC_IRQn);
 	HAL_NVIC_DisableIRQ(TIM7_IRQn);
 	HAL_NVIC_DisableIRQ(SysTick_IRQn);
+	HAL_NVIC_DisableIRQ(TIM1_UP_TIM10_IRQn);
 
 	// De-init timers
 	HAL_TIM_Base_DeInit(&htim3);
 	HAL_TIM_Base_DeInit(&htim6);
 	HAL_TIM_Base_DeInit(&htim7);
+	HAL_TIM_Base_DeInit(&htim10);
 
 	// clear all interrupts
 	while (HAL_NVIC_GetPendingIRQ(EXTI0_IRQn))
@@ -623,6 +625,10 @@ void JumpToBootLoader(void) {
 	while (HAL_NVIC_GetPendingIRQ(TIM7_IRQn))
 	{
 		HAL_NVIC_ClearPendingIRQ(TIM7_IRQn);
+	}
+	while (HAL_NVIC_GetPendingIRQ(TIM1_UP_TIM10_IRQn))
+	{
+		HAL_NVIC_ClearPendingIRQ(TIM1_UP_TIM10_IRQn);
 	}
 	while (HAL_NVIC_GetPendingIRQ(OTG_FS_IRQn))
 	{

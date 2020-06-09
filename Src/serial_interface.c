@@ -334,27 +334,34 @@ void serial_interface_consume(uint8_t *buffer, uint32_t n)
 					case 'J':
 						TASRunSetConsole(instance.tasrun, CONSOLE_GEN);
 						SetGENMode();
+						c = CONSOLE_GEN;
 						between_trains = 1;
+						tasrun = TASRunGetByIndex(RUN_A);
+						P1_GPIOC_next[0] = 0;
 						instance.state = SERIAL_NUM_CONTROLLERS;
 						break;
 					case 'M': // setup N64
 						TASRunSetConsole(instance.tasrun, CONSOLE_N64);
 						SetN64Mode();
+						c = CONSOLE_N64;
 						instance.state = SERIAL_NUM_CONTROLLERS;
 						break;
 					case 'G': // setup Gamecube
 						TASRunSetConsole(instance.tasrun, CONSOLE_GC);
 						SetN64Mode();
+						c = CONSOLE_GC;
 						instance.state = SERIAL_NUM_CONTROLLERS;
 						break;
 					case 'S': // setup SNES
 						TASRunSetConsole(instance.tasrun, CONSOLE_SNES);
 						SetSNESMode();
+						c = CONSOLE_SNES;
 						instance.state = SERIAL_NUM_CONTROLLERS;
 						break;
 					case 'N': // setup NES
 						TASRunSetConsole(instance.tasrun, CONSOLE_NES);
 						SetSNESMode();
+						c = CONSOLE_NES;
 						instance.state = SERIAL_NUM_CONTROLLERS;
 						break;
 					default: // Error: console type not understood

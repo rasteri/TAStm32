@@ -305,8 +305,8 @@ void SetGENMode()
 
 	memset(&GPIO_InitStruct, 0, sizeof(GPIO_InitStruct));
 
-	GPIO_InitStruct.Pin = P1_DATA_2_Pin;
-	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
+	GPIO_InitStruct.Pin = P1_DATA_2_Pin | P1_DATA_1_Pin | P1_DATA_0_Pin | P2_DATA_1_Pin | P2_DATA_0_Pin |P2_DATA_2_Pin;
+	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
 	GPIO_InitStruct.Pull = GPIO_PULLUP;
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
 
@@ -328,7 +328,7 @@ void SetSNESMode()
 {
 	GPIO_InitTypeDef GPIO_InitStruct = {0};
 
-	GPIO_InitStruct.Pin = P1_DATA_2_Pin;
+	GPIO_InitStruct.Pin = P1_DATA_2_Pin | P1_DATA_1_Pin | P1_DATA_0_Pin | P2_DATA_1_Pin | P2_DATA_0_Pin | P2_DATA_2_Pin;
 	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
 	GPIO_InitStruct.Pull = GPIO_PULLUP;
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;

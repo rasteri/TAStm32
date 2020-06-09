@@ -90,6 +90,7 @@ const uint32_t P1_D2_MASK = 0x00100010;
 const uint32_t P2_D0_MASK = 0x01000100;
 const uint32_t P2_D1_MASK = 0x00800080;
 const uint32_t P2_D2_MASK = 0x02000200;
+
 const uint32_t ALL_MASK   = 0x039C039C;
 
 /* USER CODE END PD */
@@ -146,7 +147,10 @@ uint8_t trains_enabled;
 
 uint16_t* latch_trains;
 
+RunDataArray *dataptr = NULL;
 Console c;
+TASRun *tasrun = NULL;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -232,120 +236,84 @@ void EXTI0_IRQHandler(void)
 void EXTI1_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI1_IRQn 0 */
-
-	TASRun *tasrun = TASRunGetByIndex(RUN_A);
-	c = TASRunGetConsole(tasrun);
-	static RunDataArray *dataptr = NULL;
-
 	static int state = 0;
-	uint32_t data = 0;
 
 	if(c == CONSOLE_GEN)
 	{
+		// quickly set the data
+		GPIOC->BSRR = P1_GPIOC_next[0];
+
+		// now -- prepare for the *NEXT* edge
+
 		// comment format below: [PIN1 PIN2 PIN3 PIN4 PIN6 PIN9]
 		// which translates to.. [P1D0 P1D1 P1D2 P2D0 P2D1 P2D2]
 		// LOW means pressed, so we put a 1 there
 		// HIGH means un-pressed, so we put a 0 there
 
-		if (P1_LATCH_GPIO_Port->IDR & P1_LATCH_Pin) // high now, therefore was a rising edge
+		GENControllerData* pData = (GENControllerData*)dataptr;
+		if(!pData)
 		{
-			GENControllerData* pData = (GENControllerData*)dataptr;
-			if(!pData)
-			{
-				pData = &gen_blank;
-			}
-
-			switch (state)
-			{
-				case 1:
-				case 3:
-				case 7:
-					// [U D L R B C]
-					P1_GPIOC_next[0] = 	(pData->up << P1_D0_LOW_C) | (pData->down << P1_D1_LOW_C) | (pData->left << P1_D2_LOW_C) |
-							(pData->right << P2_D0_LOW_C) | (pData->b << P2_D1_LOW_C) | (pData->c << P2_D2_LOW_C);
-					P1_GPIOC_next[0] |= (((~P1_GPIOC_next[0]) & (ALL_MASK)) >> 16);
-
-					data = P1_GPIOC_next[0];
-					GPIOC->BSRR = data;
-					break;
-				case 5:
-					// [Z Y X Mode B C]
-					P1_GPIOC_next[0] = 	(pData->z << P1_D0_LOW_C) | (pData->y << P1_D1_LOW_C) | (pData->x << P1_D2_LOW_C) |
-							(pData->mode << P2_D0_LOW_C) | (pData->b << P2_D1_LOW_C) | (pData->c << P2_D2_LOW_C);
-					P1_GPIOC_next[0] |= (((~P1_GPIOC_next[0]) & (ALL_MASK)) >> 16);
-
-					data = P1_GPIOC_next[0];
-					GPIOC->BSRR = data;
-					break;
-				default:
-					state++; // we're somehow out of sync with the select edges. so increment state an extra time
-					break;
-			}
+			pData = &gen_blank;
 		}
-		else // low now, therefore was a falling edge
+
+		if (between_trains) // we were between input frames, so now it's time to align!
 		{
-			if (between_trains) // we were between input frames, so now it's time to align!
-			{
-				// reset our state
-				state = 0;
-				// get the next frame of data
-				dataptr = GetNextFrame(tasrun);
+			// reset our state
+			state = 1;
+			// get the next frame of data
+			dataptr = GetNextFrame(tasrun);
 
-				// do some more after we've processed the state down below ...
-			}
+			// do some more after we've processed the state down below ...
+		}
 
-			GENControllerData* pData = (GENControllerData*)dataptr;
-			if(!pData)
-			{
-				pData = &gen_blank;
-			}
+		switch(state)
+		{
+			case 1:
+			case 3:
+			case 7:
+				// [U D L R B C]
+				P1_GPIOC_next[0] = 	(pData->up << P1_D0_LOW_C) | (pData->down << P1_D1_LOW_C) | (pData->left << P1_D2_LOW_C) |
+						(pData->right << P2_D0_LOW_C) | (pData->b << P2_D1_LOW_C) | (pData->c << P2_D2_LOW_C);
+				P1_GPIOC_next[0] |= (((~P1_GPIOC_next[0]) & (ALL_MASK)) >> 16);
+				break;
+			case 5:
+				// [Z Y X Mode B C]
+				P1_GPIOC_next[0] = 	(pData->z << P1_D0_LOW_C) | (pData->y << P1_D1_LOW_C) | (pData->x << P1_D2_LOW_C) |
+						(pData->mode << P2_D0_LOW_C) | (pData->b << P2_D1_LOW_C) | (pData->c << P2_D2_LOW_C);
+				P1_GPIOC_next[0] |= (((~P1_GPIOC_next[0]) & (ALL_MASK)) >> 16);
+				break;
+			case 0:
+			case 2:
+				// [U D LOW LOW A Start]
+				P1_GPIOC_next[0] = 	(pData->up << P1_D0_LOW_C) | (pData->down << P1_D1_LOW_C) | (1 << P1_D2_LOW_C) |
+						(1 << P2_D0_LOW_C) | (pData->a << P2_D1_LOW_C) | (pData->start << P2_D2_LOW_C);
+				P1_GPIOC_next[0] |= (((~P1_GPIOC_next[0]) & (ALL_MASK)) >> 16);
+				break;
+			case 4:
+				// [LOW LOW LOW LOW A Start]
+				P1_GPIOC_next[0] = 	(1 << P1_D0_LOW_C) | (1 << P1_D1_LOW_C) | (1 << P1_D2_LOW_C) |
+						(1 << P2_D0_LOW_C) | (pData->a << P2_D1_LOW_C) | (pData->start << P2_D2_LOW_C);
+				P1_GPIOC_next[0] |= (((~P1_GPIOC_next[0]) & (ALL_MASK)) >> 16);
+				break;
+			case 6:
+				// [HIGH HIGH HIGH HIGH A Start]
+				P1_GPIOC_next[0] = 	(pData->a << P2_D1_LOW_C) | (pData->start << P2_D2_LOW_C);
+				P1_GPIOC_next[0] |= (((~P1_GPIOC_next[0]) & (ALL_MASK)) >> 16);
+				break;
+			default:
+				break;
+		}
 
-			switch(state)
-			{
-				case 0:
-				case 2:
-					// [U D LOW LOW A Start]
-					P1_GPIOC_next[0] = 	(pData->up << P1_D0_LOW_C) | (pData->down << P1_D1_LOW_C) | (1 << P1_D2_LOW_C) |
-							(1 << P2_D0_LOW_C) | (pData->a << P2_D1_LOW_C) | (pData->start << P2_D2_LOW_C);
-					P1_GPIOC_next[0] |= (((~P1_GPIOC_next[0]) & (ALL_MASK)) >> 16);
+		if(between_trains)
+		{
+			// ... now that we've processed the state...
+			// reset timer
+			between_trains = 0;
+			DisableGENTimer();
+			ResetAndEnableGENTimer();
 
-					data = P1_GPIOC_next[0];
-					GPIOC->BSRR = data;
-					break;
-				case 4:
-					// [LOW LOW LOW LOW A Start]
-					P1_GPIOC_next[0] = 	(1 << P1_D0_LOW_C) | (1 << P1_D1_LOW_C) | (1 << P1_D2_LOW_C) |
-							(1 << P2_D0_LOW_C) | (pData->a << P2_D1_LOW_C) | (pData->start << P2_D2_LOW_C);
-					P1_GPIOC_next[0] |= (((~P1_GPIOC_next[0]) & (ALL_MASK)) >> 16);
-
-					data = P1_GPIOC_next[0];
-					GPIOC->BSRR = data;
-					break;
-				case 6:
-					// [HIGH HIGH HIGH HIGH A Start]
-					P1_GPIOC_next[0] = 	(pData->a << P2_D1_LOW_C) | (pData->start << P2_D2_LOW_C);
-					P1_GPIOC_next[0] |= (((~P1_GPIOC_next[0]) & (ALL_MASK)) >> 16);
-
-					data = P1_GPIOC_next[0];
-					GPIOC->BSRR = data;
-					break;
-				default:
-					state++; // we're somehow out of sync with the select edges. so increment state an extra time
-					break;
-			}
-
-			if(between_trains)
-			{
-				// ... now that we've processed the state...
-
-				// reset timer
-				between_trains = 0;
-				DisableGENTimer();
-				ResetAndEnableGENTimer();
-
-				// tell the replay device that we've processed a frame of data
-				serial_interface_output((uint8_t*)"A", 1);
-			}
+			// tell the replay device that we've processed a frame of data
+			serial_interface_output((uint8_t*)"A", 1);
 		}
 
 		state = (state+1) % 8;
