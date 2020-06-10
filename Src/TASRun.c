@@ -299,7 +299,7 @@ void SetGENMode()
 	// Ensure the latch pin interrupts on BOTH rising and falling. use this as the select line
 	GPIO_InitStruct.Pin = P1_LATCH_Pin;
 	GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
-	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	GPIO_InitStruct.Pull = GPIO_PULLUP;
 
 	HAL_GPIO_Init(P1_LATCH_GPIO_Port, &GPIO_InitStruct);
 

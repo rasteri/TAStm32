@@ -236,12 +236,12 @@ void EXTI0_IRQHandler(void)
 void EXTI1_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI1_IRQn 0 */
-	static int state = 0;
+	//static int state = 0;
 
 	if(c == CONSOLE_GEN)
 	{
 		// quickly set the data
-		GPIOC->BSRR = P1_GPIOC_next[0];
+		//GPIOC->BSRR = P1_GPIOC_next[0];
 
 		// now -- prepare for the *NEXT* edge
 
@@ -256,7 +256,29 @@ void EXTI1_IRQHandler(void)
 			pData = &gen_blank;
 		}
 
-		if (between_trains) // we were between input frames, so now it's time to align!
+		if(P1_LATCH_GPIO_Port->IDR & P1_LATCH_Pin) // rising edge
+		{
+			// [U D L R B C]
+			P1_GPIOC_next[0] = 	(pData->up << P1_D0_LOW_C) | (pData->down << P1_D1_LOW_C) | (pData->left << P1_D2_LOW_C) |
+					(pData->right << P2_D0_LOW_C) | (pData->b << P2_D1_LOW_C) | (pData->c << P2_D2_LOW_C);
+			P1_GPIOC_next[0] |= (((~P1_GPIOC_next[0]) & (ALL_MASK)) >> 16);
+
+			GPIOC->BSRR = P1_GPIOC_next[0];
+
+			dataptr = GetNextFrame(tasrun);
+			serial_interface_output((uint8_t*)"A", 1); // tell python that we processed a frame
+		}
+		else // falling edge
+		{
+			// [U D LOW LOW A Start]
+			P1_GPIOC_next[0] = 	(pData->up << P1_D0_LOW_C) | (pData->down << P1_D1_LOW_C) | (1 << P1_D2_LOW_C) |
+					(1 << P2_D0_LOW_C) | (pData->a << P2_D1_LOW_C) | (pData->start << P2_D2_LOW_C);
+			P1_GPIOC_next[0] |= (((~P1_GPIOC_next[0]) & (ALL_MASK)) >> 16);
+
+			GPIOC->BSRR = P1_GPIOC_next[0];
+		}
+
+		/*if (between_trains) // we were between input frames, so now it's time to align!
 		{
 			// reset our state
 			state = 1;
@@ -316,7 +338,7 @@ void EXTI1_IRQHandler(void)
 			serial_interface_output((uint8_t*)"A", 1);
 		}
 
-		state = (state+1) % 8;
+		state = (state+1) % 8;*/
 	}
 	else
 	{

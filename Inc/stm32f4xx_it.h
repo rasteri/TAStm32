@@ -82,6 +82,7 @@ extern uint8_t trains_enabled;
 
 extern Console c;
 extern TASRun *tasrun;
+extern RunDataArray *dataptr;
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/
