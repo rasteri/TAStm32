@@ -241,7 +241,10 @@ void EXTI1_IRQHandler(void)
 	if(c == CONSOLE_GEN)
 	{
 		// quickly set the data
-		//GPIOC->BSRR = P1_GPIOC_next[0];
+		//GPIOC->BSRR = P1_GPIOC_next[state];
+		//state = (state+1) % 8;
+
+		//TODO: move the rest of the logic to the timer interrupt
 
 		// now -- prepare for the *NEXT* edge
 

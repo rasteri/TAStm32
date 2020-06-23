@@ -336,9 +336,6 @@ void serial_interface_consume(uint8_t *buffer, uint32_t n)
 						SetGENMode();
 						c = CONSOLE_GEN;
 						between_trains = 1;
-						tasrun = TASRunGetByIndex(RUN_A);
-						P1_GPIOC_next[0] = 0;
-						dataptr = NULL;
 						instance.state = SERIAL_NUM_CONTROLLERS;
 						break;
 					case 'M': // setup N64
@@ -371,6 +368,8 @@ void serial_interface_consume(uint8_t *buffer, uint32_t n)
 						serial_interface_output((uint8_t*)"\xFC", 1);
 						break;
 				}
+				tasrun = TASRunGetByIndex(RUN_A);
+				dataptr = NULL;
 				break;
 			case SERIAL_SETUP:
 				switch(input)

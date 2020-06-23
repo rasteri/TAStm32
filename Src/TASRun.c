@@ -288,7 +288,6 @@ void SetGENMode()
 {
 	GPIO_InitTypeDef GPIO_InitStruct = {0};
 
-	//TODO: Complete setup
 	// P1_D0 --> GEN Pin 1
 	// P1_D1 --> GEN Pin 2
 	// P1_D2 --> GEN Pin 3
