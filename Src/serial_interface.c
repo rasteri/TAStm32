@@ -286,8 +286,6 @@ void serial_interface_consume(uint8_t *buffer, uint32_t n)
 
 				if(!TASRunIsInitialized(instance.tasrun) && TASRunGetSize(instance.tasrun) > 0) // this should only run once per run to set up the 1st frame of data
 				{
-
-					Console c = TASRunGetConsole(instance.tasrun);
 					if(c == CONSOLE_NES || c == CONSOLE_SNES)
 					{
 						if(TASRunGetDPCMFix(instance.tasrun))

@@ -602,8 +602,6 @@ void EXTI4_IRQHandler(void)
   /* USER CODE BEGIN EXTI4_IRQn 0 */
 	// P1_DATA_2 == N64_DATA
 	// Read 64 command
-	TASRun *tasrun = TASRunGetByIndex(RUN_A);
-	Console c = TASRunGetConsole(tasrun);
 	GCControllerData gc_data;
 
 	__disable_irq();
