@@ -272,6 +272,8 @@ class TAStm32():
                     for packet in range(packets):
                         command = []
                         for latch in range(latches_per_bulk_command//packets):
+                            if start_time == None:
+                                start_time = time.time_ts()
                             try:
                                 command.append(run.run_id + run.buffer[run.fn])
                                 run.fn += 1
