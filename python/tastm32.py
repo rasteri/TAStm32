@@ -6,6 +6,7 @@ import struct
 import time
 import gc
 import psutil
+from datetime import timedelta
 
 import serial_helper
 import argparse_helper
@@ -221,6 +222,8 @@ class TAStm32():
         global DEBUG
         frame = 0
         frame_max = len(run.buffer)
+        start_time = None
+        end_time = None
         while True:
             try:
                 c = self.read(1)
@@ -254,6 +257,8 @@ class TAStm32():
                     sys.exit(1)
 
                 for latch in range(latches):
+                    if start_time == None:
+                        start_time = time.time_ts()
                     try:
                         data = run.run_id + run.buffer[run.fn]
                         self.write(data)
@@ -280,6 +285,10 @@ class TAStm32():
                         self.write(data)
                     self.write(run.run_id.lower())
                 if frame > frame_max:
+                    end_time = time.time_ns()
+                    diff = end_time-start_time)/1e9
+                    print((diff)
+                    print(timedelta(seconds=diff))
                     break
             except serial.SerialException:
                 print('ERROR: Serial Exception caught!')
