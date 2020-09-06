@@ -503,6 +503,7 @@ void EXTI4_IRQHandler(void)
 	//-------- SEND RESPONSE
 	SetN64OutputMode();
 
+	static N64ControllerData prevData = {0};
 	switch(cmd)
 	{
 	  case 0x00: // identity
@@ -522,11 +523,13 @@ void EXTI4_IRQHandler(void)
 		  frame = GetNextFrame(tasrun);
 		  if(frame == NULL) // buffer underflow
 		  {
-			  SendControllerDataN64(0); // send blank controller data
+			  //SendControllerDataN64(0); // send blank controller data
+			  SendRunDataN64(prevData); // hacky test to repeat last frame
 		  }
 		  else
 		  {
-			  SendRunDataN64(frame[0][0][0].n64_data);
+			  prevData = frame[0][0][0].n64_data;
+			  SendRunDataN64(prevData);
 		  }
 		  break;
 	  case 0x41: //gamecube origin call
