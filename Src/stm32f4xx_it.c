@@ -248,8 +248,9 @@ void EXTI1_IRQHandler(void)
 
 		// now -- prepare for the *NEXT* edge
 
-		// comment format below: [PIN1 PIN2 PIN3 PIN4 PIN6 PIN9]
-		// which translates to.. [P1D0 P1D1 P1D2 P2D0 P2D1 P2D2]
+		// comment format below: [PIN1 PIN2 PIN3 PIN4 PIN5 PIN6 PIN7 PIN8 PIN9]
+		// which translates to.. [P1D0 P1D1 P1D2 P2D0 5V   P2D1 SEL  GND  P2D2]
+		// whose colors are..    [BRN  ORG  GREY BLK  RED  YEL  BLU  WHI  GRN ]
 		// LOW means pressed, so we put a 1 there
 		// HIGH means un-pressed, so we put a 0 there
 
