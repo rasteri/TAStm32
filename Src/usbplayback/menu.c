@@ -175,50 +175,32 @@ void Menu_Display() {
 
 		case CONSOLE_NES:
 
-			ssd1306_SetCursor(0, 25);
-			ssd1306_WriteString("L", Font_16x26, ct[0][0]->nes_data.left ? Black : White);
-			ssd1306_SetCursor(16, 12);
-			ssd1306_WriteString("U", Font_16x26, ct[0][0]->nes_data.up ? Black : White);
-			ssd1306_SetCursor(16, 38);
-			ssd1306_WriteString("D", Font_16x26, ct[0][0]->nes_data.down ? Black : White);
-			ssd1306_SetCursor(32, 25);
-			ssd1306_WriteString("R", Font_16x26, ct[0][0]->nes_data.right ? Black : White);
-			ssd1306_SetCursor(56, 25);
-			ssd1306_WriteString("s", Font_16x26, ct[0][0]->nes_data.select ? Black : White);
-			ssd1306_SetCursor(72, 25);
-			ssd1306_WriteString("S", Font_16x26, ct[0][0]->nes_data.start ? Black : White);
-			ssd1306_SetCursor(96, 25);
-			ssd1306_WriteString("B", Font_16x26, ct[0][0]->nes_data.b ? Black : White);
-			ssd1306_SetCursor(112, 25);
-			ssd1306_WriteString("A", Font_16x26, ct[0][0]->nes_data.a ? Black : White);
+			if (ct[0][0]->nes_data.left) ssd1306_Blit_OR(GFX_LEFT, 0, 0, 32, 8);
+			if (ct[0][0]->nes_data.right) ssd1306_Blit_OR(GFX_RIGHT, 32, 0, 32, 8);
+			if (ct[0][0]->nes_data.up) ssd1306_Blit_OR(GFX_UP, 0, 0, 64, 4);
+			if (ct[0][0]->nes_data.down) ssd1306_Blit_OR(GFX_DOWN, 0, 4, 64, 4);
+			if (ct[0][0]->nes_data.select) ssd1306_Blit_OR(GFX_STARTSELECT, 48, 4, 32, 4);
+			if (ct[0][0]->nes_data.start) ssd1306_Blit_OR(GFX_STARTSELECT, 48, 0, 32, 4);
+			if (ct[0][0]->nes_data.b) ssd1306_Blit_OR(GFX_BUTTON, 64, 2, 32, 4);
+			if (ct[0][0]->nes_data.a) ssd1306_Blit_OR(GFX_BUTTON, 96, 2, 32, 4);
+
 			break;
 
 		case CONSOLE_SNES:
 
-			ssd1306_SetCursor(0, 25);
-			ssd1306_WriteString("L", Font_16x26, ct[0][0]->snes_data.left ? Black : White);
-			ssd1306_SetCursor(16, 12);
-			ssd1306_WriteString("U", Font_16x26, ct[0][0]->snes_data.up ? Black : White);
-			ssd1306_SetCursor(16, 38);
-			ssd1306_WriteString("D", Font_16x26, ct[0][0]->snes_data.down ? Black : White);
-			ssd1306_SetCursor(32, 25);
-			ssd1306_WriteString("R", Font_16x26, ct[0][0]->snes_data.right ? Black : White);
-			ssd1306_SetCursor(48, 25);
-			ssd1306_WriteString("s", Font_16x26, ct[0][0]->snes_data.select ? Black : White);
-			ssd1306_SetCursor(64, 25);
-			ssd1306_WriteString("S", Font_16x26, ct[0][0]->snes_data.start ? Black : White);
-			ssd1306_SetCursor(80, 25);
-			ssd1306_WriteString("Y", Font_16x26, ct[0][0]->snes_data.y ? Black : White);
-			ssd1306_SetCursor(96, 12);
-			ssd1306_WriteString("X", Font_16x26, ct[0][0]->snes_data.x ? Black : White);
-			ssd1306_SetCursor(112, 25);
-			ssd1306_WriteString("A", Font_16x26, ct[0][0]->snes_data.a ? Black : White);
-			ssd1306_SetCursor(96, 38);
-			ssd1306_WriteString("B", Font_16x26, ct[0][0]->snes_data.b ? Black : White);
-			ssd1306_SetCursor(0, 0);
-			ssd1306_WriteString("(", Font_16x26, ct[0][0]->snes_data.l ? Black : White);
-			ssd1306_SetCursor(112, 0);
-			ssd1306_WriteString(")", Font_16x26, ct[0][0]->snes_data.r ? Black : White);
+			if (ct[0][0]->snes_data.left) ssd1306_Blit_OR(GFX_LEFT, 0, 0, 32, 8);
+			if (ct[0][0]->snes_data.right) ssd1306_Blit_OR(GFX_RIGHT, 32, 0, 32, 8);
+			if (ct[0][0]->snes_data.up) ssd1306_Blit_OR(GFX_UP, 0, 0, 64, 4);
+			if (ct[0][0]->snes_data.down) ssd1306_Blit_OR(GFX_DOWN, 0, 4, 64, 4);
+			if (ct[0][0]->snes_data.select) ssd1306_Blit_OR(GFX_STARTSELECT, 48, 4, 32, 4);
+			if (ct[0][0]->snes_data.start) ssd1306_Blit_OR(GFX_STARTSELECT, 48, 0, 32, 4);
+			if (ct[0][0]->snes_data.y) ssd1306_Blit_OR(GFX_BUTTON, 64, 2, 32, 4);
+			if (ct[0][0]->snes_data.x) ssd1306_Blit_OR(GFX_BUTTON, 80, 0, 32, 4);
+			if (ct[0][0]->snes_data.a) ssd1306_Blit_OR(GFX_BUTTON, 96, 2, 32, 4);
+			if (ct[0][0]->snes_data.b) ssd1306_Blit_OR(GFX_BUTTON, 80, 4, 32, 4);
+			if (ct[0][0]->snes_data.l) ssd1306_Blit_OR(GFX_L, 0, 0, 32, 4);
+			if (ct[0][0]->snes_data.r) ssd1306_Blit_OR(GFX_R, 96, 0, 32, 4);
+
 			break;
 
 		case CONSOLE_GEN:
@@ -268,7 +250,24 @@ void Menu_Display() {
 		ssd1306_UpdateScreen();
 		break;
 	}
+		//ssd1306_Blit_OR(uint8_t *src, uint8_t x, uint8_t y, uint8_t width, uint8_t height)
+		//ssd1306_Fill(Black);
+		/*ssd1306_Blit_OR(GFX_UP, 0, 0, 64, 4);
+		ssd1306_Blit_OR(GFX_DOWN, 0, 4, 64, 4);
+		ssd1306_Blit_OR(GFX_LEFT, 0, 0, 32, 8);
+		ssd1306_Blit_OR(GFX_RIGHT, 32, 0, 32, 8);
 
+		ssd1306_Blit_OR(GFX_STARTSELECT, 48, 0, 32, 4);
+		ssd1306_Blit_OR(GFX_STARTSELECT, 48, 4, 32, 4);
+
+		ssd1306_Blit_OR(GFX_BUTTON, 80, 0, 32, 4);
+		ssd1306_Blit_OR(GFX_BUTTON, 80, 4, 32, 4);
+		ssd1306_Blit_OR(GFX_BUTTON, 64, 2, 32, 4);
+		ssd1306_Blit_OR(GFX_BUTTON, 96, 2, 32, 4);
+
+		ssd1306_Blit_OR(GFX_L, 0, 0, 32, 4);
+		ssd1306_Blit_OR(GFX_R, 96, 0, 32, 4);*/
+		//ssd1306_UpdateScreen();
 }
 
 void Menu_Init() {

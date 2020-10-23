@@ -20,11 +20,20 @@ typedef enum
 
 extern PlaybackState USBPlaybackState;
 
+extern const uint8_t GFX_UP[];
+extern const uint8_t GFX_DOWN[];
+extern const uint8_t GFX_LEFT[];
+extern const uint8_t GFX_RIGHT[];
+extern const uint8_t GFX_STARTSELECT[];
+extern const uint8_t GFX_BUTTON[];
+extern const uint8_t GFX_R[];
+extern const uint8_t GFX_L[];
 uint8_t USB_Playback_Init();
 void USB_Playback_Task();
 void USB_Start_Tas(char *file);
 void USB_Stop_TAS();
 void USB_Playback_Task();
 int load_tcf(char *filename);
+
 
 #endif /* USBPLAYBACK_USBPLAYBACK_H_ */
