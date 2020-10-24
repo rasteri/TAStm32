@@ -175,31 +175,70 @@ void Menu_Display() {
 
 		case CONSOLE_NES:
 
-			if (ct[0][0]->nes_data.left) ssd1306_Blit_OR(GFX_LEFT, 0, 0, 32, 8);
+			/*if (ct[0][0]->nes_data.left) ssd1306_Blit_OR(GFX_LEFT, 0, 0, 32, 8);
 			if (ct[0][0]->nes_data.right) ssd1306_Blit_OR(GFX_RIGHT, 32, 0, 32, 8);
 			if (ct[0][0]->nes_data.up) ssd1306_Blit_OR(GFX_UP, 0, 0, 64, 4);
 			if (ct[0][0]->nes_data.down) ssd1306_Blit_OR(GFX_DOWN, 0, 4, 64, 4);
 			if (ct[0][0]->nes_data.select) ssd1306_Blit_OR(GFX_STARTSELECT, 48, 4, 32, 4);
 			if (ct[0][0]->nes_data.start) ssd1306_Blit_OR(GFX_STARTSELECT, 48, 0, 32, 4);
 			if (ct[0][0]->nes_data.b) ssd1306_Blit_OR(GFX_BUTTON, 64, 2, 32, 4);
-			if (ct[0][0]->nes_data.a) ssd1306_Blit_OR(GFX_BUTTON, 96, 2, 32, 4);
+			if (ct[0][0]->nes_data.a) ssd1306_Blit_OR(GFX_BUTTON, 96, 2, 32, 4);*/
 
 			break;
 
 		case CONSOLE_SNES:
 
-			if (ct[0][0]->snes_data.left) ssd1306_Blit_OR(GFX_LEFT, 0, 0, 32, 8);
-			if (ct[0][0]->snes_data.right) ssd1306_Blit_OR(GFX_RIGHT, 32, 0, 32, 8);
-			if (ct[0][0]->snes_data.up) ssd1306_Blit_OR(GFX_UP, 0, 0, 64, 4);
-			if (ct[0][0]->snes_data.down) ssd1306_Blit_OR(GFX_DOWN, 0, 4, 64, 4);
-			if (ct[0][0]->snes_data.select) ssd1306_Blit_OR(GFX_STARTSELECT, 48, 4, 32, 4);
-			if (ct[0][0]->snes_data.start) ssd1306_Blit_OR(GFX_STARTSELECT, 48, 0, 32, 4);
+			ssd1306_Blit_OR(ct[0][0]->snes_data.left ? GFX_DIAMOND : GFX_DIAMOND_BG, 0, 2, 32, 4);
+			ssd1306_SetCursor(11, 24);
+			ssd1306_WriteString("L", Font_11x18, ct[0][0]->snes_data.left ? Black : White);
+
+			ssd1306_Blit_OR(ct[0][0]->snes_data.right? GFX_DIAMOND : GFX_DIAMOND_BG, 32, 2, 32, 4);
+			ssd1306_SetCursor(43, 24);
+			ssd1306_WriteString("R", Font_11x18, ct[0][0]->snes_data.right ? Black : White);
+
+			ssd1306_Blit_OR(ct[0][0]->snes_data.up? GFX_DIAMOND : GFX_DIAMOND_BG, 16, 0, 32, 4);
+			ssd1306_SetCursor(27, 8);
+			ssd1306_WriteString("U", Font_11x18, ct[0][0]->snes_data.up ? Black : White);
+
+			ssd1306_Blit_OR(ct[0][0]->snes_data.down? GFX_DIAMOND : GFX_DIAMOND_BG, 16, 4, 32, 4);
+			ssd1306_SetCursor(27, 40);
+			ssd1306_WriteString("D", Font_11x18, ct[0][0]->snes_data.down ? Black : White);
+
+
+			if (ct[0][0]->snes_data.select) ssd1306_Blit_OR(GFX_DIAMOND, 48, 4, 32, 4);
+			ssd1306_SetCursor(57, 42);
+			ssd1306_WriteString("se", Font_7x10, ct[0][0]->snes_data.select ? Black : White);
+
+			if (ct[0][0]->snes_data.start) ssd1306_Blit_OR(GFX_DIAMOND, 48, 0, 32, 4);
+			ssd1306_SetCursor(57, 10);
+			ssd1306_WriteString("st", Font_7x10, ct[0][0]->snes_data.start ? Black : White);
+
+
+			ssd1306_Blit_OR(GFX_BUTTONS_BG, 64, 0, 64, 8);
+
 			if (ct[0][0]->snes_data.y) ssd1306_Blit_OR(GFX_BUTTON, 64, 2, 32, 4);
+			ssd1306_SetCursor(75, 24);
+			ssd1306_WriteString("Y", Font_11x18, ct[0][0]->snes_data.y ? Black : White);
+
 			if (ct[0][0]->snes_data.x) ssd1306_Blit_OR(GFX_BUTTON, 80, 0, 32, 4);
+			ssd1306_SetCursor(91, 8);
+			ssd1306_WriteString("X", Font_11x18, ct[0][0]->snes_data.x ? Black : White);
+
 			if (ct[0][0]->snes_data.a) ssd1306_Blit_OR(GFX_BUTTON, 96, 2, 32, 4);
+			ssd1306_SetCursor(107, 24);
+			ssd1306_WriteString("A", Font_11x18, ct[0][0]->snes_data.a ? Black : White);
+
 			if (ct[0][0]->snes_data.b) ssd1306_Blit_OR(GFX_BUTTON, 80, 4, 32, 4);
+			ssd1306_SetCursor(91, 40);
+			ssd1306_WriteString("B", Font_11x18, ct[0][0]->snes_data.b ? Black : White);
+
 			if (ct[0][0]->snes_data.l) ssd1306_Blit_OR(GFX_L, 0, 0, 32, 4);
+			ssd1306_SetCursor(0, 0);
+			ssd1306_WriteString("L", Font_11x18, ct[0][0]->snes_data.l ? Black : White);
+
 			if (ct[0][0]->snes_data.r) ssd1306_Blit_OR(GFX_R, 96, 0, 32, 4);
+			ssd1306_SetCursor(116, 0);
+			ssd1306_WriteString("R", Font_11x18, ct[0][0]->snes_data.r ? Black : White);
 
 			break;
 
