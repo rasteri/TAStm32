@@ -21,11 +21,9 @@ MenuType CurrentMenu;
 
 int16_t cursorPos = 0;
 int16_t displayPos = 0;
-bool USBok = 0;
 
 char currentFilename[256];
 
-FATFS TASDrive;
 
 unsigned long stepNextThink = 0;
 
@@ -73,11 +71,15 @@ void Menu_HoldDown() {
 	}
 }
 
-void Menu_Settings(){
+void Menu_Settings() {
 	if (CurrentMenu == MENUTYPE_TASINPUTS)
 		CurrentMenu = MENUTYPE_TASSTATS;
 	else if (CurrentMenu == MENUTYPE_TASSTATS)
 		CurrentMenu = MENUTYPE_TASINPUTS;
+}
+
+void Menu_Mount_Drive() {
+
 }
 
 void Menu_Display() {
@@ -93,7 +95,7 @@ void Menu_Display() {
 	case MENUTYPE_BROWSER:
 
 		// if USB host initiated run, switch menu
-		if (tasrun->initialized){
+		if (tasrun->initialized) {
 			CurrentMenu = MENUTYPE_TASINPUTS;
 			break;
 		}
@@ -128,7 +130,7 @@ void Menu_Display() {
 					}
 
 					// Skip directories
-					if (fno.fattrib & AM_DIR){
+					if (fno.fattrib & AM_DIR) {
 						cnt--;
 						continue;
 					}
@@ -136,27 +138,25 @@ void Menu_Display() {
 						SSD1306_COLOR textColor = White;
 						if (cnt == cursorPos) {
 							textColor = Black;
-							strcpy(currentFilename, fno.fname[0] == '\0' ? fno.altname : fno.fname);
+							strcpy(currentFilename,
+									fno.fname[0] == '\0' ?
+											fno.altname : fno.fname);
 						}
 						ssd1306_SetCursor(0, lineNo * 8);
-						ssd1306_WriteString(fno.fname[0] == '\0' ? fno.altname : fno.fname, Font_6x8, textColor);
+						ssd1306_WriteString(
+								fno.fname[0] == '\0' ? fno.altname : fno.fname,
+								Font_6x8, textColor);
 						lineNo++;
 					}
 				}
 				ssd1306_UpdateScreen();
 			}
 		} else {
-			res = f_mount(&TASDrive, (TCHAR const*) USBHPath, 1);
-			if (res == FR_OK) {
-				USBok = 1;
-
-			} else {
-				ssd1306_Fill(Black);
-				ssd1306_SetCursor(0, 0);
-				sprintf(temp, "No USB");
-				ssd1306_WriteString(temp, Font_16x26, White);
-				ssd1306_UpdateScreen();
-			}
+			ssd1306_Fill(Black);
+			ssd1306_SetCursor(0, 0);
+			sprintf(temp, "No USB");
+			ssd1306_WriteString(temp, Font_16x26, White);
+			ssd1306_UpdateScreen();
 		}
 		break;
 
@@ -176,72 +176,99 @@ void Menu_Display() {
 		case CONSOLE_NES:
 
 			ssd1306_SetCursor(0, 25);
-			ssd1306_WriteString("L", Font_16x26, ct[0][0]->nes_data.left ? Black : White);
+			ssd1306_WriteString("L", Font_16x26,
+					ct[0][0]->nes_data.left ? Black : White);
 			ssd1306_SetCursor(16, 12);
-			ssd1306_WriteString("U", Font_16x26, ct[0][0]->nes_data.up ? Black : White);
+			ssd1306_WriteString("U", Font_16x26,
+					ct[0][0]->nes_data.up ? Black : White);
 			ssd1306_SetCursor(16, 38);
-			ssd1306_WriteString("D", Font_16x26, ct[0][0]->nes_data.down ? Black : White);
+			ssd1306_WriteString("D", Font_16x26,
+					ct[0][0]->nes_data.down ? Black : White);
 			ssd1306_SetCursor(32, 25);
-			ssd1306_WriteString("R", Font_16x26, ct[0][0]->nes_data.right ? Black : White);
+			ssd1306_WriteString("R", Font_16x26,
+					ct[0][0]->nes_data.right ? Black : White);
 			ssd1306_SetCursor(56, 25);
-			ssd1306_WriteString("s", Font_16x26, ct[0][0]->nes_data.select ? Black : White);
+			ssd1306_WriteString("s", Font_16x26,
+					ct[0][0]->nes_data.select ? Black : White);
 			ssd1306_SetCursor(72, 25);
-			ssd1306_WriteString("S", Font_16x26, ct[0][0]->nes_data.start ? Black : White);
+			ssd1306_WriteString("S", Font_16x26,
+					ct[0][0]->nes_data.start ? Black : White);
 			ssd1306_SetCursor(96, 25);
-			ssd1306_WriteString("B", Font_16x26, ct[0][0]->nes_data.b ? Black : White);
+			ssd1306_WriteString("B", Font_16x26,
+					ct[0][0]->nes_data.b ? Black : White);
 			ssd1306_SetCursor(112, 25);
-			ssd1306_WriteString("A", Font_16x26, ct[0][0]->nes_data.a ? Black : White);
+			ssd1306_WriteString("A", Font_16x26,
+					ct[0][0]->nes_data.a ? Black : White);
 			break;
 
 		case CONSOLE_SNES:
 
 			ssd1306_SetCursor(0, 25);
-			ssd1306_WriteString("L", Font_16x26, ct[0][0]->snes_data.left ? Black : White);
+			ssd1306_WriteString("L", Font_16x26,
+					ct[0][0]->snes_data.left ? Black : White);
 			ssd1306_SetCursor(16, 12);
-			ssd1306_WriteString("U", Font_16x26, ct[0][0]->snes_data.up ? Black : White);
+			ssd1306_WriteString("U", Font_16x26,
+					ct[0][0]->snes_data.up ? Black : White);
 			ssd1306_SetCursor(16, 38);
-			ssd1306_WriteString("D", Font_16x26, ct[0][0]->snes_data.down ? Black : White);
+			ssd1306_WriteString("D", Font_16x26,
+					ct[0][0]->snes_data.down ? Black : White);
 			ssd1306_SetCursor(32, 25);
-			ssd1306_WriteString("R", Font_16x26, ct[0][0]->snes_data.right ? Black : White);
+			ssd1306_WriteString("R", Font_16x26,
+					ct[0][0]->snes_data.right ? Black : White);
 			ssd1306_SetCursor(48, 25);
-			ssd1306_WriteString("s", Font_16x26, ct[0][0]->snes_data.select ? Black : White);
+			ssd1306_WriteString("s", Font_16x26,
+					ct[0][0]->snes_data.select ? Black : White);
 			ssd1306_SetCursor(64, 25);
-			ssd1306_WriteString("S", Font_16x26, ct[0][0]->snes_data.start ? Black : White);
+			ssd1306_WriteString("S", Font_16x26,
+					ct[0][0]->snes_data.start ? Black : White);
 			ssd1306_SetCursor(80, 25);
-			ssd1306_WriteString("Y", Font_16x26, ct[0][0]->snes_data.y ? Black : White);
+			ssd1306_WriteString("Y", Font_16x26,
+					ct[0][0]->snes_data.y ? Black : White);
 			ssd1306_SetCursor(96, 12);
-			ssd1306_WriteString("X", Font_16x26, ct[0][0]->snes_data.x ? Black : White);
+			ssd1306_WriteString("X", Font_16x26,
+					ct[0][0]->snes_data.x ? Black : White);
 			ssd1306_SetCursor(112, 25);
-			ssd1306_WriteString("A", Font_16x26, ct[0][0]->snes_data.a ? Black : White);
+			ssd1306_WriteString("A", Font_16x26,
+					ct[0][0]->snes_data.a ? Black : White);
 			ssd1306_SetCursor(96, 38);
-			ssd1306_WriteString("B", Font_16x26, ct[0][0]->snes_data.b ? Black : White);
+			ssd1306_WriteString("B", Font_16x26,
+					ct[0][0]->snes_data.b ? Black : White);
 			ssd1306_SetCursor(0, 0);
-			ssd1306_WriteString("(", Font_16x26, ct[0][0]->snes_data.l ? Black : White);
+			ssd1306_WriteString("(", Font_16x26,
+					ct[0][0]->snes_data.l ? Black : White);
 			ssd1306_SetCursor(112, 0);
-			ssd1306_WriteString(")", Font_16x26, ct[0][0]->snes_data.r ? Black : White);
+			ssd1306_WriteString(")", Font_16x26,
+					ct[0][0]->snes_data.r ? Black : White);
 			break;
 
 		case CONSOLE_GEN:
 
 			ssd1306_SetCursor(0, 25);
-			ssd1306_WriteString("L", Font_16x26, ct[0][0]->gen_data.left ? Black : White);
+			ssd1306_WriteString("L", Font_16x26,
+					ct[0][0]->gen_data.left ? Black : White);
 			ssd1306_SetCursor(16, 12);
-			ssd1306_WriteString("U", Font_16x26, ct[0][0]->gen_data.up ? Black : White);
+			ssd1306_WriteString("U", Font_16x26,
+					ct[0][0]->gen_data.up ? Black : White);
 			ssd1306_SetCursor(16, 38);
-			ssd1306_WriteString("D", Font_16x26, ct[0][0]->gen_data.down ? Black : White);
+			ssd1306_WriteString("D", Font_16x26,
+					ct[0][0]->gen_data.down ? Black : White);
 			ssd1306_SetCursor(32, 25);
-			ssd1306_WriteString("R", Font_16x26, ct[0][0]->gen_data.right ? Black : White);
+			ssd1306_WriteString("R", Font_16x26,
+					ct[0][0]->gen_data.right ? Black : White);
 			ssd1306_SetCursor(56, 25);
-			ssd1306_WriteString("S", Font_16x26, ct[0][0]->gen_data.start ? Black : White);
+			ssd1306_WriteString("S", Font_16x26,
+					ct[0][0]->gen_data.start ? Black : White);
 			ssd1306_SetCursor(72, 25);
-			ssd1306_WriteString("A", Font_16x26, ct[0][0]->gen_data.a ? Black : White);
+			ssd1306_WriteString("A", Font_16x26,
+					ct[0][0]->gen_data.a ? Black : White);
 			ssd1306_SetCursor(96, 25);
-			ssd1306_WriteString("B", Font_16x26, ct[0][0]->gen_data.b ? Black : White);
+			ssd1306_WriteString("B", Font_16x26,
+					ct[0][0]->gen_data.b ? Black : White);
 			ssd1306_SetCursor(112, 25);
-			ssd1306_WriteString("C", Font_16x26, ct[0][0]->gen_data.c ? Black : White);
+			ssd1306_WriteString("C", Font_16x26,
+					ct[0][0]->gen_data.c ? Black : White);
 
 			break;
-
 
 		default:
 			break;

@@ -43,6 +43,7 @@
 #include "usbd_cdc_if.h"
 #include "serial_interface.h"
 #include "usbplayback/inputs.h"
+#include "usbplayback/usbplayback.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -558,11 +559,12 @@ void EXTI1_IRQHandler(void)
 					}
 				}
 			}
-
+			if (!TASPAD){
 			// vis board code = 16 clock pulses followed by a latch pulse
-			memcpy(V1_GPIOB_current, V1_GPIOB_next, 64);
-			memcpy(V2_GPIOC_current, V2_GPIOC_next, 64);
-			UpdateVisBoards();
+				memcpy(V1_GPIOB_current, V1_GPIOB_next, 64);
+				memcpy(V2_GPIOC_current, V2_GPIOC_next, 64);
+				UpdateVisBoards();
+			}
 		}
 		else if(recentLatch == 1) // multiple close latches and DPCM fix is enabled
 		{

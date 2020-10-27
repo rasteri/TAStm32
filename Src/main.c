@@ -154,7 +154,7 @@ int main(void)
   screenOK = USB_Playback_Init();
 
   // Only start the input process timer if the screen has been detected
-  if (screenOK) HAL_TIM_Base_Start_IT(&htim2);
+  if (screenOK || TASPAD) HAL_TIM_Base_Start_IT(&htim2);
 
   /* USER CODE END 2 */
 
@@ -172,7 +172,7 @@ int main(void)
 	  }
 
 	  // Only run USB playback task if screen has been detected
-	  if (screenOK)
+	  if (TASPAD || screenOK)
 		  USB_Playback_Task();
 
   }
