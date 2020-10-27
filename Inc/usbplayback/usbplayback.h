@@ -29,13 +29,14 @@ extern const uint8_t GFX_UP_ON[];
 extern const uint8_t GFX_UP_OFF[];
 extern const uint8_t GFX_RIGHT_ON[];
 extern const uint8_t GFX_RIGHT_OFF[];
+extern const uint8_t GFX_LEFT_ON[];
+extern const uint8_t GFX_LEFT_OFF[];
 extern const uint8_t GFX_BUTTONS_BG[];
 extern const uint8_t GFX_BUTTON[];
 extern const uint8_t GFX_R[];
 extern const uint8_t GFX_L[];
 
 uint8_t USB_Playback_Init();
-void USB_Playback_Task();
 void USB_Start_Tas(char *file);
 void USB_Stop_TAS();
 void USB_Playback_Task();
