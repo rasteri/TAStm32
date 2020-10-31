@@ -29,7 +29,7 @@ uint8_t screenOK = 0;
 FATFS TASDrive;
 bool USBok = 0;
 
-uint8_t taspadding = 0;
+uint8_t tasPadding = 0;
 
 NESControllerData taspad_data;
 
@@ -104,6 +104,7 @@ void Start_TasPad(){
 	TASRunSetNumControllers(1);
 	TASRunSetNumDataLanes(1);
 	tasPadding = 1;
+	Initialize_Run();
 }
 
 // Start a TAS with the specified filename
@@ -112,6 +113,7 @@ void USB_Start_Tas(char *file) {
 	char *tasfile = NULL;
 	char *extension = strrchr(file, '.');
 	readcount = 0;
+	tasPadding = 0;
 	ResetRun();
 
 	// Extension is tcf, grab parameters from it
@@ -187,7 +189,7 @@ void USB_Playback_Task() {
 	static UINT br;
 	static uint8_t buffer[512];
 	static FRESULT res;
-
+	NESControllerData nes_data = {0};
 	if (!USBok){
 		res = f_mount(&TASDrive, (TCHAR const*) USBHPath, 1);
 		if (res == FR_OK) {
@@ -222,7 +224,7 @@ void USB_Playback_Task() {
 
 	case RUNSTATE_TASPAD:
 
-		NESControllerData nes_data;
+
 		nes_data.up = ~HAL_GPIO_ReadPin(TASPAD_UP_GPIO_Port, TASPAD_UP_Pin);
 		nes_data.down = ~HAL_GPIO_ReadPin(TASPAD_DOWN_GPIO_Port, TASPAD_DOWN_Pin);
 		nes_data.left = ~HAL_GPIO_ReadPin(TASPAD_LEFT_GPIO_Port, TASPAD_LEFT_Pin);
@@ -245,8 +247,8 @@ void USB_Playback_Task() {
 
 		}
 		// run once per run
-		if (!tasrun->initialized && tasrun->size > 0)
-			Initialize_Run();
+		//if (!tasrun->initialized && tasrun->size > 0)
+		//	Initialize_Run();
 
 
 		break;

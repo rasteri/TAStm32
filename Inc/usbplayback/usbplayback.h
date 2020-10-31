@@ -27,7 +27,9 @@
 extern bool USBok;
 
 extern NESControllerData taspad_data;
-extern uint8_t taspadding = 0;
+extern uint8_t tasPadding;
+
+void Start_TasPad();
 
 typedef enum
 {

@@ -225,6 +225,31 @@ void EXTI0_IRQHandler(void)
   /* USER CODE BEGIN EXTI0_IRQn 0 */
 	// P1_CLOCK
 
+
+#ifdef TASPAD
+
+	if (tasPadding){
+		uint8_t out = 0;
+		switch (p1_current_bit)
+		{
+		case 7: if (TASPAD_RIGHT_GPIO_Port->IDR & TASPAD_RIGHT_Pin) out = 1; break;
+		case 6: if (TASPAD_LEFT_GPIO_Port->IDR & TASPAD_LEFT_Pin) out = 1; break;
+		case 5: if (TASPAD_DOWN_GPIO_Port->IDR & TASPAD_DOWN_Pin) out = 1; break;
+		case 4: if (TASPAD_UP_GPIO_Port->IDR & TASPAD_UP_Pin) out = 1; break;
+		case 3: if (TASPAD_START_GPIO_Port->IDR & TASPAD_START_Pin) out = 1; break;
+		case 2: if (TASPAD_SELECT_GPIO_Port->IDR & TASPAD_SELECT_Pin) out = 1; break;
+		case 1: if (TASPAD_B_GPIO_Port->IDR & TASPAD_B_Pin) out = 1; break;
+		//case 0: if (TASPAD_A_GPIO_Port->IDR & TASPAD_A_Pin) out = 1; break;
+		default : out=1; break;
+		}
+
+		if (out) GPIOC->BSRR = 1 << P1_D0_HIGH_C;
+		else GPIOC->BSRR = 1 << P1_D0_LOW_C;
+		p1_current_bit++;
+	}
+	else
+#endif
+
 	if(!p1_clock_filtered)
 	{
 		if(clockFix)
@@ -303,6 +328,17 @@ void EXTI1_IRQHandler(void)
 	}
 	else
 	{
+#ifdef TASPAD
+		if (tasPadding){
+			if (TASPAD_A_GPIO_Port->IDR & TASPAD_A_Pin)
+				GPIOC->BSRR = 1 << P1_D0_HIGH_C;
+			else
+				GPIOC->BSRR = 1 << P1_D0_LOW_C;
+
+				p1_current_bit = p2_current_bit = 1; // set the next bit to be read
+		}
+		else
+#endif
 		if(recentLatch == 0) // no recent latch
 		{
 			// quickly set first bit of data for the next frame
