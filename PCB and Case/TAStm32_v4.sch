@@ -9181,6 +9181,7 @@ by exp-lbrs.ulp</description>
 <smd name="2" x="0.45" y="3.87" dx="2.2" dy="1.4" layer="1"/>
 <smd name="3" x="6.75" y="3.87" dx="2.2" dy="1.4" layer="1"/>
 <smd name="4" x="6.65" y="1.32" dx="2.4" dy="1.4" layer="1"/>
+<text x="-1.27" y="6.35" size="1.778" layer="21">&gt;NAME</text>
 </package>
 <package name="OLED">
 <wire x1="-11" y1="5.5" x2="-11" y2="-5.5" width="0.127" layer="51"/>
