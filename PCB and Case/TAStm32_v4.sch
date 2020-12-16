@@ -9943,7 +9943,7 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <part name="J3" library="TAStm32_v4" deviceset="OLED128X64" device=""/>
 <part name="J12" library="SOICbite_Eagle" deviceset="SOICBITE" device="" override_package3d_urn="urn:adsk.eagle:package:18876678/2" override_package_urn="urn:adsk.eagle:footprint:18876679/1"/>
 <part name="J5" library="SamacSys_Parts" deviceset="95278-802A12LF" device=""/>
-<part name="U2" library="linear" library_urn="urn:adsk.eagle:library:262" deviceset="MC33269ST*" device="" package3d_urn="urn:adsk.eagle:package:28541/2" technology="-3.3T3" value="3.3V"/>
+<part name="U2" library="linear" library_urn="urn:adsk.eagle:library:262" deviceset="MC33269ST*" device="" package3d_urn="urn:adsk.eagle:package:28541/2" technology="-3.3T3" value="3.3V REG"/>
 <part name="SUPPLY5" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="V+" device=""/>
 <part name="GND9" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND16" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -9969,7 +9969,7 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <text x="-116.84" y="43.18" size="2.54" layer="97">MCU</text>
 <text x="-7.62" y="48.26" size="2.54" layer="97">Debug/expansion ports</text>
 <text x="38.1" y="-38.1" size="2.54" layer="97">OLED Display</text>
-<text x="76.2" y="-43.18" size="2.54" layer="97">Console Reset</text>
+<text x="-22.86" y="-63.5" size="2.54" layer="97">Console Reset</text>
 <text x="58.42" y="86.36" size="2.54" layer="97">Controller Outputs</text>
 <text x="55.88" y="22.86" size="2.54" layer="97">Visualization Outputs</text>
 </plain>
@@ -10005,11 +10005,11 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 </instance>
 <instance part="GND12" gate="1" x="-71.12" y="60.96" smashed="yes"/>
 <instance part="C6" gate="G$1" x="-78.74" y="68.58" smashed="yes" rot="R180">
-<attribute name="NAME" x="-82.296" y="66.421" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-77.216" y="66.421" size="1.778" layer="96"/>
+<attribute name="NAME" x="-82.296" y="71.501" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-80.264" y="68.199" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="C7" gate="G$1" x="-60.96" y="68.58" smashed="yes" rot="R180">
-<attribute name="NAME" x="-64.516" y="66.421" size="1.778" layer="95"/>
+<attribute name="NAME" x="-59.436" y="71.501" size="1.778" layer="95"/>
 <attribute name="VALUE" x="-59.436" y="66.421" size="1.778" layer="96"/>
 </instance>
 <instance part="SUPPLY4" gate="+5V" x="-78.74" y="78.74" smashed="yes">
@@ -10021,15 +10021,15 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <attribute name="VALUE" x="-129.5403" y="56.1333" size="1.778109375" layer="96"/>
 </instance>
 <instance part="J10" gate="G$1" x="93.98" y="58.42" smashed="yes" rot="MR180">
-<attribute name="NAME" x="83.8131" y="29.9526" size="1.779209375" layer="95" rot="MR180"/>
+<attribute name="NAME" x="83.8131" y="29.9526" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="83.814" y="85.8682" size="1.77905" layer="96" rot="MR180"/>
 </instance>
 <instance part="J11" gate="G$1" x="93.98" y="-5.08" smashed="yes" rot="MR180">
-<attribute name="NAME" x="83.8131" y="22.3326" size="1.779209375" layer="95" rot="MR180"/>
+<attribute name="NAME" x="83.8131" y="22.3326" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="83.814" y="-33.5118" size="1.77905" layer="96" rot="MR180"/>
 </instance>
-<instance part="J4" gate="A" x="99.06" y="-48.26" smashed="yes">
-<attribute name="NAME" x="102.87" y="-44.45" size="1.778" layer="95"/>
+<instance part="J4" gate="A" x="0" y="-68.58" smashed="yes">
+<attribute name="NAME" x="3.81" y="-64.77" size="1.778" layer="95"/>
 </instance>
 <instance part="J6" gate="A" x="58.42" y="78.74" smashed="yes">
 <attribute name="NAME" x="58.42" y="83.82" size="1.778" layer="95"/>
@@ -10141,8 +10141,8 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <attribute name="NAME" x="19.05" y="45.72" size="1.778" layer="95" align="center-left"/>
 </instance>
 <instance part="U2" gate="G$1" x="-71.12" y="71.12" smashed="yes">
-<attribute name="NAME" x="-76.2" y="78.74" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-69.85" y="78.74" size="1.778" layer="96"/>
+<attribute name="NAME" x="-73.66" y="81.28" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-74.93" y="78.74" size="1.778" layer="96"/>
 </instance>
 <instance part="SUPPLY5" gate="1" x="-137.16" y="40.64" smashed="yes">
 <attribute name="VALUE" x="-138.43" y="41.91" size="1.778" layer="96"/>
@@ -10157,7 +10157,7 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <instance part="GND22" gate="1" x="78.74" y="-10.16" smashed="yes"/>
 <instance part="GND23" gate="1" x="78.74" y="-33.02" smashed="yes"/>
 <instance part="GND24" gate="1" x="53.34" y="-30.48" smashed="yes"/>
-<instance part="GND25" gate="1" x="93.98" y="-53.34" smashed="yes"/>
+<instance part="GND25" gate="1" x="-5.08" y="-73.66" smashed="yes"/>
 <instance part="R1" gate="G$1" x="30.48" y="-38.1" smashed="yes" rot="R90">
 <attribute name="NAME" x="28.9814" y="-44.45" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="28.702" y="-39.37" size="1.778" layer="96" rot="R90"/>
@@ -10846,8 +10846,8 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <pinref part="U1" gate="G$1" pin="PA9"/>
 </segment>
 <segment>
-<wire x1="93.98" y1="-48.26" x2="91.44" y2="-48.26" width="0.1524" layer="91"/>
-<label x="91.44" y="-48.26" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="-5.08" y1="-68.58" x2="-7.62" y2="-68.58" width="0.1524" layer="91"/>
+<label x="-7.62" y="-68.58" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="J4" gate="A" pin="1"/>
 </segment>
 </net>
