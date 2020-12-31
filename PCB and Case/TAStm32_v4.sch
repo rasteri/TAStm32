@@ -9911,7 +9911,6 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <part name="J7" library="TAStm32_v4" deviceset="SAMTEC-TSM-106-01-X-SV_SAMTEC-TSM-106-01-X-SV" device="J"/>
 <part name="J8" library="TAStm32_v4" deviceset="SAMTEC-TSM-106-01-X-SV_SAMTEC-TSM-106-01-X-SV" device="J"/>
 <part name="J9" library="TAStm32_v4" deviceset="SAMTEC-TSM-106-01-X-SV_SAMTEC-TSM-106-01-X-SV" device="J"/>
-<part name="C13" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" override_package3d_urn="urn:adsk.eagle:package:18909475/2" override_package_urn="urn:adsk.eagle:footprint:23123/1" value="DNP"/>
 <part name="S1" library="3-1825910-1" deviceset="SWITCHN" device=""/>
 <part name="S2" library="3-1825910-1" deviceset="SWITCHN" device=""/>
 <part name="S3" library="3-1825910-1" deviceset="SWITCHN" device=""/>
@@ -9960,6 +9959,9 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="4.7K"/>
 <part name="SUPPLY8" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="V+" device=""/>
 <part name="SUPPLY9" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="V+" device=""/>
+<part name="SUPPLY10" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="V+" device=""/>
+<part name="SUPPLY11" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="V+" device=""/>
+<part name="J13" library="TAStm32_v4" deviceset="SAMTEC-TSM-102-01-X-SH_SAMTEC-TSM-102-01-X-SH" device="J" value="CONSOLE_RESET"/>
 </parts>
 <sheets>
 <sheet>
@@ -10042,10 +10044,6 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 </instance>
 <instance part="J9" gate="A" x="58.42" y="-15.24" smashed="yes">
 <attribute name="NAME" x="58.42" y="-10.16" size="1.778" layer="95"/>
-</instance>
-<instance part="C13" gate="G$1" x="-137.16" y="30.48" smashed="yes">
-<attribute name="NAME" x="-135.636" y="30.861" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-135.636" y="25.781" size="1.778" layer="96"/>
 </instance>
 <instance part="S1" gate="G$1" x="-134.62" y="2.54" smashed="yes">
 <attribute name="NAME" x="-140.97" y="3.81" size="1.778" layer="95" align="center-left"/>
@@ -10171,6 +10169,15 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 </instance>
 <instance part="SUPPLY9" gate="1" x="33.02" y="-30.48" smashed="yes" rot="MR0">
 <attribute name="VALUE" x="36.83" y="-29.21" size="1.778" layer="96" rot="MR0"/>
+</instance>
+<instance part="SUPPLY10" gate="1" x="40.64" y="10.16" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="39.37" y="8.89" size="1.778" layer="96" rot="MR0"/>
+</instance>
+<instance part="SUPPLY11" gate="1" x="40.64" y="-20.32" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="39.37" y="-21.59" size="1.778" layer="96" rot="MR0"/>
+</instance>
+<instance part="J13" gate="A" x="-132.08" y="33.02" smashed="yes">
+<attribute name="NAME" x="-128.27" y="36.83" size="1.778" layer="95"/>
 </instance>
 </instances>
 <busses>
@@ -10386,9 +10393,10 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <segment>
 <pinref part="R2" gate="G$1" pin="2"/>
 <wire x1="-121.92" y1="25.4" x2="-137.16" y2="25.4" width="0.1524" layer="91"/>
-<junction x="-137.16" y="25.4"/>
-<pinref part="C13" gate="G$1" pin="2"/>
 <pinref part="U1" gate="G$1" pin="BOOT0"/>
+<pinref part="J13" gate="A" pin="2"/>
+<wire x1="-137.16" y1="30.48" x2="-137.16" y2="25.4" width="0.1524" layer="91"/>
+<junction x="-137.16" y="25.4"/>
 </segment>
 </net>
 <net name="NRST" class="0">
@@ -10746,11 +10754,6 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <label x="76.2" y="-25.4" size="1.27" layer="95" rot="MR0" xref="yes"/>
 <pinref part="J11" gate="G$1" pin="L3"/>
 </segment>
-<segment>
-<wire x1="53.34" y1="-25.4" x2="50.8" y2="-25.4" width="0.1524" layer="91"/>
-<label x="50.8" y="-25.4" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="J9" gate="A" pin="5"/>
-</segment>
 </net>
 <net name="V1_CLOCK" class="0">
 <segment>
@@ -10832,11 +10835,6 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <wire x1="78.74" y1="5.08" x2="76.2" y2="5.08" width="0.1524" layer="91"/>
 <label x="76.2" y="5.08" size="1.27" layer="95" rot="MR0" xref="yes"/>
 <pinref part="J11" gate="G$1" pin="R3"/>
-</segment>
-<segment>
-<wire x1="53.34" y1="5.08" x2="50.8" y2="5.08" width="0.1524" layer="91"/>
-<label x="50.8" y="5.08" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="J8" gate="A" pin="5"/>
 </segment>
 </net>
 <net name="SNES_RESET" class="0">
@@ -10950,9 +10948,9 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <pinref part="J11" gate="G$1" pin="L2"/>
 </segment>
 <segment>
-<pinref part="C13" gate="G$1" pin="1"/>
 <pinref part="SUPPLY5" gate="1" pin="V+"/>
 <wire x1="-137.16" y1="38.1" x2="-137.16" y2="33.02" width="0.1524" layer="91"/>
+<pinref part="J13" gate="A" pin="1"/>
 </segment>
 <segment>
 <pinref part="J12" gate="G$1" pin="P$1"/>
@@ -10966,6 +10964,18 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <segment>
 <pinref part="R3" gate="G$1" pin="2"/>
 <pinref part="SUPPLY9" gate="1" pin="V+"/>
+</segment>
+<segment>
+<pinref part="J8" gate="A" pin="5"/>
+<pinref part="SUPPLY10" gate="1" pin="V+"/>
+<wire x1="53.34" y1="5.08" x2="40.64" y2="5.08" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="5.08" x2="40.64" y2="7.62" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="J9" gate="A" pin="5"/>
+<pinref part="SUPPLY11" gate="1" pin="V+"/>
+<wire x1="53.34" y1="-25.4" x2="40.64" y2="-25.4" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="-25.4" x2="40.64" y2="-22.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$2" class="0">

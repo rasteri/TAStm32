@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="6" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="0.5" altunitdist="mm" altunit="mm"/>
+<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="no" altdistance="0.5" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -44,11 +44,11 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="yes"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
-<layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
@@ -167,11 +167,11 @@
 <wire x1="47" y1="0" x2="50" y2="3" width="0.1524" layer="20" curve="90"/>
 <wire x1="47" y1="100" x2="50" y2="97" width="0.1524" layer="20" curve="-90"/>
 <wire x1="3" y1="100" x2="0" y2="97" width="0.1524" layer="20" curve="90"/>
-<text x="49.3308" y="45.6344" size="1.9304" layer="25" font="vector" ratio="15" rot="R90">Ownasaurus/TAStm32</text>
+<text x="49.3308" y="38.624" size="1.9304" layer="25" font="vector" ratio="15" rot="R90">github:Ownasaurus/TAStm32</text>
 <wire x1="36" y1="70.25" x2="36" y2="68.75" width="0.254" layer="25"/>
 <text x="9.522" y="72.798" size="1.4224" layer="25" font="vector" ratio="13" rot="R270">GD</text>
 <text x="11.9604" y="72.798" size="1.4224" layer="25" font="vector" ratio="13" rot="R270">D2</text>
-<text x="14.3988" y="72.798" size="1.4224" layer="25" font="vector" ratio="13" rot="R270">D0</text>
+<text x="14.5512" y="72.798" size="1.4224" layer="25" font="vector" ratio="13" rot="R270">D0</text>
 <text x="16.9896" y="72.798" size="1.4224" layer="25" font="vector" ratio="13" rot="R270">D1</text>
 <text x="19.5804" y="72.798" size="1.4224" layer="25" font="vector" ratio="13" rot="R270">LA</text>
 <text x="22.1712" y="72.798" size="1.4224" layer="25" font="vector" ratio="13" rot="R270">CK</text>
@@ -179,20 +179,40 @@
 <text x="28.8768" y="72.798" size="1.4224" layer="25" font="vector" ratio="13" rot="R270">D2</text>
 <text x="31.62" y="72.798" size="1.4224" layer="25" font="vector" ratio="13" rot="R270">D0</text>
 <text x="34.0584" y="72.798" size="1.4224" layer="25" font="vector" ratio="13" rot="R270">D1</text>
-<text x="36.8016" y="72.798" size="1.4224" layer="25" font="vector" ratio="13" rot="R270">LA</text>
+<text x="36.6492" y="72.798" size="1.4224" layer="25" font="vector" ratio="13" rot="R270">LA</text>
 <text x="39.24" y="72.798" size="1.4224" layer="25" font="vector" ratio="13" rot="R270">CK</text>
 <text x="10.8996" y="27.3288" size="1.4224" layer="25" font="vector" ratio="13" rot="R90">CK</text>
 <text x="13.338" y="27.3288" size="1.4224" layer="25" font="vector" ratio="13" rot="R90">LA</text>
 <text x="15.9288" y="27.3288" size="1.4224" layer="25" font="vector" ratio="13" rot="R90">D1</text>
 <text x="18.5196" y="27.3288" size="1.4224" layer="25" font="vector" ratio="13" rot="R90">D0</text>
 <text x="21.1104" y="27.3288" size="1.4224" layer="25" font="vector" ratio="13" rot="R90">NC</text>
-<text x="23.7012" y="27.3288" size="1.4224" layer="25" font="vector" ratio="13" rot="R90">GD</text>
+<text x="23.5488" y="27.3288" size="1.4224" layer="25" font="vector" ratio="13" rot="R90">GD</text>
 <text x="27.9684" y="27.3288" size="1.4224" layer="25" font="vector" ratio="13" rot="R90">CK</text>
-<text x="30.5592" y="27.3288" size="1.4224" layer="25" font="vector" ratio="13" rot="R90">LA</text>
+<text x="30.4068" y="27.3288" size="1.4224" layer="25" font="vector" ratio="13" rot="R90">LA</text>
 <text x="32.9976" y="27.3288" size="1.4224" layer="25" font="vector" ratio="13" rot="R90">D1</text>
-<text x="35.7408" y="27.3288" size="1.4224" layer="25" font="vector" ratio="13" rot="R90">D0</text>
+<text x="35.436" y="27.3288" size="1.4224" layer="25" font="vector" ratio="13" rot="R90">D0</text>
 <text x="38.0268" y="27.3288" size="1.4224" layer="25" font="vector" ratio="13" rot="R90">NC</text>
 <text x="39.7032" y="27.3288" size="1.4224" layer="25" font="vector" ratio="13" rot="R90">GD</text>
+<wire x1="12.6492" y1="26.9748" x2="12.6492" y2="24.8412" width="0.254" layer="25"/>
+<wire x1="17.8308" y1="26.9748" x2="17.8308" y2="24.8412" width="0.254" layer="25"/>
+<wire x1="22.86" y1="26.9748" x2="22.86" y2="24.8412" width="0.254" layer="25"/>
+<wire x1="29.718" y1="26.9748" x2="29.718" y2="24.8412" width="0.254" layer="25"/>
+<wire x1="34.7472" y1="26.9748" x2="34.7472" y2="24.8412" width="0.254" layer="25"/>
+<wire x1="39.1668" y1="26.9748" x2="39.7764" y2="24.8412" width="0.254" layer="25"/>
+<wire x1="10.2108" y1="75.1332" x2="10.2108" y2="72.9996" width="0.254" layer="25"/>
+<wire x1="15.24" y1="75.1332" x2="15.24" y2="72.9996" width="0.254" layer="25"/>
+<wire x1="20.4216" y1="75.1332" x2="20.4216" y2="72.9996" width="0.254" layer="25"/>
+<wire x1="27.1272" y1="75.1332" x2="27.1272" y2="72.9996" width="0.254" layer="25"/>
+<wire x1="32.3088" y1="75.1332" x2="32.3088" y2="72.9996" width="0.254" layer="25"/>
+<wire x1="37.338" y1="75.1332" x2="37.338" y2="72.9996" width="0.254" layer="25"/>
+<text x="8.5344" y="6.4008" size="1.9304" layer="25" font="vector" ratio="15" rot="R90">EXT2</text>
+<text x="43.434" y="6.4008" size="1.9304" layer="25" font="vector" ratio="15" rot="R90">EXT1</text>
+<text x="43.5864" y="89.0016" size="1.9304" layer="25" font="vector" ratio="15" rot="R90">P1</text>
+<text x="8.382" y="89.154" size="1.9304" layer="25" font="vector" ratio="15" rot="R90">P2</text>
+<text x="49.3308" y="83.4296" size="1.9304" layer="25" font="vector" ratio="15" rot="R90">v4 rev1</text>
+<text x="47.1972" y="28.1084" size="1.9304" layer="26" font="vector" ratio="15" rot="MR90">design - rasteri / ownasaurus</text>
+<text x="47.8536" y="7.7724" size="1.9304" layer="25" font="vector" ratio="15" rot="R90">DFU</text>
+<rectangle x1="46.3296" y1="18.7452" x2="46.7868" y2="22.2504" layer="41"/>
 </plain>
 <libraries>
 <library name="rcl" urn="urn:adsk.eagle:library:334">
@@ -1272,22 +1292,6 @@ Metric Code Size 2012</description>
 <rectangle x1="-1" y1="-0.65" x2="-0.5" y2="0.65" layer="51"/>
 <rectangle x1="0.5" y1="-0.65" x2="1" y2="0.65" layer="51"/>
 </package>
-<package name="C0603" urn="urn:adsk.eagle:footprint:23123/1" library_version="11">
-<description>&lt;b&gt;CAPACITOR&lt;/b&gt;</description>
-<wire x1="-1.473" y1="0.983" x2="1.473" y2="0.983" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="0.983" x2="1.473" y2="-0.983" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="-0.983" x2="-1.473" y2="-0.983" width="0.0508" layer="39"/>
-<wire x1="-1.473" y1="-0.983" x2="-1.473" y2="0.983" width="0.0508" layer="39"/>
-<wire x1="-0.356" y1="0.432" x2="0.356" y2="0.432" width="0.1016" layer="51"/>
-<wire x1="-0.356" y1="-0.419" x2="0.356" y2="-0.419" width="0.1016" layer="51"/>
-<smd name="1" x="-0.85" y="0" dx="1.1" dy="1" layer="1"/>
-<smd name="2" x="0.85" y="0" dx="1.1" dy="1" layer="1"/>
-<text x="-0.635" y="0.635" size="1.27" layer="25">&gt;NAME</text>
-<text x="-0.635" y="-1.905" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.8382" y1="-0.4699" x2="-0.3381" y2="0.4801" layer="51"/>
-<rectangle x1="0.3302" y1="-0.4699" x2="0.8303" y2="0.4801" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
-</package>
 </packages>
 <packages3d>
 <package3d name="R0805" urn="urn:adsk.eagle:package:23553/2" type="model" library_version="3">
@@ -1301,12 +1305,6 @@ Metric Code Size 2012</description>
 Metric Code Size 2012</description>
 <packageinstances>
 <packageinstance name="C0805K"/>
-</packageinstances>
-</package3d>
-<package3d name="C0603" urn="urn:adsk.eagle:package:23616/2" type="model" library_version="11">
-<description>CAPACITOR</description>
-<packageinstances>
-<packageinstance name="C0603"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -2545,7 +2543,7 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <attribute name="VALUE" x="41.758" y="47.15" size="1.016" layer="27" rot="R180"/>
 </element>
 <element name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="25pF" x="46.1892" y="25.1216" smashed="yes">
-<attribute name="NAME" x="47.6302" y="23.7072" size="1.4224" layer="25" font="vector" ratio="15" rot="R270"/>
+<attribute name="NAME" x="44.267" y="24.2988" size="1.4224" layer="25" font="vector" ratio="15" rot="R90"/>
 <attribute name="POPULARITY" value="52" x="46.1892" y="25.1216" size="1.778" layer="27" display="off"/>
 <attribute name="SPICEPREFIX" value="C" x="46.1892" y="25.1216" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="45.1892" y="23.2216" size="1.016" layer="27"/>
@@ -2556,11 +2554,11 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <attribute name="SPICEPREFIX" value="C" x="46.5268" y="36.4452" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="47.5268" y="38.3452" size="1.016" layer="27" rot="R180"/>
 </element>
-<element name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k" x="43.2136" y="18.5384" smashed="yes" rot="R180">
-<attribute name="NAME" x="45.4816" y="18.8486" size="1.4224" layer="25" font="vector" ratio="15" rot="R270"/>
-<attribute name="POPULARITY" value="85" x="43.2136" y="18.5384" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SPICEPREFIX" value="R" x="43.2136" y="18.5384" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="VALUE" x="43.8486" y="21.0784" size="1.27" layer="27" rot="R180"/>
+<element name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k" x="41.2228" y="17.9032" smashed="yes">
+<attribute name="NAME" x="40.9356" y="21.2546" size="1.4224" layer="25" font="vector" ratio="15" rot="R270"/>
+<attribute name="POPULARITY" value="85" x="41.2228" y="17.9032" size="1.778" layer="27" display="off"/>
+<attribute name="SPICEPREFIX" value="R" x="41.2228" y="17.9032" size="1.778" layer="27" display="off"/>
+<attribute name="VALUE" x="40.5878" y="15.3632" size="1.27" layer="27"/>
 </element>
 <element name="C6" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="1uF" x="14.7472" y="59.7092" smashed="yes" rot="R180">
 <attribute name="NAME" x="12.5134" y="58.4424" size="1.4224" layer="25" font="vector" ratio="15" rot="R270"/>
@@ -2588,7 +2586,7 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <attribute name="DESCRIPTION" value=" Jack Modular Connector 8p8c _RJ45, Ethernet_ 90° Angle _Right_ Shielded, EMI Finger " x="25" y="95" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MF" value="Amphenol Commercial Products" x="25" y="95" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MP" value="RJSSE538002" x="25" y="95" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="NAME" x="41.9619" y="86.449446875" size="1.4224" layer="25" font="vector" ratio="15" rot="R270"/>
+<attribute name="NAME" x="7.886153125" y="82.0431" size="1.4224" layer="25" font="vector" ratio="15"/>
 <attribute name="PACKAGE" value="None" x="25" y="95" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="PRICE" value="None" x="25" y="95" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="6.5171" y="95" size="1.272259375" layer="27" rot="R270"/>
@@ -2598,7 +2596,7 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <attribute name="DESCRIPTION" value=" Jack Modular Connector 8p8c _RJ45, Ethernet_ 90° Angle _Right_ Shielded, EMI Finger " x="25" y="5" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="Amphenol Commercial Products" x="25" y="5" size="1.778" layer="27" display="off"/>
 <attribute name="MP" value="RJSSE538002" x="25" y="5" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="7.7881" y="10.800553125" size="1.4224" layer="25" font="vector" ratio="15" rot="R90"/>
+<attribute name="NAME" x="10.992646875" y="18.1513" size="1.4224" layer="25" font="vector" ratio="15" rot="R180"/>
 <attribute name="PACKAGE" value="None" x="25" y="5" size="1.778" layer="27" display="off"/>
 <attribute name="PRICE" value="None" x="25" y="5" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="43.4829" y="5" size="1.272259375" layer="27" rot="R90"/>
@@ -2638,7 +2636,7 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <attribute name="DESCRIPTION" value=" Connector Header Surface Mount 6 position 0.100 _2.54mm_ " x="33.5" y="23.5" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="Samtec" x="33.5" y="23.5" size="1.778" layer="27" display="off"/>
 <attribute name="MP" value="TSM-106-01-L-SV" x="33.5" y="23.5" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="42.7794" y="24.3892" size="1.4224" layer="25" font="vector" ratio="15" rot="R90" align="bottom-right"/>
+<attribute name="NAME" x="27.387" y="21.7984" size="1.4224" layer="25" font="vector" ratio="15" rot="R90" align="bottom-right"/>
 <attribute name="PACKAGE" value="None" x="33.5" y="23.5" size="1.778" layer="27" display="off"/>
 <attribute name="PRICE" value="None" x="33.5" y="23.5" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="33.5" y="22.8" size="0.635" layer="27" align="bottom-center"/>
@@ -2648,16 +2646,10 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <attribute name="DESCRIPTION" value=" Connector Header Surface Mount 6 position 0.100 _2.54mm_ " x="16.5" y="23.5" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="Samtec" x="16.5" y="23.5" size="1.778" layer="27" display="off"/>
 <attribute name="MP" value="TSM-106-01-L-SV" x="16.5" y="23.5" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="10.175" y="21.3532" size="1.4224" layer="25" font="vector" ratio="15" rot="R90" align="bottom-right"/>
+<attribute name="NAME" x="10.175" y="21.8104" size="1.4224" layer="25" font="vector" ratio="15" rot="R90" align="bottom-right"/>
 <attribute name="PACKAGE" value="None" x="16.5" y="23.5" size="1.778" layer="27" display="off"/>
 <attribute name="PRICE" value="None" x="16.5" y="23.5" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="16.5" y="22.8" size="0.635" layer="27" align="bottom-center"/>
-</element>
-<element name="C13" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" override_package3d_urn="urn:adsk.eagle:package:18909475/2" override_package_urn="urn:adsk.eagle:footprint:23123/1" value="DNP" x="43.3232" y="20.728" smashed="yes" rot="R180">
-<attribute name="NAME" x="45.407" y="22.9582" size="1.4224" layer="25" font="vector" ratio="15" rot="R270"/>
-<attribute name="POPULARITY" value="73" x="43.3232" y="20.728" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SPICEPREFIX" value="C" x="43.3232" y="20.728" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="VALUE" x="43.9582" y="22.633" size="1.27" layer="27" rot="R180"/>
 </element>
 <element name="S1" library="3-1825910-1" package="318259101" value="SWITCHN" x="20" y="66.5" smashed="yes" rot="R270">
 <attribute name="NAME" x="19.8852" y="62.2478" size="1.4224" layer="25" font="vector" ratio="15" rot="R90" align="center"/>
@@ -2703,7 +2695,7 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <attribute name="VALUE" x="1.6096" y="30.7128" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="C8" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="100nF" x="41.524" y="28.5" smashed="yes">
-<attribute name="NAME" x="43.1542" y="29.6336" size="1.4224" layer="25" font="vector" ratio="15" rot="R90"/>
+<attribute name="NAME" x="42.3922" y="25.3664" size="1.4224" layer="25" font="vector" ratio="15" rot="R90"/>
 <attribute name="POPULARITY" value="52" x="41.524" y="28.5" size="1.778" layer="27" display="off"/>
 <attribute name="SPICEPREFIX" value="C" x="41.524" y="28.5" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="40.524" y="26.6" size="1.016" layer="27"/>
@@ -2721,13 +2713,13 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <attribute name="VALUE" x="28.2032" y="32.8004" size="1.016" layer="27"/>
 </element>
 <element name="C11" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="100nF" x="45.5508" y="41.5" smashed="yes" rot="R180">
-<attribute name="NAME" x="47.383" y="42.9572" size="1.4224" layer="25" font="vector" ratio="15" rot="R270"/>
+<attribute name="NAME" x="42.3538" y="43.8716" size="1.4224" layer="25" font="vector" ratio="15" rot="R270"/>
 <attribute name="POPULARITY" value="52" x="45.5508" y="41.5" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SPICEPREFIX" value="C" x="45.5508" y="41.5" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="46.5508" y="43.4" size="1.016" layer="27" rot="R180"/>
 </element>
 <element name="C12" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="1uF" x="45.5508" y="44" smashed="yes" rot="R180">
-<attribute name="NAME" x="44.7922" y="48.786" size="1.4224" layer="25" font="vector" ratio="15" rot="R270"/>
+<attribute name="NAME" x="44.7922" y="48.1764" size="1.4224" layer="25" font="vector" ratio="15" rot="R270"/>
 <attribute name="POPULARITY" value="52" x="45.5508" y="44" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SPICEPREFIX" value="C" x="45.5508" y="44" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="46.5508" y="45.9" size="1.016" layer="27" rot="R180"/>
@@ -2784,6 +2776,16 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <attribute name="POPULARITY" value="85" x="20.7264" y="48.256" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SPICEPREFIX" value="R" x="20.7264" y="48.256" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="21.3614" y="50.796" size="1.27" layer="27" rot="R180"/>
+</element>
+<element name="J13" library="TAStm32_v4" package="SAMTEC-TSM-102-01-X-SH_SAMTEC-TSM-102-01-X-SH" value="CONSOLE_RESET" x="46.72" y="15.1304" smashed="yes" rot="R180">
+<attribute name="AVAILABILITY" value="Unavailable" x="46.72" y="15.1304" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value=" Connector Header Surface Mount, Right Angle 2 position 0.100 _2.54mm_ " x="46.72" y="15.1304" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MF" value="Samtec" x="46.72" y="15.1304" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MP" value="TSM-102-01-F-SH" x="46.72" y="15.1304" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="45.8312" y="24.0858" size="1.4224" layer="25" font="vector" ratio="15" rot="R180" align="bottom-right"/>
+<attribute name="PACKAGE" value="None" x="46.72" y="15.1304" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PRICE" value="None" x="46.72" y="15.1304" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="VALUE" x="46.72" y="21.1134" size="0.635" layer="27" rot="R180" align="bottom-center"/>
 </element>
 </elements>
 <signals>
@@ -2863,20 +2865,17 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <wire x1="40.132" y1="43.8912" x2="40.7416" y2="43.8912" width="0.254" layer="1"/>
 <wire x1="41.758" y1="44.9076" x2="41.758" y2="45.25" width="0.254" layer="1"/>
 <via x="41.7576" y="46.736" extent="1-16" drill="0.35"/>
-<wire x1="40.9956" y1="27.0764" x2="40.6908" y2="27.3812" width="0.2032" layer="1"/>
-<wire x1="40.6908" y1="27.3812" x2="40.6764" y2="27.3812" width="0.2032" layer="1"/>
+<wire x1="40.6908" y1="27.0764" x2="40.6908" y2="27.3668" width="0.2032" layer="1"/>
+<wire x1="40.6908" y1="27.3668" x2="40.6764" y2="27.3812" width="0.2032" layer="1"/>
 <wire x1="40.524" y1="28.5" x2="40.6764" y2="28.3476" width="0.2032" layer="1"/>
 <wire x1="40.6764" y1="28.3476" x2="40.6764" y2="27.3812" width="0.2032" layer="1"/>
-<via x="40.9956" y="27.0764" extent="1-16" drill="0.35"/>
-<via x="45.72" y="23.622" extent="1-16" drill="0.35"/>
+<via x="40.6908" y="27.0764" extent="1-16" drill="0.35"/>
+<via x="43.72" y="25.122" extent="1-16" drill="0.35"/>
 <via x="16.1544" y="9.6012" extent="1-16" drill="0.35"/>
-<wire x1="38.035" y1="90.41" x2="42.2008" y2="90.41" width="0.6096" layer="1"/>
-<wire x1="42.2008" y1="90.41" x2="42.2656" y2="90.4748" width="0.6096" layer="1"/>
-<via x="42.2656" y="90.4748" extent="1-16" drill="0.35"/>
-<wire x1="44.1636" y1="18.5384" x2="44.1636" y2="17.138" width="0.2032" layer="1"/>
-<wire x1="44.1636" y1="17.138" x2="44.0944" y2="17.0688" width="0.2032" layer="1"/>
-<via x="44.0944" y="17.0688" extent="1-16" drill="0.35"/>
-<wire x1="44.0944" y1="17.0688" x2="43.8912" y2="17.272" width="0.2032" layer="16"/>
+<wire x1="38.035" y1="90.41" x2="34.1008" y2="90.41" width="0.6096" layer="1"/>
+<wire x1="34.1008" y1="90.41" x2="34.036" y2="90.4748" width="0.6096" layer="1"/>
+<via x="34.036" y="90.4748" extent="1-16" drill="0.35"/>
+<via x="45.0088" y="16.3068" extent="1-16" drill="0.35"/>
 <wire x1="32.4104" y1="46.736" x2="31.758" y2="46.0836" width="0.2032" layer="1"/>
 <wire x1="31.758" y1="46.0836" x2="31.758" y2="45.25" width="0.2032" layer="1"/>
 <via x="32.4104" y="46.736" extent="1-16" drill="0.35"/>
@@ -2894,7 +2893,7 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <via x="27.0256" y="81.8896" extent="1-16" drill="0.35"/>
 <wire x1="27.15" y1="81.7652" x2="27.0256" y2="81.8896" width="0.2032" layer="1"/>
 <wire x1="7.283" y1="70.27" x2="8.0908" y2="70.27" width="0.2032" layer="1"/>
-<via x="7.3152" y="71.9328" extent="1-16" drill="0.35"/>
+<via x="4.8768" y="70.2564" extent="1-16" drill="0.35"/>
 <wire x1="26.9748" y1="30.734" x2="26.9748" y2="30.8904" width="0.2032" layer="1"/>
 <wire x1="28.2032" y1="30.8904" x2="26.9748" y2="30.8904" width="0.2032" layer="1"/>
 <via x="26.9748" y="30.734" extent="1-16" drill="0.35"/>
@@ -2916,8 +2915,8 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <contactref element="J3" pad="8"/>
 <polygon width="0.1524" layer="1" isolate="0.3048">
 <vertex x="0" y="0"/>
-<vertex x="50" y="0"/>
-<vertex x="50" y="100"/>
+<vertex x="49.6952" y="0"/>
+<vertex x="49.6952" y="100"/>
 <vertex x="0" y="100"/>
 </polygon>
 <via x="7.112" y="34.036" extent="1-16" drill="0.35"/>
@@ -2928,17 +2927,16 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <via x="37.9476" y="54.2544" extent="1-16" drill="0.35"/>
 <via x="26.4668" y="15.5448" extent="1-16" drill="0.35"/>
 <via x="34.4424" y="15.6972" extent="1-16" drill="0.35"/>
-<via x="26.3144" y="22.2504" extent="1-16" drill="0.35"/>
 <via x="37.5412" y="15.748" extent="1-16" drill="0.35"/>
 <via x="38.608" y="25.5016" extent="1-16" drill="0.35"/>
 <via x="23.7236" y="40.9956" extent="1-16" drill="0.35"/>
 <via x="40.132" y="52.9336" extent="1-16" drill="0.35"/>
 <via x="39.7764" y="49.4792" extent="1-16" drill="0.35"/>
 <via x="14.3764" y="85.7504" extent="1-16" drill="0.35"/>
-<via x="25.146" y="90.9828" extent="1-16" drill="0.35"/>
+<via x="15.8496" y="90.3732" extent="1-16" drill="0.35"/>
 <via x="36.8808" y="40.7924" extent="1-16" drill="0.35"/>
 <via x="38.7096" y="40.7924" extent="1-16" drill="0.35"/>
-<via x="42.3004" y="42.4688" extent="1-16" drill="0.35"/>
+<via x="41.6908" y="42.3164" extent="1-16" drill="0.35"/>
 <via x="39.3192" y="39.116" extent="1-16" drill="0.35"/>
 <via x="40.6908" y="37.592" extent="1-16" drill="0.35"/>
 <via x="40.6908" y="35.6108" extent="1-16" drill="0.35"/>
@@ -2950,17 +2948,17 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <via x="46" y="96" extent="1-16" drill="3.5" diameter="6"/>
 <via x="46" y="4" extent="1-16" drill="3.5" diameter="6"/>
 <via x="4" y="4" extent="1-16" drill="3.5" diameter="6"/>
-<via x="49.2336" y="75.0532" extent="1-16" drill="0.35"/>
-<via x="49.148" y="73.7484" extent="1-16" drill="0.35"/>
+<via x="49.2336" y="75.358" extent="1-16" drill="0.35"/>
+<via x="48.386" y="73.2912" extent="1-16" drill="0.35"/>
 <via x="48.386" y="82.596" extent="1-16" drill="0.35"/>
 <via x="21.6192" y="29.3104" extent="1-16" drill="0.35"/>
 <via x="12.3144" y="29.7368" extent="1-16" drill="0.35"/>
 <via x="36.1908" y="32.544" extent="1-16" drill="0.35"/>
 <via x="21.0016" y="68.4152" extent="1-16" drill="0.35"/>
-<via x="43.3324" y="21.9456" extent="1-16" drill="0.35"/>
+<via x="38.7604" y="19.3548" extent="1-16" drill="0.35"/>
 <via x="21.4376" y="20.1168" extent="1-16" drill="0.35"/>
-<via x="18.0848" y="26.0604" extent="1-16" drill="0.35"/>
-<via x="20.9296" y="59.6392" extent="1-16" drill="0.35"/>
+<via x="18.542" y="26.0604" extent="1-16" drill="0.35"/>
+<via x="21.082" y="59.6392" extent="1-16" drill="0.35"/>
 <via x="15.748" y="61.3156" extent="1-16" drill="0.35"/>
 <via x="19.558" y="54.7624" extent="1-16" drill="0.35"/>
 <via x="22.9108" y="51.2572" extent="1-16" drill="0.35"/>
@@ -3006,6 +3004,9 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <wire x1="49.6316" y1="38.79100625" x2="49.6316" y2="47.26419375" width="0.1524" layer="1"/>
 <wire x1="49.6316" y1="47.26419375" x2="49.514696875" y2="47.381096875" width="0.1524" layer="1"/>
 <wire x1="42.188" y1="38.25" x2="40.5916" y2="38.25" width="0.1524" layer="1"/>
+<via x="49.2064" y="24.6648" extent="1-16" drill="0.35"/>
+<wire x1="47.5268" y1="36.4452" x2="47.5268" y2="34.1988" width="0.1524" layer="1"/>
+<wire x1="47.5268" y1="34.1988" x2="47.378" y2="34.05" width="0.1524" layer="1"/>
 </signal>
 <signal name="VCAP">
 <contactref element="C1" pad="1"/>
@@ -3028,17 +3029,25 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 </signal>
 <signal name="BOOT0">
 <contactref element="R2" pad="2"/>
-<contactref element="C13" pad="2"/>
 <contactref element="U1" pad="60"/>
-<wire x1="42.4732" y1="22.7076" x2="42.4732" y2="20.728" width="0.2032" layer="1"/>
-<wire x1="42.2636" y1="18.5384" x2="42.2636" y2="20.5184" width="0.2032" layer="1"/>
-<wire x1="42.2636" y1="20.5184" x2="42.4732" y2="20.728" width="0.2032" layer="1"/>
-<wire x1="42.4732" y1="22.7076" x2="40.8432" y2="24.3376" width="0.1524" layer="1"/>
+<wire x1="40.8432" y1="24.3376" x2="42.4732" y2="22.7076" width="0.1524" layer="1"/>
 <wire x1="38.258" y1="27.8836" x2="38.258" y2="30.82" width="0.1524" layer="1"/>
 <wire x1="40.8432" y1="24.3376" x2="40.8432" y2="26.0604" width="0.1524" layer="1"/>
 <wire x1="40.8432" y1="26.0604" x2="40.386" y2="26.5176" width="0.1524" layer="1"/>
 <wire x1="40.386" y1="26.5176" x2="39.624" y2="26.5176" width="0.1524" layer="1"/>
 <wire x1="39.624" y1="26.5176" x2="38.258" y2="27.8836" width="0.1524" layer="1"/>
+<contactref element="J13" pad="2"/>
+<wire x1="42.4732" y1="22.7076" x2="42.4732" y2="20.574" width="0.1524" layer="1"/>
+<wire x1="42.4732" y1="20.574" x2="42.4732" y2="20.4216" width="0.1524" layer="1"/>
+<wire x1="42.4732" y1="20.4216" x2="42.4732" y2="20.2692" width="0.1524" layer="1"/>
+<wire x1="42.4732" y1="20.2692" x2="42.4732" y2="18.2036" width="0.1524" layer="1"/>
+<wire x1="42.4732" y1="18.2036" x2="42.1728" y2="17.9032" width="0.1524" layer="1"/>
+<wire x1="45.45" y1="20.4134" x2="42.6338" y2="20.4134" width="0.1524" layer="1"/>
+<wire x1="42.6338" y1="20.4134" x2="42.4814" y2="20.4134" width="0.1524" layer="1"/>
+<wire x1="42.4814" y1="20.4134" x2="42.4732" y2="20.4216" width="0.1524" layer="1"/>
+<wire x1="42.4732" y1="20.574" x2="42.6338" y2="20.4134" width="0.1524" layer="1"/>
+<wire x1="42.6338" y1="20.4134" x2="42.4896" y2="20.2692" width="0.1524" layer="1"/>
+<wire x1="42.4896" y1="20.2692" x2="42.4732" y2="20.2692" width="0.1524" layer="1"/>
 </signal>
 <signal name="NRST">
 <contactref element="U1" pad="7"/>
@@ -3456,8 +3465,8 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <contactref element="J9" pad="1"/>
 <contactref element="U1" pad="50"/>
 <contactref element="J11" pad="16"/>
-<wire x1="33.258" y1="30.82" x2="33.258" y2="28.9908" width="0.1524" layer="1"/>
-<wire x1="33.258" y1="28.9908" x2="32.766" y2="28.4988" width="0.1524" layer="1"/>
+<wire x1="33.258" y1="30.82" x2="33.258" y2="28.686" width="0.1524" layer="1"/>
+<wire x1="33.258" y1="28.686" x2="33.0708" y2="28.4988" width="0.1524" layer="1"/>
 <wire x1="12.685" y1="19.0142" x2="12.685" y2="18.04" width="0.1524" layer="1"/>
 <wire x1="12.685" y1="19.0142" x2="11.7348" y2="19.9644" width="0.1524" layer="1"/>
 <wire x1="11.7348" y1="23.9268" x2="12.0396" y2="24.2316" width="0.1524" layer="1"/>
@@ -3468,9 +3477,8 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <wire x1="14.0616" y1="24.90945625" x2="14.0616" y2="26.89594375" width="0.1524" layer="1"/>
 <wire x1="10.15" y1="24.96" x2="10.15" y2="23.8352" width="0.1524" layer="1"/>
 <wire x1="10.15" y1="23.8352" x2="10.668" y2="23.3172" width="0.1524" layer="1"/>
-<wire x1="10.668" y1="23.3172" x2="10.9728" y2="23.3172" width="0.1524" layer="1"/>
-<wire x1="10.9728" y1="23.3172" x2="11.7348" y2="23.3172" width="0.1524" layer="1"/>
-<wire x1="32.766" y1="28.4988" x2="30.889375" y2="28.4988" width="0.1524" layer="1"/>
+<wire x1="10.668" y1="23.3172" x2="11.7348" y2="23.3172" width="0.1524" layer="1"/>
+<wire x1="33.0708" y1="28.4988" x2="30.889375" y2="28.4988" width="0.1524" layer="1"/>
 <wire x1="30.889375" y1="28.4988" x2="30.432175" y2="28.0416" width="0.1524" layer="1"/>
 <wire x1="17.18303125" y1="28.0416" x2="16.42103125" y2="27.2796" width="0.1524" layer="1"/>
 <wire x1="14.44525625" y1="27.2796" x2="14.0616" y2="26.89594375" width="0.1524" layer="1"/>
@@ -3481,18 +3489,18 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <contactref element="J9" pad="2"/>
 <contactref element="U1" pad="51"/>
 <contactref element="J11" pad="14"/>
-<wire x1="33.758" y1="30.82" x2="33.758" y2="29.0336" width="0.1524" layer="1"/>
-<wire x1="33.758" y1="29.0336" x2="32.9184" y2="28.194" width="0.1524" layer="1"/>
+<wire x1="33.758" y1="30.82" x2="33.758" y2="28.7288" width="0.1524" layer="1"/>
+<wire x1="33.758" y1="28.7288" x2="33.2232" y2="28.194" width="0.1524" layer="1"/>
 <wire x1="15.225" y1="19.065" x2="15.225" y2="18.04" width="0.1524" layer="1"/>
 <wire x1="14.3664" y1="19.9236" x2="15.225" y2="19.065" width="0.1524" layer="1"/>
 <wire x1="14.3664" y1="26.7696875" x2="14.3664" y2="22.2504" width="0.1524" layer="1"/>
 <wire x1="14.3664" y1="22.2504" x2="14.3664" y2="21.9456" width="0.1524" layer="1"/>
 <wire x1="14.3664" y1="21.9456" x2="14.3664" y2="21.8468" width="0.1524" layer="1"/>
-<wire x1="14.3664" y1="21.7932" x2="14.3664" y2="19.9236" width="0.1524" layer="1"/>
+<wire x1="14.3664" y1="21.8468" x2="14.3664" y2="19.9236" width="0.1524" layer="1"/>
 <wire x1="12.69" y1="22.04" x2="14.1732" y2="22.04" width="0.1524" layer="1"/>
 <wire x1="14.272" y1="22.04" x2="14.1732" y2="22.04" width="0.1524" layer="1"/>
 <wire x1="14.272" y1="22.04" x2="14.3664" y2="21.9456" width="0.1524" layer="1"/>
-<wire x1="32.9184" y1="28.194" x2="31.01563125" y2="28.194" width="0.1524" layer="1"/>
+<wire x1="33.2232" y1="28.194" x2="31.01563125" y2="28.194" width="0.1524" layer="1"/>
 <wire x1="31.01563125" y1="28.194" x2="30.55843125" y2="27.7368" width="0.1524" layer="1"/>
 <wire x1="14.5715125" y1="26.9748" x2="14.3664" y2="26.7696875" width="0.1524" layer="1"/>
 <wire x1="30.55843125" y1="27.7368" x2="17.3092875" y2="27.7368" width="0.1524" layer="1"/>
@@ -3501,27 +3509,25 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <wire x1="14.1732" y1="22.04" x2="14.1732" y2="22.0572" width="0.1524" layer="1"/>
 <wire x1="14.1732" y1="22.0572" x2="14.3664" y2="22.2504" width="0.1524" layer="1"/>
 <wire x1="14.1732" y1="22.04" x2="14.3664" y2="21.8468" width="0.1524" layer="1"/>
-<wire x1="14.3664" y1="21.8468" x2="14.3664" y2="21.7932" width="0.1524" layer="1"/>
 </signal>
 <signal name="V2_D1">
 <contactref element="J9" pad="3"/>
 <contactref element="U1" pad="52"/>
 <contactref element="J11" pad="13"/>
-<wire x1="34.258" y1="30.82" x2="34.258" y2="29.0764" width="0.1524" layer="1"/>
-<wire x1="33.0708" y1="27.8892" x2="34.258" y2="29.0764" width="0.1524" layer="1"/>
+<wire x1="34.258" y1="30.82" x2="34.258" y2="28.7716" width="0.1524" layer="1"/>
+<wire x1="33.3756" y1="27.8892" x2="34.258" y2="28.7716" width="0.1524" layer="1"/>
 <wire x1="16.495" y1="18.04" x2="16.495" y2="24.8412" width="0.1524" layer="1"/>
 <wire x1="16.495" y1="24.8412" x2="16.495" y2="24.9936" width="0.1524" layer="1"/>
 <wire x1="15.23" y1="24.96" x2="15.2636" y2="24.9936" width="0.1524" layer="1"/>
-<wire x1="15.2636" y1="24.9936" x2="16.3068" y2="24.9936" width="0.1524" layer="1"/>
+<wire x1="15.2636" y1="24.9936" x2="16.3426" y2="24.9936" width="0.1524" layer="1"/>
 <wire x1="16.3426" y1="24.9936" x2="16.495" y2="24.9936" width="0.1524" layer="1"/>
 <wire x1="16.495" y1="24.9936" x2="16.495" y2="25.146" width="0.1524" layer="1"/>
 <wire x1="16.495" y1="25.146" x2="16.495" y2="26.49145625" width="0.1524" layer="1"/>
 <wire x1="16.495" y1="26.49145625" x2="17.43554375" y2="27.432" width="0.1524" layer="1"/>
 <wire x1="30.6846875" y1="27.432" x2="31.1418875" y2="27.8892" width="0.1524" layer="1"/>
-<wire x1="31.1418875" y1="27.8892" x2="33.0708" y2="27.8892" width="0.1524" layer="1"/>
+<wire x1="31.1418875" y1="27.8892" x2="33.3756" y2="27.8892" width="0.1524" layer="1"/>
 <wire x1="17.43554375" y1="27.432" x2="30.6846875" y2="27.432" width="0.1524" layer="1"/>
 <wire x1="16.3426" y1="24.9936" x2="16.495" y2="24.8412" width="0.1524" layer="1"/>
-<wire x1="16.3068" y1="24.9936" x2="16.3426" y2="24.9936" width="0.1524" layer="1"/>
 <wire x1="16.3426" y1="24.9936" x2="16.495" y2="25.146" width="0.1524" layer="1"/>
 </signal>
 <signal name="V2_D0">
@@ -3530,13 +3536,13 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <contactref element="J11" pad="12"/>
 <wire x1="17.77" y1="22.04" x2="17.77" y2="18.045" width="0.2032" layer="1"/>
 <wire x1="17.77" y1="18.045" x2="17.765" y2="18.04" width="0.2032" layer="1"/>
-<wire x1="34.758" y1="30.82" x2="34.758" y2="29.1192" width="0.1524" layer="1"/>
-<wire x1="34.758" y1="29.1192" x2="33.2232" y2="27.5844" width="0.1524" layer="1"/>
+<wire x1="34.758" y1="30.82" x2="34.758" y2="28.8144" width="0.1524" layer="1"/>
+<wire x1="34.758" y1="28.8144" x2="33.528" y2="27.5844" width="0.1524" layer="1"/>
 <wire x1="17.9832" y1="23.0124" x2="17.9832" y2="22.2532" width="0.1524" layer="1"/>
 <wire x1="17.9832" y1="22.2532" x2="17.77" y2="22.04" width="0.1524" layer="1"/>
 <wire x1="16.7998" y1="24.1958" x2="17.9832" y2="23.0124" width="0.1524" layer="1"/>
 <wire x1="16.7998" y1="26.3652" x2="16.7998" y2="24.1958" width="0.1524" layer="1"/>
-<wire x1="33.2232" y1="27.5844" x2="31.26814375" y2="27.5844" width="0.1524" layer="1"/>
+<wire x1="33.528" y1="27.5844" x2="31.26814375" y2="27.5844" width="0.1524" layer="1"/>
 <wire x1="31.26814375" y1="27.5844" x2="30.81094375" y2="27.1272" width="0.1524" layer="1"/>
 <wire x1="17.5618" y1="27.1272" x2="16.7998" y2="26.3652" width="0.1524" layer="1"/>
 <wire x1="30.81094375" y1="27.1272" x2="17.5618" y2="27.1272" width="0.1524" layer="1"/>
@@ -3614,18 +3620,10 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <wire x1="33.3756" y1="22.098" x2="33.2232" y2="21.9456" width="0.1524" layer="1"/>
 </signal>
 <signal name="V2_NC2">
-<contactref element="J9" pad="5"/>
 <contactref element="J11" pad="11"/>
-<wire x1="19.035" y1="18.04" x2="19.035" y2="19.797" width="0.1524" layer="1"/>
-<wire x1="20.31" y1="21.072" x2="20.31" y2="24.96" width="0.1524" layer="1"/>
-<wire x1="19.035" y1="19.797" x2="20.31" y2="21.072" width="0.1524" layer="1"/>
 </signal>
 <signal name="V1_NC2">
-<contactref element="J8" pad="5"/>
 <contactref element="J11" pad="3"/>
-<wire x1="34.785" y1="18.04" x2="34.785" y2="18.9354" width="0.1524" layer="1"/>
-<wire x1="37.31" y1="21.4604" x2="37.31" y2="24.96" width="0.1524" layer="1"/>
-<wire x1="34.785" y1="18.9354" x2="37.31" y2="21.4604" width="0.1524" layer="1"/>
 </signal>
 <signal name="SNES_RESET">
 <contactref element="J4" pad="1"/>
@@ -3647,17 +3645,12 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <contactref element="U1" pad="49"/>
 <contactref element="J12" pad="2"/>
 <contactref element="J5" pad="3"/>
-<wire x1="32.758" y1="30.82" x2="32.758" y2="31.5388" width="0.1524" layer="1"/>
-<wire x1="32.758" y1="31.5388" x2="34.528" y2="33.3088" width="0.1524" layer="1"/>
-<wire x1="34.528" y1="33.3088" x2="35.3408" y2="33.3088" width="0.1524" layer="1"/>
-<wire x1="35.3408" y1="33.3088" x2="36.3982" y2="34.3662" width="0.1524" layer="1"/>
 <wire x1="46.7386" y1="39.6774" x2="45.7228" y2="39.6774" width="0.1524" layer="1"/>
 <wire x1="45.6184" y1="39.7818" x2="45.7228" y2="39.6774" width="0.1524" layer="1"/>
 <wire x1="46.7386" y1="39.6774" x2="47.498" y2="40.4368" width="0.1524" layer="1"/>
 <via x="45.6184" y="39.7818" extent="1-16" drill="0.35"/>
-<wire x1="36.3982" y1="34.3662" x2="36.3982" y2="36.0426" width="0.1524" layer="1"/>
-<wire x1="36.3982" y1="36.0426" x2="35.7124" y2="36.7284" width="0.1524" layer="1"/>
-<wire x1="35.7124" y1="36.7284" x2="35.639" y2="36.7284" width="0.1524" layer="1"/>
+<wire x1="35.639" y1="36.7284" x2="35.639" y2="36.497" width="0.1524" layer="1"/>
+<wire x1="36.2458" y1="35.8902" x2="35.639" y2="36.497" width="0.1524" layer="1"/>
 <via x="35.639" y="36.7284" extent="1-16" drill="0.35"/>
 <wire x1="37.846" y1="36.4236" x2="35.9438" y2="36.4236" width="0.1524" layer="16"/>
 <wire x1="35.639" y1="36.7284" x2="35.9438" y2="36.4236" width="0.1524" layer="16"/>
@@ -3691,15 +3684,15 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <wire x1="45.5676" y1="59.44" x2="45.72" y2="59.5924" width="0.1524" layer="1"/>
 <wire x1="45.5676" y1="59.44" x2="45.5676" y2="59.436" width="0.1524" layer="1"/>
 <wire x1="45.5676" y1="59.436" x2="45.72" y2="59.2836" width="0.1524" layer="1"/>
+<wire x1="32.758" y1="30.82" x2="32.758" y2="31.67560625" width="0.1524" layer="1"/>
+<wire x1="36.2458" y1="35.16340625" x2="36.2458" y2="35.8902" width="0.1524" layer="1"/>
+<wire x1="32.758" y1="31.67560625" x2="36.2458" y2="35.16340625" width="0.1524" layer="1"/>
 </signal>
 <signal name="SWDIO">
 <contactref element="U1" pad="46"/>
 <contactref element="J12" pad="4"/>
 <contactref element="J5" pad="7"/>
-<wire x1="35.2552" y1="36.1188" x2="34.9504" y2="36.1188" width="0.1524" layer="1"/>
-<wire x1="34.9504" y1="36.1188" x2="32.581603125" y2="33.750003125" width="0.1524" layer="1"/>
 <via x="35.2552" y="36.1188" extent="1-16" drill="0.35"/>
-<wire x1="30.828" y1="33.75" x2="32.581603125" y2="33.750003125" width="0.1524" layer="1"/>
 <wire x1="46.76885625" y1="39.2766" x2="47.8028" y2="40.31054375" width="0.1524" layer="1"/>
 <wire x1="45.2038" y1="39.2766" x2="45.0088" y2="39.4716" width="0.1524" layer="1"/>
 <wire x1="46.76885625" y1="39.2766" x2="45.2038" y2="39.2766" width="0.1524" layer="1"/>
@@ -3731,6 +3724,11 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <wire x1="45.8724" y1="64.52" x2="46.0248" y2="64.6724" width="0.1524" layer="1"/>
 <wire x1="45.8724" y1="64.52" x2="45.8724" y2="64.4652" width="0.1524" layer="1"/>
 <wire x1="45.8724" y1="64.4652" x2="46.0248" y2="64.3128" width="0.1524" layer="1"/>
+<wire x1="30.828" y1="33.75" x2="33.539225" y2="33.75" width="0.1524" layer="1"/>
+<wire x1="35.2552" y1="36.04985625" x2="35.2552" y2="36.1188" width="0.1524" layer="1"/>
+<wire x1="33.539225" y1="33.75" x2="34.4034625" y2="34.6142375" width="0.1524" layer="1"/>
+<wire x1="34.4034625" y1="34.6142375" x2="34.4034625" y2="35.19811875" width="0.1524" layer="1"/>
+<wire x1="34.4034625" y1="35.19811875" x2="35.2552" y2="36.04985625" width="0.1524" layer="1"/>
 </signal>
 <signal name="V2_NC">
 <contactref element="J11" pad="15"/>
@@ -3817,15 +3815,10 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <wire x1="39.7256" y1="32.3088" x2="41.0332" y2="32.3088" width="0.8128" layer="1"/>
 <wire x1="41.0332" y1="32.3088" x2="41.3512" y2="31.9908" width="0.8128" layer="1"/>
 <wire x1="37.6936" y1="38.7096" x2="37.6936" y2="34.3408" width="0.8128" layer="1"/>
-<wire x1="42.524" y1="28.5" x2="42.524" y2="24.9384" width="1.27" layer="1"/>
-<wire x1="42.524" y1="24.9384" x2="45.9232" y2="21.5392" width="1.27" layer="1"/>
 <contactref element="J11" pad="2"/>
 <contactref element="J11" pad="10"/>
-<wire x1="45.9232" y1="21.5392" x2="45.9232" y2="20.7264" width="1.27" layer="1"/>
-<wire x1="45.9232" y1="20.7264" x2="45.9232" y2="16.6624" width="1.27" layer="1"/>
 <wire x1="20.305" y1="14.8486" x2="20.305" y2="18.04" width="0.8128" layer="1"/>
-<wire x1="45.9232" y1="16.6624" x2="43.2816" y2="14.0208" width="1.27" layer="1"/>
-<wire x1="43.2816" y1="14.0208" x2="36.8808" y2="14.0208" width="1.27" layer="1"/>
+<wire x1="45.2816" y1="14.0208" x2="36.8808" y2="14.0208" width="1.27" layer="1"/>
 <wire x1="36.8808" y1="14.0208" x2="36.1696" y2="14.0208" width="0.8128" layer="1"/>
 <wire x1="36.1696" y1="14.0208" x2="35.2044" y2="14.0208" width="1.27" layer="1"/>
 <wire x1="35.2044" y1="14.0208" x2="26.0604" y2="14.0208" width="1.27" layer="1"/>
@@ -3841,9 +3834,6 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <wire x1="32.6136" y1="42.0624" x2="32.6136" y2="41.2496" width="0.6096" layer="1"/>
 <wire x1="32.6136" y1="41.2496" x2="33.2252" y2="40.638" width="0.6096" layer="1"/>
 <wire x1="33.2252" y1="40.638" x2="35.7652" y2="40.638" width="0.6096" layer="1"/>
-<contactref element="C13" pad="1"/>
-<wire x1="44.1732" y1="20.728" x2="45.9216" y2="20.728" width="0.2032" layer="1"/>
-<wire x1="45.9216" y1="20.728" x2="45.9232" y2="20.7264" width="0.2032" layer="1"/>
 <wire x1="30.2032" y1="30.8904" x2="30.2032125" y2="30.4846375" width="0.508" layer="1"/>
 <wire x1="30.2032125" y1="30.4846375" x2="29.030175" y2="29.3116" width="0.508" layer="1"/>
 <wire x1="25.6032" y1="29.3116" x2="25.0444" y2="29.8704" width="0.508" layer="1"/>
@@ -3921,23 +3911,39 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <wire x1="30.3276" y1="57.15" x2="24.0792" y2="57.15" width="1.27" layer="1"/>
 <wire x1="24.0792" y1="57.15" x2="22.4028" y2="58.8264" width="1.27" layer="1"/>
 <wire x1="17.7472" y1="59.7092" x2="17.747203125" y2="59.7092" width="0.1524" layer="1"/>
+<contactref element="J8" pad="5"/>
+<contactref element="J9" pad="5"/>
+<wire x1="20.31" y1="24.96" x2="20.31" y2="18.045" width="0.6096" layer="1"/>
+<wire x1="20.31" y1="18.045" x2="20.305" y2="18.04" width="0.6096" layer="1"/>
+<wire x1="37.31" y1="24.96" x2="37.31" y2="20.6984" width="0.6096" layer="1"/>
+<wire x1="36.055" y1="19.4434" x2="36.055" y2="18.04" width="0.6096" layer="1"/>
+<wire x1="37.31" y1="20.6984" x2="36.055" y2="19.4434" width="0.6096" layer="1"/>
+<contactref element="J13" pad="1"/>
+<wire x1="42.524" y1="24.3796" x2="43.7388" y2="23.1648" width="1.27" layer="1"/>
+<wire x1="43.7388" y1="23.1648" x2="46.9392" y2="23.1648" width="1.27" layer="1"/>
+<wire x1="46.9392" y1="23.1648" x2="47.99" y2="22.114" width="1.27" layer="1"/>
+<wire x1="47.99" y1="22.114" x2="47.99" y2="20.4134" width="2.032" layer="1"/>
+<wire x1="42.524" y1="28.5" x2="42.524" y2="24.3796" width="1.27" layer="1"/>
+<wire x1="47.99" y1="20.4134" x2="47.99" y2="16.7292" width="2.032" layer="1"/>
+<wire x1="47.99" y1="16.7292" x2="45.2816" y2="14.0208" width="1.27" layer="1"/>
 </signal>
 <signal name="N$2">
 <contactref element="S4" pad="1"/>
 <contactref element="S4" pad="2"/>
 <contactref element="U1" pad="2"/>
 <via x="38.9636" y="35.2044" extent="1-16" drill="0.35"/>
-<wire x1="40.918" y1="33.25" x2="42.188" y2="33.25" width="0.2032" layer="1"/>
-<wire x1="38.9636" y1="35.2044" x2="40.918" y2="33.25" width="0.2032" layer="1"/>
+<wire x1="41.3752" y1="33.25" x2="42.188" y2="33.25" width="0.2032" layer="1"/>
+<wire x1="41.3752" y1="33.25" x2="39.4208" y2="35.2044" width="0.2032" layer="1"/>
+<wire x1="38.9636" y1="35.2044" x2="39.4208" y2="35.2044" width="0.2032" layer="1"/>
 <wire x1="38.9636" y1="35.2044" x2="38.354" y2="35.2044" width="0.1524" layer="16"/>
 <wire x1="38.354" y1="35.2044" x2="38.05083125" y2="35.50756875" width="0.1524" layer="16"/>
 <wire x1="38.05083125" y1="35.50756875" x2="36.42523125" y2="35.50756875" width="0.1524" layer="16"/>
 <wire x1="36.42523125" y1="35.50756875" x2="35.775525" y2="34.8578625" width="0.1524" layer="16"/>
 <via x="35.2134625" y="34.8578625" extent="1-16" drill="0.35"/>
 <wire x1="35.775525" y1="34.8578625" x2="35.2134625" y2="34.8578625" width="0.1524" layer="16"/>
-<wire x1="35.2134625" y1="34.8578625" x2="35.2134625" y2="34.866925" width="0.1524" layer="1"/>
-<wire x1="35.2134625" y1="34.866925" x2="32.3088" y2="31.9622625" width="0.1524" layer="1"/>
-<wire x1="32.3088" y1="31.9622625" x2="32.3088" y2="30.34928125" width="0.1524" layer="1"/>
+<wire x1="35.2134625" y1="34.8578625" x2="35.2134625" y2="34.562125" width="0.1524" layer="1"/>
+<wire x1="35.2134625" y1="34.562125" x2="32.3088" y2="31.6574625" width="0.1524" layer="1"/>
+<wire x1="32.3088" y1="31.6574625" x2="32.3088" y2="30.34928125" width="0.1524" layer="1"/>
 <wire x1="32.3088" y1="30.34928125" x2="30.30591875" y2="28.3464" width="0.1524" layer="1"/>
 <wire x1="30.30591875" y1="28.3464" x2="17.6536" y2="28.3464" width="0.1524" layer="1"/>
 <wire x1="17.6536" y1="28.3464" x2="15.25" y2="30.75" width="0.1524" layer="1"/>
@@ -3954,13 +3960,15 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <wire x1="35.7124" y1="35.5092" x2="36.0172" y2="35.814" width="0.1524" layer="16"/>
 <wire x1="38.5572" y1="35.814" x2="36.0172" y2="35.814" width="0.1524" layer="16"/>
 <via x="35.7124" y="35.5092" extent="1-16" drill="0.35"/>
-<wire x1="32.004" y1="32.6724" x2="34.8408" y2="35.5092" width="0.1524" layer="1"/>
-<wire x1="35.7124" y1="35.5092" x2="34.8408" y2="35.5092" width="0.1524" layer="1"/>
-<wire x1="32.004" y1="30.4755375" x2="30.1796625" y2="28.6512" width="0.1524" layer="1"/>
+<wire x1="35.1456" y1="35.5092" x2="35.7124" y2="35.5092" width="0.1524" layer="1"/>
+<wire x1="30.1796625" y1="28.6512" x2="32.004" y2="30.4755375" width="0.1524" layer="1"/>
 <wire x1="24.3488" y1="28.6512" x2="22.25" y2="30.75" width="0.1524" layer="1"/>
-<wire x1="32.004" y1="32.6724" x2="32.004" y2="30.4755375" width="0.1524" layer="1"/>
 <wire x1="30.1796625" y1="28.6512" x2="24.3488" y2="28.6512" width="0.1524" layer="1"/>
 <wire x1="17.75" y1="30.75" x2="22.25" y2="30.75" width="0.1524" layer="1"/>
+<wire x1="34.7082625" y1="35.0718625" x2="35.1456" y2="35.5092" width="0.1524" layer="1"/>
+<wire x1="32.004" y1="30.4755375" x2="32.004" y2="31.78371875" width="0.1524" layer="1"/>
+<wire x1="32.004" y1="31.78371875" x2="34.7082625" y2="34.48798125" width="0.1524" layer="1"/>
+<wire x1="34.7082625" y1="34.48798125" x2="34.7082625" y2="35.0718625" width="0.1524" layer="1"/>
 </signal>
 <signal name="I2C_SCL">
 <contactref element="U1" pad="61"/>
@@ -4051,9 +4059,8 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <wire x1="34.7472" y1="56.10716875" x2="34.7472" y2="62.55796875" width="0.1524" layer="1"/>
 <wire x1="34.7472" y1="62.55796875" x2="29.18236875" y2="68.1228" width="0.1524" layer="1"/>
 <wire x1="29.18236875" y1="68.1228" x2="24.9936" y2="68.1228" width="0.1524" layer="1"/>
-<wire x1="17.3232" y1="70.4088" x2="16.1644" y2="69.25" width="0.1524" layer="1"/>
-<wire x1="16.1644" y1="69.25" x2="15.25" y2="69.25" width="0.1524" layer="1"/>
-<wire x1="22.7076" y1="70.4088" x2="17.3232" y2="70.4088" width="0.1524" layer="1"/>
+<wire x1="16.4088" y1="70.4088" x2="15.25" y2="69.25" width="0.1524" layer="1"/>
+<wire x1="22.7076" y1="70.4088" x2="16.4088" y2="70.4088" width="0.1524" layer="1"/>
 </signal>
 <signal name="N$6">
 <contactref element="U1" pad="23"/>
