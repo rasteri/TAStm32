@@ -10010,6 +10010,7 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <text x="-96.52" y="-73.66" size="1.778" layer="91">P1 Level translation</text>
 <text x="-22.86" y="-73.66" size="1.778" layer="91">3.3v to 5v</text>
 <text x="50.8" y="-73.66" size="1.778" layer="91">Bidirectional</text>
+<text x="17.78" y="-60.96" size="1.778" layer="91">4=pin header is totally wrong, pins are staggered on the wrong size</text>
 </plain>
 <instances>
 <instance part="GND3" gate="1" x="-63.5" y="-66.04" smashed="yes"/>
