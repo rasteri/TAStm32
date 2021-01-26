@@ -10010,7 +10010,10 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <text x="-96.52" y="-73.66" size="1.778" layer="91">P1 Level translation</text>
 <text x="-22.86" y="-73.66" size="1.778" layer="91">3.3v to 5v</text>
 <text x="50.8" y="-73.66" size="1.778" layer="91">Bidirectional</text>
-<text x="17.78" y="-60.96" size="1.778" layer="91">4=pin header is totally wrong, pins are staggered on the wrong size</text>
+<text x="17.78" y="-60.96" size="1.778" layer="91">4=pin header is totally wrong, pins are staggered on the wrong side</text>
+<text x="17.78" y="-63.5" size="1.778" layer="91">Buffer SNES pin</text>
+<text x="17.78" y="-66.04" size="1.778" layer="91">Switch pinout wrong</text>
+<text x="17.78" y="-68.58" size="1.778" layer="91">Ground a pin for version number</text>
 </plain>
 <instances>
 <instance part="GND3" gate="1" x="-63.5" y="-66.04" smashed="yes"/>
@@ -10024,7 +10027,7 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 </instance>
 <instance part="GND7" gate="1" x="-53.34" y="-40.64" smashed="yes"/>
 <instance part="C2" gate="G$1" x="-38.1" y="-35.56" smashed="yes" rot="R180">
-<attribute name="NAME" x="-32.004" y="-33.401" size="1.778" layer="95" rot="R180"/>
+<attribute name="NAME" x="-34.036" y="-35.179" size="1.778" layer="95"/>
 <attribute name="VALUE" x="-36.576" y="-37.719" size="1.778" layer="96"/>
 </instance>
 <instance part="C3" gate="G$1" x="-53.34" y="-35.56" smashed="yes" rot="R180">
@@ -10220,7 +10223,7 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <attribute name="VALUE" x="44.45" y="-101.6" size="1.778" layer="96" align="center-left"/>
 </instance>
 <instance part="IC3" gate="G$1" x="-33.02" y="-78.74" smashed="yes">
-<attribute name="NAME" x="-3.81" y="-43.18" size="1.778" layer="95" align="center-left"/>
+<attribute name="NAME" x="-31.75" y="-73.66" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="-29.21" y="-101.6" size="1.778" layer="96" align="center-left"/>
 </instance>
 <instance part="GND26" gate="1" x="-71.12" y="-99.06" smashed="yes"/>
