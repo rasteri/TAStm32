@@ -10298,7 +10298,7 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <text x="-17.78" y="-58.42" size="1.778" layer="91">Switch pads slightly wrong</text>
 <text x="-17.78" y="-60.96" size="1.778" layer="91">Ground a pin for version number</text>
 <text x="-17.78" y="-63.5" size="1.778" layer="91">Add a D3 pin (still have to route to MCU, depending on nearest point on board)</text>
-<text x="-17.78" y="-55.88" size="1.778" layer="91">USB SMT</text>
+<text x="-17.78" y="-55.88" size="1.778" layer="91">Maybe make debug/expansion header SIL to make it fit better</text>
 </plain>
 <instances>
 <instance part="GND3" gate="1" x="-63.5" y="-66.04" smashed="yes"/>
