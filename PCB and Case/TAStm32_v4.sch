@@ -10329,6 +10329,230 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="resistor-net" urn="urn:adsk.eagle:library:343">
+<description>&lt;b&gt;Generic Resistor Networks&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="CTS742C083" urn="urn:adsk.eagle:footprint:24972/1" library_version="2">
+<description>&lt;b&gt;Chip Resistor Array&lt;/b&gt;&lt;p&gt;
+Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</description>
+<wire x1="-1.55" y1="0.75" x2="-1.45" y2="0.75" width="0.1016" layer="51"/>
+<wire x1="-1.45" y1="0.75" x2="-1.3" y2="0.6" width="0.1016" layer="51"/>
+<wire x1="-1.3" y1="0.6" x2="-1.1" y2="0.6" width="0.1016" layer="51"/>
+<wire x1="-1.1" y1="0.6" x2="-0.95" y2="0.75" width="0.1016" layer="51"/>
+<wire x1="-0.95" y1="0.75" x2="-0.65" y2="0.75" width="0.1016" layer="51"/>
+<wire x1="-0.15" y1="0.75" x2="0.15" y2="0.75" width="0.1016" layer="51"/>
+<wire x1="0.65" y1="0.75" x2="0.95" y2="0.75" width="0.1016" layer="51"/>
+<wire x1="1.45" y1="0.75" x2="1.55" y2="0.75" width="0.1016" layer="51"/>
+<wire x1="1.55" y1="0.75" x2="1.55" y2="-0.75" width="0.1016" layer="21"/>
+<wire x1="1.55" y1="-0.75" x2="1.45" y2="-0.75" width="0.1016" layer="51"/>
+<wire x1="0.95" y1="-0.75" x2="0.65" y2="-0.75" width="0.1016" layer="51"/>
+<wire x1="0.15" y1="-0.75" x2="-0.15" y2="-0.75" width="0.1016" layer="51"/>
+<wire x1="-0.65" y1="-0.75" x2="-0.95" y2="-0.75" width="0.1016" layer="51"/>
+<wire x1="-1.45" y1="-0.75" x2="-1.55" y2="-0.75" width="0.1016" layer="51"/>
+<wire x1="-1.55" y1="-0.75" x2="-1.55" y2="0.75" width="0.1016" layer="21"/>
+<wire x1="-0.65" y1="0.75" x2="-0.5" y2="0.6" width="0.1016" layer="51"/>
+<wire x1="-0.5" y1="0.6" x2="-0.3" y2="0.6" width="0.1016" layer="51"/>
+<wire x1="-0.3" y1="0.6" x2="-0.15" y2="0.75" width="0.1016" layer="51"/>
+<wire x1="0.15" y1="0.75" x2="0.3" y2="0.6" width="0.1016" layer="51"/>
+<wire x1="0.3" y1="0.6" x2="0.5" y2="0.6" width="0.1016" layer="51"/>
+<wire x1="0.5" y1="0.6" x2="0.65" y2="0.75" width="0.1016" layer="51"/>
+<wire x1="0.95" y1="0.75" x2="1.1" y2="0.6" width="0.1016" layer="51"/>
+<wire x1="1.1" y1="0.6" x2="1.3" y2="0.6" width="0.1016" layer="51"/>
+<wire x1="1.3" y1="0.6" x2="1.45" y2="0.75" width="0.1016" layer="51"/>
+<wire x1="1.45" y1="-0.75" x2="1.3" y2="-0.6" width="0.1016" layer="51"/>
+<wire x1="1.3" y1="-0.6" x2="1.1" y2="-0.6" width="0.1016" layer="51"/>
+<wire x1="1.1" y1="-0.6" x2="0.95" y2="-0.75" width="0.1016" layer="51"/>
+<wire x1="0.65" y1="-0.75" x2="0.5" y2="-0.6" width="0.1016" layer="51"/>
+<wire x1="0.5" y1="-0.6" x2="0.3" y2="-0.6" width="0.1016" layer="51"/>
+<wire x1="0.3" y1="-0.6" x2="0.15" y2="-0.75" width="0.1016" layer="51"/>
+<wire x1="-0.15" y1="-0.75" x2="-0.3" y2="-0.6" width="0.1016" layer="51"/>
+<wire x1="-0.3" y1="-0.6" x2="-0.5" y2="-0.6" width="0.1016" layer="51"/>
+<wire x1="-0.5" y1="-0.6" x2="-0.65" y2="-0.75" width="0.1016" layer="51"/>
+<wire x1="-0.95" y1="-0.75" x2="-1.1" y2="-0.6" width="0.1016" layer="51"/>
+<wire x1="-1.1" y1="-0.6" x2="-1.3" y2="-0.6" width="0.1016" layer="51"/>
+<wire x1="-1.3" y1="-0.6" x2="-1.45" y2="-0.75" width="0.1016" layer="51"/>
+<wire x1="1.55" y1="-0.45" x2="-1.55" y2="-0.45" width="0.1016" layer="51"/>
+<wire x1="-1.55" y1="0.45" x2="1.55" y2="0.45" width="0.1016" layer="51"/>
+<smd name="1" x="-1.2" y="-0.8" dx="0.5" dy="0.9" layer="1" stop="no"/>
+<smd name="2" x="-0.4" y="-0.8" dx="0.5" dy="0.9" layer="1" stop="no"/>
+<smd name="3" x="0.4" y="-0.8" dx="0.5" dy="0.9" layer="1" stop="no"/>
+<smd name="4" x="1.2" y="-0.8" dx="0.5" dy="0.9" layer="1" stop="no"/>
+<smd name="5" x="1.2" y="0.8" dx="0.5" dy="0.9" layer="1" stop="no"/>
+<smd name="6" x="0.4" y="0.8" dx="0.5" dy="0.9" layer="1" stop="no"/>
+<smd name="7" x="-0.4" y="0.8" dx="0.5" dy="0.9" layer="1" stop="no"/>
+<smd name="8" x="-1.2" y="0.8" dx="0.5" dy="0.9" layer="1" stop="no"/>
+<text x="-1.778" y="1.524" size="1.27" layer="25">&gt;NAME</text>
+<text x="-1.778" y="-2.794" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-1.5" y1="-1.3" x2="-0.9" y2="-0.3" layer="29"/>
+<rectangle x1="-0.7" y1="-1.3" x2="-0.1" y2="-0.3" layer="29"/>
+<rectangle x1="0.1" y1="-1.3" x2="0.7" y2="-0.3" layer="29"/>
+<rectangle x1="0.9" y1="-1.3" x2="1.5" y2="-0.3" layer="29"/>
+<rectangle x1="0.9" y1="0.3" x2="1.5" y2="1.3" layer="29" rot="R180"/>
+<rectangle x1="0.1" y1="0.3" x2="0.7" y2="1.3" layer="29" rot="R180"/>
+<rectangle x1="-0.7" y1="0.3" x2="-0.1" y2="1.3" layer="29" rot="R180"/>
+<rectangle x1="-1.5" y1="0.3" x2="-0.9" y2="1.3" layer="29" rot="R180"/>
+<polygon width="0.1016" layer="51">
+<vertex x="-0.6" y="-0.675"/>
+<vertex x="-0.6" y="-0.45"/>
+<vertex x="-0.2" y="-0.45"/>
+<vertex x="-0.2" y="-0.675"/>
+<vertex x="-0.3" y="-0.575"/>
+<vertex x="-0.5" y="-0.575"/>
+</polygon>
+<polygon width="0.1016" layer="51">
+<vertex x="-1.4" y="-0.675"/>
+<vertex x="-1.4" y="-0.45"/>
+<vertex x="-1" y="-0.45"/>
+<vertex x="-1" y="-0.675"/>
+<vertex x="-1.1" y="-0.575"/>
+<vertex x="-1.3" y="-0.575"/>
+</polygon>
+<polygon width="0.1016" layer="51">
+<vertex x="0.2" y="-0.675"/>
+<vertex x="0.2" y="-0.45"/>
+<vertex x="0.6" y="-0.45"/>
+<vertex x="0.6" y="-0.675"/>
+<vertex x="0.5" y="-0.575"/>
+<vertex x="0.3" y="-0.575"/>
+</polygon>
+<polygon width="0.1016" layer="51">
+<vertex x="1" y="-0.675"/>
+<vertex x="1" y="-0.45"/>
+<vertex x="1.4" y="-0.45"/>
+<vertex x="1.4" y="-0.675"/>
+<vertex x="1.3" y="-0.575"/>
+<vertex x="1.1" y="-0.575"/>
+</polygon>
+<polygon width="0.1016" layer="51">
+<vertex x="1.4" y="0.675"/>
+<vertex x="1.4" y="0.45"/>
+<vertex x="1" y="0.45"/>
+<vertex x="1" y="0.675"/>
+<vertex x="1.1" y="0.575"/>
+<vertex x="1.3" y="0.575"/>
+</polygon>
+<polygon width="0.1016" layer="51">
+<vertex x="0.6" y="0.675"/>
+<vertex x="0.6" y="0.45"/>
+<vertex x="0.2" y="0.45"/>
+<vertex x="0.2" y="0.675"/>
+<vertex x="0.3" y="0.575"/>
+<vertex x="0.5" y="0.575"/>
+</polygon>
+<polygon width="0.1016" layer="51">
+<vertex x="-0.2" y="0.675"/>
+<vertex x="-0.2" y="0.45"/>
+<vertex x="-0.6" y="0.45"/>
+<vertex x="-0.6" y="0.675"/>
+<vertex x="-0.5" y="0.575"/>
+<vertex x="-0.3" y="0.575"/>
+</polygon>
+<polygon width="0.1016" layer="51">
+<vertex x="-1" y="0.675"/>
+<vertex x="-1" y="0.45"/>
+<vertex x="-1.4" y="0.45"/>
+<vertex x="-1.4" y="0.675"/>
+<vertex x="-1.3" y="0.575"/>
+<vertex x="-1.1" y="0.575"/>
+</polygon>
+</package>
+</packages>
+<packages3d>
+<package3d name="CTS742C083" urn="urn:adsk.eagle:package:24985/1" type="box" library_version="2">
+<description>Chip Resistor Array
+Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</description>
+<packageinstances>
+<packageinstance name="CTS742C083"/>
+</packageinstances>
+</package3d>
+</packages3d>
+<symbols>
+<symbol name="RN4" urn="urn:adsk.eagle:symbol:24971/1" library_version="2">
+<wire x1="-1.27" y1="1.778" x2="3.81" y2="1.778" width="0.254" layer="94"/>
+<wire x1="3.81" y1="3.302" x2="-1.27" y2="3.302" width="0.254" layer="94"/>
+<wire x1="3.81" y1="1.778" x2="3.81" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="3.302" x2="-1.27" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="2.54" x2="-2.54" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="-1.27" y1="2.54" x2="-1.27" y2="1.778" width="0.254" layer="94"/>
+<wire x1="3.81" y1="2.54" x2="3.81" y2="3.302" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="3.81" y2="0" width="0.1524" layer="94"/>
+<wire x1="5.08" y1="-2.54" x2="3.81" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="5.08" y1="-5.08" x2="3.81" y2="-5.08" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="-5.08" x2="-1.27" y2="-5.08" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="-2.54" x2="-1.27" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-1.27" y2="0" width="0.1524" layer="94"/>
+<wire x1="-1.27" y1="0" x2="-1.27" y2="-0.762" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="0.762" x2="-1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="3.81" y1="-0.762" x2="3.81" y2="0" width="0.254" layer="94"/>
+<wire x1="3.81" y1="0" x2="3.81" y2="0.762" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="-0.762" x2="3.81" y2="-0.762" width="0.254" layer="94"/>
+<wire x1="3.81" y1="0.762" x2="-1.27" y2="0.762" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="-3.302" x2="3.81" y2="-3.302" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="-5.842" x2="3.81" y2="-5.842" width="0.254" layer="94"/>
+<wire x1="3.81" y1="-1.778" x2="-1.27" y2="-1.778" width="0.254" layer="94"/>
+<wire x1="3.81" y1="-4.318" x2="-1.27" y2="-4.318" width="0.254" layer="94"/>
+<wire x1="3.81" y1="-3.302" x2="3.81" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="3.81" y1="-5.842" x2="3.81" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="3.81" y1="-2.54" x2="3.81" y2="-1.778" width="0.254" layer="94"/>
+<wire x1="3.81" y1="-5.08" x2="3.81" y2="-4.318" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="-2.54" x2="-1.27" y2="-3.302" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="-5.08" x2="-1.27" y2="-5.842" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="-1.778" x2="-1.27" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="-4.318" x2="-1.27" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="4.318" x2="-2.54" y2="4.318" width="0.4064" layer="94"/>
+<wire x1="5.08" y1="-6.858" x2="-2.54" y2="-6.858" width="0.4064" layer="94"/>
+<wire x1="-2.54" y1="4.318" x2="-2.54" y2="-6.858" width="0.4064" layer="94"/>
+<wire x1="3.81" y1="2.54" x2="5.08" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="5.08" y1="4.318" x2="5.08" y2="-6.858" width="0.4064" layer="94"/>
+<text x="-1.905" y="5.08" size="1.778" layer="95">&gt;NAME</text>
+<text x="-2.54" y="-9.398" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="2" x="-5.08" y="0" visible="pad" length="short" direction="pas" swaplevel="2"/>
+<pin name="3" x="-5.08" y="-2.54" visible="pad" length="short" direction="pas" swaplevel="3"/>
+<pin name="4" x="-5.08" y="-5.08" visible="pad" length="short" direction="pas" swaplevel="4"/>
+<pin name="5" x="7.62" y="-5.08" visible="pad" length="short" direction="pas" swaplevel="4" rot="R180"/>
+<pin name="6" x="7.62" y="-2.54" visible="pad" length="short" direction="pas" swaplevel="3" rot="R180"/>
+<pin name="7" x="7.62" y="0" visible="pad" length="short" direction="pas" swaplevel="2" rot="R180"/>
+<pin name="1" x="-5.08" y="2.54" visible="pad" length="short" direction="pas" swaplevel="1"/>
+<pin name="8" x="7.62" y="2.54" visible="pad" length="short" direction="pas" swaplevel="1" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="CTS742C083" urn="urn:adsk.eagle:component:24999/2" prefix="RN" library_version="2">
+<description>&lt;b&gt;Chip Resistor Array&lt;/b&gt; 4 Single Resistor&lt;p&gt;
+Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</description>
+<gates>
+<gate name="G$1" symbol="RN4" x="0" y="0" swaplevel="4"/>
+</gates>
+<devices>
+<device name="" package="CTS742C083">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
+<connect gate="G$1" pin="5" pad="5"/>
+<connect gate="G$1" pin="6" pad="6"/>
+<connect gate="G$1" pin="7" pad="7"/>
+<connect gate="G$1" pin="8" pad="8"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:24985/1"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="MF" value="" constant="no"/>
+<attribute name="MPN" value="" constant="no"/>
+<attribute name="OC_FARNELL" value="unknown" constant="no"/>
+<attribute name="OC_NEWARK" value="unknown" constant="no"/>
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -10431,6 +10655,9 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <part name="C16" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603K" package3d_urn="urn:adsk.eagle:package:23680/2" value="100nF"/>
 <part name="IC3" library="SamacSys_Parts" deviceset="74AVCH4T245PW,118" device=""/>
 <part name="J3" library="TSM-105-02-L-SH" deviceset="TSM-105-02-L-SH" device="J"/>
+<part name="RN1" library="resistor-net" library_urn="urn:adsk.eagle:library:343" deviceset="CTS742C083" device="" package3d_urn="urn:adsk.eagle:package:24985/1"/>
+<part name="RN2" library="resistor-net" library_urn="urn:adsk.eagle:library:343" deviceset="CTS742C083" device="" package3d_urn="urn:adsk.eagle:package:24985/1"/>
+<part name="RN3" library="resistor-net" library_urn="urn:adsk.eagle:library:343" deviceset="CTS742C083" device="" package3d_urn="urn:adsk.eagle:package:24985/1"/>
 </parts>
 <sheets>
 <sheet>
@@ -10444,7 +10671,6 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <text x="99.06" y="88.9" size="2.54" layer="97">Controller Outputs</text>
 <text x="93.98" y="17.78" size="2.54" layer="97">Expansion Ports</text>
 <text x="-17.78" y="-58.42" size="1.778" layer="91">Switch pads slightly wrong</text>
-<text x="-17.78" y="-55.88" size="1.778" layer="91">Maybe make debug/expansion header SIL to make it fit better</text>
 </plain>
 <instances>
 <instance part="GND3" gate="1" x="-63.5" y="-66.04" smashed="yes"/>
@@ -10627,11 +10853,11 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 </instance>
 <instance part="GND19" gate="1" x="55.88" y="76.2" smashed="yes"/>
 <instance part="GND20" gate="1" x="55.88" y="55.88" smashed="yes"/>
-<instance part="C13" gate="G$1" x="-63.5" y="-124.46" smashed="yes" rot="R180">
-<attribute name="NAME" x="-61.976" y="-126.619" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-54.864" y="-119.761" size="1.778" layer="96" rot="R180"/>
+<instance part="C13" gate="G$1" x="-15.24" y="-124.46" smashed="yes" rot="R180">
+<attribute name="NAME" x="-13.716" y="-126.619" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-4.064" y="-122.301" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="GND31" gate="1" x="-63.5" y="-137.16" smashed="yes"/>
+<instance part="GND31" gate="1" x="-15.24" y="-137.16" smashed="yes"/>
 <instance part="C19" gate="G$1" x="-134.62" y="-124.46" smashed="yes" rot="R180">
 <attribute name="NAME" x="-140.716" y="-126.619" size="1.778" layer="95"/>
 <attribute name="VALUE" x="-136.144" y="-119.761" size="1.778" layer="96" rot="R180"/>
@@ -10650,43 +10876,55 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <attribute name="NAME" x="-110.49" y="-109.22" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="-110.49" y="-111.76" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="SUPPLY10" gate="1" x="-45.72" y="-111.76" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="-44.45" y="-110.49" size="1.778" layer="96" rot="MR0"/>
+<instance part="SUPPLY10" gate="1" x="38.1" y="-111.76" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="39.37" y="-110.49" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="GND30" gate="1" x="-45.72" y="-137.16" smashed="yes"/>
-<instance part="C5" gate="G$1" x="25.4" y="-124.46" smashed="yes" rot="R180">
-<attribute name="NAME" x="26.924" y="-126.619" size="1.778" layer="95"/>
-<attribute name="VALUE" x="34.036" y="-119.761" size="1.778" layer="96" rot="R180"/>
+<instance part="GND30" gate="1" x="38.1" y="-137.16" smashed="yes"/>
+<instance part="C5" gate="G$1" x="160.02" y="-124.46" smashed="yes" rot="R180">
+<attribute name="NAME" x="161.544" y="-126.619" size="1.778" layer="95"/>
+<attribute name="VALUE" x="168.656" y="-119.761" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="GND32" gate="1" x="25.4" y="-137.16" smashed="yes"/>
-<instance part="C14" gate="G$1" x="-45.72" y="-124.46" smashed="yes" rot="R180">
-<attribute name="NAME" x="-51.816" y="-126.619" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-47.244" y="-119.761" size="1.778" layer="96" rot="R180"/>
+<instance part="GND32" gate="1" x="160.02" y="-137.16" smashed="yes"/>
+<instance part="C14" gate="G$1" x="38.1" y="-124.46" smashed="yes" rot="R180">
+<attribute name="NAME" x="32.004" y="-126.619" size="1.778" layer="95"/>
+<attribute name="VALUE" x="36.576" y="-119.761" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="IC2" gate="G$1" x="-25.4" y="-116.84" smashed="yes">
-<attribute name="NAME" x="-21.59" y="-109.22" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="-21.59" y="-111.76" size="1.778" layer="96" align="center-left"/>
+<instance part="IC2" gate="G$1" x="58.42" y="-116.84" smashed="yes">
+<attribute name="NAME" x="62.23" y="-109.22" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="62.23" y="-111.76" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="SUPPLY11" gate="1" x="43.18" y="-111.76" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="44.45" y="-110.49" size="1.778" layer="96" rot="MR0"/>
+<instance part="SUPPLY11" gate="1" x="81.28" y="-71.12" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="82.55" y="-69.85" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="GND27" gate="1" x="43.18" y="-137.16" smashed="yes"/>
-<instance part="C15" gate="G$1" x="119.38" y="-124.46" smashed="yes" rot="R180">
-<attribute name="NAME" x="120.904" y="-126.619" size="1.778" layer="95"/>
-<attribute name="VALUE" x="128.016" y="-119.761" size="1.778" layer="96" rot="R180"/>
+<instance part="GND27" gate="1" x="81.28" y="-96.52" smashed="yes"/>
+<instance part="C15" gate="G$1" x="180.34" y="-83.82" smashed="yes" rot="R180">
+<attribute name="NAME" x="181.864" y="-85.979" size="1.778" layer="95"/>
+<attribute name="VALUE" x="188.976" y="-79.121" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="GND28" gate="1" x="119.38" y="-137.16" smashed="yes"/>
-<instance part="C16" gate="G$1" x="43.18" y="-124.46" smashed="yes" rot="R180">
-<attribute name="NAME" x="37.084" y="-126.619" size="1.778" layer="95"/>
-<attribute name="VALUE" x="41.656" y="-119.761" size="1.778" layer="96" rot="R180"/>
+<instance part="GND28" gate="1" x="180.34" y="-96.52" smashed="yes"/>
+<instance part="C16" gate="G$1" x="81.28" y="-83.82" smashed="yes" rot="R180">
+<attribute name="NAME" x="75.184" y="-85.979" size="1.778" layer="95"/>
+<attribute name="VALUE" x="79.756" y="-79.121" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="IC3" gate="G$1" x="63.5" y="-116.84" smashed="yes">
-<attribute name="NAME" x="67.31" y="-109.22" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="67.31" y="-111.76" size="1.778" layer="96" align="center-left"/>
+<instance part="IC3" gate="G$1" x="101.6" y="-76.2" smashed="yes">
+<attribute name="NAME" x="105.41" y="-68.58" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="105.41" y="-71.12" size="1.778" layer="96" align="center-left"/>
 </instance>
 <instance part="J3" gate="A" x="7.62" y="40.64" smashed="yes">
 <attribute name="NAME" x="7.62" y="45.72" size="2.54" layer="95"/>
 <attribute name="VALUE" x="7.62" y="20.32" size="2.286" layer="96"/>
+</instance>
+<instance part="RN1" gate="G$1" x="160.02" y="-86.36" smashed="yes">
+<attribute name="NAME" x="158.115" y="-81.28" size="1.778" layer="95"/>
+<attribute name="VALUE" x="157.48" y="-95.758" size="1.778" layer="96"/>
+</instance>
+<instance part="RN2" gate="G$1" x="96.52" y="-127" smashed="yes">
+<attribute name="NAME" x="94.615" y="-121.92" size="1.778" layer="95"/>
+<attribute name="VALUE" x="93.98" y="-136.398" size="1.778" layer="96"/>
+</instance>
+<instance part="RN3" gate="G$1" x="-76.2" y="-127" smashed="yes">
+<attribute name="NAME" x="-78.105" y="-121.92" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-78.74" y="-136.398" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -10870,10 +11108,10 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <segment>
 <pinref part="C13" gate="G$1" pin="1"/>
 <pinref part="GND31" gate="1" pin="GND"/>
-<wire x1="-63.5" y1="-127" x2="-63.5" y2="-134.62" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="-127" x2="-15.24" y2="-134.62" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="GND_2"/>
-<wire x1="-81.28" y1="-134.62" x2="-63.5" y2="-134.62" width="0.1524" layer="91"/>
-<junction x="-63.5" y="-134.62"/>
+<wire x1="-81.28" y1="-134.62" x2="-15.24" y2="-134.62" width="0.1524" layer="91"/>
+<junction x="-15.24" y="-134.62"/>
 </segment>
 <segment>
 <pinref part="GND21" gate="1" pin="GND"/>
@@ -10896,34 +11134,34 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <segment>
 <pinref part="GND30" gate="1" pin="GND"/>
 <pinref part="C14" gate="G$1" pin="1"/>
-<wire x1="-45.72" y1="-127" x2="-45.72" y2="-134.62" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="-127" x2="38.1" y2="-134.62" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="G$1" pin="GND_1"/>
-<wire x1="-25.4" y1="-134.62" x2="-45.72" y2="-134.62" width="0.1524" layer="91"/>
-<junction x="-45.72" y="-134.62"/>
+<wire x1="58.42" y1="-134.62" x2="38.1" y2="-134.62" width="0.1524" layer="91"/>
+<junction x="38.1" y="-134.62"/>
 </segment>
 <segment>
 <pinref part="C5" gate="G$1" pin="1"/>
 <pinref part="GND32" gate="1" pin="GND"/>
-<wire x1="25.4" y1="-127" x2="25.4" y2="-134.62" width="0.1524" layer="91"/>
+<wire x1="160.02" y1="-127" x2="160.02" y2="-134.62" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="G$1" pin="GND_2"/>
-<wire x1="7.62" y1="-134.62" x2="25.4" y2="-134.62" width="0.1524" layer="91"/>
-<junction x="25.4" y="-134.62"/>
+<wire x1="91.44" y1="-134.62" x2="160.02" y2="-134.62" width="0.1524" layer="91"/>
+<junction x="160.02" y="-134.62"/>
 </segment>
 <segment>
 <pinref part="GND27" gate="1" pin="GND"/>
 <pinref part="C16" gate="G$1" pin="1"/>
-<wire x1="43.18" y1="-127" x2="43.18" y2="-134.62" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="-86.36" x2="81.28" y2="-93.98" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="GND_1"/>
-<wire x1="63.5" y1="-134.62" x2="43.18" y2="-134.62" width="0.1524" layer="91"/>
-<junction x="43.18" y="-134.62"/>
+<wire x1="101.6" y1="-93.98" x2="81.28" y2="-93.98" width="0.1524" layer="91"/>
+<junction x="81.28" y="-93.98"/>
 </segment>
 <segment>
 <pinref part="C15" gate="G$1" pin="1"/>
 <pinref part="GND28" gate="1" pin="GND"/>
-<wire x1="119.38" y1="-127" x2="119.38" y2="-134.62" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="-86.36" x2="180.34" y2="-93.98" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="GND_2"/>
-<wire x1="96.52" y1="-134.62" x2="119.38" y2="-134.62" width="0.1524" layer="91"/>
-<junction x="119.38" y="-134.62"/>
+<wire x1="134.62" y1="-93.98" x2="180.34" y2="-93.98" width="0.1524" layer="91"/>
+<junction x="180.34" y="-93.98"/>
 </segment>
 </net>
 <net name="VCAP" class="0">
@@ -11035,9 +11273,9 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <pinref part="J6" gate="A" pin="16"/>
 </segment>
 <segment>
-<wire x1="-81.28" y1="-132.08" x2="-78.74" y2="-132.08" width="0.1524" layer="91"/>
-<label x="-78.74" y="-132.08" size="1.27" layer="95" rot="MR180" xref="yes"/>
-<pinref part="IC1" gate="G$1" pin="2B2"/>
+<wire x1="-68.58" y1="-132.08" x2="-66.04" y2="-132.08" width="0.1524" layer="91"/>
+<label x="-66.04" y="-132.08" size="1.27" layer="95" rot="MR180" xref="yes"/>
+<pinref part="RN3" gate="G$1" pin="5"/>
 </segment>
 </net>
 <net name="P1_LATCH" class="0">
@@ -11052,9 +11290,9 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <pinref part="J6" gate="A" pin="14"/>
 </segment>
 <segment>
-<wire x1="-81.28" y1="-129.54" x2="-78.74" y2="-129.54" width="0.1524" layer="91"/>
-<label x="-78.74" y="-129.54" size="1.27" layer="95" rot="MR180" xref="yes"/>
-<pinref part="IC1" gate="G$1" pin="2B1"/>
+<wire x1="-68.58" y1="-129.54" x2="-66.04" y2="-129.54" width="0.1524" layer="91"/>
+<label x="-66.04" y="-129.54" size="1.27" layer="95" rot="MR180" xref="yes"/>
+<pinref part="RN3" gate="G$1" pin="6"/>
 </segment>
 </net>
 <net name="P1_D1" class="0">
@@ -11069,9 +11307,9 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <pinref part="J6" gate="A" pin="13"/>
 </segment>
 <segment>
-<wire x1="-81.28" y1="-127" x2="-78.74" y2="-127" width="0.1524" layer="91"/>
-<label x="-78.74" y="-127" size="1.27" layer="95" xref="yes"/>
-<pinref part="IC1" gate="G$1" pin="1B2"/>
+<wire x1="-68.58" y1="-127" x2="-66.04" y2="-127" width="0.1524" layer="91"/>
+<label x="-66.04" y="-127" size="1.27" layer="95" xref="yes"/>
+<pinref part="RN3" gate="G$1" pin="7"/>
 </segment>
 </net>
 <net name="P1_D0" class="0">
@@ -11086,9 +11324,9 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <pinref part="J6" gate="A" pin="12"/>
 </segment>
 <segment>
-<wire x1="-81.28" y1="-124.46" x2="-78.74" y2="-124.46" width="0.1524" layer="91"/>
-<label x="-78.74" y="-124.46" size="1.27" layer="95" xref="yes"/>
-<pinref part="IC1" gate="G$1" pin="1B1"/>
+<wire x1="-68.58" y1="-124.46" x2="-66.04" y2="-124.46" width="0.1524" layer="91"/>
+<label x="-66.04" y="-124.46" size="1.27" layer="95" xref="yes"/>
+<pinref part="RN3" gate="G$1" pin="8"/>
 </segment>
 </net>
 <net name="P1_D2" class="0">
@@ -11103,9 +11341,9 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <pinref part="J6" gate="A" pin="11"/>
 </segment>
 <segment>
-<wire x1="96.52" y1="-132.08" x2="99.06" y2="-132.08" width="0.1524" layer="91"/>
-<label x="99.06" y="-132.08" size="1.27" layer="95" rot="MR180" xref="yes"/>
-<pinref part="IC3" gate="G$1" pin="2B2"/>
+<wire x1="167.64" y1="-91.44" x2="170.18" y2="-91.44" width="0.1524" layer="91"/>
+<label x="170.18" y="-91.44" size="1.27" layer="95" rot="MR180" xref="yes"/>
+<pinref part="RN1" gate="G$1" pin="5"/>
 </segment>
 </net>
 <net name="P1_5V" class="2">
@@ -11126,17 +11364,17 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 </segment>
 <segment>
 <pinref part="C13" gate="G$1" pin="2"/>
-<wire x1="-63.5" y1="-119.38" x2="-63.5" y2="-116.84" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="-119.38" x2="-15.24" y2="-116.84" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="VCC(B)"/>
-<wire x1="-63.5" y1="-116.84" x2="-81.28" y2="-116.84" width="0.1524" layer="91"/>
-<label x="-63.5" y="-116.84" size="1.778" layer="95"/>
+<wire x1="-15.24" y1="-116.84" x2="-81.28" y2="-116.84" width="0.1524" layer="91"/>
+<label x="-15.24" y="-116.84" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="C15" gate="G$1" pin="2"/>
-<wire x1="119.38" y1="-119.38" x2="119.38" y2="-116.84" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="-78.74" x2="180.34" y2="-76.2" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="VCC(B)"/>
-<wire x1="119.38" y1="-116.84" x2="96.52" y2="-116.84" width="0.1524" layer="91"/>
-<label x="119.38" y="-116.84" size="1.778" layer="95"/>
+<wire x1="180.34" y1="-76.2" x2="134.62" y2="-76.2" width="0.1524" layer="91"/>
+<label x="180.34" y="-76.2" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="P2_CLOCK" class="0">
@@ -11151,9 +11389,9 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <pinref part="J6" gate="A" pin="8"/>
 </segment>
 <segment>
-<wire x1="7.62" y1="-132.08" x2="10.16" y2="-132.08" width="0.1524" layer="91"/>
-<label x="10.16" y="-132.08" size="1.27" layer="95" rot="MR180" xref="yes"/>
-<pinref part="IC2" gate="G$1" pin="2B2"/>
+<wire x1="104.14" y1="-132.08" x2="106.68" y2="-132.08" width="0.1524" layer="91"/>
+<label x="106.68" y="-132.08" size="1.27" layer="95" rot="MR180" xref="yes"/>
+<pinref part="RN2" gate="G$1" pin="5"/>
 </segment>
 </net>
 <net name="P2_LATCH" class="0">
@@ -11168,9 +11406,9 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <pinref part="J6" gate="A" pin="6"/>
 </segment>
 <segment>
-<wire x1="7.62" y1="-129.54" x2="10.16" y2="-129.54" width="0.1524" layer="91"/>
-<label x="10.16" y="-129.54" size="1.27" layer="95" rot="MR180" xref="yes"/>
-<pinref part="IC2" gate="G$1" pin="2B1"/>
+<wire x1="104.14" y1="-129.54" x2="106.68" y2="-129.54" width="0.1524" layer="91"/>
+<label x="106.68" y="-129.54" size="1.27" layer="95" rot="MR180" xref="yes"/>
+<pinref part="RN2" gate="G$1" pin="6"/>
 </segment>
 </net>
 <net name="P2_D1" class="0">
@@ -11185,9 +11423,9 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <pinref part="J6" gate="A" pin="5"/>
 </segment>
 <segment>
-<wire x1="7.62" y1="-127" x2="10.16" y2="-127" width="0.1524" layer="91"/>
-<label x="10.16" y="-127" size="1.27" layer="95" xref="yes"/>
-<pinref part="IC2" gate="G$1" pin="1B2"/>
+<wire x1="104.14" y1="-127" x2="106.68" y2="-127" width="0.1524" layer="91"/>
+<label x="106.68" y="-127" size="1.27" layer="95" xref="yes"/>
+<pinref part="RN2" gate="G$1" pin="7"/>
 </segment>
 </net>
 <net name="P2_D0" class="0">
@@ -11202,9 +11440,9 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <pinref part="J6" gate="A" pin="4"/>
 </segment>
 <segment>
-<wire x1="7.62" y1="-124.46" x2="10.16" y2="-124.46" width="0.1524" layer="91"/>
-<label x="10.16" y="-124.46" size="1.27" layer="95" xref="yes"/>
-<pinref part="IC2" gate="G$1" pin="1B1"/>
+<wire x1="104.14" y1="-124.46" x2="106.68" y2="-124.46" width="0.1524" layer="91"/>
+<label x="106.68" y="-124.46" size="1.27" layer="95" xref="yes"/>
+<pinref part="RN2" gate="G$1" pin="8"/>
 </segment>
 </net>
 <net name="P2_D2" class="0">
@@ -11219,9 +11457,9 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <pinref part="J6" gate="A" pin="3"/>
 </segment>
 <segment>
-<wire x1="96.52" y1="-124.46" x2="99.06" y2="-124.46" width="0.1524" layer="91"/>
-<label x="99.06" y="-124.46" size="1.27" layer="95" rot="MR180" xref="yes"/>
-<pinref part="IC3" gate="G$1" pin="1B1"/>
+<wire x1="167.64" y1="-83.82" x2="170.18" y2="-83.82" width="0.1524" layer="91"/>
+<label x="170.18" y="-83.82" size="1.27" layer="95" rot="MR180" xref="yes"/>
+<pinref part="RN1" gate="G$1" pin="8"/>
 </segment>
 </net>
 <net name="P2_5V" class="2">
@@ -11242,10 +11480,10 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 </segment>
 <segment>
 <pinref part="C5" gate="G$1" pin="2"/>
-<wire x1="25.4" y1="-119.38" x2="25.4" y2="-116.84" width="0.1524" layer="91"/>
+<wire x1="160.02" y1="-119.38" x2="160.02" y2="-116.84" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="G$1" pin="VCC(B)"/>
-<wire x1="25.4" y1="-116.84" x2="7.62" y2="-116.84" width="0.1524" layer="91"/>
-<label x="25.4" y="-116.84" size="1.778" layer="95"/>
+<wire x1="160.02" y1="-116.84" x2="91.44" y2="-116.84" width="0.1524" layer="91"/>
+<label x="160.02" y="-116.84" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="V2_CLOCK" class="0">
@@ -11530,20 +11768,20 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <segment>
 <pinref part="SUPPLY10" gate="1" pin="V+"/>
 <pinref part="C14" gate="G$1" pin="2"/>
-<wire x1="-45.72" y1="-114.3" x2="-45.72" y2="-116.84" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="-114.3" x2="38.1" y2="-116.84" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="G$1" pin="VCC(A)"/>
-<wire x1="-45.72" y1="-116.84" x2="-45.72" y2="-119.38" width="0.1524" layer="91"/>
-<wire x1="-25.4" y1="-116.84" x2="-45.72" y2="-116.84" width="0.1524" layer="91"/>
-<junction x="-45.72" y="-116.84"/>
+<wire x1="38.1" y1="-116.84" x2="38.1" y2="-119.38" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="-116.84" x2="38.1" y2="-116.84" width="0.1524" layer="91"/>
+<junction x="38.1" y="-116.84"/>
 </segment>
 <segment>
 <pinref part="SUPPLY11" gate="1" pin="V+"/>
 <pinref part="C16" gate="G$1" pin="2"/>
-<wire x1="43.18" y1="-114.3" x2="43.18" y2="-116.84" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="-73.66" x2="81.28" y2="-76.2" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="VCC(A)"/>
-<wire x1="43.18" y1="-116.84" x2="43.18" y2="-119.38" width="0.1524" layer="91"/>
-<wire x1="63.5" y1="-116.84" x2="43.18" y2="-116.84" width="0.1524" layer="91"/>
-<junction x="43.18" y="-116.84"/>
+<wire x1="81.28" y1="-76.2" x2="81.28" y2="-78.74" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="-76.2" x2="81.28" y2="-76.2" width="0.1524" layer="91"/>
+<junction x="81.28" y="-76.2"/>
 </segment>
 <segment>
 <pinref part="SUPPLY6" gate="1" pin="V+"/>
@@ -11653,8 +11891,8 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <pinref part="U1" gate="G$1" pin="PC8"/>
 </segment>
 <segment>
-<wire x1="-25.4" y1="-124.46" x2="-27.94" y2="-124.46" width="0.1524" layer="91"/>
-<label x="-27.94" y="-124.46" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="58.42" y1="-124.46" x2="55.88" y2="-124.46" width="0.1524" layer="91"/>
+<label x="55.88" y="-124.46" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="IC2" gate="G$1" pin="1A1"/>
 </segment>
 </net>
@@ -11665,8 +11903,8 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <pinref part="U1" gate="G$1" pin="PC7"/>
 </segment>
 <segment>
-<wire x1="-25.4" y1="-127" x2="-27.94" y2="-127" width="0.1524" layer="91"/>
-<label x="-27.94" y="-127" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="58.42" y1="-127" x2="55.88" y2="-127" width="0.1524" layer="91"/>
+<label x="55.88" y="-127" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="IC2" gate="G$1" pin="1A2"/>
 </segment>
 </net>
@@ -11701,8 +11939,8 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <pinref part="U1" gate="G$1" pin="PC6"/>
 </segment>
 <segment>
-<wire x1="-25.4" y1="-129.54" x2="-27.94" y2="-129.54" width="0.1524" layer="91"/>
-<label x="-27.94" y="-129.54" size="1.27" layer="95" rot="MR0" xref="yes"/>
+<wire x1="58.42" y1="-129.54" x2="55.88" y2="-129.54" width="0.1524" layer="91"/>
+<label x="55.88" y="-129.54" size="1.27" layer="95" rot="MR0" xref="yes"/>
 <pinref part="IC2" gate="G$1" pin="2A1"/>
 </segment>
 </net>
@@ -11713,8 +11951,8 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <pinref part="U1" gate="G$1" pin="PC5"/>
 </segment>
 <segment>
-<wire x1="-25.4" y1="-132.08" x2="-27.94" y2="-132.08" width="0.1524" layer="91"/>
-<label x="-27.94" y="-132.08" size="1.27" layer="95" rot="MR0" xref="yes"/>
+<wire x1="58.42" y1="-132.08" x2="55.88" y2="-132.08" width="0.1524" layer="91"/>
+<label x="55.88" y="-132.08" size="1.27" layer="95" rot="MR0" xref="yes"/>
 <pinref part="IC2" gate="G$1" pin="2A2"/>
 </segment>
 </net>
@@ -11725,8 +11963,8 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <pinref part="U1" gate="G$1" pin="PC4"/>
 </segment>
 <segment>
-<wire x1="63.5" y1="-132.08" x2="60.96" y2="-132.08" width="0.1524" layer="91"/>
-<label x="60.96" y="-132.08" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="101.6" y1="-91.44" x2="99.06" y2="-91.44" width="0.1524" layer="91"/>
+<label x="99.06" y="-91.44" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="IC3" gate="G$1" pin="2A2"/>
 </segment>
 </net>
@@ -11737,8 +11975,8 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <pinref part="U1" gate="G$1" pin="PC9"/>
 </segment>
 <segment>
-<wire x1="63.5" y1="-124.46" x2="60.96" y2="-124.46" width="0.1524" layer="91"/>
-<label x="60.96" y="-124.46" size="1.27" layer="95" rot="MR0" xref="yes"/>
+<wire x1="101.6" y1="-83.82" x2="99.06" y2="-83.82" width="0.1524" layer="91"/>
+<label x="99.06" y="-83.82" size="1.27" layer="95" rot="MR0" xref="yes"/>
 <pinref part="IC3" gate="G$1" pin="1A1"/>
 </segment>
 </net>
@@ -11754,15 +11992,15 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <label x="-124.46" y="17.78" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<wire x1="-25.4" y1="-119.38" x2="-27.94" y2="-119.38" width="0.1524" layer="91"/>
-<label x="-27.94" y="-119.38" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="58.42" y1="-119.38" x2="55.88" y2="-119.38" width="0.1524" layer="91"/>
+<label x="55.88" y="-119.38" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="IC2" gate="G$1" pin="1DIR"/>
 </segment>
 </net>
 <net name="DIR_P1D2D3" class="0">
 <segment>
-<wire x1="63.5" y1="-119.38" x2="60.96" y2="-119.38" width="0.1524" layer="91"/>
-<label x="60.96" y="-119.38" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="101.6" y1="-78.74" x2="99.06" y2="-78.74" width="0.1524" layer="91"/>
+<label x="99.06" y="-78.74" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="IC3" gate="G$1" pin="1DIR"/>
 </segment>
 <segment>
@@ -11773,8 +12011,8 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 </net>
 <net name="DIR_P2D2D3" class="0">
 <segment>
-<wire x1="63.5" y1="-121.92" x2="60.96" y2="-121.92" width="0.1524" layer="91"/>
-<label x="60.96" y="-121.92" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="101.6" y1="-81.28" x2="99.06" y2="-81.28" width="0.1524" layer="91"/>
+<label x="99.06" y="-81.28" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="IC3" gate="G$1" pin="2DIR"/>
 </segment>
 <segment>
@@ -11795,9 +12033,9 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <pinref part="J10" gate="G$1" pin="R7"/>
 </segment>
 <segment>
-<wire x1="96.52" y1="-127" x2="99.06" y2="-127" width="0.1524" layer="91"/>
-<label x="99.06" y="-127" size="1.27" layer="95" rot="MR180" xref="yes"/>
-<pinref part="IC3" gate="G$1" pin="1B2"/>
+<wire x1="167.64" y1="-86.36" x2="170.18" y2="-86.36" width="0.1524" layer="91"/>
+<label x="170.18" y="-86.36" size="1.27" layer="95" rot="MR180" xref="yes"/>
+<pinref part="RN1" gate="G$1" pin="7"/>
 </segment>
 </net>
 <net name="P1_D3" class="0">
@@ -11812,15 +12050,15 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <pinref part="J10" gate="G$1" pin="L7"/>
 </segment>
 <segment>
-<wire x1="96.52" y1="-129.54" x2="99.06" y2="-129.54" width="0.1524" layer="91"/>
-<label x="99.06" y="-129.54" size="1.27" layer="95" rot="MR180" xref="yes"/>
-<pinref part="IC3" gate="G$1" pin="2B1"/>
+<wire x1="167.64" y1="-88.9" x2="170.18" y2="-88.9" width="0.1524" layer="91"/>
+<label x="170.18" y="-88.9" size="1.27" layer="95" rot="MR180" xref="yes"/>
+<pinref part="RN1" gate="G$1" pin="6"/>
 </segment>
 </net>
 <net name="P1_D3_3V" class="0">
 <segment>
-<wire x1="63.5" y1="-129.54" x2="60.96" y2="-129.54" width="0.1524" layer="91"/>
-<label x="60.96" y="-129.54" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="101.6" y1="-88.9" x2="99.06" y2="-88.9" width="0.1524" layer="91"/>
+<label x="99.06" y="-88.9" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="IC3" gate="G$1" pin="2A1"/>
 </segment>
 <segment>
@@ -11831,8 +12069,8 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 </net>
 <net name="P2_D3_3V" class="0">
 <segment>
-<wire x1="63.5" y1="-127" x2="60.96" y2="-127" width="0.1524" layer="91"/>
-<label x="60.96" y="-127" size="1.27" layer="95" rot="MR0" xref="yes"/>
+<wire x1="101.6" y1="-86.36" x2="99.06" y2="-86.36" width="0.1524" layer="91"/>
+<label x="99.06" y="-86.36" size="1.27" layer="95" rot="MR0" xref="yes"/>
 <pinref part="IC3" gate="G$1" pin="1A2"/>
 </segment>
 <segment>
@@ -11853,8 +12091,8 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <pinref part="U1" gate="G$1" pin="PA0"/>
 </segment>
 <segment>
-<wire x1="-25.4" y1="-121.92" x2="-27.94" y2="-121.92" width="0.1524" layer="91"/>
-<label x="-27.94" y="-121.92" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="58.42" y1="-121.92" x2="55.88" y2="-121.92" width="0.1524" layer="91"/>
+<label x="55.88" y="-121.92" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="IC2" gate="G$1" pin="2DIR"/>
 </segment>
 </net>
@@ -11863,17 +12101,11 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <wire x1="-81.28" y1="-119.38" x2="-78.74" y2="-119.38" width="0.1524" layer="91"/>
 <label x="-78.74" y="-119.38" size="1.27" layer="95" xref="yes"/>
 <pinref part="IC1" gate="G$1" pin="!1OE"/>
-<pinref part="IC1" gate="G$1" pin="!2OE"/>
-<wire x1="-81.28" y1="-119.38" x2="-81.28" y2="-121.92" width="0.1524" layer="91"/>
-<junction x="-81.28" y="-119.38"/>
 </segment>
 <segment>
-<label x="10.16" y="-119.38" size="1.27" layer="95" xref="yes"/>
-<wire x1="7.62" y1="-119.38" x2="7.62" y2="-121.92" width="0.1524" layer="91"/>
-<junction x="7.62" y="-119.38"/>
+<label x="93.98" y="-119.38" size="1.27" layer="95" xref="yes"/>
 <pinref part="IC2" gate="G$1" pin="!1OE"/>
-<pinref part="IC2" gate="G$1" pin="!2OE"/>
-<wire x1="7.62" y1="-119.38" x2="10.16" y2="-119.38" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="-119.38" x2="93.98" y2="-119.38" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="PA2"/>
@@ -11883,8 +12115,8 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 </net>
 <net name="ENABLE_P1D2D3" class="0">
 <segment>
-<wire x1="96.52" y1="-119.38" x2="99.06" y2="-119.38" width="0.1524" layer="91"/>
-<label x="99.06" y="-119.38" size="1.27" layer="95" rot="MR180" xref="yes"/>
+<wire x1="134.62" y1="-78.74" x2="137.16" y2="-78.74" width="0.1524" layer="91"/>
+<label x="137.16" y="-78.74" size="1.27" layer="95" rot="MR180" xref="yes"/>
 <pinref part="IC3" gate="G$1" pin="!1OE"/>
 </segment>
 <segment>
@@ -11895,8 +12127,8 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 </net>
 <net name="ENABLE_P2D2D3" class="0">
 <segment>
-<wire x1="96.52" y1="-121.92" x2="99.06" y2="-121.92" width="0.1524" layer="91"/>
-<label x="99.06" y="-121.92" size="1.27" layer="95" rot="MR180" xref="yes"/>
+<wire x1="134.62" y1="-81.28" x2="137.16" y2="-81.28" width="0.1524" layer="91"/>
+<label x="137.16" y="-81.28" size="1.27" layer="95" rot="MR180" xref="yes"/>
 <pinref part="IC3" gate="G$1" pin="!2OE"/>
 </segment>
 <segment>
@@ -12009,6 +12241,99 @@ Source: http://www.onsemi.com/pub/Collateral/MC33269-D.PDF</description>
 <wire x1="-121.92" y1="-53.34" x2="-124.46" y2="-53.34" width="0.1524" layer="91"/>
 <label x="-124.46" y="-53.34" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="U1" gate="G$1" pin="PB13"/>
+</segment>
+</net>
+<net name="ENABLE_CLKLAT" class="0">
+<segment>
+<wire x1="-81.28" y1="-121.92" x2="-78.74" y2="-121.92" width="0.1524" layer="91"/>
+<label x="-78.74" y="-121.92" size="1.27" layer="95" xref="yes"/>
+<pinref part="IC1" gate="G$1" pin="!2OE"/>
+</segment>
+<segment>
+<wire x1="91.44" y1="-121.92" x2="93.98" y2="-121.92" width="0.1524" layer="91"/>
+<label x="93.98" y="-121.92" size="1.27" layer="95" xref="yes"/>
+<pinref part="IC2" gate="G$1" pin="!2OE"/>
+</segment>
+<segment>
+<wire x1="-121.92" y1="-48.26" x2="-124.46" y2="-48.26" width="0.1524" layer="91"/>
+<label x="-124.46" y="-48.26" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="U1" gate="G$1" pin="PB10"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="RN1" gate="G$1" pin="1"/>
+<pinref part="IC3" gate="G$1" pin="1B1"/>
+<wire x1="154.94" y1="-83.82" x2="134.62" y2="-83.82" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<pinref part="IC3" gate="G$1" pin="1B2"/>
+<pinref part="RN1" gate="G$1" pin="2"/>
+<wire x1="134.62" y1="-86.36" x2="154.94" y2="-86.36" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="RN1" gate="G$1" pin="3"/>
+<pinref part="IC3" gate="G$1" pin="2B1"/>
+<wire x1="154.94" y1="-88.9" x2="134.62" y2="-88.9" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$6" class="0">
+<segment>
+<pinref part="IC3" gate="G$1" pin="2B2"/>
+<pinref part="RN1" gate="G$1" pin="4"/>
+<wire x1="134.62" y1="-91.44" x2="154.94" y2="-91.44" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$8" class="0">
+<segment>
+<pinref part="IC2" gate="G$1" pin="1B2"/>
+<pinref part="RN2" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="N$9" class="0">
+<segment>
+<pinref part="IC2" gate="G$1" pin="2B1"/>
+<pinref part="RN2" gate="G$1" pin="3"/>
+</segment>
+</net>
+<net name="N$10" class="0">
+<segment>
+<pinref part="IC2" gate="G$1" pin="2B2"/>
+<pinref part="RN2" gate="G$1" pin="4"/>
+</segment>
+</net>
+<net name="N$11" class="0">
+<segment>
+<pinref part="IC2" gate="G$1" pin="1B1"/>
+<pinref part="RN2" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$12" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="1B2"/>
+<pinref part="RN3" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="N$13" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="2B1"/>
+<pinref part="RN3" gate="G$1" pin="3"/>
+</segment>
+</net>
+<net name="N$14" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="2B2"/>
+<pinref part="RN3" gate="G$1" pin="4"/>
+</segment>
+</net>
+<net name="N$15" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="1B1"/>
+<pinref part="RN3" gate="G$1" pin="1"/>
 </segment>
 </net>
 </nets>
