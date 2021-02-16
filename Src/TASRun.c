@@ -343,6 +343,18 @@ void SetN64Mode()
 	HAL_GPIO_Init(P1_DATA_2_GPIO_Port, &GPIO_InitStruct);
 }
 
+// quick function to init pin
+void SetupPin(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, uint32_t Mode, uint32_t Pull, GPIO_PinState PinState){
+	GPIO_InitTypeDef GPIO_InitStruct;
+	HAL_GPIO_WritePin(GPIOx, GPIO_Pin, PinState);
+	memset (&GPIO_InitStruct, 0, sizeof(GPIO_InitTypeDef));
+	GPIO_InitStruct.Pin = GPIO_Pin;
+	GPIO_InitStruct.Mode = Mode;
+	GPIO_InitStruct.Pull = Pull;
+	HAL_GPIO_Init(GPIOx, &GPIO_InitStruct);
+
+}
+
 void SetSNESMode()
 {
 
@@ -351,7 +363,7 @@ void SetSNESMode()
 	GPIO_InitTypeDef GPIO_InitStruct = { 0 };
 
 	// Tristate the data pins until the first latch
-	GPIO_InitStruct.Pin = P1_DATA_0_Pin | P1_DATA_1_Pin | P1_DATA_2_Pin  | P2_DATA_0_Pin | P2_DATA_1_Pin | P2_DATA_2_Pin;
+	GPIO_InitStruct.Pin = P1_DATA_0_Pin | P1_DATA_1_Pin | P1_DATA_2_Pin | P2_DATA_0_Pin | P2_DATA_1_Pin | P2_DATA_2_Pin;
 	GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
 	HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
@@ -365,26 +377,16 @@ void SetSNESMode()
 
 
 	/* More pins for buffer funtime */
+	// SNNES
+	SetupPin(DIR_D0D1_GPIO_Port, DIR_D0D1_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_RESET);
+	SetupPin(DIR_P1D2D3_GPIO_Port, DIR_P1D2D3_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_RESET);
+	SetupPin(DIR_P2D2D3_GPIO_Port, DIR_P2D2D3_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_RESET);
+	SetupPin(DIR_CLKLAT_GPIO_Port, DIR_CLKLAT_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_RESET);
 
-	GPIO_InitStruct.Pin = ENABLE_D0D1_Pin;
-	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-	GPIO_InitStruct.Pull = GPIO_NOPULL;
-	HAL_GPIO_Init(ENABLE_D0D1_GPIO_Port, &GPIO_InitStruct);
-	HAL_GPIO_WritePin(ENABLE_D0D1_GPIO_Port, DIR_CLKLAT_Pin, GPIO_PIN_RESET);
-
-	GPIO_InitStruct.Pin = ENABLE_P1D2D3_Pin;
-	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-	GPIO_InitStruct.Pull = GPIO_NOPULL;
-	HAL_GPIO_Init(ENABLE_P1D2D3_GPIO_Port, &GPIO_InitStruct);
-	HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, DIR_CLKLAT_Pin, GPIO_PIN_RESET);
-
-	GPIO_InitStruct.Pin = ENABLE_CLKLAT_Pin;
-	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-	GPIO_InitStruct.Pull = GPIO_NOPULL;
-	HAL_GPIO_Init(ENABLE_CLKLAT_GPIO_Port, &GPIO_InitStruct);
-	HAL_GPIO_WritePin(ENABLE_CLKLAT_GPIO_Port, DIR_CLKLAT_Pin, GPIO_PIN_RESET);
-
-
+	SetupPin(ENABLE_D0D1_GPIO_Port, ENABLE_D0D1_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_RESET);
+	SetupPin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_RESET);
+	SetupPin(ENABLE_P2D2D3_GPIO_Port, ENABLE_P2D2D3_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_RESET);
+	SetupPin(ENABLE_CLKLAT_GPIO_Port, ENABLE_CLKLAT_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_RESET);
 }
 
 void SetGENMode()
