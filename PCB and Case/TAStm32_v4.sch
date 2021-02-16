@@ -10671,6 +10671,7 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <text x="99.06" y="88.9" size="2.54" layer="97">Controller Outputs</text>
 <text x="93.98" y="17.78" size="2.54" layer="97">Expansion Ports</text>
 <text x="-17.78" y="-58.42" size="1.778" layer="91">Switch pads slightly wrong</text>
+<text x="-17.78" y="-60.96" size="1.778" layer="91">Add larger caps to console 5v rails, maybe</text>
 </plain>
 <instances>
 <instance part="GND3" gate="1" x="-63.5" y="-66.04" smashed="yes"/>
@@ -10843,24 +10844,24 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <instance part="J13" gate="A" x="-137.16" y="33.02" smashed="yes">
 <attribute name="NAME" x="-133.35" y="36.83" size="1.778" layer="95"/>
 </instance>
-<instance part="SUPPLY16" gate="1" x="-134.62" y="-111.76" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="-133.35" y="-110.49" size="1.778" layer="96" rot="MR0"/>
+<instance part="SUPPLY16" gate="1" x="-149.86" y="-76.2" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="-148.59" y="-74.93" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="GND34" gate="1" x="-134.62" y="-137.16" smashed="yes"/>
+<instance part="GND34" gate="1" x="-149.86" y="-101.6" smashed="yes"/>
 <instance part="J6" gate="A" x="76.2" y="78.74" smashed="yes">
 <attribute name="NAME" x="76.2" y="83.82" size="2.54" layer="95"/>
 <attribute name="VALUE" x="73.66" y="30.48" size="2.286" layer="96"/>
 </instance>
 <instance part="GND19" gate="1" x="55.88" y="76.2" smashed="yes"/>
 <instance part="GND20" gate="1" x="55.88" y="55.88" smashed="yes"/>
-<instance part="C13" gate="G$1" x="-48.26" y="-124.46" smashed="yes" rot="R180">
-<attribute name="NAME" x="-46.736" y="-126.619" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-37.084" y="-122.301" size="1.778" layer="96" rot="R180"/>
+<instance part="C13" gate="G$1" x="-63.5" y="-88.9" smashed="yes" rot="R180">
+<attribute name="NAME" x="-61.976" y="-91.059" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-54.864" y="-84.201" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="GND31" gate="1" x="-48.26" y="-137.16" smashed="yes"/>
-<instance part="C19" gate="G$1" x="-134.62" y="-124.46" smashed="yes" rot="R180">
-<attribute name="NAME" x="-140.716" y="-126.619" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-136.144" y="-119.761" size="1.778" layer="96" rot="R180"/>
+<instance part="GND31" gate="1" x="-63.5" y="-101.6" smashed="yes"/>
+<instance part="C19" gate="G$1" x="-149.86" y="-88.9" smashed="yes" rot="R180">
+<attribute name="NAME" x="-155.956" y="-91.059" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-151.384" y="-84.201" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="J7" gate="A" x="76.2" y="10.16" smashed="yes">
 <attribute name="NAME" x="76.2" y="15.24" size="2.54" layer="95"/>
@@ -10872,59 +10873,59 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <attribute name="NAME" x="16.51" y="-30.48" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="1.27" y="-33.02" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="IC1" gate="G$1" x="-114.3" y="-116.84" smashed="yes">
-<attribute name="NAME" x="-110.49" y="-109.22" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="-110.49" y="-111.76" size="1.778" layer="96" align="center-left"/>
+<instance part="IC1" gate="G$1" x="-129.54" y="-81.28" smashed="yes">
+<attribute name="NAME" x="-125.73" y="-73.66" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="-125.73" y="-76.2" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="SUPPLY10" gate="1" x="38.1" y="-111.76" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="39.37" y="-110.49" size="1.778" layer="96" rot="MR0"/>
+<instance part="SUPPLY10" gate="1" x="-45.72" y="-76.2" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="-44.45" y="-74.93" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="GND30" gate="1" x="38.1" y="-137.16" smashed="yes"/>
-<instance part="C5" gate="G$1" x="124.46" y="-124.46" smashed="yes" rot="R180">
-<attribute name="NAME" x="125.984" y="-126.619" size="1.778" layer="95"/>
-<attribute name="VALUE" x="133.096" y="-119.761" size="1.778" layer="96" rot="R180"/>
+<instance part="GND30" gate="1" x="-45.72" y="-101.6" smashed="yes"/>
+<instance part="C5" gate="G$1" x="40.64" y="-88.9" smashed="yes" rot="R180">
+<attribute name="NAME" x="42.164" y="-91.059" size="1.778" layer="95"/>
+<attribute name="VALUE" x="49.276" y="-84.201" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="GND32" gate="1" x="124.46" y="-137.16" smashed="yes"/>
-<instance part="C14" gate="G$1" x="38.1" y="-124.46" smashed="yes" rot="R180">
-<attribute name="NAME" x="32.004" y="-126.619" size="1.778" layer="95"/>
-<attribute name="VALUE" x="36.576" y="-119.761" size="1.778" layer="96" rot="R180"/>
+<instance part="GND32" gate="1" x="40.64" y="-101.6" smashed="yes"/>
+<instance part="C14" gate="G$1" x="-45.72" y="-88.9" smashed="yes" rot="R180">
+<attribute name="NAME" x="-51.816" y="-91.059" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-47.244" y="-84.201" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="IC2" gate="G$1" x="58.42" y="-116.84" smashed="yes">
-<attribute name="NAME" x="62.23" y="-109.22" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="62.23" y="-111.76" size="1.778" layer="96" align="center-left"/>
+<instance part="IC2" gate="G$1" x="-25.4" y="-81.28" smashed="yes">
+<attribute name="NAME" x="-21.59" y="-73.66" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="-21.59" y="-76.2" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="SUPPLY11" gate="1" x="81.28" y="-71.12" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="82.55" y="-69.85" size="1.778" layer="96" rot="MR0"/>
+<instance part="SUPPLY11" gate="1" x="58.42" y="-76.2" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="59.69" y="-74.93" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="GND27" gate="1" x="81.28" y="-96.52" smashed="yes"/>
-<instance part="C15" gate="G$1" x="167.64" y="-83.82" smashed="yes" rot="R180">
-<attribute name="NAME" x="169.164" y="-85.979" size="1.778" layer="95"/>
-<attribute name="VALUE" x="176.276" y="-79.121" size="1.778" layer="96" rot="R180"/>
+<instance part="GND27" gate="1" x="58.42" y="-101.6" smashed="yes"/>
+<instance part="C15" gate="G$1" x="144.78" y="-88.9" smashed="yes" rot="R180">
+<attribute name="NAME" x="146.304" y="-91.059" size="1.778" layer="95"/>
+<attribute name="VALUE" x="153.416" y="-84.201" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="GND28" gate="1" x="167.64" y="-96.52" smashed="yes"/>
-<instance part="C16" gate="G$1" x="81.28" y="-83.82" smashed="yes" rot="R180">
-<attribute name="NAME" x="75.184" y="-85.979" size="1.778" layer="95"/>
-<attribute name="VALUE" x="79.756" y="-79.121" size="1.778" layer="96" rot="R180"/>
+<instance part="GND28" gate="1" x="144.78" y="-101.6" smashed="yes"/>
+<instance part="C16" gate="G$1" x="58.42" y="-88.9" smashed="yes" rot="R180">
+<attribute name="NAME" x="52.324" y="-91.059" size="1.778" layer="95"/>
+<attribute name="VALUE" x="56.896" y="-84.201" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="IC3" gate="G$1" x="101.6" y="-76.2" smashed="yes">
-<attribute name="NAME" x="105.41" y="-68.58" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="105.41" y="-71.12" size="1.778" layer="96" align="center-left"/>
+<instance part="IC3" gate="G$1" x="78.74" y="-81.28" smashed="yes">
+<attribute name="NAME" x="82.55" y="-73.66" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="82.55" y="-76.2" size="1.778" layer="96" align="center-left"/>
 </instance>
 <instance part="J3" gate="A" x="7.62" y="40.64" smashed="yes">
 <attribute name="NAME" x="7.62" y="45.72" size="2.54" layer="95"/>
 <attribute name="VALUE" x="7.62" y="20.32" size="2.286" layer="96"/>
 </instance>
-<instance part="RN1" gate="G$1" x="139.7" y="-86.36" smashed="yes">
-<attribute name="NAME" x="137.795" y="-81.28" size="1.778" layer="95"/>
-<attribute name="VALUE" x="137.16" y="-95.758" size="1.778" layer="96"/>
+<instance part="RN1" gate="G$1" x="116.84" y="-91.44" smashed="yes">
+<attribute name="NAME" x="114.935" y="-86.36" size="1.778" layer="95"/>
+<attribute name="VALUE" x="114.3" y="-100.838" size="1.778" layer="96"/>
 </instance>
-<instance part="RN2" gate="G$1" x="96.52" y="-127" smashed="yes">
-<attribute name="NAME" x="94.615" y="-121.92" size="1.778" layer="95"/>
-<attribute name="VALUE" x="93.98" y="-136.398" size="1.778" layer="96"/>
+<instance part="RN2" gate="G$1" x="12.7" y="-91.44" smashed="yes">
+<attribute name="NAME" x="10.795" y="-86.36" size="1.778" layer="95"/>
+<attribute name="VALUE" x="10.16" y="-100.838" size="1.778" layer="96"/>
 </instance>
-<instance part="RN3" gate="G$1" x="-76.2" y="-127" smashed="yes">
-<attribute name="NAME" x="-78.105" y="-121.92" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-78.74" y="-136.398" size="1.778" layer="96"/>
+<instance part="RN3" gate="G$1" x="-91.44" y="-91.44" smashed="yes">
+<attribute name="NAME" x="-93.345" y="-86.36" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-93.98" y="-100.838" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -11090,10 +11091,10 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <segment>
 <pinref part="GND34" gate="1" pin="GND"/>
 <pinref part="C19" gate="G$1" pin="1"/>
-<wire x1="-134.62" y1="-127" x2="-134.62" y2="-134.62" width="0.1524" layer="91"/>
+<wire x1="-149.86" y1="-91.44" x2="-149.86" y2="-99.06" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="GND_1"/>
-<wire x1="-114.3" y1="-134.62" x2="-134.62" y2="-134.62" width="0.1524" layer="91"/>
-<junction x="-134.62" y="-134.62"/>
+<wire x1="-129.54" y1="-99.06" x2="-149.86" y2="-99.06" width="0.1524" layer="91"/>
+<junction x="-149.86" y="-99.06"/>
 </segment>
 <segment>
 <pinref part="GND19" gate="1" pin="GND"/>
@@ -11108,10 +11109,10 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <segment>
 <pinref part="C13" gate="G$1" pin="1"/>
 <pinref part="GND31" gate="1" pin="GND"/>
-<wire x1="-48.26" y1="-127" x2="-48.26" y2="-134.62" width="0.1524" layer="91"/>
+<wire x1="-63.5" y1="-91.44" x2="-63.5" y2="-99.06" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="GND_2"/>
-<wire x1="-81.28" y1="-134.62" x2="-48.26" y2="-134.62" width="0.1524" layer="91"/>
-<junction x="-48.26" y="-134.62"/>
+<wire x1="-96.52" y1="-99.06" x2="-63.5" y2="-99.06" width="0.1524" layer="91"/>
+<junction x="-63.5" y="-99.06"/>
 </segment>
 <segment>
 <pinref part="GND21" gate="1" pin="GND"/>
@@ -11134,34 +11135,34 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <segment>
 <pinref part="GND30" gate="1" pin="GND"/>
 <pinref part="C14" gate="G$1" pin="1"/>
-<wire x1="38.1" y1="-127" x2="38.1" y2="-134.62" width="0.1524" layer="91"/>
+<wire x1="-45.72" y1="-91.44" x2="-45.72" y2="-99.06" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="G$1" pin="GND_1"/>
-<wire x1="58.42" y1="-134.62" x2="38.1" y2="-134.62" width="0.1524" layer="91"/>
-<junction x="38.1" y="-134.62"/>
+<wire x1="-25.4" y1="-99.06" x2="-45.72" y2="-99.06" width="0.1524" layer="91"/>
+<junction x="-45.72" y="-99.06"/>
 </segment>
 <segment>
 <pinref part="C5" gate="G$1" pin="1"/>
 <pinref part="GND32" gate="1" pin="GND"/>
-<wire x1="124.46" y1="-127" x2="124.46" y2="-134.62" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="-91.44" x2="40.64" y2="-99.06" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="G$1" pin="GND_2"/>
-<wire x1="91.44" y1="-134.62" x2="124.46" y2="-134.62" width="0.1524" layer="91"/>
-<junction x="124.46" y="-134.62"/>
+<wire x1="7.62" y1="-99.06" x2="40.64" y2="-99.06" width="0.1524" layer="91"/>
+<junction x="40.64" y="-99.06"/>
 </segment>
 <segment>
 <pinref part="GND27" gate="1" pin="GND"/>
 <pinref part="C16" gate="G$1" pin="1"/>
-<wire x1="81.28" y1="-86.36" x2="81.28" y2="-93.98" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="-91.44" x2="58.42" y2="-99.06" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="GND_1"/>
-<wire x1="101.6" y1="-93.98" x2="81.28" y2="-93.98" width="0.1524" layer="91"/>
-<junction x="81.28" y="-93.98"/>
+<wire x1="78.74" y1="-99.06" x2="58.42" y2="-99.06" width="0.1524" layer="91"/>
+<junction x="58.42" y="-99.06"/>
 </segment>
 <segment>
 <pinref part="C15" gate="G$1" pin="1"/>
 <pinref part="GND28" gate="1" pin="GND"/>
-<wire x1="167.64" y1="-86.36" x2="167.64" y2="-93.98" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="-91.44" x2="144.78" y2="-99.06" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="GND_2"/>
-<wire x1="134.62" y1="-93.98" x2="167.64" y2="-93.98" width="0.1524" layer="91"/>
-<junction x="167.64" y="-93.98"/>
+<wire x1="111.76" y1="-99.06" x2="144.78" y2="-99.06" width="0.1524" layer="91"/>
+<junction x="144.78" y="-99.06"/>
 </segment>
 </net>
 <net name="VCAP" class="0">
@@ -11273,8 +11274,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <pinref part="J6" gate="A" pin="16"/>
 </segment>
 <segment>
-<wire x1="-68.58" y1="-132.08" x2="-66.04" y2="-132.08" width="0.1524" layer="91"/>
-<label x="-66.04" y="-132.08" size="1.27" layer="95" rot="MR180" xref="yes"/>
+<wire x1="-83.82" y1="-96.52" x2="-81.28" y2="-96.52" width="0.1524" layer="91"/>
+<label x="-81.28" y="-96.52" size="1.27" layer="95" rot="MR180" xref="yes"/>
 <pinref part="RN3" gate="G$1" pin="5"/>
 </segment>
 </net>
@@ -11290,8 +11291,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <pinref part="J6" gate="A" pin="14"/>
 </segment>
 <segment>
-<wire x1="-68.58" y1="-129.54" x2="-66.04" y2="-129.54" width="0.1524" layer="91"/>
-<label x="-66.04" y="-129.54" size="1.27" layer="95" rot="MR180" xref="yes"/>
+<wire x1="-83.82" y1="-93.98" x2="-81.28" y2="-93.98" width="0.1524" layer="91"/>
+<label x="-81.28" y="-93.98" size="1.27" layer="95" rot="MR180" xref="yes"/>
 <pinref part="RN3" gate="G$1" pin="6"/>
 </segment>
 </net>
@@ -11307,8 +11308,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <pinref part="J6" gate="A" pin="13"/>
 </segment>
 <segment>
-<wire x1="-68.58" y1="-127" x2="-66.04" y2="-127" width="0.1524" layer="91"/>
-<label x="-66.04" y="-127" size="1.27" layer="95" xref="yes"/>
+<wire x1="-83.82" y1="-91.44" x2="-81.28" y2="-91.44" width="0.1524" layer="91"/>
+<label x="-81.28" y="-91.44" size="1.27" layer="95" xref="yes"/>
 <pinref part="RN3" gate="G$1" pin="7"/>
 </segment>
 </net>
@@ -11324,8 +11325,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <pinref part="J6" gate="A" pin="12"/>
 </segment>
 <segment>
-<wire x1="-68.58" y1="-124.46" x2="-66.04" y2="-124.46" width="0.1524" layer="91"/>
-<label x="-66.04" y="-124.46" size="1.27" layer="95" xref="yes"/>
+<wire x1="-83.82" y1="-88.9" x2="-81.28" y2="-88.9" width="0.1524" layer="91"/>
+<label x="-81.28" y="-88.9" size="1.27" layer="95" xref="yes"/>
 <pinref part="RN3" gate="G$1" pin="8"/>
 </segment>
 </net>
@@ -11341,8 +11342,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <pinref part="J6" gate="A" pin="11"/>
 </segment>
 <segment>
-<wire x1="147.32" y1="-91.44" x2="149.86" y2="-91.44" width="0.1524" layer="91"/>
-<label x="149.86" y="-91.44" size="1.27" layer="95" rot="MR180" xref="yes"/>
+<wire x1="124.46" y1="-96.52" x2="127" y2="-96.52" width="0.1524" layer="91"/>
+<label x="127" y="-96.52" size="1.27" layer="95" rot="MR180" xref="yes"/>
 <pinref part="RN1" gate="G$1" pin="5"/>
 </segment>
 </net>
@@ -11364,17 +11365,17 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 </segment>
 <segment>
 <pinref part="C13" gate="G$1" pin="2"/>
-<wire x1="-48.26" y1="-119.38" x2="-48.26" y2="-116.84" width="0.1524" layer="91"/>
+<wire x1="-63.5" y1="-83.82" x2="-63.5" y2="-81.28" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="VCC(B)"/>
-<wire x1="-48.26" y1="-116.84" x2="-81.28" y2="-116.84" width="0.1524" layer="91"/>
-<label x="-48.26" y="-116.84" size="1.778" layer="95"/>
+<wire x1="-63.5" y1="-81.28" x2="-96.52" y2="-81.28" width="0.1524" layer="91"/>
+<label x="-63.5" y="-81.28" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="C15" gate="G$1" pin="2"/>
-<wire x1="167.64" y1="-78.74" x2="167.64" y2="-76.2" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="-83.82" x2="144.78" y2="-81.28" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="VCC(B)"/>
-<wire x1="167.64" y1="-76.2" x2="134.62" y2="-76.2" width="0.1524" layer="91"/>
-<label x="167.64" y="-76.2" size="1.778" layer="95"/>
+<wire x1="144.78" y1="-81.28" x2="111.76" y2="-81.28" width="0.1524" layer="91"/>
+<label x="144.78" y="-81.28" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="P2_CLOCK" class="0">
@@ -11389,8 +11390,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <pinref part="J6" gate="A" pin="8"/>
 </segment>
 <segment>
-<wire x1="104.14" y1="-132.08" x2="106.68" y2="-132.08" width="0.1524" layer="91"/>
-<label x="106.68" y="-132.08" size="1.27" layer="95" rot="MR180" xref="yes"/>
+<wire x1="20.32" y1="-96.52" x2="22.86" y2="-96.52" width="0.1524" layer="91"/>
+<label x="22.86" y="-96.52" size="1.27" layer="95" rot="MR180" xref="yes"/>
 <pinref part="RN2" gate="G$1" pin="5"/>
 </segment>
 </net>
@@ -11406,8 +11407,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <pinref part="J6" gate="A" pin="6"/>
 </segment>
 <segment>
-<wire x1="104.14" y1="-129.54" x2="106.68" y2="-129.54" width="0.1524" layer="91"/>
-<label x="106.68" y="-129.54" size="1.27" layer="95" rot="MR180" xref="yes"/>
+<wire x1="20.32" y1="-93.98" x2="22.86" y2="-93.98" width="0.1524" layer="91"/>
+<label x="22.86" y="-93.98" size="1.27" layer="95" rot="MR180" xref="yes"/>
 <pinref part="RN2" gate="G$1" pin="6"/>
 </segment>
 </net>
@@ -11423,8 +11424,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <pinref part="J6" gate="A" pin="5"/>
 </segment>
 <segment>
-<wire x1="104.14" y1="-127" x2="106.68" y2="-127" width="0.1524" layer="91"/>
-<label x="106.68" y="-127" size="1.27" layer="95" xref="yes"/>
+<wire x1="20.32" y1="-91.44" x2="22.86" y2="-91.44" width="0.1524" layer="91"/>
+<label x="22.86" y="-91.44" size="1.27" layer="95" xref="yes"/>
 <pinref part="RN2" gate="G$1" pin="7"/>
 </segment>
 </net>
@@ -11440,8 +11441,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <pinref part="J6" gate="A" pin="4"/>
 </segment>
 <segment>
-<wire x1="104.14" y1="-124.46" x2="106.68" y2="-124.46" width="0.1524" layer="91"/>
-<label x="106.68" y="-124.46" size="1.27" layer="95" xref="yes"/>
+<wire x1="20.32" y1="-88.9" x2="22.86" y2="-88.9" width="0.1524" layer="91"/>
+<label x="22.86" y="-88.9" size="1.27" layer="95" xref="yes"/>
 <pinref part="RN2" gate="G$1" pin="8"/>
 </segment>
 </net>
@@ -11457,8 +11458,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <pinref part="J6" gate="A" pin="3"/>
 </segment>
 <segment>
-<wire x1="147.32" y1="-83.82" x2="149.86" y2="-83.82" width="0.1524" layer="91"/>
-<label x="149.86" y="-83.82" size="1.27" layer="95" rot="MR180" xref="yes"/>
+<wire x1="124.46" y1="-88.9" x2="127" y2="-88.9" width="0.1524" layer="91"/>
+<label x="127" y="-88.9" size="1.27" layer="95" rot="MR180" xref="yes"/>
 <pinref part="RN1" gate="G$1" pin="8"/>
 </segment>
 </net>
@@ -11480,10 +11481,10 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 </segment>
 <segment>
 <pinref part="C5" gate="G$1" pin="2"/>
-<wire x1="124.46" y1="-119.38" x2="124.46" y2="-116.84" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="-83.82" x2="40.64" y2="-81.28" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="G$1" pin="VCC(B)"/>
-<wire x1="124.46" y1="-116.84" x2="91.44" y2="-116.84" width="0.1524" layer="91"/>
-<label x="124.46" y="-116.84" size="1.778" layer="95"/>
+<wire x1="40.64" y1="-81.28" x2="7.62" y2="-81.28" width="0.1524" layer="91"/>
+<label x="40.64" y="-81.28" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="V2_CLOCK" class="0">
@@ -11745,11 +11746,11 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <segment>
 <pinref part="SUPPLY16" gate="1" pin="V+"/>
 <pinref part="C19" gate="G$1" pin="2"/>
-<wire x1="-134.62" y1="-114.3" x2="-134.62" y2="-116.84" width="0.1524" layer="91"/>
+<wire x1="-149.86" y1="-78.74" x2="-149.86" y2="-81.28" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="VCC(A)"/>
-<wire x1="-134.62" y1="-116.84" x2="-134.62" y2="-119.38" width="0.1524" layer="91"/>
-<wire x1="-114.3" y1="-116.84" x2="-134.62" y2="-116.84" width="0.1524" layer="91"/>
-<junction x="-134.62" y="-116.84"/>
+<wire x1="-149.86" y1="-81.28" x2="-149.86" y2="-83.82" width="0.1524" layer="91"/>
+<wire x1="-129.54" y1="-81.28" x2="-149.86" y2="-81.28" width="0.1524" layer="91"/>
+<junction x="-149.86" y="-81.28"/>
 </segment>
 <segment>
 <wire x1="71.12" y1="7.62" x2="68.58" y2="7.62" width="0.1524" layer="91"/>
@@ -11768,20 +11769,20 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <segment>
 <pinref part="SUPPLY10" gate="1" pin="V+"/>
 <pinref part="C14" gate="G$1" pin="2"/>
-<wire x1="38.1" y1="-114.3" x2="38.1" y2="-116.84" width="0.1524" layer="91"/>
+<wire x1="-45.72" y1="-78.74" x2="-45.72" y2="-81.28" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="G$1" pin="VCC(A)"/>
-<wire x1="38.1" y1="-116.84" x2="38.1" y2="-119.38" width="0.1524" layer="91"/>
-<wire x1="58.42" y1="-116.84" x2="38.1" y2="-116.84" width="0.1524" layer="91"/>
-<junction x="38.1" y="-116.84"/>
+<wire x1="-45.72" y1="-81.28" x2="-45.72" y2="-83.82" width="0.1524" layer="91"/>
+<wire x1="-25.4" y1="-81.28" x2="-45.72" y2="-81.28" width="0.1524" layer="91"/>
+<junction x="-45.72" y="-81.28"/>
 </segment>
 <segment>
 <pinref part="SUPPLY11" gate="1" pin="V+"/>
 <pinref part="C16" gate="G$1" pin="2"/>
-<wire x1="81.28" y1="-73.66" x2="81.28" y2="-76.2" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="-78.74" x2="58.42" y2="-81.28" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="VCC(A)"/>
-<wire x1="81.28" y1="-76.2" x2="81.28" y2="-78.74" width="0.1524" layer="91"/>
-<wire x1="101.6" y1="-76.2" x2="81.28" y2="-76.2" width="0.1524" layer="91"/>
-<junction x="81.28" y="-76.2"/>
+<wire x1="58.42" y1="-81.28" x2="58.42" y2="-83.82" width="0.1524" layer="91"/>
+<wire x1="78.74" y1="-81.28" x2="58.42" y2="-81.28" width="0.1524" layer="91"/>
+<junction x="58.42" y="-81.28"/>
 </segment>
 <segment>
 <pinref part="SUPPLY6" gate="1" pin="V+"/>
@@ -11867,8 +11868,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <pinref part="U1" gate="G$1" pin="PC3"/>
 </segment>
 <segment>
-<wire x1="-114.3" y1="-124.46" x2="-116.84" y2="-124.46" width="0.1524" layer="91"/>
-<label x="-116.84" y="-124.46" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="-129.54" y1="-88.9" x2="-132.08" y2="-88.9" width="0.1524" layer="91"/>
+<label x="-132.08" y="-88.9" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="IC1" gate="G$1" pin="1A1"/>
 </segment>
 </net>
@@ -11879,8 +11880,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <pinref part="U1" gate="G$1" pin="PC2"/>
 </segment>
 <segment>
-<wire x1="-114.3" y1="-127" x2="-116.84" y2="-127" width="0.1524" layer="91"/>
-<label x="-116.84" y="-127" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="-129.54" y1="-91.44" x2="-132.08" y2="-91.44" width="0.1524" layer="91"/>
+<label x="-132.08" y="-91.44" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="IC1" gate="G$1" pin="1A2"/>
 </segment>
 </net>
@@ -11891,8 +11892,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <pinref part="U1" gate="G$1" pin="PC8"/>
 </segment>
 <segment>
-<wire x1="58.42" y1="-124.46" x2="55.88" y2="-124.46" width="0.1524" layer="91"/>
-<label x="55.88" y="-124.46" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="-25.4" y1="-88.9" x2="-27.94" y2="-88.9" width="0.1524" layer="91"/>
+<label x="-27.94" y="-88.9" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="IC2" gate="G$1" pin="1A1"/>
 </segment>
 </net>
@@ -11903,8 +11904,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <pinref part="U1" gate="G$1" pin="PC7"/>
 </segment>
 <segment>
-<wire x1="58.42" y1="-127" x2="55.88" y2="-127" width="0.1524" layer="91"/>
-<label x="55.88" y="-127" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="-25.4" y1="-91.44" x2="-27.94" y2="-91.44" width="0.1524" layer="91"/>
+<label x="-27.94" y="-91.44" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="IC2" gate="G$1" pin="1A2"/>
 </segment>
 </net>
@@ -11915,8 +11916,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <pinref part="U1" gate="G$1" pin="PC1"/>
 </segment>
 <segment>
-<wire x1="-114.3" y1="-129.54" x2="-116.84" y2="-129.54" width="0.1524" layer="91"/>
-<label x="-116.84" y="-129.54" size="1.27" layer="95" rot="MR0" xref="yes"/>
+<wire x1="-129.54" y1="-93.98" x2="-132.08" y2="-93.98" width="0.1524" layer="91"/>
+<label x="-132.08" y="-93.98" size="1.27" layer="95" rot="MR0" xref="yes"/>
 <pinref part="IC1" gate="G$1" pin="2A1"/>
 </segment>
 </net>
@@ -11927,8 +11928,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <pinref part="U1" gate="G$1" pin="PC0"/>
 </segment>
 <segment>
-<wire x1="-114.3" y1="-132.08" x2="-116.84" y2="-132.08" width="0.1524" layer="91"/>
-<label x="-116.84" y="-132.08" size="1.27" layer="95" rot="MR0" xref="yes"/>
+<wire x1="-129.54" y1="-96.52" x2="-132.08" y2="-96.52" width="0.1524" layer="91"/>
+<label x="-132.08" y="-96.52" size="1.27" layer="95" rot="MR0" xref="yes"/>
 <pinref part="IC1" gate="G$1" pin="2A2"/>
 </segment>
 </net>
@@ -11939,8 +11940,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <pinref part="U1" gate="G$1" pin="PC6"/>
 </segment>
 <segment>
-<wire x1="58.42" y1="-129.54" x2="55.88" y2="-129.54" width="0.1524" layer="91"/>
-<label x="55.88" y="-129.54" size="1.27" layer="95" rot="MR0" xref="yes"/>
+<wire x1="-25.4" y1="-93.98" x2="-27.94" y2="-93.98" width="0.1524" layer="91"/>
+<label x="-27.94" y="-93.98" size="1.27" layer="95" rot="MR0" xref="yes"/>
 <pinref part="IC2" gate="G$1" pin="2A1"/>
 </segment>
 </net>
@@ -11951,8 +11952,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <pinref part="U1" gate="G$1" pin="PC5"/>
 </segment>
 <segment>
-<wire x1="58.42" y1="-132.08" x2="55.88" y2="-132.08" width="0.1524" layer="91"/>
-<label x="55.88" y="-132.08" size="1.27" layer="95" rot="MR0" xref="yes"/>
+<wire x1="-25.4" y1="-96.52" x2="-27.94" y2="-96.52" width="0.1524" layer="91"/>
+<label x="-27.94" y="-96.52" size="1.27" layer="95" rot="MR0" xref="yes"/>
 <pinref part="IC2" gate="G$1" pin="2A2"/>
 </segment>
 </net>
@@ -11963,8 +11964,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <pinref part="U1" gate="G$1" pin="PC4"/>
 </segment>
 <segment>
-<wire x1="101.6" y1="-91.44" x2="99.06" y2="-91.44" width="0.1524" layer="91"/>
-<label x="99.06" y="-91.44" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="78.74" y1="-96.52" x2="76.2" y2="-96.52" width="0.1524" layer="91"/>
+<label x="76.2" y="-96.52" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="IC3" gate="G$1" pin="2A2"/>
 </segment>
 </net>
@@ -11975,15 +11976,15 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <pinref part="U1" gate="G$1" pin="PC9"/>
 </segment>
 <segment>
-<wire x1="101.6" y1="-83.82" x2="99.06" y2="-83.82" width="0.1524" layer="91"/>
-<label x="99.06" y="-83.82" size="1.27" layer="95" rot="MR0" xref="yes"/>
+<wire x1="78.74" y1="-88.9" x2="76.2" y2="-88.9" width="0.1524" layer="91"/>
+<label x="76.2" y="-88.9" size="1.27" layer="95" rot="MR0" xref="yes"/>
 <pinref part="IC3" gate="G$1" pin="1A1"/>
 </segment>
 </net>
 <net name="DIR_D0D1" class="0">
 <segment>
-<wire x1="-114.3" y1="-119.38" x2="-116.84" y2="-119.38" width="0.1524" layer="91"/>
-<label x="-116.84" y="-119.38" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="-129.54" y1="-83.82" x2="-132.08" y2="-83.82" width="0.1524" layer="91"/>
+<label x="-132.08" y="-83.82" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="IC1" gate="G$1" pin="1DIR"/>
 </segment>
 <segment>
@@ -11992,15 +11993,15 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <label x="-124.46" y="17.78" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<wire x1="58.42" y1="-119.38" x2="55.88" y2="-119.38" width="0.1524" layer="91"/>
-<label x="55.88" y="-119.38" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="-25.4" y1="-83.82" x2="-27.94" y2="-83.82" width="0.1524" layer="91"/>
+<label x="-27.94" y="-83.82" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="IC2" gate="G$1" pin="1DIR"/>
 </segment>
 </net>
 <net name="DIR_P1D2D3" class="0">
 <segment>
-<wire x1="101.6" y1="-78.74" x2="99.06" y2="-78.74" width="0.1524" layer="91"/>
-<label x="99.06" y="-78.74" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="78.74" y1="-83.82" x2="76.2" y2="-83.82" width="0.1524" layer="91"/>
+<label x="76.2" y="-83.82" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="IC3" gate="G$1" pin="1DIR"/>
 </segment>
 <segment>
@@ -12011,8 +12012,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 </net>
 <net name="DIR_P2D2D3" class="0">
 <segment>
-<wire x1="101.6" y1="-81.28" x2="99.06" y2="-81.28" width="0.1524" layer="91"/>
-<label x="99.06" y="-81.28" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="78.74" y1="-86.36" x2="76.2" y2="-86.36" width="0.1524" layer="91"/>
+<label x="76.2" y="-86.36" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="IC3" gate="G$1" pin="2DIR"/>
 </segment>
 <segment>
@@ -12033,8 +12034,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <pinref part="J10" gate="G$1" pin="R7"/>
 </segment>
 <segment>
-<wire x1="147.32" y1="-86.36" x2="149.86" y2="-86.36" width="0.1524" layer="91"/>
-<label x="149.86" y="-86.36" size="1.27" layer="95" rot="MR180" xref="yes"/>
+<wire x1="124.46" y1="-91.44" x2="127" y2="-91.44" width="0.1524" layer="91"/>
+<label x="127" y="-91.44" size="1.27" layer="95" rot="MR180" xref="yes"/>
 <pinref part="RN1" gate="G$1" pin="7"/>
 </segment>
 </net>
@@ -12050,15 +12051,15 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <pinref part="J10" gate="G$1" pin="L7"/>
 </segment>
 <segment>
-<wire x1="147.32" y1="-88.9" x2="149.86" y2="-88.9" width="0.1524" layer="91"/>
-<label x="149.86" y="-88.9" size="1.27" layer="95" rot="MR180" xref="yes"/>
+<wire x1="124.46" y1="-93.98" x2="127" y2="-93.98" width="0.1524" layer="91"/>
+<label x="127" y="-93.98" size="1.27" layer="95" rot="MR180" xref="yes"/>
 <pinref part="RN1" gate="G$1" pin="6"/>
 </segment>
 </net>
 <net name="P1_D3_3V" class="0">
 <segment>
-<wire x1="101.6" y1="-88.9" x2="99.06" y2="-88.9" width="0.1524" layer="91"/>
-<label x="99.06" y="-88.9" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="78.74" y1="-93.98" x2="76.2" y2="-93.98" width="0.1524" layer="91"/>
+<label x="76.2" y="-93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="IC3" gate="G$1" pin="2A1"/>
 </segment>
 <segment>
@@ -12069,8 +12070,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 </net>
 <net name="P2_D3_3V" class="0">
 <segment>
-<wire x1="101.6" y1="-86.36" x2="99.06" y2="-86.36" width="0.1524" layer="91"/>
-<label x="99.06" y="-86.36" size="1.27" layer="95" rot="MR0" xref="yes"/>
+<wire x1="78.74" y1="-91.44" x2="76.2" y2="-91.44" width="0.1524" layer="91"/>
+<label x="76.2" y="-91.44" size="1.27" layer="95" rot="MR0" xref="yes"/>
 <pinref part="IC3" gate="G$1" pin="1A2"/>
 </segment>
 <segment>
@@ -12081,8 +12082,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 </net>
 <net name="DIR_CLKLAT" class="0">
 <segment>
-<wire x1="-114.3" y1="-121.92" x2="-116.84" y2="-121.92" width="0.1524" layer="91"/>
-<label x="-116.84" y="-121.92" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="-129.54" y1="-86.36" x2="-132.08" y2="-86.36" width="0.1524" layer="91"/>
+<label x="-132.08" y="-86.36" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="IC1" gate="G$1" pin="2DIR"/>
 </segment>
 <segment>
@@ -12091,21 +12092,21 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <pinref part="U1" gate="G$1" pin="PA0"/>
 </segment>
 <segment>
-<wire x1="58.42" y1="-121.92" x2="55.88" y2="-121.92" width="0.1524" layer="91"/>
-<label x="55.88" y="-121.92" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="-25.4" y1="-86.36" x2="-27.94" y2="-86.36" width="0.1524" layer="91"/>
+<label x="-27.94" y="-86.36" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="IC2" gate="G$1" pin="2DIR"/>
 </segment>
 </net>
 <net name="ENABLE_D0D1" class="0">
 <segment>
-<wire x1="-81.28" y1="-119.38" x2="-68.58" y2="-119.38" width="0.1524" layer="91"/>
-<label x="-68.58" y="-119.38" size="1.27" layer="95" xref="yes"/>
+<wire x1="-96.52" y1="-83.82" x2="-83.82" y2="-83.82" width="0.1524" layer="91"/>
+<label x="-83.82" y="-83.82" size="1.27" layer="95" xref="yes"/>
 <pinref part="IC1" gate="G$1" pin="!1OE"/>
 </segment>
 <segment>
-<label x="104.14" y="-119.38" size="1.27" layer="95" xref="yes"/>
+<label x="20.32" y="-83.82" size="1.27" layer="95" xref="yes"/>
 <pinref part="IC2" gate="G$1" pin="!1OE"/>
-<wire x1="91.44" y1="-119.38" x2="104.14" y2="-119.38" width="0.1524" layer="91"/>
+<wire x1="7.62" y1="-83.82" x2="20.32" y2="-83.82" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="PA2"/>
@@ -12115,8 +12116,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 </net>
 <net name="ENABLE_P1D2D3" class="0">
 <segment>
-<wire x1="134.62" y1="-78.74" x2="147.32" y2="-78.74" width="0.1524" layer="91"/>
-<label x="147.32" y="-78.74" size="1.27" layer="95" rot="MR180" xref="yes"/>
+<wire x1="111.76" y1="-83.82" x2="124.46" y2="-83.82" width="0.1524" layer="91"/>
+<label x="124.46" y="-83.82" size="1.27" layer="95" rot="MR180" xref="yes"/>
 <pinref part="IC3" gate="G$1" pin="!1OE"/>
 </segment>
 <segment>
@@ -12127,8 +12128,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 </net>
 <net name="ENABLE_P2D2D3" class="0">
 <segment>
-<wire x1="134.62" y1="-81.28" x2="147.32" y2="-81.28" width="0.1524" layer="91"/>
-<label x="147.32" y="-81.28" size="1.27" layer="95" rot="MR180" xref="yes"/>
+<wire x1="111.76" y1="-86.36" x2="124.46" y2="-86.36" width="0.1524" layer="91"/>
+<label x="124.46" y="-86.36" size="1.27" layer="95" rot="MR180" xref="yes"/>
 <pinref part="IC3" gate="G$1" pin="!2OE"/>
 </segment>
 <segment>
@@ -12245,13 +12246,13 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 </net>
 <net name="ENABLE_CLKLAT" class="0">
 <segment>
-<wire x1="-81.28" y1="-121.92" x2="-68.58" y2="-121.92" width="0.1524" layer="91"/>
-<label x="-68.58" y="-121.92" size="1.27" layer="95" xref="yes"/>
+<wire x1="-96.52" y1="-86.36" x2="-83.82" y2="-86.36" width="0.1524" layer="91"/>
+<label x="-83.82" y="-86.36" size="1.27" layer="95" xref="yes"/>
 <pinref part="IC1" gate="G$1" pin="!2OE"/>
 </segment>
 <segment>
-<wire x1="91.44" y1="-121.92" x2="104.14" y2="-121.92" width="0.1524" layer="91"/>
-<label x="104.14" y="-121.92" size="1.27" layer="95" xref="yes"/>
+<wire x1="7.62" y1="-86.36" x2="20.32" y2="-86.36" width="0.1524" layer="91"/>
+<label x="20.32" y="-86.36" size="1.27" layer="95" xref="yes"/>
 <pinref part="IC2" gate="G$1" pin="!2OE"/>
 </segment>
 <segment>

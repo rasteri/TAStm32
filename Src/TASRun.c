@@ -345,6 +345,9 @@ void SetN64Mode()
 
 void SetSNESMode()
 {
+
+	// Order should be
+
 	GPIO_InitTypeDef GPIO_InitStruct = { 0 };
 
 	// Tristate the data pins until the first latch
@@ -359,6 +362,27 @@ void SetSNESMode()
 	GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
 	HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+
+	/* More pins for buffer funtime */
+
+	GPIO_InitStruct.Pin = ENABLE_D0D1_Pin;
+	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	HAL_GPIO_Init(ENABLE_D0D1_GPIO_Port, &GPIO_InitStruct);
+	HAL_GPIO_WritePin(ENABLE_D0D1_GPIO_Port, DIR_CLKLAT_Pin, GPIO_PIN_RESET);
+
+	GPIO_InitStruct.Pin = ENABLE_P1D2D3_Pin;
+	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	HAL_GPIO_Init(ENABLE_P1D2D3_GPIO_Port, &GPIO_InitStruct);
+	HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, DIR_CLKLAT_Pin, GPIO_PIN_RESET);
+
+	GPIO_InitStruct.Pin = ENABLE_CLKLAT_Pin;
+	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	HAL_GPIO_Init(ENABLE_CLKLAT_GPIO_Port, &GPIO_InitStruct);
+	HAL_GPIO_WritePin(ENABLE_CLKLAT_GPIO_Port, DIR_CLKLAT_Pin, GPIO_PIN_RESET);
 
 
 }

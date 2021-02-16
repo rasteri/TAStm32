@@ -172,7 +172,6 @@ uint16_t* latch_trains;
 /* USER CODE BEGIN PFP */
 void my_wait_us_asm(int n);
 static uint8_t UART2_OutputFunction(uint8_t *buffer, uint16_t n);
-static HAL_StatusTypeDef Simple_Transmit(UART_HandleTypeDef *huart);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -188,7 +187,6 @@ extern TIM_HandleTypeDef htim3;
 extern TIM_HandleTypeDef htim6;
 extern TIM_HandleTypeDef htim7;
 extern TIM_HandleTypeDef htim10;
-extern UART_HandleTypeDef huart2;
 /* USER CODE BEGIN EV */
 /* USER CODE END EV */
 
@@ -792,48 +790,6 @@ void TIM3_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles USART2 global interrupt.
-  */
-void USART2_IRQHandler(void)
-{
-  /* USER CODE BEGIN USART2_IRQn 0 */
-	uint32_t isrflags   = READ_REG(huart2.Instance->SR);
-	uint32_t cr1its     = READ_REG(huart2.Instance->CR1);
-	/* UART in mode Transmitter ------------------------------------------------*/
-	if (((isrflags & USART_SR_TXE) != RESET) && ((cr1its & USART_CR1_TXEIE) != RESET))
-	{
-		Simple_Transmit(&huart2);
-		return;
-	}
-
-	/* UART in mode Transmitter end --------------------------------------------*/
-	if (((isrflags & USART_SR_TC) != RESET) && ((cr1its & USART_CR1_TCIE) != RESET))
-	{
-		/* Disable the UART Transmit Complete Interrupt */
-		__HAL_UART_DISABLE_IT(&huart2, UART_IT_TC);
-
-		/* Tx process is ended, restore huart->gState to Ready */
-		huart2.gState = HAL_UART_STATE_READY;
-		return;
-	}
-
-	if(((isrflags & USART_SR_RXNE) != RESET) && ((cr1its & USART_CR1_RXNEIE) != RESET))
-	{
-		// PROCESS USART2 Rx IRQ HERE
-		uint8_t input = ((huart2.Instance)->DR) & (uint8_t)0xFF; // get the last byte from the data register
-
-		serial_interface_set_output_function(UART2_OutputFunction);
-		serial_interface_consume(&input, 1);
-		return;
-	}
-  /* USER CODE END USART2_IRQn 0 */
-  HAL_UART_IRQHandler(&huart2);
-  /* USER CODE BEGIN USART2_IRQn 1 */
-
-  /* USER CODE END USART2_IRQn 1 */
-}
-
-/**
   * @brief This function handles TIM6 global interrupt and DAC1, DAC2 underrun error interrupts.
   */
 void TIM6_DAC_IRQHandler(void)
@@ -894,28 +850,6 @@ void OTG_HS_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
-static HAL_StatusTypeDef Simple_Transmit(UART_HandleTypeDef *huart)
-{
-  /* Check that a Tx process is ongoing */
-  if (huart->gState == HAL_UART_STATE_BUSY_TX)
-  {
-    huart->Instance->DR = (uint8_t)(*huart->pTxBuffPtr++ & (uint8_t)0x00FF);
-
-    if (--huart->TxXferCount == 0U)
-    {
-      /* Disable the UART Transmit Complete Interrupt */
-      __HAL_UART_DISABLE_IT(huart, UART_IT_TXE);
-
-      /* Enable the UART Transmit Complete Interrupt */
-      __HAL_UART_ENABLE_IT(huart, UART_IT_TC);
-    }
-    return HAL_OK;
-  }
-  else
-  {
-    return HAL_BUSY;
-  }
-}
 
 void DisableTrainTimer()
 {
@@ -1244,9 +1178,5 @@ inline void UpdateN64VisBoards(N64ControllerData n64data)
 	GPIOB->BSRR = (1 << V1_LATCH_LOW_B);
 }
 
-static uint8_t UART2_OutputFunction(uint8_t *buffer, uint16_t n)
-{
-	return HAL_UART_Transmit_IT(&huart2, buffer, n);
-}
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
