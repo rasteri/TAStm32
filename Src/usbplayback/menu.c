@@ -29,6 +29,8 @@ FATFS TASDrive;
 
 unsigned long stepNextThink = 0;
 
+extern uint32_t menuNextThink;
+
 // Input menu event handlers
 void Menu_Enter() {
 
@@ -263,6 +265,9 @@ void Menu_Display() {
 
 		sprintf(temp, "Buffer: %d", tasrun->size);
 		ssd1306_SetCursor(0, 16);
+		ssd1306_WriteString(temp, Font_6x8, White);
+		sprintf(temp, "mnt: %d", CurrentMenu);
+		ssd1306_SetCursor(0, 24);
 		ssd1306_WriteString(temp, Font_6x8, White);
 
 		ssd1306_UpdateScreen();

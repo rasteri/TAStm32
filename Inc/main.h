@@ -123,10 +123,10 @@ void JumpToBootLoader(void);
 #define DUMDUM7_GPIO_Port GPIOB
 #define DUMDUM6_Pin GPIO_PIN_10
 #define DUMDUM6_GPIO_Port GPIOB
-#define SWITCH1B12_Pin GPIO_PIN_12
-#define SWITCH1B12_GPIO_Port GPIOB
-#define SWITCH2B13_Pin GPIO_PIN_13
-#define SWITCH2B13_GPIO_Port GPIOB
+#define DUMDUM11_Pin GPIO_PIN_12
+#define DUMDUM11_GPIO_Port GPIOB
+#define DUMDUM10_Pin GPIO_PIN_13
+#define DUMDUM10_GPIO_Port GPIOB
 #define P2_LATCH_Pin GPIO_PIN_6
 #define P2_LATCH_GPIO_Port GPIOC
 #define P2_DATA_1_Pin GPIO_PIN_7
@@ -139,8 +139,8 @@ void JumpToBootLoader(void);
 #define DIR_P2D2D3_GPIO_Port GPIOA
 #define SNES_RESET_Pin GPIO_PIN_9
 #define SNES_RESET_GPIO_Port GPIOA
-#define SWITCH4A10_Pin GPIO_PIN_10
-#define SWITCH4A10_GPIO_Port GPIOA
+#define DUMDUM12_Pin GPIO_PIN_10
+#define DUMDUM12_GPIO_Port GPIOA
 #define TMS_Pin GPIO_PIN_13
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14
