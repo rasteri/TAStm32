@@ -67,7 +67,6 @@ typedef struct
 	Transition transitions_dpcm[MAX_TRANSITIONS];
 	uint8_t console_data_size;
 	uint8_t input_data_size;
-	uint32_t moder_firstLatch;
 
 	uint8_t multitap;
 	int32_t blank;
@@ -123,8 +122,10 @@ RunDataArray *GetNextFrame();
 int ExtractDataAndAddFrame(uint8_t *buffer, uint32_t n);
 
 void SetN64Mode();
+void SetNESMode();
 void SetSNESMode();
 void SetGENMode();
 void SetMultitapMode();
 void ResetRun();
+void SetupPin(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, uint32_t Mode, uint32_t Pull, GPIO_PinState PinState);
 #endif

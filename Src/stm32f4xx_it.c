@@ -256,11 +256,13 @@ void EXTI1_IRQHandler(void)
 	int8_t regbit = 50, databit = -1; // random initial values
 
 	// set relevant data ports as output if this is the first latch
-	if(firstLatch && (EXTI->PR & P1_LATCH_Pin))
+	// NO! Do this AFTER we have set up the pin state otherwise it might glitch
+	/*if(firstLatch && (EXTI->PR & P1_LATCH_Pin))
 	{
-		GPIOC->MODER = (GPIOC->MODER & MODER_DATA_MASK) | tasrun->moder_firstLatch;
+		// the buffers should already be set up, just need to enable them
+		HAL_GPIO_WritePin(ENABLE_D0D1_GPIO_Port, ENABLE_D0D1_Pin, GPIO_PIN_RESET);
 		firstLatch = 0;
-	}
+	}*/
 
 	if(tasrun->console == CONSOLE_GEN)
 	{
@@ -307,6 +309,20 @@ void EXTI1_IRQHandler(void)
 			uint32_t p2_data = P2_GPIOC_next[0];
 			uint32_t all_data = (p1_data | p2_data);
 			GPIOC->BSRR = all_data;
+
+			// set relevant data ports as output if this is the first latch
+			if(firstLatch && (EXTI->PR & P1_LATCH_Pin))
+			{
+				// D0/D1 buffers should already be set as output, just need to enable them
+				HAL_GPIO_WritePin(ENABLE_D0D1_GPIO_Port, ENABLE_D0D1_Pin, GPIO_PIN_RESET);
+
+				// If NES also enable D2/D3
+				if (tasrun->console == CONSOLE_NES){
+					HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_RESET);
+					HAL_GPIO_WritePin(ENABLE_P2D2D3_GPIO_Port, ENABLE_P2D2D3_Pin, GPIO_PIN_RESET);
+				}
+				firstLatch = 0;
+			}
 
 			// copy the 2nd bit over too
 			__disable_irq();

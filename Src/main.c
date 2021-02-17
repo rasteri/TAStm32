@@ -96,6 +96,11 @@ void MX_USB_HOST_Process(void);
 
 /* USER CODE BEGIN PFP */
 
+// Reset GPIO back to poweron state
+void ResetGPIO(void){
+	MX_GPIO_Init();
+}
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -476,11 +481,11 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOC, DUMDUM4_Pin|V2_LATCH_Pin|V2_DATA_1_Pin|V2_DATA_0_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, DIR_CLKLAT_Pin|DIR_D0D1_Pin|DIR_P1D2D3_Pin|DIR_P2D2D3_Pin
-                          |DUMDUM12_Pin|V2_CLOCK_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, DIR_CLKLAT_Pin|DIR_D0D1_Pin|DIR_P1P2D2D3_Pin|DUMDUM12_Pin
+                          |V2_CLOCK_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, ENABLE_D0D1_Pin|ENABLE_CLKLAT_Pin|ENABLE_P1D2D3_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOA, ENABLE_CLKLAT_Pin|ENABLE_D0D1_Pin|ENABLE_P1D2D3_Pin|ENABLE_P2D2D3_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, MUD_Pin|DUMDUM7_Pin|DUMDUM6_Pin|DUMDUM11_Pin
@@ -517,10 +522,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : DIR_CLKLAT_Pin DIR_D0D1_Pin ENABLE_D0D1_Pin ENABLE_CLKLAT_Pin
-                           DIR_P1D2D3_Pin ENABLE_P1D2D3_Pin DIR_P2D2D3_Pin DUMDUM12_Pin */
-  GPIO_InitStruct.Pin = DIR_CLKLAT_Pin|DIR_D0D1_Pin|ENABLE_D0D1_Pin|ENABLE_CLKLAT_Pin
-                          |DIR_P1D2D3_Pin|ENABLE_P1D2D3_Pin|DIR_P2D2D3_Pin|DUMDUM12_Pin;
+  /*Configure GPIO pins : DIR_CLKLAT_Pin DIR_D0D1_Pin ENABLE_CLKLAT_Pin ENABLE_D0D1_Pin
+                           DIR_P1P2D2D3_Pin ENABLE_P1D2D3_Pin ENABLE_P2D2D3_Pin DUMDUM12_Pin */
+  GPIO_InitStruct.Pin = DIR_CLKLAT_Pin|DIR_D0D1_Pin|ENABLE_CLKLAT_Pin|ENABLE_D0D1_Pin
+                          |DIR_P1P2D2D3_Pin|ENABLE_P1D2D3_Pin|ENABLE_P2D2D3_Pin|DUMDUM12_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -591,7 +596,7 @@ static void MX_GPIO_Init(void)
   HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 
-  HAL_NVIC_SetPriority(EXTI1_IRQn, 0, 0);
+  HAL_NVIC_SetPriority(EXTI1_IRQn, 1, 0);
   HAL_NVIC_EnableIRQ(EXTI1_IRQn);
 
   HAL_NVIC_SetPriority(EXTI4_IRQn, 0, 0);
