@@ -76,6 +76,7 @@ void Error_Handler(void);
 /* USER CODE BEGIN EFP */
 void ReInitClockTimers(void);
 void JumpToBootLoader(void);
+void ResetGPIO(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
@@ -99,12 +100,12 @@ void JumpToBootLoader(void);
 #define DIR_CLKLAT_GPIO_Port GPIOA
 #define DIR_D0D1_Pin GPIO_PIN_1
 #define DIR_D0D1_GPIO_Port GPIOA
-#define ENABLE_D0D1_Pin GPIO_PIN_2
-#define ENABLE_D0D1_GPIO_Port GPIOA
-#define ENABLE_CLKLAT_Pin GPIO_PIN_3
+#define ENABLE_CLKLAT_Pin GPIO_PIN_2
 #define ENABLE_CLKLAT_GPIO_Port GPIOA
-#define DIR_P1D2D3_Pin GPIO_PIN_4
-#define DIR_P1D2D3_GPIO_Port GPIOA
+#define ENABLE_D0D1_Pin GPIO_PIN_3
+#define ENABLE_D0D1_GPIO_Port GPIOA
+#define DIR_P1P2D2D3_Pin GPIO_PIN_4
+#define DIR_P1P2D2D3_GPIO_Port GPIOA
 #define ENABLE_P1D2D3_Pin GPIO_PIN_5
 #define ENABLE_P1D2D3_GPIO_Port GPIOA
 #define SWITCH2_Pin GPIO_PIN_6
@@ -135,8 +136,8 @@ void JumpToBootLoader(void);
 #define P2_DATA_0_GPIO_Port GPIOC
 #define P2_DATA_2_Pin GPIO_PIN_9
 #define P2_DATA_2_GPIO_Port GPIOC
-#define DIR_P2D2D3_Pin GPIO_PIN_8
-#define DIR_P2D2D3_GPIO_Port GPIOA
+#define ENABLE_P2D2D3_Pin GPIO_PIN_8
+#define ENABLE_P2D2D3_GPIO_Port GPIOA
 #define SNES_RESET_Pin GPIO_PIN_9
 #define SNES_RESET_GPIO_Port GPIOA
 #define DUMDUM12_Pin GPIO_PIN_10

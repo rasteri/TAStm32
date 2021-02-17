@@ -126,6 +126,9 @@ void ClearRunData()
 
 void ResetRun()
 {
+	// Reset all GPIOS to poweron state
+	ResetGPIO();
+
 	// disable interrupts on latch/clock/data for now
 	HAL_NVIC_DisableIRQ(EXTI0_IRQn);
 	HAL_NVIC_DisableIRQ(EXTI1_IRQn);
@@ -135,12 +138,6 @@ void ResetRun()
 	DisableP1ClockTimer();
 	DisableP2ClockTimer();
 	DisableTrainTimer();
-
-	// Tristate the data pins
-	GPIO_InitTypeDef GPIO_InitStruct = { 0 };
-	GPIO_InitStruct.Pin = P1_DATA_0_Pin | P1_DATA_1_Pin | P1_DATA_2_Pin  | P2_DATA_0_Pin | P2_DATA_1_Pin | P2_DATA_2_Pin;
-	GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-	HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
 	// clear all interrupts
 	while (HAL_NVIC_GetPendingIRQ(EXTI0_IRQn))
@@ -215,32 +212,6 @@ void ResetRun()
 static void UpdateRunConfig()
 {
 	tasrun->input_data_size = tasrun->numControllers * tasrun->numDataLanes * tasrun->console_data_size;
-
-	tasrun->moder_firstLatch = 0;
-
-	// special case for genesis, which uses 6 data lines for 1 controller
-	if(tasrun->console == CONSOLE_GEN)
-	{
-		tasrun->moder_firstLatch 	|= P1_DATA_0_Pin * P1_DATA_0_Pin
-									| P1_DATA_1_Pin * P1_DATA_1_Pin
-									| P1_DATA_2_Pin * P1_DATA_2_Pin
-									| P2_DATA_0_Pin * P2_DATA_0_Pin
-									| P2_DATA_1_Pin * P2_DATA_1_Pin
-									| P2_DATA_2_Pin * P2_DATA_2_Pin;
-
-		return;
-	}
-
-	// Calculate MODER register for first latch, set appropriate D pins to output
-	tasrun->moder_firstLatch |= P1_DATA_0_Pin * P1_DATA_0_Pin; // D0 is always output
-	if (tasrun->numDataLanes >= 2) tasrun->moder_firstLatch |= P1_DATA_1_Pin * P1_DATA_1_Pin;
-	if (tasrun->numDataLanes == 3 && tasrun->console == CONSOLE_NES) tasrun->moder_firstLatch |= P1_DATA_2_Pin * P1_DATA_2_Pin; // Only for NES, SNES' 3rd data lane is for multitap
-
-	if (tasrun->numControllers == 2){
-		tasrun->moder_firstLatch |= P2_DATA_0_Pin * P2_DATA_0_Pin; // D0 is always output
-		if (tasrun->numDataLanes >= 2) tasrun->moder_firstLatch |= P2_DATA_1_Pin * P2_DATA_1_Pin;
-		if (tasrun->numDataLanes == 3 && tasrun->console == CONSOLE_NES) tasrun->moder_firstLatch |= P2_DATA_2_Pin * P2_DATA_2_Pin; // Only for NES, SNES' 3rd data lane is for multitap
-	}
 }
 
 void TASRunSetNumControllers(uint8_t numControllers)
@@ -355,38 +326,75 @@ void SetupPin(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, uint32_t Mode, uint32_t Pu
 
 }
 
+void SetNESMode()
+{
+
+	// Setup buffers first, MCU buffer pins should already be outputs
+	//
+	//
+	// Buffer Clock/latch are input, D0/1/2/3 output
+	HAL_GPIO_WritePin(DIR_CLKLAT_GPIO_Port, DIR_CLKLAT_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(DIR_D0D1_GPIO_Port, DIR_D0D1_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(DIR_P1P2D2D3_GPIO_Port, DIR_P1P2D2D3_Pin, GPIO_PIN_SET);
+
+	// Buffer clock/latch enable, data pins will be enabled on first latch
+	HAL_GPIO_WritePin(ENABLE_CLKLAT_GPIO_Port, ENABLE_CLKLAT_Pin, GPIO_PIN_RESET);
+
+	// Now do the actual MCU pins
+	//
+	// MCU D0/D1/D2/D3 output, but they will not actually speak to console yet as buffer is disabled
+	SetupPin(P1_DATA_0_GPIO_Port, P1_DATA_0_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_SET);
+	SetupPin(P1_DATA_1_GPIO_Port, P1_DATA_1_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_SET);
+	SetupPin(P1_DATA_2_GPIO_Port, P1_DATA_2_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_SET);
+	SetupPin(P2_DATA_0_GPIO_Port, P2_DATA_0_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_SET);
+	SetupPin(P2_DATA_1_GPIO_Port, P2_DATA_1_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_SET);
+	SetupPin(P2_DATA_2_GPIO_Port, P2_DATA_2_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_SET);
+
+
+	// MCU Clock/latch input, triggered on rising edge
+	SetupPin(GPIOC, P1_CLOCK_Pin|P1_LATCH_Pin|P2_CLOCK_Pin, GPIO_MODE_IT_RISING, GPIO_NOPULL, GPIO_PIN_RESET);
+
+
+
+}
+
 void SetSNESMode()
 {
 
-	// Order should be
+	// Setup buffers first, MCU buffer pins should already be outputs
+	//
+	//
+	// Buffer Clock/latch are input, D0/1 are output, D2/3 are input
+	HAL_GPIO_WritePin(DIR_CLKLAT_GPIO_Port, DIR_CLKLAT_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(DIR_D0D1_GPIO_Port, DIR_D0D1_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(DIR_P1P2D2D3_GPIO_Port, DIR_P1P2D2D3_Pin, GPIO_PIN_RESET);
 
-	GPIO_InitTypeDef GPIO_InitStruct = { 0 };
+	// Buffer clock/latch enable, data pins will be enabled on first latch
+	HAL_GPIO_WritePin(ENABLE_CLKLAT_GPIO_Port, ENABLE_CLKLAT_Pin, GPIO_PIN_RESET);
 
-	// Tristate the data pins until the first latch
-	GPIO_InitStruct.Pin = P1_DATA_0_Pin | P1_DATA_1_Pin | P1_DATA_2_Pin | P2_DATA_0_Pin | P2_DATA_1_Pin | P2_DATA_2_Pin;
-	GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-	HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+	// Buffer D2 should also be enabled for multitap purposes
+	HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_RESET);
 
-	memset (&GPIO_InitStruct, 0, sizeof(GPIO_InitTypeDef));
+	// Not buffer P2D2 though
+	HAL_GPIO_WritePin(ENABLE_P2D2D3_GPIO_Port, ENABLE_P2D2D3_Pin, GPIO_PIN_SET);
 
-	/*Configure GPIO pins : P1_CLOCK_Pin P1_LATCH_Pin P2_CLOCK_Pin */
-	GPIO_InitStruct.Pin = P1_CLOCK_Pin|P1_LATCH_Pin|P2_CLOCK_Pin;
-	GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-	GPIO_InitStruct.Pull = GPIO_NOPULL;
-	HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+	// Now do the actual MCU pins
+	//
+	// MCU D0/D1 output, but they will not actually speak to console yet as buffer is disabled
+	SetupPin(P1_DATA_0_GPIO_Port, P1_DATA_0_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_SET);
+	SetupPin(P1_DATA_1_GPIO_Port, P1_DATA_1_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_SET);
+	SetupPin(P2_DATA_0_GPIO_Port, P2_DATA_0_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_SET);
+	SetupPin(P2_DATA_1_GPIO_Port, P2_DATA_1_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_SET);
 
+	// MCU Clock/latch input, triggered on rising edge
+	SetupPin(GPIOC, P1_CLOCK_Pin|P1_LATCH_Pin|P2_CLOCK_Pin, GPIO_MODE_IT_RISING, GPIO_NOPULL, GPIO_PIN_RESET);
 
-	/* More pins for buffer funtime */
-	// SNNES
-	SetupPin(DIR_D0D1_GPIO_Port, DIR_D0D1_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_RESET);
-	SetupPin(DIR_P1D2D3_GPIO_Port, DIR_P1D2D3_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_RESET);
-	SetupPin(DIR_P2D2D3_GPIO_Port, DIR_P2D2D3_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_RESET);
-	SetupPin(DIR_CLKLAT_GPIO_Port, DIR_CLKLAT_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_RESET);
+	// MCU P1D2 input, triggered on falling edge
+	SetupPin(P1_DATA_2_GPIO_Port, P1_DATA_2_Pin, GPIO_MODE_IT_FALLING, GPIO_NOPULL, GPIO_PIN_RESET);
 
-	SetupPin(ENABLE_D0D1_GPIO_Port, ENABLE_D0D1_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_RESET);
-	SetupPin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_RESET);
-	SetupPin(ENABLE_P2D2D3_GPIO_Port, ENABLE_P2D2D3_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_RESET);
-	SetupPin(ENABLE_CLKLAT_GPIO_Port, ENABLE_CLKLAT_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_RESET);
+	// MCU P2D2 input with pullup
+	SetupPin(P2_DATA_2_GPIO_Port, P2_DATA_2_Pin, GPIO_MODE_INPUT, GPIO_PULLUP, GPIO_PIN_RESET);
+
 }
 
 void SetGENMode()

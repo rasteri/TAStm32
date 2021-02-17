@@ -22,6 +22,7 @@ MenuType CurrentMenu;
 int16_t cursorPos = 0;
 int16_t displayPos = 0;
 bool USBok = 0;
+extern uint8_t firstLatch;
 
 char currentFilename[256];
 
@@ -266,7 +267,7 @@ void Menu_Display() {
 		sprintf(temp, "Buffer: %d", tasrun->size);
 		ssd1306_SetCursor(0, 16);
 		ssd1306_WriteString(temp, Font_6x8, White);
-		sprintf(temp, "mnt: %d", CurrentMenu);
+		sprintf(temp, "mnt: %d", firstLatch);
 		ssd1306_SetCursor(0, 24);
 		ssd1306_WriteString(temp, Font_6x8, White);
 
