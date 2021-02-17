@@ -666,6 +666,7 @@ void EXTI4_IRQHandler(void)
 			  {
 				  SendRunDataN64(frame[0][0][0].n64_data);
 			  }
+			  tasrun->frameCount++;
 			  break;
 		  case 0x41: //gamecube origin call
 			  SendOriginGC();
@@ -691,6 +692,7 @@ void EXTI4_IRQHandler(void)
 				  frame[0][0][0].gc_data.beginning_one = 1;
 				  SendRunDataGC(frame[0][0][0].gc_data);
 			  }
+			  tasrun->frameCount++;
 			  break;
 		  case 0x02:
 		  case 0x03:

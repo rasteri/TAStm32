@@ -305,13 +305,15 @@ int ExtractDataAndAddFrame(uint8_t *buffer, uint32_t n)
 
 void SetN64Mode()
 {
-	GPIO_InitTypeDef GPIO_InitStruct = { 0 };
 
-	GPIO_InitStruct.Pin = P1_DATA_2_Pin;
-	GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
-	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	// Buffer P1D2 is input
+	HAL_GPIO_WritePin(DIR_P1P2D2D3_GPIO_Port, DIR_P1P2D2D3_Pin, GPIO_PIN_RESET);
 
-	HAL_GPIO_Init(P1_DATA_2_GPIO_Port, &GPIO_InitStruct);
+	// Buffer Enable P1D2
+	HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_RESET);
+
+	// MCU P1D2 input, triggered on falling edge
+	SetupPin(P1_DATA_2_GPIO_Port, P1_DATA_2_Pin, GPIO_MODE_IT_FALLING, GPIO_NOPULL, GPIO_PIN_RESET);
 }
 
 // quick function to init pin
