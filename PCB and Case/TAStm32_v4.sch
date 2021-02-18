@@ -10672,6 +10672,8 @@ Source: http://www.ctscorp.com/components/Datasheets/CTSChipArrayDs.pdf</descrip
 <text x="93.98" y="17.78" size="2.54" layer="97">Expansion Ports</text>
 <text x="-17.78" y="-58.42" size="1.778" layer="91">Switch pads slightly wrong</text>
 <text x="-17.78" y="-60.96" size="1.778" layer="91">Add larger caps to console 5v rails, maybe</text>
+<text x="-17.78" y="-63.5" size="1.778" layer="91">Add insurance caps to outputs (maybe arrays)</text>
+<text x="-17.78" y="-66.04" size="1.778" layer="91">Label debug pins</text>
 </plain>
 <instances>
 <instance part="GND3" gate="1" x="-63.5" y="-66.04" smashed="yes"/>
