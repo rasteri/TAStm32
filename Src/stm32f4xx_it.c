@@ -317,10 +317,10 @@ void EXTI1_IRQHandler(void)
 				HAL_GPIO_WritePin(ENABLE_D0D1_GPIO_Port, ENABLE_D0D1_Pin, GPIO_PIN_RESET);
 
 				// If NES also enable D2/D3
-				if (tasrun->console == CONSOLE_NES){
+				/*if (tasrun->console == CONSOLE_NES){
 					HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_RESET);
 					HAL_GPIO_WritePin(ENABLE_P2D2D3_GPIO_Port, ENABLE_P2D2D3_Pin, GPIO_PIN_RESET);
-				}
+				}*/
 				firstLatch = 0;
 			}
 

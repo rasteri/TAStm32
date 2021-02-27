@@ -374,10 +374,8 @@ void SetSNESMode()
 	// Buffer clock/latch enable, data pins will be enabled on first latch
 	HAL_GPIO_WritePin(ENABLE_CLKLAT_GPIO_Port, ENABLE_CLKLAT_Pin, GPIO_PIN_RESET);
 
-	// Buffer D2 should also be enabled for multitap purposes
-	HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_RESET);
-
-	// Not buffer P2D2 though
+	// Buffer P1D2/P2D2 disabled for debugging
+	HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(ENABLE_P2D2D3_GPIO_Port, ENABLE_P2D2D3_Pin, GPIO_PIN_SET);
 
 	// Now do the actual MCU pins
@@ -391,11 +389,11 @@ void SetSNESMode()
 	// MCU Clock/latch input, triggered on rising edge
 	SetupPin(GPIOC, P1_CLOCK_Pin|P1_LATCH_Pin|P2_CLOCK_Pin, GPIO_MODE_IT_RISING, GPIO_NOPULL, GPIO_PIN_RESET);
 
-	// MCU P1D2 input, triggered on falling edge
-	SetupPin(P1_DATA_2_GPIO_Port, P1_DATA_2_Pin, GPIO_MODE_IT_FALLING, GPIO_NOPULL, GPIO_PIN_RESET);
+	// MCU P1D2 output for debug
+	SetupPin(P1_DATA_2_GPIO_Port, P1_DATA_2_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_RESET);
 
-	// MCU P2D2 input with pullup
-	SetupPin(P2_DATA_2_GPIO_Port, P2_DATA_2_Pin, GPIO_MODE_INPUT, GPIO_PULLUP, GPIO_PIN_RESET);
+	// MCU P2D2 output for debug
+	SetupPin(P2_DATA_2_GPIO_Port, P2_DATA_2_Pin, GPIO_MODE_OUTPUT_PP, GPIO_PULLUP, GPIO_PIN_RESET);
 
 }
 
