@@ -232,6 +232,13 @@ class TAStm32():
                     run.fn -= missed
                     print('Buffer Overflow x{}'.format(missed))
 
+                flatch = c.count(b'\xF1')
+                if flatch != 0:
+                    print('Overread, potential signal integrity fail')
+                flatch = c.count(b'\xF2')
+                if flatch != 0:
+                    print('underread, potential signal integrity fail')
+
                 # Latch Trains
                 trainskips = c.count(b'UA')
                 if trainskips != 0:

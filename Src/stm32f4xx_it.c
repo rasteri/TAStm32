@@ -214,6 +214,9 @@ void SysTick_Handler(void)
 /* please refer to the startup file (startup_stm32f4xx.s).                    */
 /******************************************************************************/
 
+int8_t overreadflag = 0;
+int8_t underreadflag = 0;
+
 /**
   * @brief This function handles EXTI line 0 interrupt.
   */
@@ -237,6 +240,10 @@ void EXTI0_IRQHandler(void)
 		{
 			p1_current_bit++;
 		}
+		else {
+			overreadflag = 1;
+		}
+
 	}
   /* USER CODE END EXTI0_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
@@ -254,6 +261,7 @@ void EXTI1_IRQHandler(void)
 
 	// P1_LATCH
 	int8_t regbit = 50, databit = -1; // random initial values
+
 
 	// set relevant data ports as output if this is the first latch
 	// NO! Do this AFTER we have set up the pin state otherwise it might glitch
@@ -328,6 +336,8 @@ void EXTI1_IRQHandler(void)
 			__disable_irq();
 			P1_GPIOC_current[1] = P1_GPIOC_next[1];
 			P2_GPIOC_current[1] = P2_GPIOC_next[1];
+			if (p1_current_bit != 16)
+				underreadflag = 1;
 			p1_current_bit = p2_current_bit = 1; // set the next bit to be read
 			__enable_irq();
 
@@ -343,6 +353,12 @@ void EXTI1_IRQHandler(void)
 				// Assume sel is high, this should perhaps be being being reset by the EXT4 interrupt if it was set to trigger both edges
 				multitapSel = 1;
 			}
+
+			if (overreadflag)
+				serial_interface_output((uint8_t*)"F1", 1);
+			if (underreadflag)
+				serial_interface_output((uint8_t*)"F2", 1);
+			overreadflag = underreadflag = 0;
 
 			// now prepare for the next frame!
 
