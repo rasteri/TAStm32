@@ -1,4 +1,5 @@
 /Debug/
+/build/
 /Release/
 !/Release/TAStm32.binary
 *.r08

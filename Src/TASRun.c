@@ -372,7 +372,7 @@ void SetSNESMode()
 	HAL_GPIO_WritePin(DIR_P1P2D2D3_GPIO_Port, DIR_P1P2D2D3_Pin, GPIO_PIN_RESET);
 
 	// Buffer clock/latch enable, data pins will be enabled on first latch
-	HAL_GPIO_WritePin(ENABLE_CLKLAT_GPIO_Port, ENABLE_CLKLAT_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(ENABLE_CLKLAT_GPIO_Port, ENABLE_CLKLAT_Pin, GPIO_PIN_SET);
 
 	// Buffer P1D2/P2D2 disabled for debugging
 	HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_SET);
