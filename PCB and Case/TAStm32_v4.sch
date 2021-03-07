@@ -13050,6 +13050,7 @@ Source: http://www.nxp.com/documents/data_sheet/74ABT125.pdf</description>
 <wire x1="-40.64" y1="-137.16" x2="-38.1" y2="-137.16" width="0.1524" layer="91"/>
 <wire x1="-45.72" y1="-109.22" x2="-45.72" y2="-121.92" width="0.1524" layer="91"/>
 <wire x1="-45.72" y1="-121.92" x2="-40.64" y2="-121.92" width="0.1524" layer="91"/>
+<junction x="-45.72" y="-121.92"/>
 </segment>
 </net>
 <net name="P1_D2_3V_IN" class="0">
@@ -13086,7 +13087,7 @@ Source: http://www.nxp.com/documents/data_sheet/74ABT125.pdf</description>
 </net>
 <net name="OUTPUTS_ENABLE" class="0">
 <segment>
-<label x="10.16" y="-109.22" size="1.27" layer="95" rot="R180" xref="yes"/>
+<label x="20.32" y="-109.22" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="IC5" gate="D" pin="OE"/>
 <pinref part="IC5" gate="C" pin="OE"/>
 <wire x1="66.04" y1="-119.38" x2="66.04" y2="-109.22" width="0.1524" layer="91"/>
@@ -13096,7 +13097,7 @@ Source: http://www.nxp.com/documents/data_sheet/74ABT125.pdf</description>
 <wire x1="66.04" y1="-109.22" x2="22.86" y2="-109.22" width="0.1524" layer="91"/>
 <junction x="66.04" y="-109.22"/>
 <junction x="22.86" y="-109.22"/>
-<wire x1="22.86" y1="-109.22" x2="10.16" y2="-109.22" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="-109.22" x2="20.32" y2="-109.22" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$2" class="0">
