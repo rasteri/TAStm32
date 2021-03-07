@@ -241,7 +241,7 @@ void EXTI0_IRQHandler(void)
 			p1_current_bit++;
 		}
 		else {
-			overreadflag = 1;
+			overreadflag++;
 		}
 
 	}
@@ -331,13 +331,13 @@ void EXTI1_IRQHandler(void)
 				}*/
 				firstLatch = 0;
 			}
+			if (p1_current_bit != 16)
+				underreadflag = 1;
 
 			// copy the 2nd bit over too
 			__disable_irq();
 			P1_GPIOC_current[1] = P1_GPIOC_next[1];
 			P2_GPIOC_current[1] = P2_GPIOC_next[1];
-			if (p1_current_bit != 16)
-				underreadflag = 1;
 			p1_current_bit = p2_current_bit = 1; // set the next bit to be read
 			__enable_irq();
 
@@ -354,11 +354,11 @@ void EXTI1_IRQHandler(void)
 				multitapSel = 1;
 			}
 
-			if (overreadflag)
-				serial_interface_output((uint8_t*)"F1", 1);
+			/*if (overreadflag > 1)
+				serial_interface_output((uint8_t*)"\xF1", 1);
 			if (underreadflag)
-				serial_interface_output((uint8_t*)"F2", 1);
-			overreadflag = underreadflag = 0;
+				serial_interface_output((uint8_t*)"\xF2", 1);
+			overreadflag = underreadflag = 0;*/
 
 			// now prepare for the next frame!
 
