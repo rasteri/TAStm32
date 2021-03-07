@@ -83,6 +83,10 @@ void Menu_Settings(){
 		CurrentMenu = MENUTYPE_TASINPUTS;
 }
 
+extern int8_t overreadflag;
+extern int8_t underreadflag;
+extern int8_t overreadval;
+
 void Menu_Display() {
 	static char temp[23];
 	static FRESULT res;
@@ -97,7 +101,7 @@ void Menu_Display() {
 
 		// if USB host initiated run, switch menu
 		if (tasrun->initialized){
-			CurrentMenu = MENUTYPE_TASINPUTS;
+			CurrentMenu = MENUTYPE_TASSTATS;
 			break;
 		}
 
@@ -267,8 +271,17 @@ void Menu_Display() {
 		sprintf(temp, "Buffer: %d", tasrun->size);
 		ssd1306_SetCursor(0, 16);
 		ssd1306_WriteString(temp, Font_6x8, White);
-		sprintf(temp, "mnt: %d", firstLatch);
+
+		sprintf(temp, "over: %d", overreadflag);
 		ssd1306_SetCursor(0, 24);
+		ssd1306_WriteString(temp, Font_6x8, White);
+
+		sprintf(temp, "under: %d", underreadflag);
+		ssd1306_SetCursor(0, 32);
+		ssd1306_WriteString(temp, Font_6x8, White);
+
+		sprintf(temp, "overval : %d", overreadval);
+		ssd1306_SetCursor(0, 40);
 		ssd1306_WriteString(temp, Font_6x8, White);
 
 		ssd1306_UpdateScreen();

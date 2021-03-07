@@ -116,6 +116,7 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 	// Specifies whether the OLED screen has been detected and therefore whether or not to send data to it
+
 	uint8_t screenOK = 0;
   /* USER CODE END 1 */
 

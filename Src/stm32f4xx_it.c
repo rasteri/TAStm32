@@ -215,6 +215,8 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 int8_t overreadflag = 0;
+int8_t overreadcnt = 0;
+int8_t overreadval = 0;
 int8_t underreadflag = 0;
 
 /**
@@ -241,7 +243,7 @@ void EXTI0_IRQHandler(void)
 			p1_current_bit++;
 		}
 		else {
-			overreadflag++;
+			overreadcnt++;
 		}
 
 	}
@@ -258,6 +260,8 @@ void EXTI0_IRQHandler(void)
 void EXTI1_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI1_IRQn 0 */
+
+	DIR_CLKLAT_GPIO_Port->BSRR = DIR_CLKLAT_Pin, GPIO_PIN_SET;
 
 	// P1_LATCH
 	int8_t regbit = 50, databit = -1; // random initial values
@@ -331,8 +335,14 @@ void EXTI1_IRQHandler(void)
 				}*/
 				firstLatch = 0;
 			}
-			if (p1_current_bit != 16)
-				underreadflag = 1;
+			if ((p1_current_bit != 16))
+				underreadflag++;
+
+			if ((overreadcnt > 2)){
+				overreadval = overreadcnt;
+				overreadflag++;
+			}
+			overreadcnt = 0;
 
 			// copy the 2nd bit over too
 			__disable_irq();
@@ -340,6 +350,8 @@ void EXTI1_IRQHandler(void)
 			P2_GPIOC_current[1] = P2_GPIOC_next[1];
 			p1_current_bit = p2_current_bit = 1; // set the next bit to be read
 			__enable_irq();
+
+
 
 			// copy the rest of the bits. do not copy the overread since it will never change
 			// P2 comes before P1 in NES, so copy P2 first
@@ -353,6 +365,8 @@ void EXTI1_IRQHandler(void)
 				// Assume sel is high, this should perhaps be being being reset by the EXT4 interrupt if it was set to trigger both edges
 				multitapSel = 1;
 			}
+
+
 
 			/*if (overreadflag > 1)
 				serial_interface_output((uint8_t*)"\xF1", 1);
@@ -609,6 +623,8 @@ void EXTI1_IRQHandler(void)
 			ResetAndEnableTrainTimer();
 		}
 	}
+
+	DIR_CLKLAT_GPIO_Port->BSRR = (uint32_t)DIR_CLKLAT_Pin << 16U;
 
   /* USER CODE END EXTI1_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_1);
