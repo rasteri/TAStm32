@@ -340,7 +340,7 @@ void SetNESMode()
 	HAL_GPIO_WritePin(DIR_P1P2D2D3_GPIO_Port, DIR_P1P2D2D3_Pin, GPIO_PIN_SET);
 
 	// Buffer clock/latch enable, data pins will be enabled on first latch
-	HAL_GPIO_WritePin(ENABLE_CLKLAT_GPIO_Port, ENABLE_CLKLAT_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(ENABLE_CLKLAT_GPIO_Port, ENABLE_CLKLAT_Pin, GPIO_PIN_SET);
 
 	// Now do the actual MCU pins
 	//
@@ -393,7 +393,7 @@ void SetSNESMode()
 	SetupPin(P1_DATA_2_GPIO_Port, P1_DATA_2_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_RESET);
 
 	// MCU P2D2 output for debug
-	SetupPin(P2_DATA_2_GPIO_Port, P2_DATA_2_Pin, GPIO_MODE_OUTPUT_PP, GPIO_PULLUP, GPIO_PIN_RESET);
+	SetupPin(P2_DATA_2_GPIO_Port, P2_DATA_2_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_RESET);
 
 }
 
