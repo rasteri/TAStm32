@@ -242,9 +242,9 @@ void EXTI0_IRQHandler(void)
 		{
 			p1_current_bit++;
 		}
-		else {
+		/*else {
 			overreadcnt++;
-		}
+		}*/
 
 	}
   /* USER CODE END EXTI0_IRQn 0 */
@@ -335,12 +335,14 @@ void EXTI1_IRQHandler(void)
 				}*/
 				firstLatch = 0;
 			}
-			if ((p1_current_bit != 16))
-				underreadflag++;
-
-			if ((overreadcnt > 2)){
-				overreadval = overreadcnt;
+			if ((p1_current_bit > 9)){
 				overreadflag++;
+				overreadval = p1_current_bit;
+			}
+
+			else if (p1_current_bit < 9){
+				underreadflag++;
+				overreadval = p1_current_bit;
 			}
 			overreadcnt = 0;
 

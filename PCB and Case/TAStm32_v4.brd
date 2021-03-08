@@ -4461,8 +4461,10 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <contactref element="RN2" pad="8"/>
 <contactref element="RN2" pad="7"/>
 <contactref element="RN2" pad="6"/>
+<contactref element="RN2" pad="5"/>
 <wire x1="-10.1536" y1="-70.6756" x2="-10.9536" y2="-70.6756" width="0" layer="19" extent="1-1"/>
 <wire x1="-9.3536" y1="-70.6756" x2="-10.1536" y2="-70.6756" width="0" layer="19" extent="1-1"/>
+<wire x1="-8.5536" y1="-70.6756" x2="-9.3536" y2="-70.6756" width="0" layer="19" extent="1-1"/>
 <wire x1="-10.9536" y1="-63.97" x2="-10.9536" y2="-70.6756" width="0" layer="19" extent="1-1"/>
 <wire x1="-10.1536" y1="-63.97" x2="-10.9536" y2="-63.97" width="0" layer="19" extent="1-1"/>
 <wire x1="-9.3536" y1="-63.97" x2="-10.1536" y2="-63.97" width="0" layer="19" extent="1-1"/>
@@ -4991,7 +4993,7 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <signal name="P1_D2_3V_IN">
 <contactref element="IC4" pad="8"/>
 </signal>
-<signal name="P2_D3_3V_IN">
+<signal name="P2_D2_3V_IN">
 <contactref element="IC4" pad="6"/>
 </signal>
 <signal name="GND1">
@@ -5007,6 +5009,8 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <contactref element="IC5" pad="10"/>
 <contactref element="IC5" pad="4"/>
 <contactref element="IC5" pad="1"/>
+<contactref element="RN2" pad="4"/>
+<wire x1="-9.2652" y1="-30.357" x2="-8.5536" y2="-72.2756" width="0" layer="19" extent="1-1"/>
 <wire x1="-7.3152" y1="-30.357" x2="-9.2652" y2="-30.357" width="0" layer="19" extent="1-1"/>
 <wire x1="-8.6152" y1="-24.507" x2="-9.2652" y2="-30.357" width="0" layer="19" extent="1-1"/>
 <wire x1="-6.6652" y1="-24.507" x2="-8.6152" y2="-24.507" width="0" layer="19" extent="1-1"/>

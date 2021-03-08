@@ -232,7 +232,7 @@ void serial_interface_consume(uint8_t *buffer, uint32_t n)
 						__disable_irq();
 						HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 						HAL_NVIC_EnableIRQ(EXTI1_IRQn);
-						//HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+						HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 						if (tasrun->multitap)
 							HAL_NVIC_EnableIRQ(EXTI4_IRQn);
 						__enable_irq();
