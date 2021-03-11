@@ -1436,6 +1436,30 @@ Metric Code Size 1608</description>
 <wire x1="-3.6" y1="1.4" x2="-3.4" y2="1.4" width="0.2" layer="21" curve="-180"/>
 <wire x1="-3.4" y1="1.4" x2="-3.6" y2="1.4" width="0.2" layer="21" curve="-180"/>
 </package>
+<package name="CA0612KRX7R7BB104">
+<description>&lt;b&gt;CA0612KRX7R7BB104&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-0.85" y="1.2" dx="0.95" dy="0.4" layer="1"/>
+<smd name="2" x="-0.85" y="0.4" dx="0.95" dy="0.4" layer="1"/>
+<smd name="3" x="-0.85" y="-0.4" dx="0.95" dy="0.4" layer="1"/>
+<smd name="4" x="-0.85" y="-1.2" dx="0.95" dy="0.4" layer="1"/>
+<smd name="5" x="0.85" y="-1.2" dx="0.95" dy="0.4" layer="1"/>
+<smd name="6" x="0.85" y="-0.4" dx="0.95" dy="0.4" layer="1"/>
+<smd name="7" x="0.85" y="0.4" dx="0.95" dy="0.4" layer="1"/>
+<smd name="8" x="0.85" y="1.2" dx="0.95" dy="0.4" layer="1"/>
+<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-0.8" y1="1.6" x2="0.8" y2="1.6" width="0.2" layer="51"/>
+<wire x1="0.8" y1="1.6" x2="0.8" y2="-1.6" width="0.2" layer="51"/>
+<wire x1="0.8" y1="-1.6" x2="-0.8" y2="-1.6" width="0.2" layer="51"/>
+<wire x1="-0.8" y1="-1.6" x2="-0.8" y2="1.6" width="0.2" layer="51"/>
+<wire x1="-2.325" y1="2.6" x2="2.325" y2="2.6" width="0.1" layer="51"/>
+<wire x1="2.325" y1="2.6" x2="2.325" y2="-2.6" width="0.1" layer="51"/>
+<wire x1="2.325" y1="-2.6" x2="-2.325" y2="-2.6" width="0.1" layer="51"/>
+<wire x1="-2.325" y1="-2.6" x2="-2.325" y2="2.6" width="0.1" layer="51"/>
+<wire x1="-0.8" y1="1.6" x2="0.8" y2="1.6" width="0.1" layer="21"/>
+<wire x1="-0.8" y1="-1.6" x2="0.8" y2="-1.6" width="0.1" layer="21"/>
+</package>
 </packages>
 </library>
 <library name="TAStm32_v4">
@@ -3503,6 +3527,35 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <attribute name="POPULARITY" value="0" x="-9.7536" y="-71.4756" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="-11.5316" y="-74.2696" size="1.27" layer="27"/>
 </element>
+<element name="CN1" library="SamacSys_Parts" package="CA0612KRX7R7BB104" value="CA0612KRX7R7BB104" x="-6.4008" y="-71.4756" smashed="yes" rot="R90">
+<attribute name="DESCRIPTION" value="Phycomp Capacitor Array 100nF 16V dc +/-10% 4-way X7R Dielectric 0612 (1632M) Package C-Array Series Surface Mount" x="-6.4008" y="-71.4756" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="HEIGHT" value="0mm" x="-6.4008" y="-71.4756" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="YAGEO (PHYCOMP)" x="-6.4008" y="-71.4756" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="CA0612KRX7R7BB104" x="-6.4008" y="-71.4756" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="603-CA612KRX7R7BB104" x="-6.4008" y="-71.4756" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.co.uk/ProductDetail/Yageo/CA0612KRX7R7BB104/?qs=AJwqpy2c0%252B9CH0DBF0MBBw%3D%3D" x="-6.4008" y="-71.4756" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="-9.2964" y="-65.532" size="1.27" layer="25" rot="R90" align="center"/>
+<attribute name="VALUE" x="-6.4008" y="-71.4756" size="1.27" layer="27" rot="R90" align="center"/>
+</element>
+<element name="CN2" library="SamacSys_Parts" package="CA0612KRX7R7BB104" value="CA0612KRX7R7BB104" x="-1.9812" y="-84.1248" smashed="yes">
+<attribute name="DESCRIPTION" value="Phycomp Capacitor Array 100nF 16V dc +/-10% 4-way X7R Dielectric 0612 (1632M) Package C-Array Series Surface Mount" x="-8.0772" y="-84.1248" size="1.778" layer="27" display="off"/>
+<attribute name="HEIGHT" value="0mm" x="-8.0772" y="-84.1248" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="YAGEO (PHYCOMP)" x="-8.0772" y="-84.1248" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="CA0612KRX7R7BB104" x="-8.0772" y="-84.1248" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="603-CA612KRX7R7BB104" x="-8.0772" y="-84.1248" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.co.uk/ProductDetail/Yageo/CA0612KRX7R7BB104/?qs=AJwqpy2c0%252B9CH0DBF0MBBw%3D%3D" x="-8.0772" y="-84.1248" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="-1.9812" y="-84.1248" size="1.27" layer="25" align="center"/>
+<attribute name="VALUE" x="-1.9812" y="-84.1248" size="1.27" layer="27" align="center"/>
+</element>
+<element name="RN3" library="resistor-net" library_urn="urn:adsk.eagle:library:343" package="CTS742C083" package3d_urn="urn:adsk.eagle:package:24985/1" value="CTS742C083" x="-9.7536" y="-90.2208" smashed="yes">
+<attribute name="MF" value="" x="-9.7536" y="-90.2208" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="" x="-9.7536" y="-90.2208" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="-11.5316" y="-88.6968" size="1.27" layer="25"/>
+<attribute name="OC_FARNELL" value="unknown" x="-9.7536" y="-90.2208" size="1.778" layer="27" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="-9.7536" y="-90.2208" size="1.778" layer="27" display="off"/>
+<attribute name="POPULARITY" value="0" x="-9.7536" y="-90.2208" size="1.778" layer="27" display="off"/>
+<attribute name="VALUE" x="-11.5316" y="-93.0148" size="1.27" layer="27"/>
+</element>
 </elements>
 <signals>
 <signal name="GND">
@@ -3737,13 +3790,81 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <contactref element="IC7" pad="11"/>
 <contactref element="C5" pad="1"/>
 <contactref element="C14" pad="1"/>
-<wire x1="-11.3906" y1="-50.292" x2="-11.3906" y2="-59.1312" width="0" layer="19" extent="1-1"/>
-<wire x1="-8.0264" y1="-40.8178" x2="-11.3906" y2="-50.292" width="0" layer="19" extent="1-1"/>
-<wire x1="-5.4864" y1="-40.8178" x2="-8.0264" y2="-40.8178" width="0" layer="19" extent="1-1"/>
+<contactref element="CN1" pad="1"/>
+<contactref element="CN1" pad="4"/>
+<contactref element="CN1" pad="2"/>
+<contactref element="CN1" pad="3"/>
+<contactref element="CN2" pad="1"/>
+<contactref element="CN2" pad="4"/>
+<contactref element="CN2" pad="2"/>
+<contactref element="CN2" pad="3"/>
+<wire x1="44.5008" y1="90.3732" x2="46" y2="96" width="0" layer="19" extent="1-1"/>
+<wire x1="28.3464" y1="83.82" x2="38.035" y2="90.41" width="0" layer="19" extent="1-1"/>
+<wire x1="26.2128" y1="80.01" x2="28.6512" y2="80.01" width="0" layer="19" extent="1-1"/>
+<wire x1="22.25" y1="69.25" x2="26.3652" y2="75.2856" width="0" layer="19" extent="1-1"/>
+<wire x1="17.75" y1="69.25" x2="22.25" y2="69.25" width="0" layer="19" extent="1-1"/>
+<wire x1="15.25" y1="69.25" x2="17.75" y2="69.25" width="0" layer="19" extent="1-1"/>
+<wire x1="10.75" y1="69.25" x2="15.25" y2="69.25" width="0" layer="19" extent="1-1"/>
+<wire x1="5.9436" y1="75.2856" x2="7.283" y2="69.27" width="0" layer="19" extent="1-1"/>
+<wire x1="11.7348" y1="81.0768" x2="5.9436" y2="79.8576" width="0" layer="19" extent="1-1"/>
+<wire x1="11.975" y1="90.41" x2="12.6492" y2="84.2772" width="0" layer="19" extent="1-1"/>
+<wire x1="4" y1="96" x2="5.1816" y2="90.5256" width="0" layer="19" extent="1-1"/>
+<wire x1="15.6972" y1="60.96" x2="15.25" y2="69.25" width="0" layer="19" extent="1-1"/>
+<wire x1="19.5072" y1="60.96" x2="15.6972" y2="60.96" width="0" layer="19" extent="1-1"/>
+<wire x1="25.2984" y1="55.0164" x2="19.5586" y2="56.808" width="0" layer="19" extent="1-1"/>
+<wire x1="26.3" y1="61.75" x2="25.2984" y2="55.0164" width="0" layer="19" extent="1-1"/>
+<wire x1="8.79" y1="56.57" x2="15.6222" y2="59.7092" width="0" layer="19" extent="1-1"/>
+<wire x1="4.033" y1="50" x2="8.79" y2="56.57" width="0" layer="19" extent="16-16"/>
+<wire x1="8.79" y1="43.43" x2="4.033" y2="50" width="0" layer="19" extent="16-16"/>
+<wire x1="11.5" y1="46.5" x2="8.79" y2="43.43" width="0" layer="19" extent="1-1"/>
+<wire x1="10.75" y1="36.25" x2="8.79" y2="43.43" width="0" layer="19" extent="1-1"/>
+<wire x1="15.25" y1="36.25" x2="10.75" y2="36.25" width="0" layer="19" extent="1-1"/>
+<wire x1="17.75" y1="36.25" x2="15.25" y2="36.25" width="0" layer="19" extent="1-1"/>
+<wire x1="22.25" y1="36.25" x2="17.75" y2="36.25" width="0" layer="19" extent="1-1"/>
+<wire x1="26.3" y1="38.25" x2="22.25" y2="36.25" width="0" layer="19" extent="1-1"/>
+<wire x1="30.828" y1="35.25" x2="26.3" y2="38.25" width="0" layer="19" extent="1-1"/>
+<wire x1="33.6804" y1="39.7764" x2="30.828" y2="35.25" width="0" layer="19" extent="1-1"/>
+<wire x1="35.2044" y1="40.9956" x2="33.6804" y2="40.9956" width="0" layer="19" extent="1-1"/>
+<wire x1="31.242" y1="42.8244" x2="33.6804" y2="40.9956" width="0" layer="19" extent="1-1"/>
+<wire x1="33.258" y1="44.18" x2="31.242" y2="44.3484" width="0" layer="19" extent="1-1"/>
+<wire x1="34.9792" y1="48.7394" x2="33.6804" y2="49.2252" width="0" layer="19" extent="1-1"/>
+<wire x1="39.758" y1="44.18" x2="34.758" y2="44.18" width="0" layer="19" extent="1-1"/>
+<wire x1="46.6344" y1="45.72" x2="42.0902" y2="46.5548" width="0" layer="19" extent="1-1"/>
+<wire x1="46.482" y1="38.862" x2="46.6758" y2="42.2928" width="0" layer="19" extent="1-1"/>
+<wire x1="45.828" y1="29.35" x2="48.378" y2="35.55" width="0" layer="19" extent="1-1"/>
+<wire x1="40.149" y1="29.7808" x2="42.672" y2="28.8036" width="0" layer="19" extent="1-1"/>
+<wire x1="42.672" y1="22.5552" x2="42.672" y2="28.8036" width="0" layer="19" extent="1-1"/>
+<wire x1="40.2336" y1="19.5072" x2="42.672" y2="22.5552" width="0" layer="19" extent="1-1"/>
+<wire x1="38.2524" y1="19.6596" x2="40.2336" y2="19.5072" width="0" layer="19" extent="1-1"/>
+<wire x1="2.5" y1="61.75" x2="8.79" y2="56.57" width="0" layer="19" extent="1-1"/>
+<wire x1="2.5" y1="38.25" x2="8.79" y2="43.43" width="0" layer="19" extent="1-1"/>
+<wire x1="1.15" y1="31.365" x2="2.5" y2="38.25" width="0" layer="19" extent="16-16"/>
+<wire x1="38.025" y1="9.59" x2="37.325" y2="18.04" width="0" layer="19" extent="1-1"/>
+<wire x1="46" y1="4" x2="38.025" y2="9.59" width="0" layer="19" extent="1-1"/>
+<wire x1="23.73" y1="22.54" x2="28.194" y2="31.6992" width="0" layer="19" extent="1-1"/>
+<wire x1="22.098" y1="19.812" x2="23.7744" y2="19.5072" width="0" layer="19" extent="1-1"/>
+<wire x1="16.3068" y1="9.4488" x2="21.575" y2="18.04" width="0" layer="19" extent="1-1"/>
+<wire x1="6.4008" y1="13.716" x2="11.965" y2="9.59" width="0" layer="19" extent="1-1"/>
+<wire x1="5" y1="12.575" x2="4.675" y2="13.7" width="0" layer="19" extent="1-1"/>
+<wire x1="2" y1="11.4" x2="3.5052" y2="13.716" width="0" layer="19" extent="1-1"/>
+<wire x1="5" y1="17.425" x2="4.675" y2="13.7" width="0" layer="19" extent="1-1"/>
+<wire x1="2" y1="18.6" x2="5" y2="17.425" width="0" layer="19" extent="1-1"/>
+<wire x1="4" y1="4" x2="2" y2="11.4" width="0" layer="19" extent="1-1"/>
+<wire x1="-1.6764" y1="-8.4074" x2="4" y2="4" width="0" layer="19" extent="1-1"/>
+<wire x1="-5.3652" y1="-30.357" x2="-1.6764" y2="-8.4074" width="0" layer="19" extent="1-1"/>
+<wire x1="-5.4864" y1="-40.8178" x2="-5.3652" y2="-30.357" width="0" layer="19" extent="1-1"/>
+<wire x1="-8.0264" y1="-40.8178" x2="-5.4864" y2="-40.8178" width="0" layer="19" extent="1-1"/>
 <wire x1="-1.6764" y1="-46.9646" x2="-5.4864" y2="-40.8178" width="0" layer="19" extent="1-1"/>
-<wire x1="-5.3652" y1="-30.357" x2="-5.4864" y2="-40.8178" width="0" layer="19" extent="1-1"/>
-<wire x1="-1.6764" y1="-8.4074" x2="-5.3652" y2="-30.357" width="0" layer="19" extent="1-1"/>
-<wire x1="4" y1="4" x2="-1.6764" y2="-8.4074" width="0" layer="19" extent="1-1"/>
+<wire x1="-11.3906" y1="-50.292" x2="-8.0264" y2="-40.8178" width="0" layer="19" extent="1-1"/>
+<wire x1="-11.3906" y1="-59.1312" x2="-11.3906" y2="-50.292" width="0" layer="19" extent="1-1"/>
+<wire x1="-7.6008" y1="-72.3256" x2="-11.3906" y2="-59.1312" width="0" layer="19" extent="1-1"/>
+<wire x1="-6.8008" y1="-72.3256" x2="-7.6008" y2="-72.3256" width="0" layer="19" extent="1-1"/>
+<wire x1="-6.0008" y1="-72.3256" x2="-6.8008" y2="-72.3256" width="0" layer="19" extent="1-1"/>
+<wire x1="-5.2008" y1="-72.3256" x2="-6.0008" y2="-72.3256" width="0" layer="19" extent="1-1"/>
+<wire x1="-2.8312" y1="-82.9248" x2="-5.2008" y2="-72.3256" width="0" layer="19" extent="1-1"/>
+<wire x1="-2.8312" y1="-83.7248" x2="-2.8312" y2="-82.9248" width="0" layer="19" extent="1-1"/>
+<wire x1="-2.8312" y1="-84.5248" x2="-2.8312" y2="-83.7248" width="0" layer="19" extent="1-1"/>
+<wire x1="-2.8312" y1="-85.3248" x2="-2.8312" y2="-84.5248" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="VCAP">
 <contactref element="C1" pad="1"/>
@@ -3922,8 +4043,8 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <wire x1="33.505" y1="81.96" x2="33.505" y2="79.6738" width="0.1524" layer="1"/>
 <wire x1="42.7982625" y1="71.7804" x2="43.2816" y2="71.7804" width="0.1524" layer="1"/>
 <wire x1="43.2816" y1="71.7804" x2="44.1008" y2="70.9612" width="0.1524" layer="1"/>
-<contactref element="IC5" pad="6"/>
-<wire x1="-6.0152" y1="-30.357" x2="44.1008" y2="70.9612" width="0" layer="19" extent="1-1"/>
+<contactref element="RN3" pad="7"/>
+<wire x1="-10.1536" y1="-89.4208" x2="44.1008" y2="70.9612" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="P1_D0">
 <contactref element="J10" pad="12"/>
@@ -3934,8 +4055,8 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <wire x1="33.89" y1="78.5812" x2="33.89" y2="74.54" width="0.1524" layer="1"/>
 <wire x1="32.235" y1="80.2362" x2="33.89" y2="78.5812" width="0.1524" layer="1"/>
 <wire x1="42.272" y1="71.4756" x2="35.8744" y2="71.4756" width="0.1524" layer="1"/>
-<contactref element="IC5" pad="3"/>
-<wire x1="-7.9652" y1="-30.357" x2="33.89" y2="74.54" width="0" layer="19" extent="1-1"/>
+<contactref element="RN3" pad="8"/>
+<wire x1="-10.9536" y1="-89.4208" x2="42.272" y2="71.4756" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="P1_D2">
 <contactref element="J10" pad="11"/>
@@ -3949,9 +4070,9 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <wire x1="35.6310125" y1="71.1708" x2="34.5642125" y2="72.2376" width="0.1524" layer="1"/>
 <wire x1="31.35" y1="73.3488" x2="31.35" y2="77.46" width="0.1524" layer="1"/>
 <contactref element="RN4" pad="3"/>
-<contactref element="IC7" pad="2"/>
+<contactref element="RN3" pad="6"/>
 <wire x1="-9.3536" y1="-13.754" x2="40.824" y2="69.9708" width="0" layer="19" extent="1-1"/>
-<wire x1="-8.0264" y1="-46.9646" x2="-9.3536" y2="-13.754" width="0" layer="19" extent="1-1"/>
+<wire x1="-9.3536" y1="-89.4208" x2="-9.3536" y2="-13.754" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="P2_CLOCK">
 <contactref element="J10" pad="8"/>
@@ -4732,8 +4853,8 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <wire x1="40.024" y1="69.8564" x2="39.0144" y2="70.866" width="0.1524" layer="1"/>
 <wire x1="39.0144" y1="70.866" x2="35.50475625" y2="70.866" width="0.1524" layer="1"/>
 <wire x1="35.50475625" y1="70.866" x2="34.43795625" y2="71.9328" width="0.1524" layer="1"/>
-<contactref element="IC7" pad="4"/>
-<wire x1="-5.4864" y1="-46.9646" x2="40.024" y2="69.8564" width="0" layer="19" extent="1-1"/>
+<contactref element="RN3" pad="5"/>
+<wire x1="-8.5536" y1="-89.4208" x2="40.024" y2="69.8564" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="DIR_D0D1">
 <contactref element="U1" pad="15"/>
@@ -4966,6 +5087,8 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <contactref element="RN4" pad="8"/>
 <contactref element="IC4" pad="13"/>
 <contactref element="RN1" pad="1"/>
+<contactref element="CN1" pad="8"/>
+<wire x1="-10.9536" y1="-65.57" x2="-7.6008" y2="-70.6256" width="0" layer="19" extent="1-1"/>
 <wire x1="-10.9536" y1="-12.154" x2="-10.9536" y2="-65.57" width="0" layer="19" extent="1-1"/>
 <wire x1="-8.0264" y1="-2.2606" x2="-10.9536" y2="-12.154" width="0" layer="19" extent="1-1"/>
 </signal>
@@ -4973,6 +5096,8 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <contactref element="RN4" pad="7"/>
 <contactref element="IC4" pad="11"/>
 <contactref element="RN1" pad="2"/>
+<contactref element="CN1" pad="7"/>
+<wire x1="-10.1536" y1="-65.57" x2="-6.8008" y2="-70.6256" width="0" layer="19" extent="1-1"/>
 <wire x1="-10.1536" y1="-12.154" x2="-10.1536" y2="-65.57" width="0" layer="19" extent="1-1"/>
 <wire x1="-5.4864" y1="-2.2606" x2="-10.1536" y2="-12.154" width="0" layer="19" extent="1-1"/>
 </signal>
@@ -4980,15 +5105,10 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <contactref element="RN4" pad="6"/>
 <contactref element="IC4" pad="9"/>
 <contactref element="RN1" pad="3"/>
+<contactref element="CN1" pad="6"/>
+<wire x1="-9.3536" y1="-65.57" x2="-6.0008" y2="-70.6256" width="0" layer="19" extent="1-1"/>
 <wire x1="-9.3536" y1="-12.154" x2="-9.3536" y2="-65.57" width="0" layer="19" extent="1-1"/>
 <wire x1="-2.9464" y1="-2.2606" x2="-9.3536" y2="-12.154" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="N$21">
-<contactref element="RN5" pad="6"/>
-<contactref element="IC4" pad="5"/>
-<contactref element="RN2" pad="3"/>
-<wire x1="-9.3536" y1="-18.8596" x2="-9.3536" y2="-72.2756" width="0" layer="19" extent="1-1"/>
-<wire x1="-4.2164" y1="-8.4074" x2="-9.3536" y2="-18.8596" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="P1_D2_3V_IN">
 <contactref element="IC4" pad="8"/>
@@ -5015,19 +5135,42 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <wire x1="-8.6152" y1="-24.507" x2="-9.2652" y2="-30.357" width="0" layer="19" extent="1-1"/>
 <wire x1="-6.6652" y1="-24.507" x2="-8.6152" y2="-24.507" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="N$2">
+<signal name="N$4">
+<contactref element="CN2" pad="8"/>
 <contactref element="RN2" pad="1"/>
 <contactref element="IC4" pad="1"/>
 <contactref element="RN5" pad="8"/>
+<wire x1="-10.9536" y1="-72.2756" x2="-1.1312" y2="-82.9248" width="0" layer="19" extent="1-1"/>
 <wire x1="-10.9536" y1="-18.8596" x2="-10.9536" y2="-72.2756" width="0" layer="19" extent="1-1"/>
 <wire x1="-9.2964" y1="-8.4074" x2="-10.9536" y2="-18.8596" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="N$3">
+<signal name="N$6">
+<contactref element="CN2" pad="7"/>
 <contactref element="RN2" pad="2"/>
 <contactref element="IC4" pad="3"/>
 <contactref element="RN5" pad="7"/>
+<wire x1="-10.1536" y1="-72.2756" x2="-1.1312" y2="-83.7248" width="0" layer="19" extent="1-1"/>
 <wire x1="-10.1536" y1="-18.8596" x2="-10.1536" y2="-72.2756" width="0" layer="19" extent="1-1"/>
 <wire x1="-6.7564" y1="-8.4074" x2="-10.1536" y2="-18.8596" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$8">
+<contactref element="CN2" pad="6"/>
+<contactref element="RN5" pad="6"/>
+<contactref element="IC4" pad="5"/>
+<contactref element="RN2" pad="3"/>
+<wire x1="-9.3536" y1="-72.2756" x2="-1.1312" y2="-84.5248" width="0" layer="19" extent="1-1"/>
+<wire x1="-9.3536" y1="-18.8596" x2="-9.3536" y2="-72.2756" width="0" layer="19" extent="1-1"/>
+<wire x1="-4.2164" y1="-8.4074" x2="-9.3536" y2="-18.8596" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$2">
+<contactref element="RN3" pad="2"/>
+<contactref element="IC5" pad="6"/>
+<wire x1="-6.0152" y1="-30.357" x2="-10.1536" y2="-91.0208" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$3">
+<contactref element="IC5" pad="3"/>
+<contactref element="RN3" pad="1"/>
+<wire x1="-7.9652" y1="-30.357" x2="-10.9536" y2="-91.0208" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>
