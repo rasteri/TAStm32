@@ -85,16 +85,16 @@ maybe_unused static void SetN64InputMode()
 {
 
 	// Buffer disable P1D2 in case it was enabled for some reason
-	HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_SET);
+	//HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_SET);
 
 	// Buffer direction in
-	HAL_GPIO_WritePin(DIR_P1P2D2D3_GPIO_Port, DIR_P1P2D2D3_Pin, GPIO_PIN_RESET);
+	//HAL_GPIO_WritePin(DIR_P1P2D2D3_GPIO_Port, DIR_P1P2D2D3_Pin, GPIO_PIN_RESET);
 
 	// MCU P1D2 input, triggered on falling edge
 	SetupPin(P1_DATA_2_GPIO_Port, P1_DATA_2_Pin, GPIO_MODE_IT_FALLING, GPIO_NOPULL, GPIO_PIN_RESET);
 
 	// Buffer Enable P1D2
-	HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_RESET);
+	//HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_RESET);
 
 	// port C4 to input mode
 	/*const uint32_t MODER_SLOT = (P1_DATA_2_Pin*P1_DATA_2_Pin);
@@ -107,10 +107,10 @@ maybe_unused static void SetN64InputMode()
 maybe_unused static void SetN64OutputMode()
 {
 	// Disable buffer output - we're pretending to be open drain
-	HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_SET);
+	//HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_SET);
 
 	// Buffer direction out
-	HAL_GPIO_WritePin(DIR_P1P2D2D3_GPIO_Port, DIR_P1P2D2D3_Pin, GPIO_PIN_SET);
+	//HAL_GPIO_WritePin(DIR_P1P2D2D3_GPIO_Port, DIR_P1P2D2D3_Pin, GPIO_PIN_SET);
 
 	// Make MCU pin output and LOW
 	SetupPin(P1_DATA_2_GPIO_Port, P1_DATA_2_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_RESET);

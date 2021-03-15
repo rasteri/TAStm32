@@ -214,11 +214,6 @@ void SysTick_Handler(void)
 /* please refer to the startup file (startup_stm32f4xx.s).                    */
 /******************************************************************************/
 
-int8_t overreadflag = 0;
-int8_t overreadcnt = 0;
-int8_t overreadval = 0;
-int8_t underreadflag = 0;
-
 /**
   * @brief This function handles EXTI line 0 interrupt.
   */
@@ -261,21 +256,20 @@ void EXTI1_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI1_IRQn 0 */
 
-	DIR_CLKLAT_GPIO_Port->BSRR = DIR_CLKLAT_Pin, GPIO_PIN_SET;
-
 	// P1_LATCH
 	int8_t regbit = 50, databit = -1; // random initial values
 
 
 	// set relevant data ports as output if this is the first latch
 	// NO! Do this AFTER we have set up the pin state otherwise it might glitch
+	// set relevant data ports as output if this is the first latch
 	/*if(firstLatch && (EXTI->PR & P1_LATCH_Pin))
 	{
-		// the buffers should already be set up, just need to enable them
-		HAL_GPIO_WritePin(ENABLE_D0D1_GPIO_Port, ENABLE_D0D1_Pin, GPIO_PIN_RESET);
+		// D0/D1 buffers should already be set as output, just need to enable them
+		HAL_GPIO_WritePin(OUTPUTS_ENABLE_GPIO_Port, OUTPUTS_ENABLE_Pin, GPIO_PIN_RESET);
+
 		firstLatch = 0;
 	}*/
-
 	if(tasrun->console == CONSOLE_GEN)
 	{
 		// comment format below: [PIN1 PIN2 PIN3 PIN4 PIN5 PIN6 PIN7 PIN8 PIN9]
@@ -322,29 +316,14 @@ void EXTI1_IRQHandler(void)
 			uint32_t all_data = (p1_data | p2_data);
 			GPIOC->BSRR = all_data;
 
-			// set relevant data ports as output if this is the first latch
+			// enable data buffers if not already so
 			if(firstLatch && (EXTI->PR & P1_LATCH_Pin))
 			{
 				// D0/D1 buffers should already be set as output, just need to enable them
-				HAL_GPIO_WritePin(ENABLE_D0D1_GPIO_Port, ENABLE_D0D1_Pin, GPIO_PIN_RESET);
+				HAL_GPIO_WritePin(OUTPUTS_ENABLE_GPIO_Port, OUTPUTS_ENABLE_Pin, GPIO_PIN_RESET);
 
-				// If NES also enable D2/D3
-				/*if (tasrun->console == CONSOLE_NES){
-					HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_RESET);
-					HAL_GPIO_WritePin(ENABLE_P2D2D3_GPIO_Port, ENABLE_P2D2D3_Pin, GPIO_PIN_RESET);
-				}*/
 				firstLatch = 0;
 			}
-			if ((p1_current_bit > 9)){
-				overreadflag++;
-				overreadval = p1_current_bit;
-			}
-
-			else if (p1_current_bit < 9){
-				underreadflag++;
-				overreadval = p1_current_bit;
-			}
-			overreadcnt = 0;
 
 			// copy the 2nd bit over too
 			__disable_irq();
@@ -625,8 +604,6 @@ void EXTI1_IRQHandler(void)
 			ResetAndEnableTrainTimer();
 		}
 	}
-
-	DIR_CLKLAT_GPIO_Port->BSRR = (uint32_t)DIR_CLKLAT_Pin << 16U;
 
   /* USER CODE END EXTI1_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_1);

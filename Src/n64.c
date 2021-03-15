@@ -18,7 +18,7 @@ uint32_t readCommand()
 
 	// we are already at the first falling edge
 	// get middle of first pulse, 2us later
-	my_wait_us_asm(2);
+	my_wait_100ns_asm(15);
 	uint32_t command = N64_READ ? 1U : 0U, bits_read = 1;
 
     while(1) // read at least 9 bits (1 byte + stop bit)
@@ -84,12 +84,15 @@ static uint8_t GetMiddleOfPulse()
 
 void SendStop()
 {
+	P1_DATA_2_OUT_GPIO_Port->BSRR = P1_DATA_2_OUT_Pin<<16;
+	my_wait_us_asm(1);
+	P1_DATA_2_OUT_GPIO_Port->BSRR = P1_DATA_2_OUT_Pin;
 	/*P1_DATA_2_GPIO_Port->BSRR = P1_DATA_2_Pin<<16;
 	my_wait_us_asm(1);
 	P1_DATA_2_GPIO_Port->BSRR = P1_DATA_2_Pin;*/
-	HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_RESET);
+	//HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_RESET);
 	my_wait_us_asm(1);
-	HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_SET);
+	//HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_SET);
 }
 
 void SendIdentityN64()
@@ -103,22 +106,30 @@ void SendIdentityN64()
 
 void write_1()
 {
+	P1_DATA_2_OUT_GPIO_Port->BSRR = P1_DATA_2_OUT_Pin<<16;
+	my_wait_us_asm(1);
+	P1_DATA_2_OUT_GPIO_Port->BSRR = P1_DATA_2_OUT_Pin;
+	my_wait_us_asm(3);
 	/*P1_DATA_2_GPIO_Port->BSRR = P1_DATA_2_Pin<<16;
 	my_wait_us_asm(1);
 	P1_DATA_2_GPIO_Port->BSRR = P1_DATA_2_Pin;
     my_wait_us_asm(3);*/
-	HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_RESET);
-	my_wait_us_asm(1);
-	HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_SET);
-	my_wait_us_asm(3);
+	//HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_RESET);
+	//my_wait_us_asm(1);
+	//HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_SET);
+	//my_wait_us_asm(3);
 }
 
 void write_0()
 {
-	HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_RESET);
+	//HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_RESET);
+	//my_wait_us_asm(3);
+	//HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_SET);
+	//my_wait_us_asm(1);
+	P1_DATA_2_OUT_GPIO_Port->BSRR = P1_DATA_2_OUT_Pin<<16;
 	my_wait_us_asm(3);
-	HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_SET);
-	my_wait_us_asm(1);
+	P1_DATA_2_OUT_GPIO_Port->BSRR = P1_DATA_2_OUT_Pin;
+    my_wait_us_asm(1);
 }
 
 // send a byte from LSB to MSB (proper serialization)

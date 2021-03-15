@@ -482,11 +482,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOC, DUMDUM4_Pin|V2_LATCH_Pin|V2_DATA_1_Pin|V2_DATA_0_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, DIR_CLKLAT_Pin|DIR_D0D1_Pin|DIR_P1P2D2D3_Pin|DUMDUM12_Pin
-                          |V2_CLOCK_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, ENABLE_CLKLAT_Pin|ENABLE_D0D1_Pin|ENABLE_P1D2D3_Pin|ENABLE_P2D2D3_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOA, OUTPUTS_ENABLE_Pin|DUMDUM12_Pin|V2_CLOCK_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, MUD_Pin|DUMDUM7_Pin|DUMDUM6_Pin|DUMDUM11_Pin
@@ -523,17 +519,17 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : DIR_CLKLAT_Pin DIR_D0D1_Pin ENABLE_CLKLAT_Pin ENABLE_D0D1_Pin
-                           DIR_P1P2D2D3_Pin ENABLE_P1D2D3_Pin ENABLE_P2D2D3_Pin DUMDUM12_Pin */
-  GPIO_InitStruct.Pin = DIR_CLKLAT_Pin|DIR_D0D1_Pin|ENABLE_CLKLAT_Pin|ENABLE_D0D1_Pin
-                          |DIR_P1P2D2D3_Pin|ENABLE_P1D2D3_Pin|ENABLE_P2D2D3_Pin|DUMDUM12_Pin;
+  /*Configure GPIO pins : OUTPUTS_ENABLE_Pin DUMDUM12_Pin */
+  GPIO_InitStruct.Pin = OUTPUTS_ENABLE_Pin|DUMDUM12_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : SWITCH2_Pin SWITCH1_Pin */
-  GPIO_InitStruct.Pin = SWITCH2_Pin|SWITCH1_Pin;
+  /*Configure GPIO pins : P1_DATA_2_OUT_Pin PA2_Pin PA3_Pin P2_DATA_2_OUT_Pin
+                           PA5_Pin SWITCH2_Pin SWITCH1_Pin PA8_Pin */
+  GPIO_InitStruct.Pin = P1_DATA_2_OUT_Pin|PA2_Pin|PA3_Pin|P2_DATA_2_OUT_Pin
+                          |PA5_Pin|SWITCH2_Pin|SWITCH1_Pin|PA8_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
