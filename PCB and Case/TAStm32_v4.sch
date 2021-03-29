@@ -11118,7 +11118,7 @@ DIN A3, landscape with location and doc. field</description>
 </instance>
 <instance part="IC1" gate="G$1" x="215.9" y="223.52" smashed="yes" rot="MR0">
 <attribute name="NAME" x="212.09" y="226.06" size="1.778" layer="95" rot="MR180" align="center-left"/>
-<attribute name="VALUE" x="209.55" y="210.82" size="1.778" layer="96" rot="MR0" align="center-left"/>
+<attribute name="VALUE" x="212.09" y="208.28" size="1.778" layer="96" rot="MR0" align="center-left"/>
 </instance>
 <instance part="IC2" gate="G$1" x="215.9" y="167.64" smashed="yes" rot="MR0">
 <attribute name="NAME" x="215.9" y="170.18" size="1.778" layer="95" rot="MR0" align="center-left"/>
@@ -12318,9 +12318,9 @@ DIN A3, landscape with location and doc. field</description>
 <segment>
 <label x="187.96" y="213.36" size="1.27" layer="95" rot="MR0" xref="yes"/>
 <pinref part="IC1" gate="G$1" pin="3Y"/>
-<wire x1="215.9" y1="220.98" x2="205.74" y2="220.98" width="0.1524" layer="91"/>
-<wire x1="205.74" y1="220.98" x2="205.74" y2="213.36" width="0.1524" layer="91"/>
-<wire x1="187.96" y1="213.36" x2="205.74" y2="213.36" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="220.98" x2="203.2" y2="220.98" width="0.1524" layer="91"/>
+<wire x1="203.2" y1="220.98" x2="203.2" y2="213.36" width="0.1524" layer="91"/>
+<wire x1="187.96" y1="213.36" x2="203.2" y2="213.36" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="P2_LATCH_3V" class="0">
@@ -12655,10 +12655,10 @@ DIN A3, landscape with location and doc. field</description>
 <wire x1="228.6" y1="220.98" x2="223.52" y2="220.98" width="0.1524" layer="91"/>
 <wire x1="223.52" y1="220.98" x2="220.98" y2="220.98" width="0.1524" layer="91"/>
 <wire x1="220.98" y1="220.98" x2="220.98" y2="210.82" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="210.82" x2="203.2" y2="210.82" width="0.1524" layer="91"/>
-<wire x1="203.2" y1="210.82" x2="203.2" y2="218.44" width="0.1524" layer="91"/>
+<wire x1="220.98" y1="210.82" x2="172.72" y2="210.82" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="210.82" x2="172.72" y2="218.44" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="3A"/>
-<wire x1="203.2" y1="218.44" x2="190.5" y2="218.44" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="218.44" x2="190.5" y2="218.44" width="0.1524" layer="91"/>
 <pinref part="RN1" gate="G$1" pin="1"/>
 <wire x1="228.6" y1="226.06" x2="228.6" y2="220.98" width="0.1524" layer="91"/>
 <wire x1="223.52" y1="213.36" x2="223.52" y2="220.98" width="0.1524" layer="91"/>
