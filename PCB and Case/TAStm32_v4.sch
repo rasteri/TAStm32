@@ -10875,7 +10875,7 @@ DIN A3, landscape with location and doc. field</description>
 <sheets>
 <sheet>
 <plain>
-<text x="33.02" y="243.84" size="2.54" layer="97">USB from computer</text>
+<text x="43.18" y="241.3" size="2.54" layer="97">USB from computer</text>
 <text x="101.6" y="236.22" size="2.54" layer="97">USB Storage</text>
 <text x="50.8" y="187.96" size="2.54" layer="97">MCU</text>
 <text x="66.04" y="53.34" size="2.54" layer="97">Debug ports</text>
@@ -11797,13 +11797,13 @@ DIN A3, landscape with location and doc. field</description>
 <pinref part="J6" gate="A" pin="4"/>
 </segment>
 <segment>
-<wire x1="233.68" y1="55.88" x2="236.22" y2="55.88" width="0.1524" layer="91"/>
 <label x="246.38" y="55.88" size="1.27" layer="95" rot="MR180" xref="yes"/>
 <pinref part="RN7" gate="G$1" pin="7"/>
-<pinref part="CN4" gate="G$1" pin="8"/>
-<wire x1="236.22" y1="55.88" x2="246.38" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="236.22" y1="48.26" x2="236.22" y2="55.88" width="0.1524" layer="91"/>
-<junction x="236.22" y="55.88"/>
+<wire x1="233.68" y1="55.88" x2="241.3" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="CN4" gate="G$1" pin="6"/>
+<wire x1="241.3" y1="55.88" x2="246.38" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="241.3" y1="55.88" x2="241.3" y2="48.26" width="0.1524" layer="91"/>
+<junction x="241.3" y="55.88"/>
 </segment>
 </net>
 <net name="P2_D2" class="0">
