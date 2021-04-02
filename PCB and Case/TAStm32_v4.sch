@@ -12179,13 +12179,13 @@ DIN A3, landscape with location and doc. field</description>
 </net>
 <net name="I2C_SCL" class="0">
 <segment>
-<wire x1="299.72" y1="45.72" x2="297.18" y2="45.72" width="0.1524" layer="91"/>
 <label x="292.1" y="45.72" size="1.27" layer="95" rot="MR0" xref="yes"/>
+<wire x1="299.72" y1="45.72" x2="297.18" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="J5" gate="G$1" pin="1"/>
 <pinref part="R3" gate="G$1" pin="1"/>
 <wire x1="297.18" y1="45.72" x2="292.1" y2="45.72" width="0.1524" layer="91"/>
 <wire x1="297.18" y1="48.26" x2="297.18" y2="45.72" width="0.1524" layer="91"/>
 <junction x="297.18" y="45.72"/>
-<pinref part="J5" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <wire x1="45.72" y1="101.6" x2="43.18" y2="101.6" width="0.1524" layer="91"/>
@@ -12195,13 +12195,13 @@ DIN A3, landscape with location and doc. field</description>
 </net>
 <net name="I2C_SDA" class="0">
 <segment>
-<wire x1="299.72" y1="43.18" x2="294.64" y2="43.18" width="0.1524" layer="91"/>
 <label x="292.1" y="43.18" size="1.27" layer="95" rot="MR0" xref="yes"/>
 <pinref part="R1" gate="G$1" pin="1"/>
 <wire x1="294.64" y1="43.18" x2="292.1" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="294.64" y1="48.26" x2="294.64" y2="43.18" width="0.1524" layer="91"/>
-<junction x="294.64" y="43.18"/>
 <pinref part="J5" gate="G$1" pin="2"/>
+<wire x1="294.64" y1="43.18" x2="299.72" y2="43.18" width="0.1524" layer="91"/>
+<junction x="294.64" y="43.18"/>
 </segment>
 <segment>
 <wire x1="45.72" y1="99.06" x2="43.18" y2="99.06" width="0.1524" layer="91"/>
@@ -12242,11 +12242,6 @@ DIN A3, landscape with location and doc. field</description>
 <wire x1="114.3" y1="116.84" x2="116.84" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="114.3" y1="114.3" x2="114.3" y2="116.84" width="0.1524" layer="91"/>
 <junction x="114.3" y="116.84"/>
-</segment>
-</net>
-<net name="N$7" class="0">
-<segment>
-<junction x="297.18" y="45.72"/>
 </segment>
 </net>
 <net name="P1_D0_3V" class="0">
@@ -12796,25 +12791,6 @@ DIN A3, landscape with location and doc. field</description>
 </nets>
 </sheet>
 </sheets>
-<errors>
-<approved hash="102,1,152.4,50.8,V+,3V3,,,,"/>
-<approved hash="102,1,99.06,83.82,V+,3V3,,,,"/>
-<approved hash="102,1,10.16,78.74,V+,3V3,,,,"/>
-<approved hash="102,1,-137.16,78.74,V+,3V3,,,,"/>
-<approved hash="104,1,132.08,45.72,U1,VBAT,3V3,,,"/>
-<approved hash="104,1,132.08,-48.26,U1,VSSA/VREF-,GND,,,"/>
-<approved hash="104,1,132.08,48.26,U1,VDDA/VREF+,3V3,,,"/>
-<approved hash="104,1,132.08,50.8,U1,VDD,3V3,,,"/>
-<approved hash="104,1,132.08,-50.8,U1,VSS,GND,,,"/>
-<approved hash="104,1,132.08,43.18,U1,VCAP_1,VCAP,,,"/>
-<approved hash="104,1,-101.6,81.28,J1,SHIELD,GND,,,"/>
-<approved hash="106,1,-205.74,11.43,P1_5V,,,,,"/>
-<approved hash="106,1,-205.74,24.13,P1_NC,,,,,"/>
-<approved hash="106,1,-205.74,41.91,P2_5V,,,,,"/>
-<approved hash="106,1,-205.74,54.61,P2_NC,,,,,"/>
-<approved hash="106,1,-205.74,-7.62,V1_NC,,,,,"/>
-<approved hash="106,1,-205.74,-38.1,V2_NC,,,,,"/>
-</errors>
 </schematic>
 </drawing>
 <compatibility>
