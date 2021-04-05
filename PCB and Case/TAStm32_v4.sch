@@ -8156,59 +8156,6 @@ Source: AVX .. aphvc.pdf</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="3-1825910-1">
-<description>&lt;Black Button Tactile Switch, Single Pole Single Throw (SPST) 50 mA @ 24 V dc 13.4mm&lt;/b&gt;&lt;p&gt;
-&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
-<packages>
-<package name="318259101">
-<description>&lt;b&gt;3-1825910-1-1&lt;/b&gt;&lt;br&gt;
-</description>
-<pad name="1" x="2.75" y="2.25" drill="0.99" diameter="1.54"/>
-<pad name="2" x="2.75" y="-2.25" drill="0.99" diameter="1.54"/>
-<pad name="3" x="-2.75" y="2.25" drill="0.99" diameter="1.54"/>
-<pad name="4" x="-2.75" y="-2.25" drill="0.99" diameter="1.54"/>
-<text x="0.265" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
-<text x="0.265" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
-<wire x1="-3" y1="3" x2="3" y2="3" width="0.2" layer="51"/>
-<wire x1="3" y1="3" x2="3" y2="-3" width="0.2" layer="51"/>
-<wire x1="3" y1="-3" x2="-3" y2="-3" width="0.2" layer="51"/>
-<wire x1="-3" y1="-3" x2="-3" y2="3" width="0.2" layer="51"/>
-<wire x1="-3" y1="1" x2="-3" y2="-1" width="0.1" layer="21"/>
-<wire x1="-2" y1="-3" x2="2" y2="-3" width="0.1" layer="21"/>
-<wire x1="3" y1="-1" x2="3" y2="1" width="0.1" layer="21"/>
-<wire x1="-2" y1="3" x2="2" y2="3" width="0.1" layer="21"/>
-<wire x1="3.95" y1="2.35" x2="3.95" y2="2.15" width="0.2" layer="21" curve="-180"/>
-<wire x1="3.95" y1="2.15" x2="3.95" y2="2.35" width="0.2" layer="21" curve="-180"/>
-</package>
-</packages>
-<symbols>
-<symbol name="SWITCH">
-<pin name="P$1" x="-7.62" y="0" visible="off" length="middle"/>
-<pin name="P$2" x="7.62" y="0" visible="off" length="middle" rot="R180"/>
-<wire x1="-2.54" y1="0" x2="2.54" y2="2.54" width="0.254" layer="94"/>
-<text x="-8.89" y="7.62" size="1.778" layer="95" align="center-left">&gt;NAME</text>
-<text x="-8.89" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="SWITCHN">
-<gates>
-<gate name="G$1" symbol="SWITCH" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="318259101">
-<connects>
-<connect gate="G$1" pin="P$1" pad="1 2"/>
-<connect gate="G$1" pin="P$2" pad="3 4"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="SamacSys_Parts">
 <description>&lt;b&gt;https://componentsearchengine.com&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
@@ -8766,10 +8713,6 @@ by exp-lbrs.ulp</description>
 <wire x1="-11" y1="-5.5" x2="11" y2="-5.5" width="0.127" layer="51"/>
 <wire x1="11" y1="-5.5" x2="11" y2="5.5" width="0.127" layer="51"/>
 <wire x1="11" y1="5.5" x2="-11" y2="5.5" width="0.127" layer="51"/>
-<pad name="5" x="-11.75" y="9.8" drill="2.1" diameter="5" rot="R90"/>
-<pad name="6" x="11.75" y="9.8" drill="2.1" diameter="5" rot="R90"/>
-<pad name="8" x="11.75" y="-14" drill="2.1" diameter="5" rot="R90"/>
-<pad name="7" x="-11.75" y="-14" drill="2.1" diameter="5" rot="R90"/>
 <wire x1="-2.646" y1="9.284" x2="-2.793" y2="9.03" width="0.1" layer="51"/>
 <wire x1="-4.827" y1="9.03" x2="-4.974" y2="9.284" width="0.1" layer="51"/>
 <wire x1="-4.827" y1="9.03" x2="-2.793" y2="9.03" width="0.1" layer="51"/>
@@ -8845,21 +8788,27 @@ by exp-lbrs.ulp</description>
 <wire x1="2.646" y1="9.284" x2="2.54" y2="9.284" width="0.1" layer="51"/>
 <wire x1="2.54" y1="11.316" x2="2.646" y2="11.316" width="0.1" layer="51"/>
 <wire x1="5.08" y1="9.03" x2="5.08" y2="11.57" width="0.1" layer="51"/>
-<rectangle x1="-4.445" y1="10.045" x2="-3.175" y2="13.475" layer="31"/>
-<rectangle x1="-1.905" y1="7.125" x2="-0.635" y2="10.555" layer="31"/>
-<rectangle x1="0.635" y1="10.045" x2="1.905" y2="13.475" layer="31"/>
-<rectangle x1="3.175" y1="7.125" x2="4.445" y2="10.555" layer="31"/>
-<smd name="2" x="-1.27" y="11.76" dx="1.27" dy="3.43" layer="1"/>
-<smd name="3" x="1.27" y="8.84" dx="1.27" dy="3.43" layer="1"/>
-<smd name="4" x="3.81" y="11.76" dx="1.27" dy="3.43" layer="1"/>
-<smd name="1" x="-3.81" y="8.84" dx="1.27" dy="3.43" layer="1"/>
 <wire x1="-5.08" y1="8.89" x2="-5.08" y2="11.43" width="0.3048" layer="21"/>
 <wire x1="-5.08" y1="11.43" x2="-2.54" y2="11.43" width="0.3048" layer="21"/>
 <wire x1="0" y1="11.43" x2="2.54" y2="11.43" width="0.3048" layer="21"/>
 <wire x1="5.08" y1="11.43" x2="5.08" y2="8.89" width="0.3048" layer="21"/>
 <wire x1="5.08" y1="8.89" x2="2.54" y2="8.89" width="0.3048" layer="21"/>
 <wire x1="0" y1="8.89" x2="-2.54" y2="8.89" width="0.3048" layer="21"/>
+<rectangle x1="-4.445" y1="10.045" x2="-3.175" y2="13.475" layer="31"/>
+<rectangle x1="-1.905" y1="7.125" x2="-0.635" y2="10.555" layer="31"/>
+<rectangle x1="0.635" y1="10.045" x2="1.905" y2="13.475" layer="31"/>
+<rectangle x1="3.175" y1="7.125" x2="4.445" y2="10.555" layer="31"/>
+<smd name="1" x="-3.81" y="8.84" dx="1.27" dy="3.43" layer="1"/>
+<smd name="2" x="-1.27" y="11.76" dx="1.27" dy="3.43" layer="1"/>
+<smd name="3" x="1.27" y="8.84" dx="1.27" dy="3.43" layer="1"/>
+<smd name="4" x="3.81" y="11.76" dx="1.27" dy="3.43" layer="1"/>
+<pad name="5" x="-11.75" y="9.8" drill="2.1" diameter="5" rot="R90"/>
+<pad name="6" x="11.75" y="9.8" drill="2.1" diameter="5" rot="R90"/>
+<pad name="7" x="-11.75" y="-14" drill="2.1" diameter="5" rot="R90"/>
+<pad name="8" x="11.75" y="-14" drill="2.1" diameter="5" rot="R90"/>
 <text x="-7.62" y="15.24" size="1.27" layer="21" font="vector">&gt;NAME</text>
+<wire x1="-13.5" y1="7.5" x2="-13.5" y2="-11.5" width="0.127" layer="21"/>
+<wire x1="13.5" y1="7.5" x2="13.5" y2="-11.5" width="0.127" layer="21"/>
 </package>
 <package name="DIODE_SOD323_ST">
 <description>&lt;b&gt;SOD-323&lt;/b&gt;&lt;p&gt;
@@ -8917,6 +8866,30 @@ Source: www.st.com, BAT60J.pdf</description>
 <smd name="18" x="13.025" y="4.59" dx="6.22" dy="3.18" layer="1"/>
 <hole x="-14.225" y="0" drill="2.69"/>
 <hole x="14.225" y="0" drill="2.69"/>
+</package>
+<package name="3-1825910-1_318259101">
+<description>&lt;b&gt;3-1825910-1-1&lt;/b&gt;&lt;br&gt;</description>
+<wire x1="-3" y1="3" x2="3" y2="3" width="0.2" layer="51"/>
+<wire x1="3" y1="3" x2="3" y2="-3" width="0.2" layer="51"/>
+<wire x1="3" y1="-3" x2="-3" y2="-3" width="0.2" layer="51"/>
+<wire x1="-3" y1="-3" x2="-3" y2="3" width="0.2" layer="51"/>
+<wire x1="-4.02" y1="3.52" x2="4.55" y2="3.52" width="0.1" layer="51"/>
+<wire x1="4.55" y1="3.52" x2="4.55" y2="-3.52" width="0.1" layer="51"/>
+<wire x1="4.55" y1="-3.52" x2="-4.02" y2="-3.52" width="0.1" layer="51"/>
+<wire x1="-4.02" y1="-3.52" x2="-4.02" y2="3.52" width="0.1" layer="51"/>
+<wire x1="-3" y1="1" x2="-3" y2="-1" width="0.1" layer="21"/>
+<wire x1="-2" y1="-3" x2="2" y2="-3" width="0.1" layer="21"/>
+<wire x1="3" y1="-1" x2="3" y2="1" width="0.1" layer="21"/>
+<wire x1="-2" y1="3" x2="2" y2="3" width="0.1" layer="21"/>
+<wire x1="3.95" y1="2.35" x2="3.95" y2="2.15" width="0.2" layer="21" curve="-180"/>
+<wire x1="3.95" y1="2.15" x2="3.95" y2="2.35" width="0.2" layer="21" curve="-180"/>
+<pad name="3" x="3.25" y="2.25" drill="0.99" diameter="1.54"/>
+<pad name="1" x="3.25" y="-2.25" drill="0.99" diameter="1.54"/>
+<pad name="4" x="-3.25" y="2.25" drill="0.99" diameter="1.54"/>
+<pad name="2" x="-3.25" y="-2.25" drill="0.99" diameter="1.54"/>
+<text x="0.265" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0.265" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<circle x="0" y="0" radius="1.75" width="0.127" layer="21"/>
 </package>
 </packages>
 <packages3d>
@@ -8982,9 +8955,9 @@ Source: www.st.com, BAT60J.pdf</description>
 <pin name="2" x="0" y="-2.54" length="middle"/>
 <pin name="3" x="20.32" y="0" length="middle" rot="R180"/>
 <pin name="4" x="20.32" y="-2.54" length="middle" rot="R180"/>
+<pin name="5" x="10.16" y="-10.16" length="middle" rot="R90"/>
 <text x="16.51" y="7.62" size="1.778" layer="95" align="center-left">&gt;NAME</text>
 <text x="16.51" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
-<pin name="5" x="10.16" y="-10.16" length="middle" rot="R90"/>
 </symbol>
 <symbol name="DIODE_SCHOTTKY">
 <wire x1="-1.27" y1="-1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
@@ -9067,6 +9040,13 @@ Source: www.st.com, BAT60J.pdf</description>
 <text x="-1.781490625" y="-10.9435" size="1.781490625" layer="94">W/Grn</text>
 <text x="-1.77928125" y="-18.5553" size="1.77928125" layer="94">Grn</text>
 <text x="-10.166" y="-27.4482" size="1.77905" layer="96">&gt;VALUE</text>
+</symbol>
+<symbol name="3-1825910-1_SWITCH">
+<wire x1="-2.54" y1="0" x2="2.54" y2="2.54" width="0.254" layer="94"/>
+<pin name="P$1" x="-7.62" y="0" visible="off" length="middle"/>
+<pin name="P$2" x="7.62" y="0" visible="off" length="middle" rot="R180"/>
+<text x="-8.89" y="7.62" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="-8.89" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -9180,6 +9160,22 @@ Source: www.st.com, BAT60J.pdf</description>
 <package3dinstances>
 <package3dinstance package3d_urn="urn:adsk.eagle:package:18856791/2"/>
 </package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="3-1825910-1_SWITCHN">
+<gates>
+<gate name="G$1" symbol="3-1825910-1_SWITCH" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="3-1825910-1_318259101">
+<connects>
+<connect gate="G$1" pin="P$1" pad="1 2"/>
+<connect gate="G$1" pin="P$2" pad="3 4"/>
+</connects>
 <technologies>
 <technology name=""/>
 </technologies>
@@ -10782,10 +10778,6 @@ DIN A3, landscape with location and doc. field</description>
 <part name="J10" library="TAStm32_v4" deviceset="RJSSE538002_RJSSE538002" device="" package3d_urn="urn:adsk.eagle:package:18856791/2" value="RJSSE538002"/>
 <part name="J11" library="TAStm32_v4" deviceset="RJSSE538002_RJSSE538002" device="" package3d_urn="urn:adsk.eagle:package:18856791/2" value="RJSSE538002"/>
 <part name="J4" library="TAStm32_v4" deviceset="SAMTEC-TSM-102-01-X-SH_SAMTEC-TSM-102-01-X-SH" device="" package3d_urn="urn:adsk.eagle:package:18856692/2" value="CONSOLE_RESET"/>
-<part name="S1" library="3-1825910-1" deviceset="SWITCHN" device="" override_package3d_urn="urn:adsk.eagle:package:25997948/2" override_package_urn="urn:adsk.eagle:footprint:25997949/1"/>
-<part name="S2" library="3-1825910-1" deviceset="SWITCHN" device="" override_package3d_urn="urn:adsk.eagle:package:25998021/2" override_package_urn="urn:adsk.eagle:footprint:25998023/1"/>
-<part name="S3" library="3-1825910-1" deviceset="SWITCHN" device="" override_package3d_urn="urn:adsk.eagle:package:25998025/2" override_package_urn="urn:adsk.eagle:footprint:25998026/1"/>
-<part name="S4" library="3-1825910-1" deviceset="SWITCHN" device="" override_package3d_urn="urn:adsk.eagle:package:25998028/2" override_package_urn="urn:adsk.eagle:footprint:25998029/1"/>
 <part name="J2" library="SamacSys_Parts" deviceset="UE27-AC54-100" device="" override_package3d_urn="urn:adsk.eagle:package:25997941/2" override_package_urn="urn:adsk.eagle:footprint:25997942/1"/>
 <part name="D1" library="TAStm32_v4" deviceset="DIODE_BAT60J" device="" value="BAT60J"/>
 <part name="D2" library="TAStm32_v4" deviceset="DIODE_BAT60J" device="" value="BAT60J"/>
@@ -10854,7 +10846,7 @@ DIN A3, landscape with location and doc. field</description>
 <part name="SUPPLY12" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="V+" device=""/>
 <part name="C14" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603K" package3d_urn="urn:adsk.eagle:package:23680/2" value="100nF"/>
 <part name="GND30" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="C15" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603K" package3d_urn="urn:adsk.eagle:package:23680/2" value="100nF"/>
+<part name="C15" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603K" package3d_urn="urn:adsk.eagle:package:23680/2" value="4.7uF"/>
 <part name="GND31" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="SUPPLY14" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="V+" device=""/>
 <part name="GND32" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -10863,7 +10855,7 @@ DIN A3, landscape with location and doc. field</description>
 <part name="IC4" library="SamacSys_Parts" deviceset="74AVCH4T245PW,118" device=""/>
 <part name="C16" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603K" package3d_urn="urn:adsk.eagle:package:23680/2" value="100nF"/>
 <part name="GND34" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="C17" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603K" package3d_urn="urn:adsk.eagle:package:23680/2" value="100nF"/>
+<part name="C17" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603K" package3d_urn="urn:adsk.eagle:package:23680/2" value="4.7uF"/>
 <part name="GND35" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="SUPPLY20" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="V+" device=""/>
 <part name="GND36" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -10871,6 +10863,10 @@ DIN A3, landscape with location and doc. field</description>
 <part name="GND38" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND39" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="FRAME1" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="A3L-LOC" device=""/>
+<part name="S2" library="TAStm32_v4" deviceset="3-1825910-1_SWITCHN" device=""/>
+<part name="S1" library="TAStm32_v4" deviceset="3-1825910-1_SWITCHN" device=""/>
+<part name="S4" library="TAStm32_v4" deviceset="3-1825910-1_SWITCHN" device=""/>
+<part name="S3" library="TAStm32_v4" deviceset="3-1825910-1_SWITCHN" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -10883,12 +10879,6 @@ DIN A3, landscape with location and doc. field</description>
 <text x="335.28" y="53.34" size="2.54" layer="97">Console Reset</text>
 <text x="320.04" y="233.68" size="2.54" layer="97">Controller Outputs</text>
 <text x="314.96" y="149.86" size="2.54" layer="97">Expansion/Vis Ports</text>
-<text x="180.34" y="17.78" size="1.778" layer="91">Switch pads slightly wrong</text>
-<text x="180.34" y="15.24" size="1.778" layer="91">Add larger caps to console 5v rails, maybe</text>
-<text x="180.34" y="12.7" size="1.778" layer="91">Add insurance caps to outputs (maybe arrays)</text>
-<text x="180.34" y="10.16" size="1.778" layer="91">Label debug pins</text>
-<text x="180.34" y="7.62" size="1.778" layer="91">make D2 able to be read from schmitt-triggered inputs (NES/SNES) or voltage translators (N64)</text>
-<text x="180.34" y="5.08" size="1.778" layer="91">maybe omit pullups?</text>
 <text x="210.82" y="246.38" size="2.54" layer="97">Input Buffers</text>
 <text x="215.9" y="119.38" size="2.54" layer="97">Output Buffers</text>
 </plain>
@@ -10949,18 +10939,6 @@ DIN A3, landscape with location and doc. field</description>
 </instance>
 <instance part="J4" gate="A" x="358.14" y="48.26" smashed="yes">
 <attribute name="NAME" x="359.41" y="52.07" size="1.778" layer="95"/>
-</instance>
-<instance part="S1" gate="G$1" x="124.46" y="96.52" smashed="yes" rot="MR0">
-<attribute name="NAME" x="130.81" y="97.79" size="1.778" layer="95" rot="MR0" align="center-left"/>
-</instance>
-<instance part="S2" gate="G$1" x="124.46" y="99.06" smashed="yes" rot="MR0">
-<attribute name="NAME" x="130.81" y="100.33" size="1.778" layer="95" rot="MR0" align="center-left"/>
-</instance>
-<instance part="S3" gate="G$1" x="124.46" y="86.36" smashed="yes">
-<attribute name="NAME" x="128.27" y="87.63" size="1.778" layer="95" align="center-left"/>
-</instance>
-<instance part="S4" gate="G$1" x="124.46" y="88.9" smashed="yes">
-<attribute name="NAME" x="128.27" y="90.17" size="1.778" layer="95" align="center-left"/>
 </instance>
 <instance part="J2" gate="G$1" x="101.6" y="228.6" smashed="yes">
 <attribute name="NAME" x="105.41" y="233.68" size="1.778" layer="95" align="top-left"/>
@@ -11193,6 +11171,22 @@ DIN A3, landscape with location and doc. field</description>
 <attribute name="LAST_DATE_TIME" x="344.17" y="10.16" size="2.286" layer="94"/>
 <attribute name="SHEET" x="357.505" y="5.08" size="2.54" layer="94"/>
 </instance>
+<instance part="S2" gate="G$1" x="124.46" y="99.06" smashed="yes">
+<attribute name="NAME" x="115.57" y="106.68" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="115.57" y="104.14" size="1.778" layer="96" align="center-left"/>
+</instance>
+<instance part="S1" gate="G$1" x="124.46" y="96.52" smashed="yes">
+<attribute name="NAME" x="115.57" y="104.14" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="115.57" y="101.6" size="1.778" layer="96" align="center-left"/>
+</instance>
+<instance part="S4" gate="G$1" x="124.46" y="88.9" smashed="yes">
+<attribute name="NAME" x="115.57" y="96.52" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="115.57" y="93.98" size="1.778" layer="96" align="center-left"/>
+</instance>
+<instance part="S3" gate="G$1" x="124.46" y="86.36" smashed="yes">
+<attribute name="NAME" x="115.57" y="93.98" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="115.57" y="91.44" size="1.778" layer="96" align="center-left"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -11277,17 +11271,17 @@ DIN A3, landscape with location and doc. field</description>
 <pinref part="J3" gate="A" pin="3"/>
 </segment>
 <segment>
-<pinref part="S4" gate="G$1" pin="P$2"/>
-<pinref part="S3" gate="G$1" pin="P$2"/>
 <wire x1="132.08" y1="88.9" x2="132.08" y2="86.36" width="0.1524" layer="91"/>
 <pinref part="GND2" gate="1" pin="GND"/>
+<pinref part="S4" gate="G$1" pin="P$2"/>
+<pinref part="S3" gate="G$1" pin="P$2"/>
 <junction x="132.08" y="86.36"/>
 </segment>
 <segment>
-<pinref part="S2" gate="G$1" pin="P$1"/>
-<pinref part="S1" gate="G$1" pin="P$1"/>
 <wire x1="132.08" y1="99.06" x2="132.08" y2="96.52" width="0.1524" layer="91"/>
 <pinref part="GND11" gate="1" pin="GND"/>
+<pinref part="S2" gate="G$1" pin="P$2"/>
+<pinref part="S1" gate="G$1" pin="P$2"/>
 <junction x="132.08" y="96.52"/>
 </segment>
 <segment>
@@ -12580,9 +12574,9 @@ DIN A3, landscape with location and doc. field</description>
 </net>
 <net name="SWITCH4" class="0">
 <segment>
-<pinref part="S4" gate="G$1" pin="P$1"/>
 <wire x1="116.84" y1="88.9" x2="114.3" y2="88.9" width="0.1524" layer="91"/>
 <label x="114.3" y="88.9" size="1.778" layer="95" rot="R180"/>
+<pinref part="S4" gate="G$1" pin="P$1"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="PA10"/>
@@ -12592,9 +12586,9 @@ DIN A3, landscape with location and doc. field</description>
 </net>
 <net name="SWITCH3" class="0">
 <segment>
-<pinref part="S3" gate="G$1" pin="P$1"/>
 <wire x1="116.84" y1="86.36" x2="114.3" y2="86.36" width="0.1524" layer="91"/>
 <label x="114.3" y="86.36" size="1.778" layer="95" rot="R180"/>
+<pinref part="S3" gate="G$1" pin="P$1"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="PA8"/>
@@ -12604,9 +12598,9 @@ DIN A3, landscape with location and doc. field</description>
 </net>
 <net name="SWITCH1" class="0">
 <segment>
-<pinref part="S1" gate="G$1" pin="P$2"/>
 <wire x1="116.84" y1="96.52" x2="114.3" y2="96.52" width="0.1524" layer="91"/>
 <label x="114.3" y="96.52" size="1.778" layer="95" rot="R180"/>
+<pinref part="S1" gate="G$1" pin="P$1"/>
 </segment>
 <segment>
 <wire x1="45.72" y1="93.98" x2="43.18" y2="93.98" width="0.1524" layer="91"/>
@@ -12616,9 +12610,9 @@ DIN A3, landscape with location and doc. field</description>
 </net>
 <net name="SWITCH2" class="0">
 <segment>
-<pinref part="S2" gate="G$1" pin="P$2"/>
 <wire x1="116.84" y1="99.06" x2="114.3" y2="99.06" width="0.1524" layer="91"/>
 <label x="114.3" y="99.06" size="1.778" layer="95" rot="R180"/>
+<pinref part="S2" gate="G$1" pin="P$1"/>
 </segment>
 <segment>
 <wire x1="45.72" y1="91.44" x2="43.18" y2="91.44" width="0.1524" layer="91"/>
