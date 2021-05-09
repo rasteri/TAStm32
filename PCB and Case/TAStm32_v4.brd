@@ -3385,7 +3385,7 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <attribute name="POPULARITY" value="0" x="68.9332" y="2.25" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="71.7272" y="0.472" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="RN5" library="resistor-net" library_urn="urn:adsk.eagle:library:343" package="CTS742C083" package3d_urn="urn:adsk.eagle:package:24985/1" value="47K" x="68.9024" y="12" smashed="yes" rot="R90">
+<element name="RN5" library="resistor-net" library_urn="urn:adsk.eagle:library:343" package="CTS742C083" package3d_urn="urn:adsk.eagle:package:24985/1" value="47R" x="68.9024" y="12" smashed="yes" rot="R90">
 <attribute name="MF" value="" x="68.9024" y="12" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="" x="68.9024" y="12" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="71.7124" y="10.4412" size="1.4224" layer="25" font="vector" ratio="15" rot="R90"/>
@@ -3447,7 +3447,7 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <attribute name="POPULARITY" value="0" x="62.5668" y="6.5" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="59.7728" y="8.278" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="IC1" library="SamacSys_Parts" package="SOP65P400X110-8N" value="74HCT3G07DP-Q100H" x="53.4092" y="2.25" smashed="yes" rot="R180">
+<element name="IC1" library="SamacSys_Parts" package="SOP65P400X110-8N" value="74LVC3G17DP" x="53.4092" y="2.25" smashed="yes" rot="R180">
 <attribute name="DESCRIPTION" value="74HC(T)3G07-Q100 - Triple buffer with open-drain outputs@en-us" x="53.4092" y="2.25" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="HEIGHT" value="1.1mm" x="53.4092" y="2.25" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANUFACTURER_NAME" value="Nexperia" x="53.4092" y="2.25" size="1.778" layer="27" rot="R180" display="off"/>
@@ -3457,7 +3457,7 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <attribute name="RS_PRICE-STOCK" value="http://uk.rs-online.com/web/p/products/1532947P" x="53.4092" y="2.25" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="53.4092" y="2.25" size="1.27" layer="27" rot="R180" align="center"/>
 </element>
-<element name="IC2" library="SamacSys_Parts" package="SOP65P400X110-8N" value="74HCT3G07DP-Q100H" x="52.8236" y="12.6096" smashed="yes">
+<element name="IC2" library="SamacSys_Parts" package="SOP65P400X110-8N" value="74LVC3G17DP" x="52.8236" y="12.6096" smashed="yes">
 <attribute name="DESCRIPTION" value="74HC(T)3G07-Q100 - Triple buffer with open-drain outputs@en-us" x="52.8236" y="12.6096" size="1.778" layer="27" display="off"/>
 <attribute name="HEIGHT" value="1.1mm" x="52.8236" y="12.6096" size="1.778" layer="27" display="off"/>
 <attribute name="MANUFACTURER_NAME" value="Nexperia" x="52.8236" y="12.6096" size="1.778" layer="27" display="off"/>
@@ -3467,7 +3467,7 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <attribute name="RS_PRICE-STOCK" value="http://uk.rs-online.com/web/p/products/1532947P" x="52.8236" y="12.6096" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="52.8236" y="12.6096" size="1.27" layer="27" align="center"/>
 </element>
-<element name="IC3" library="SamacSys_Parts" package="SOP65P640X110-16N" value="74AVCH4T245PW,118" x="55.75" y="7" smashed="yes">
+<element name="IC3" library="SamacSys_Parts" package="SOP65P640X110-16N" value="74AXP4T245" x="55.75" y="7" smashed="yes">
 <attribute name="DESCRIPTION" value="74AVCH4T245 - 4-bit dual supply translating transceiver with configurable voltage translation; 3-state@en-us" x="55.75" y="7" size="1.778" layer="27" display="off"/>
 <attribute name="HEIGHT" value="1.1mm" x="55.75" y="7" size="1.778" layer="27" display="off"/>
 <attribute name="MANUFACTURER_NAME" value="Nexperia" x="55.75" y="7" size="1.778" layer="27" display="off"/>
@@ -3524,7 +3524,7 @@ These design rules represent that absolute minimums possible for CircuitHub. If 
 <attribute name="POPULARITY" value="0" x="66.3796" y="16.6116" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="63.5856" y="18.3896" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="IC4" library="SamacSys_Parts" package="SOP65P640X110-16N" value="74AVCH4T245PW,118" x="59.75" y="17.75" smashed="yes">
+<element name="IC4" library="SamacSys_Parts" package="SOP65P640X110-16N" value="74AXP4T245" x="59.75" y="17.75" smashed="yes">
 <attribute name="DESCRIPTION" value="74AVCH4T245 - 4-bit dual supply translating transceiver with configurable voltage translation; 3-state@en-us" x="54.1112" y="17.75" size="1.778" layer="27" display="off"/>
 <attribute name="HEIGHT" value="1.1mm" x="54.1112" y="17.75" size="1.778" layer="27" display="off"/>
 <attribute name="MANUFACTURER_NAME" value="Nexperia" x="54.1112" y="17.75" size="1.778" layer="27" display="off"/>
