@@ -7,8 +7,8 @@ HeaderPath=..\Drivers\STM32F4xx_HAL_Driver\Inc;..\Drivers\STM32F4xx_HAL_Driver\I
 CDefines=USE_HAL_DRIVER;STM32F446xx;USE_HAL_DRIVER;USE_HAL_DRIVER;
 
 [PreviousGenFiles]
-HeaderPath=E:/code/TAStm32/Inc
+HeaderPath=C:/code/TAStm32/Inc
 HeaderFiles=ffconf.h;usbh_diskio.h;fatfs.h;usb_device.h;usbd_conf.h;usbd_desc.h;usbd_cdc_if.h;usb_host.h;usbh_conf.h;stm32f4xx_it.h;stm32f4xx_hal_conf.h;main.h;
-SourcePath=E:/code/TAStm32/Src
+SourcePath=C:/code/TAStm32/Src
 SourceFiles=usbh_diskio.c;fatfs.c;usb_device.c;usbd_conf.c;usbd_desc.c;usbd_cdc_if.c;usb_host.c;usbh_conf.c;stm32f4xx_it.c;stm32f4xx_hal_msp.c;main.c;
 

@@ -319,8 +319,16 @@ void EXTI1_IRQHandler(void)
 			// enable data buffers if not already so
 			if(firstLatch && (EXTI->PR & P1_LATCH_Pin))
 			{
-				// D0/D1 buffers should already be set as output, just need to enable them
-				HAL_GPIO_WritePin(OUTPUTS_ENABLE_GPIO_Port, OUTPUTS_ENABLE_Pin, GPIO_PIN_RESET);
+				// D0/D1 buffers should be set as output, so just need to enable them
+				HAL_GPIO_WritePin(ENABLE_D0D1_GPIO_Port, ENABLE_D0D1_Pin, GPIO_PIN_RESET);
+
+				// Only enable D2/D3 for NES, SNES inputs will be taken care of by the input buffers
+				if(tasrun->console == CONSOLE_NES)
+				{
+
+					HAL_GPIO_WritePin(ENABLE_P1D2D3_GPIO_Port, ENABLE_P1D2D3_Pin, GPIO_PIN_RESET);
+					HAL_GPIO_WritePin(ENABLE_P2D2D3_GPIO_Port, ENABLE_P2D2D3_Pin, GPIO_PIN_RESET);
+				}
 
 				firstLatch = 0;
 			}
