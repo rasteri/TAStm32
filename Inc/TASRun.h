@@ -13,6 +13,41 @@
 #define MAX_DATA_LANES 4
 #define MAX_TRANSITIONS 5
 
+//#define BOARDV3
+#define BOARDV4
+
+#ifdef BOARDV3
+
+#define SWITCH1_Pin PA6_Pin
+#define SWITCH1_GPIO_Port PA6_GPIO_Port
+
+#define SWITCH2_Pin PA7_Pin
+#define SWITCH2_GPIO_Port PA7_GPIO_Port
+
+#define SWITCH3_Pin PC14_Pin
+#define SWITCH3_GPIO_Port PC14_GPIO_Port
+
+#define SWITCH4_Pin PC13_Pin
+#define SWITCH4_GPIO_Port PC13_GPIO_Port
+
+#endif //BOARDV3
+
+#ifdef BOARDV4
+
+#define SWITCH1_Pin PB12_Pin
+#define SWITCH1_GPIO_Port PB12_GPIO_Port
+
+#define SWITCH2_Pin PB13_Pin
+#define SWITCH2_GPIO_Port PB13_GPIO_Port
+
+#define SWITCH3_Pin PA8_Pin
+#define SWITCH3_GPIO_Port PA8_GPIO_Port
+
+#define SWITCH4_Pin PA10_Pin
+#define SWITCH4_GPIO_Port PA10_GPIO_Port
+
+#endif //BOARDV4
+
 
 typedef enum
 {
@@ -150,5 +185,6 @@ void SetSNESMode();
 void SetGENMode();
 void SetMultitapMode();
 void ResetRun();
+void ResetGPIO(void);
 void SetupPin(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, uint32_t Mode, uint32_t Pull, GPIO_PinState PinState);
 #endif

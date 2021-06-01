@@ -76,7 +76,7 @@ void Error_Handler(void);
 /* USER CODE BEGIN EFP */
 void ReInitClockTimers(void);
 void JumpToBootLoader(void);
-void ResetGPIO(void);
+
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
@@ -124,10 +124,10 @@ void ResetGPIO(void);
 #define P2_DATA_3_GPIO_Port GPIOB
 #define P2_DATA_2_OUT_Pin GPIO_PIN_10
 #define P2_DATA_2_OUT_GPIO_Port GPIOB
-#define SWITCH1_Pin GPIO_PIN_12
-#define SWITCH1_GPIO_Port GPIOB
-#define SWITCH2_Pin GPIO_PIN_13
-#define SWITCH2_GPIO_Port GPIOB
+#define PB12_Pin GPIO_PIN_12
+#define PB12_GPIO_Port GPIOB
+#define PB13_Pin GPIO_PIN_13
+#define PB13_GPIO_Port GPIOB
 #define P2_LATCH_Pin GPIO_PIN_6
 #define P2_LATCH_GPIO_Port GPIOC
 #define P2_DATA_1_Pin GPIO_PIN_7
@@ -136,12 +136,12 @@ void ResetGPIO(void);
 #define P2_DATA_0_GPIO_Port GPIOC
 #define P2_DATA_2_Pin GPIO_PIN_9
 #define P2_DATA_2_GPIO_Port GPIOC
-#define SWITCH3_Pin GPIO_PIN_8
-#define SWITCH3_GPIO_Port GPIOA
+#define PA8_Pin GPIO_PIN_8
+#define PA8_GPIO_Port GPIOA
 #define SNES_RESET_Pin GPIO_PIN_9
 #define SNES_RESET_GPIO_Port GPIOA
-#define SWITCH4_Pin GPIO_PIN_10
-#define SWITCH4_GPIO_Port GPIOA
+#define PA10_Pin GPIO_PIN_10
+#define PA10_GPIO_Port GPIOA
 #define TMS_Pin GPIO_PIN_13
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14

@@ -85,7 +85,7 @@ volatile uint8_t jumpToDFU;
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-static void MX_GPIO_Init(void);
+void MX_GPIO_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_TIM6_Init(void);
 static void MX_TIM7_Init(void);
@@ -97,9 +97,6 @@ void MX_USB_HOST_Process(void);
 /* USER CODE BEGIN PFP */
 
 // Reset GPIO back to poweron state
-void ResetGPIO(void){
-	MX_GPIO_Init();
-}
 
 /* USER CODE END PFP */
 
@@ -459,162 +456,6 @@ static void MX_TIM10_Init(void)
   /* USER CODE BEGIN TIM10_Init 2 */
 
   /* USER CODE END TIM10_Init 2 */
-
-}
-
-/**
-  * @brief GPIO Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_GPIO_Init(void)
-{
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-
-  /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOC_CLK_ENABLE();
-  __HAL_RCC_GPIOH_CLK_ENABLE();
-  __HAL_RCC_GPIOA_CLK_ENABLE();
-  __HAL_RCC_GPIOB_CLK_ENABLE();
-  __HAL_RCC_GPIOD_CLK_ENABLE();
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, PC15_Pin|V2_LATCH_Pin|V2_DATA_1_Pin|V2_DATA_0_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, P1_DATA_3_Pin|SNES_RESET_Pin|V2_CLOCK_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, DIR_D0D1_Pin|DIR_P1D2D3_Pin|ENABLE_D0D1_Pin|ENABLE_P1D2D3_Pin
-                          |ENABLE_P2D2D3_Pin, GPIO_PIN_SET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, DIR_P2D2D3_Pin|P2_DATA_3_Pin|P2_DATA_2_OUT_Pin|V1_DATA_2_Pin
-                          |V1_CLOCK_Pin|V1_LATCH_Pin|V1_DATA_1_Pin|V1_DATA_0_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(V2_DATA_3_GPIO_Port, V2_DATA_3_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pins : PC13_Pin PC14_Pin */
-  GPIO_InitStruct.Pin = PC13_Pin|PC14_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : PC15_Pin */
-  GPIO_InitStruct.Pin = PC15_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(PC15_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : P1_CLOCK_Pin P1_LATCH_Pin P2_CLOCK_Pin */
-  GPIO_InitStruct.Pin = P1_CLOCK_Pin|P1_LATCH_Pin|P2_CLOCK_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : P1_DATA_1_Pin P1_DATA_0_Pin P2_LATCH_Pin P2_DATA_1_Pin
-                           P2_DATA_0_Pin P2_DATA_2_Pin */
-  GPIO_InitStruct.Pin = P1_DATA_1_Pin|P1_DATA_0_Pin|P2_LATCH_Pin|P2_DATA_1_Pin
-                          |P2_DATA_0_Pin|P2_DATA_2_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : P1_DATA_3_Pin DIR_D0D1_Pin DIR_P1D2D3_Pin ENABLE_D0D1_Pin
-                           ENABLE_P1D2D3_Pin ENABLE_P2D2D3_Pin SNES_RESET_Pin */
-  GPIO_InitStruct.Pin = P1_DATA_3_Pin|DIR_D0D1_Pin|DIR_P1D2D3_Pin|ENABLE_D0D1_Pin
-                          |ENABLE_P1D2D3_Pin|ENABLE_P2D2D3_Pin|SNES_RESET_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_MEDIUM;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : P1_DATA_2_OUT_Pin PA3_Pin SWITCH3_Pin */
-  GPIO_InitStruct.Pin = P1_DATA_2_OUT_Pin|PA3_Pin|SWITCH3_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : P1_DATA_2_Pin */
-  GPIO_InitStruct.Pin = P1_DATA_2_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
-  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-  HAL_GPIO_Init(P1_DATA_2_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : DIR_P2D2D3_Pin P2_DATA_2_OUT_Pin */
-  GPIO_InitStruct.Pin = DIR_P2D2D3_Pin|P2_DATA_2_OUT_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_MEDIUM;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : P2_DATA_3_Pin V1_DATA_2_Pin */
-  GPIO_InitStruct.Pin = P2_DATA_3_Pin|V1_DATA_2_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : PB2 */
-  GPIO_InitStruct.Pin = GPIO_PIN_2;
-  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : SWITCH1_Pin SWITCH2_Pin */
-  GPIO_InitStruct.Pin = SWITCH1_Pin|SWITCH2_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : SWITCH4_Pin */
-  GPIO_InitStruct.Pin = SWITCH4_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(SWITCH4_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : V2_CLOCK_Pin */
-  GPIO_InitStruct.Pin = V2_CLOCK_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-  HAL_GPIO_Init(V2_CLOCK_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : V2_LATCH_Pin V2_DATA_1_Pin V2_DATA_0_Pin */
-  GPIO_InitStruct.Pin = V2_LATCH_Pin|V2_DATA_1_Pin|V2_DATA_0_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : V2_DATA_3_Pin */
-  GPIO_InitStruct.Pin = V2_DATA_3_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(V2_DATA_3_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : V1_CLOCK_Pin V1_LATCH_Pin V1_DATA_1_Pin V1_DATA_0_Pin */
-  GPIO_InitStruct.Pin = V1_CLOCK_Pin|V1_LATCH_Pin|V1_DATA_1_Pin|V1_DATA_0_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /* EXTI interrupt init*/
-  HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(EXTI0_IRQn);
-
-  HAL_NVIC_SetPriority(EXTI1_IRQn, 1, 0);
-  HAL_NVIC_EnableIRQ(EXTI1_IRQn);
-
-  HAL_NVIC_SetPriority(EXTI4_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(EXTI4_IRQn);
-
-  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
 }
 
