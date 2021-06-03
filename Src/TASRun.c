@@ -353,7 +353,12 @@ void SetupPin(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, uint32_t Mode, uint32_t Pu
 	GPIO_InitStruct.Pin = GPIO_Pin;
 	GPIO_InitStruct.Mode = Mode;
 	GPIO_InitStruct.Pull = Pull;
+	#ifdef BOARDV3
+	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+	#endif
+	#ifdef BOARDV4
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+	#endif
 	HAL_GPIO_Init(GPIOx, &GPIO_InitStruct);
 
 }
@@ -362,7 +367,7 @@ void SetNESMode()
 {
 
 	#ifdef BOARDV3
-	// MCU D0/D1/D2/D3 input for now, will be made output on first latch
+	// MCU D0/D1/D2 input for now, will be made output on first latch
 	SetupPin(P1_DATA_0_GPIO_Port, P1_DATA_0_Pin, GPIO_MODE_INPUT, GPIO_PULLUP, GPIO_PIN_SET);
 	SetupPin(P1_DATA_1_GPIO_Port, P1_DATA_1_Pin, GPIO_MODE_INPUT, GPIO_PULLUP, GPIO_PIN_SET);
 	SetupPin(P1_DATA_2_GPIO_Port, P1_DATA_2_Pin, GPIO_MODE_INPUT, GPIO_PULLUP, GPIO_PIN_SET);
@@ -390,39 +395,45 @@ void SetNESMode()
 	SetupPin(P2_DATA_3_GPIO_Port, P2_DATA_3_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_SET);
 	#endif //BOARDV4
 
-	// MCU Clock/latch input, triggered on rising edge, through input buffers
+	// MCU Clock/latch input, triggered on rising edge
 	SetupPin(GPIOC, P1_CLOCK_Pin|P1_LATCH_Pin|P2_CLOCK_Pin, GPIO_MODE_IT_RISING, GPIO_NOPULL, GPIO_PIN_RESET);
 }
 
 void SetSNESMode()
 {
 
-	// Setup output buffers first
-	// They should be disabled already
-	//
-	// D0/D1 buffers should be output (i.e. high), D2/D3 output buffer shouldn't be enabled
-	SetupPin(DIR_D0D1_GPIO_Port, DIR_D0D1_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_SET);
+	#ifdef BOARDV3
+	// MCU D0/D1 input for now, will be made output on first latch
+	SetupPin(P1_DATA_0_GPIO_Port, P1_DATA_0_Pin, GPIO_MODE_INPUT, GPIO_PULLUP, GPIO_PIN_SET);
+	SetupPin(P1_DATA_1_GPIO_Port, P1_DATA_1_Pin, GPIO_MODE_INPUT, GPIO_PULLUP, GPIO_PIN_SET);
+	SetupPin(P2_DATA_0_GPIO_Port, P2_DATA_0_Pin, GPIO_MODE_INPUT, GPIO_PULLUP, GPIO_PIN_SET);
+	SetupPin(P2_DATA_1_GPIO_Port, P2_DATA_1_Pin, GPIO_MODE_INPUT, GPIO_PULLUP, GPIO_PIN_SET);
+	
+	// MCU D2 may be input or output depending on application, so set input for the moment
+	SetupPin(P1_DATA_2_GPIO_Port, P1_DATA_2_Pin, GPIO_MODE_INPUT, GPIO_PULLUP, GPIO_PIN_SET);
+	SetupPin(P2_DATA_2_GPIO_Port, P2_DATA_2_Pin, GPIO_MODE_INPUT, GPIO_PULLUP, GPIO_PIN_SET);
+	#endif
 
-	// D3 buffers should be input - so taken care of by the input buffers, which are always enabled
+	#ifdef BOARDV4
+	// external output buffers should already be tristated, so set direction to output (i.e. high)
+	// Buffer will be enabled on first latch
+	SetupPin(DIR_D0D1_GPIO_Port, DIR_D0D1_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_SET);
+	// D2 buffers should be input - so taken care of by the input buffers, which are always enabled
 
 	// Now do the actual MCU pins
-	//
 	// MCU D0/D1 output, but they will not actually speak to console yet as buffer is disabled
 	SetupPin(P1_DATA_0_GPIO_Port, P1_DATA_0_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_SET);
 	SetupPin(P1_DATA_1_GPIO_Port, P1_DATA_1_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_SET);
-	SetupPin(P1_DATA_2_GPIO_Port, P1_DATA_2_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_SET);
 	SetupPin(P2_DATA_0_GPIO_Port, P2_DATA_0_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_SET);
 	SetupPin(P2_DATA_1_GPIO_Port, P2_DATA_1_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_SET);
-	SetupPin(P2_DATA_2_GPIO_Port, P2_DATA_2_Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_PIN_SET);
 
-	// MCU D2/D3 input, handled through the input buffers
-
+	// MCU D2 input, handled through the input buffers
 	SetupPin(P1_DATA_2_GPIO_Port, P1_DATA_2_Pin, GPIO_MODE_INPUT, GPIO_NOPULL, GPIO_PIN_SET);
 	SetupPin(P2_DATA_2_GPIO_Port, P2_DATA_2_Pin, GPIO_MODE_INPUT, GPIO_NOPULL, GPIO_PIN_SET);
-	SetupPin(P1_DATA_3_GPIO_Port, P1_DATA_3_Pin, GPIO_MODE_INPUT, GPIO_NOPULL, GPIO_PIN_SET);
-	SetupPin(P2_DATA_3_GPIO_Port, P2_DATA_3_Pin, GPIO_MODE_INPUT, GPIO_NOPULL, GPIO_PIN_SET);
 
-	// MCU Clock/latch input, triggered on rising edge, also through input buffers
+	#endif //BOARDV3
+
+	// MCU Clock/latch input, triggered on rising edge
 	SetupPin(GPIOC, P1_CLOCK_Pin|P1_LATCH_Pin|P2_CLOCK_Pin, GPIO_MODE_IT_RISING, GPIO_NOPULL, GPIO_PIN_RESET);
 }
 
@@ -454,13 +465,6 @@ void SetGENMode()
 
 void SetMultitapMode()
 {
-
-	GPIO_InitTypeDef GPIO_InitStruct = { 0 };
-
-	GPIO_InitStruct.Pin = P1_DATA_2_Pin;
-	GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
-	GPIO_InitStruct.Pull = GPIO_NOPULL;
-
-	HAL_GPIO_Init(P1_DATA_2_GPIO_Port, &GPIO_InitStruct);
-
+	// If multitap, D2 becomes an interrupt input
+	SetupPin(P1_DATA_2_GPIO_Port, P1_DATA_2_Pin, GPIO_MODE_IT_FALLING, GPIO_NOPULL, GPIO_PIN_SET);
 }
