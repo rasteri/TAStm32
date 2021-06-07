@@ -10792,10 +10792,8 @@ DIN A3, landscape with location and doc. field</description>
 <part name="C11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603K" package3d_urn="urn:adsk.eagle:package:23680/2" value="100nF"/>
 <part name="C12" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603K" package3d_urn="urn:adsk.eagle:package:23680/2" value="1uF"/>
 <part name="SUPPLY1" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="V+" device=""/>
-<part name="SUPPLY2" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="V+" device=""/>
 <part name="GND14" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND15" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="SUPPLY7" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="+5V" device=""/>
 <part name="U1" library="STM32F446RET6" deviceset="STM32F446RET7" device="" package3d_urn="urn:adsk.eagle:package:18856813/2" value="STM32F446RET6"/>
 <part name="Y1" library="TAStm32_v4" deviceset="ABMM-8.000MHZ-B2-T_ABMM-8.000MHZ-B2-T" device="" package3d_urn="urn:adsk.eagle:package:18857024/2" value="8MHz"/>
@@ -10865,8 +10863,10 @@ DIN A3, landscape with location and doc. field</description>
 <part name="FRAME1" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="A3L-LOC" device=""/>
 <part name="S2" library="TAStm32_v4" deviceset="3-1825910-1_SWITCHN" device=""/>
 <part name="S1" library="TAStm32_v4" deviceset="3-1825910-1_SWITCHN" device=""/>
-<part name="S4" library="TAStm32_v4" deviceset="3-1825910-1_SWITCHN" device=""/>
+<part name="S4" library="TAStm32_v4" deviceset="3-1825910-1_SWITCHN" device="" override_package3d_urn="urn:adsk.eagle:package:29257505/2" override_package_urn="urn:adsk.eagle:footprint:29257506/1"/>
 <part name="S3" library="TAStm32_v4" deviceset="3-1825910-1_SWITCHN" device=""/>
+<part name="SUPPLY2" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="V+" device=""/>
+<part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -10987,12 +10987,8 @@ DIN A3, landscape with location and doc. field</description>
 <instance part="SUPPLY1" gate="1" x="116.84" y="195.58" smashed="yes">
 <attribute name="VALUE" x="115.57" y="196.85" size="1.778" layer="96"/>
 </instance>
-<instance part="SUPPLY2" gate="1" x="320.04" y="48.26" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="321.31" y="49.53" size="1.778" layer="96" rot="MR0"/>
-</instance>
 <instance part="GND14" gate="1" x="99.06" y="218.44" smashed="yes"/>
 <instance part="GND15" gate="1" x="124.46" y="218.44" smashed="yes"/>
-<instance part="GND5" gate="1" x="320.04" y="40.64" smashed="yes" rot="MR0"/>
 <instance part="SUPPLY7" gate="+5V" x="124.46" y="231.14" smashed="yes">
 <attribute name="VALUE" x="122.555" y="234.315" size="1.778" layer="96"/>
 </instance>
@@ -11187,6 +11183,10 @@ DIN A3, landscape with location and doc. field</description>
 <attribute name="NAME" x="115.57" y="93.98" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="115.57" y="91.44" size="1.778" layer="96" align="center-left"/>
 </instance>
+<instance part="SUPPLY2" gate="1" x="325.12" y="50.8" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="328.93" y="52.07" size="1.778" layer="96" rot="MR0"/>
+</instance>
+<instance part="GND5" gate="1" x="322.58" y="33.02" smashed="yes" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -11368,10 +11368,6 @@ DIN A3, landscape with location and doc. field</description>
 <wire x1="292.1" y1="121.92" x2="276.86" y2="121.92" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="GND5" gate="1" pin="GND"/>
-<pinref part="J5" gate="G$1" pin="4"/>
-</segment>
-<segment>
 <pinref part="GND9" gate="1" pin="GND"/>
 <pinref part="J5" gate="G$1" pin="5"/>
 </segment>
@@ -11483,6 +11479,12 @@ DIN A3, landscape with location and doc. field</description>
 <wire x1="241.3" y1="71.12" x2="243.84" y2="71.12" width="0.1524" layer="91"/>
 <junction x="241.3" y="71.12"/>
 <wire x1="243.84" y1="71.12" x2="236.22" y2="71.12" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND5" gate="1" pin="GND"/>
+<wire x1="322.58" y1="35.56" x2="322.58" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="J5" gate="G$1" pin="3"/>
+<wire x1="322.58" y1="45.72" x2="320.04" y2="45.72" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VCAP" class="0">
@@ -12133,10 +12135,6 @@ DIN A3, landscape with location and doc. field</description>
 <pinref part="J7" gate="A" pin="10"/>
 </segment>
 <segment>
-<pinref part="SUPPLY2" gate="1" pin="V+"/>
-<pinref part="J5" gate="G$1" pin="3"/>
-</segment>
-<segment>
 <pinref part="SUPPLY6" gate="1" pin="V+"/>
 <pinref part="J3" gate="A" pin="1"/>
 </segment>
@@ -12170,24 +12168,19 @@ DIN A3, landscape with location and doc. field</description>
 <junction x="185.42" y="68.58"/>
 <wire x1="185.42" y1="68.58" x2="185.42" y2="66.04" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="J5" gate="G$1" pin="4"/>
+<pinref part="SUPPLY2" gate="1" pin="V+"/>
+<wire x1="320.04" y1="43.18" x2="325.12" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="325.12" y1="43.18" x2="325.12" y2="48.26" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="I2C_SCL" class="0">
-<segment>
-<label x="292.1" y="45.72" size="1.27" layer="95" rot="MR0" xref="yes"/>
-<wire x1="299.72" y1="45.72" x2="297.18" y2="45.72" width="0.1524" layer="91"/>
-<pinref part="J5" gate="G$1" pin="1"/>
-<pinref part="R3" gate="G$1" pin="1"/>
-<wire x1="297.18" y1="45.72" x2="292.1" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="297.18" y1="48.26" x2="297.18" y2="45.72" width="0.1524" layer="91"/>
-<junction x="297.18" y="45.72"/>
-</segment>
 <segment>
 <wire x1="45.72" y1="101.6" x2="43.18" y2="101.6" width="0.1524" layer="91"/>
 <label x="43.18" y="101.6" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="U1" gate="G$1" pin="PB8"/>
 </segment>
-</net>
-<net name="I2C_SDA" class="0">
 <segment>
 <label x="292.1" y="43.18" size="1.27" layer="95" rot="MR0" xref="yes"/>
 <pinref part="R1" gate="G$1" pin="1"/>
@@ -12197,10 +12190,21 @@ DIN A3, landscape with location and doc. field</description>
 <wire x1="294.64" y1="43.18" x2="299.72" y2="43.18" width="0.1524" layer="91"/>
 <junction x="294.64" y="43.18"/>
 </segment>
+</net>
+<net name="I2C_SDA" class="0">
 <segment>
 <wire x1="45.72" y1="99.06" x2="43.18" y2="99.06" width="0.1524" layer="91"/>
 <label x="43.18" y="99.06" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="U1" gate="G$1" pin="PB9"/>
+</segment>
+<segment>
+<label x="292.1" y="45.72" size="1.27" layer="95" rot="MR0" xref="yes"/>
+<wire x1="299.72" y1="45.72" x2="297.18" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="J5" gate="G$1" pin="1"/>
+<pinref part="R3" gate="G$1" pin="1"/>
+<wire x1="297.18" y1="45.72" x2="292.1" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="297.18" y1="48.26" x2="297.18" y2="45.72" width="0.1524" layer="91"/>
+<junction x="297.18" y="45.72"/>
 </segment>
 </net>
 <net name="USBHS_DM" class="1">
